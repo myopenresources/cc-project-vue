@@ -1,0 +1,49 @@
+@import '../../../assets/less/index.less';
+
+.app-nav-menu-node-container {
+    display   : block;
+    list-style: none;
+    padding   : 0;
+    margin    : 0;
+
+    li {
+        padding: 0;
+        margin : 0;
+
+        a {
+            padding-top    : 6px;
+            padding-bottom : 6px;
+            color          : @app-layout-left-toolbar-menu-color;
+            border         : 0px;
+            display        : flex;
+            display        : -webkit-box;
+            flex-direction : row;
+            justify-content: space-between;
+            font-size: @app-layout-left-toolbar-menu-fs;
+
+            .app-node {
+                width: 25px;
+            }
+
+            .iconfont {
+                width: 25px !important;
+            }
+
+            .app-node-icon {
+                margin-left : 5px;
+                margin-right: 5px;
+            }
+
+            &:hover {
+                background        : @app-layout-left-toolbar-menu-n-h-bg;
+                color             : @app-layout-left-toolbar-menu-n-h-color;
+                -webkit-transition: 0.2s;
+                transition        : 0.2s;
+                -moz-transition   : 0.2s;
+                -o-transition     : 0.2s;
+                border-radius     : @border-radius-sm;
+                cursor            : pointer;
+            }
+        }
+    }
+}

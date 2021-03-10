@@ -1,0 +1,132 @@
+@import '../../../assets/less/index.less';
+
+.app-nav-menu-container {
+    .app-nav-menu-search-container {
+        padding        : 12px;
+        display        : flex;
+        display        : -webkit-flex;
+        align-items    : center;
+        justify-content: center;
+        flex-direction : row;
+        border         : 0;
+
+        :deep(.ant-input-affix-wrapper) {
+            background  : @app-layout-left-toolbar-menu-input-bg;
+            border-color: @app-layout-left-toolbar-menu-input-bor-c;
+            color       : @app-layout-left-toolbar-menu-input-color;
+        }
+
+        :deep(.ant-input) {
+            background  : @app-layout-left-toolbar-menu-input-bg;
+            border-color: @app-layout-left-toolbar-menu-input-bor-c;
+            color       : @app-layout-left-toolbar-menu-input-color;
+            filter      : alpha(opacity=90);
+            -moz-opacity: 0.9;
+            opacity     : 0.9;
+            font-size   : @app-layout-left-toolbar-menu-fs;
+
+            &:focus {
+                border-color: @app-layout-left-toolbar-menu-input-b-f-c;
+            }
+
+            &:active {
+                border-color: @app-layout-left-toolbar-menu-input-b-f-c;
+            }
+
+            &::-webkit-input-placeholder {
+                color: @app-layout-left-toolbar-menu-input-placeholder;
+            }
+
+            &:-moz-placeholder {
+                color: @app-layout-left-toolbar-menu-input-placeholder;
+            }
+
+            &::-moz-placeholder {
+                color: @app-layout-left-toolbar-menu-input-placeholder;
+            }
+
+            &:-ms-input-placeholder {
+                color: @app-layout-left-toolbar-menu-input-placeholder;
+            }
+        }
+
+        :deep(.ant-input-search-icon) {
+            color: @app-layout-left-toolbar-menu-input-color;
+        }
+    }
+
+    .app-nav-menu-tree {
+        height        : ~"-webkit-calc(100vh - 60px)";
+        height        : ~"calc(100vh - 60px)";
+        min-height    : ~"-webkit-calc(100vh - 60px)";
+        min-height    : ~"calc(100vh - 60px)";
+        width         : 100%;
+        padding-left  : 5px;
+        padding-right : 5px;
+        padding-bottom: 5px;
+        overflow      : hidden;
+
+        .app-nav-menu-tree-content {
+            padding-left : 6px;
+            padding-right: 5px;
+            overflow     : hidden;
+
+            .app-search-msg {
+                font-size: @app-layout-left-toolbar-menu-fs;
+
+                .app-empty-data-msg {
+                    color: @app-layout-left-toolbar-menu-empty-color;
+                }
+            }
+
+            .app-nav-menu-ul {
+                display   : block;
+                list-style: none;
+                padding   : 0;
+                margin    : 0;
+
+                li {
+                    padding: 0;
+                    margin : 0;
+
+                    a {
+                        padding-top    : 6px;
+                        padding-bottom : 6px;
+                        color          : @app-layout-left-toolbar-menu-color;
+                        border         : 0px;
+                        display        : flex;
+                        display        : -webkit-box;
+                        flex-direction : row;
+                        justify-content: space-between;
+                        font-size: @app-layout-left-toolbar-menu-fs;
+
+                        .app-node {
+                            width: 25px;
+                            margin-left: 5px;
+                        }
+
+                        .iconfont {
+                            width: 25px !important;
+                        }
+
+                        .app-node-icon {
+                            margin-left: 5px;
+                            margin-right: 5px;
+                        }
+
+                        &:hover {
+                            background        : @app-layout-left-toolbar-menu-n-h-bg;
+                            color             : @app-layout-left-toolbar-menu-n-h-color;
+                            -webkit-transition: 0.2s;
+                            transition        : 0.2s;
+                            -moz-transition   : 0.2s;
+                            -o-transition     : 0.2s;
+                            border-radius     : @border-radius-sm;
+                            cursor            : pointer;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

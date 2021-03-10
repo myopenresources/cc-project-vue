@@ -1,0 +1,146 @@
+@import '../../../assets/less/index.less';
+
+.app-left-toolbar-container {
+    width     : @app-layout-left-toolbar-width;
+    height    : 100%;
+    background: @app-layout-left-toolbar-bg;
+    box-shadow: @app-layout-left-toolbar-shadow;
+
+    .app-left-toolbar-top {
+        display        : flex;
+        display        : -webkit-flex;
+        flex-direction : column;
+        justify-content: flex-start;
+        align-items    : center;
+
+        .app-left-toolbar-top-item {
+            width             : @app-layout-left-toolbar-width;
+            // height         : @app-layout-left-toolbar-width;
+            padding-top       : 8px;
+            padding-bottom    : 8px;
+            display           : flex;
+            display           : -webkit-flex;
+            flex-direction    : column;
+            justify-content   : center;
+            align-items       : center;
+            cursor            : pointer;
+            font-size         : @app-layout-left-toolbar-fs;
+            color             : @app-layout-left-toolbar-color;
+
+            &:hover {
+                background-color: @app-layout-left-toolbar-item-hover-bc;
+                color           : @app-layout-left-toolbar-item-hover-fc;
+                transition      : 0.3s;
+            }
+
+            img {
+                width : 50%;
+                height: 50%;
+                cursor: pointer;
+            }
+
+            .iconfont {
+                font-size: @app-layout-left-toolbar-icon-fs ;
+            }
+
+        }
+
+        .app-left-toolbar-top-logo {
+            width          : @app-layout-left-toolbar-width;
+            height         : @app-layout-left-toolbar-width;
+            display        : flex;
+            display        : -webkit-flex;
+            flex-direction : column;
+            justify-content: center;
+            align-items    : center;
+            margin-bottom  : 2px;
+            margin-top     : 2px;
+
+            img {
+                width : 58%;
+                height: 58%;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .app-left-toolbar-bottom {
+        display        : flex;
+        display        : -webkit-flex;
+        flex-direction : column;
+        justify-content: flex-end;
+        align-items    : center;
+        margin-top     : 10px;
+
+        .app-left-toolbar-bottom-item {
+            width             : @app-layout-left-toolbar-width;
+            // height         : @app-layout-left-toolbar-width;
+            padding-top       : 8px;
+            padding-bottom    : 8px;
+            display           : flex;
+            display           : -webkit-flex;
+            flex-direction    : column;
+            justify-content   : center;
+            align-items       : center;
+            cursor            : pointer;
+            font-size         : @app-layout-left-toolbar-fs;
+            color             : @app-layout-left-toolbar-color;
+
+            &:hover {
+                background-color: @app-layout-left-toolbar-item-hover-bc;
+                color           : @app-layout-left-toolbar-item-hover-fc;
+                transition      : 0.3s;
+            }
+
+            .iconfont {
+                font-size: @app-layout-left-toolbar-icon-fs;
+            }
+        }
+
+        .app-left-toolbar-bottom-avatar {
+            width          : @app-layout-left-toolbar-width;
+            height         : @app-layout-left-toolbar-width;
+            display        : flex;
+            display        : -webkit-flex;
+            flex-direction : column;
+            justify-content: center;
+            align-items    : center;
+
+
+            img {
+                width        : 65%;
+                height       : 65%;
+                cursor       : pointer;
+                border-radius: 50%;
+            }
+
+
+        }
+    }
+}
+
+.app-left-toolbar-menu-backdrop {
+    position        : fixed;
+    top             : 0;
+    right           : 0;
+    bottom          : 0;
+    left            : 0;
+    z-index         : 888;
+    background-color: transparent;
+    width           : 100vw;
+    height          : 100vh;
+
+    .app-left-toolbar-menu-popover {
+        width                     : @app-layout-left-toolbar-menu-width;
+        height                    : 100vh;
+        position                  : fixed;
+        left                      : @app-layout-left-toolbar-width;
+        border-top-right-radius   : @border-radius-base;
+        border-bottom-right-radius: @border-radius-base;
+        -webkit-box-shadow        : @app-layout-left-toolbar-shadow;
+        -moz-box-shadow           : @app-layout-left-toolbar-shadow;
+        box-shadow                : @app-layout-left-toolbar-shadow;
+        background-color          : @app-layout-left-toolbar-menu-bg;
+        border                    : @border-width-base @border-style-base @app-layout-left-toolbar-menu-bor-color;
+    }
+}

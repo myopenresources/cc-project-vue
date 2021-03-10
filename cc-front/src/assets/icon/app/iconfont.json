@@ -1,0 +1,23 @@
+{
+  "id": "2410769",
+  "name": "cc-front-app",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "380355",
+      "name": "more-circle-o",
+      "font_class": "more-circle",
+      "unicode": "e657",
+      "unicode_decimal": 58967
+    },
+    {
+      "icon_id": "10043883",
+      "name": "Organization",
+      "font_class": "org",
+      "unicode": "e62a",
+      "unicode_decimal": 58922
+    }
+  ]
+}
