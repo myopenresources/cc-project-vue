@@ -6,12 +6,9 @@
 
     <div class="app-nav-menu-tree" v-scrollbar>
       <div class="app-nav-menu-tree-content">
-        <span class="app-search-msg" v-show="!searchMsgHidden">
-          <div class="app-empty-data-container">
-            <div class="app-empty-data-img"></div>
-            <div class="app-empty-data-msg">搜索的菜单不存在</div>
-          </div>
-        </span>
+        <div class="app-search-msg" v-show="!searchMsgHidden">
+          <app-custom-empty description="搜索的菜单不存在！" />
+        </div>
         <ul class="app-nav-menu-ul animated fadeIn" v-show="searchMsgHidden">
           <li v-for="item in data" :key="item.id">
             <a @click="itemClicked(item)">
@@ -44,6 +41,7 @@ import { computed, defineComponent, PropType, ref } from 'vue';
 import NavMenuNode from './NavMenuNode.vue';
 import { Input } from 'ant-design-vue';
 import NavMenuNodeType from '/@/types/nav-menu-node-type';
+import CustomEmpty from '/@/components/custom-empty/CustomEmpty.vue';
 import { useStore } from 'vuex';
 
 export default defineComponent({
@@ -51,6 +49,7 @@ export default defineComponent({
   components: {
     AppNavMenuNode: NavMenuNode,
     AInputSearch: Input.Search,
+    AppCustomEmpty: CustomEmpty,
   },
   props: {
     treeData: {

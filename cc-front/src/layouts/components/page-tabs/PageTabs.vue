@@ -1,9 +1,9 @@
 <template>
-  <div class="app-tags-view-container">
-    <app-horizontal-scroll-pane class="app-tags-view-wrapper" ref="scrollPaneRef">
+  <div class="app-page-tabs-container">
+    <app-horizontal-scroll-pane class="app-page-tabs-wrapper" ref="scrollPaneRef">
       <router-link
         :ref="setTagViewsRef"
-        class="app-tags-view-item"
+        class="app-page-tabs-item"
         :to="tag"
         v-for="tag in Array.from(visitedViews)"
         :key="tag.path"
@@ -14,16 +14,16 @@
       </router-link>
     </app-horizontal-scroll-pane>
 
-    <div class="app-tags-view-btns">
-      <div class="app-tags-view-move-to" @click="moveToLeft">
+    <div class="app-page-tabs-btns">
+      <div class="app-page-tabs-move-to" @click="moveToLeft">
         <span class="iconfont icon-left"></span>
       </div>
 
-      <div class="app-tags-view-move-to" @click="moveToRight">
+      <div class="app-page-tabs-move-to" @click="moveToRight">
         <span class="iconfont icon-right"></span>
       </div>
 
-      <div class="app-tags-view-more">
+      <div class="app-page-tabs-more">
         <a-dropdown :placement="'bottomLeft'">
           <template #overlay>
             <a-menu>
@@ -34,7 +34,7 @@
               <a-menu-item key="closeAllTags" @click="closeAllTags"> 关闭所有 </a-menu-item>
             </a-menu>
           </template>
-          <div class="app-tags-view-more-btn">
+          <div class="app-page-tabs-more-btn">
             更多
             <span class="iconfont icon-more-circle"></span>
           </div>
@@ -46,7 +46,7 @@
 
 <script lang="ts">
 import { useStore } from 'vuex';
-import { defineComponent, reactive, ref, computed, nextTick } from 'vue';
+import { defineComponent, reactive, ref, computed, nextTick, onMounted, onUnmounted } from 'vue';
 import HorizontalScrollPane from '/@/components/scroll-pane/HorizontalScrollPane.vue';
 import { Dropdown, Menu } from 'ant-design-vue';
 import {
@@ -59,7 +59,7 @@ import {
 import Environments from '/@/common/util/env-util';
 
 export default defineComponent({
-  name: 'TagsView',
+  name: 'PageTabs',
   components: {
     AppHorizontalScrollPane: HorizontalScrollPane,
     ADropdown: Dropdown,
@@ -176,14 +176,22 @@ export default defineComponent({
     /**
      * 初始化
      */
-    (() => {
+    const init = () => {
       addViewTag(route);
       onBeforeRouteUpdate((to: RouteLocationNormalized) => {
         nextTick(() => {
           addViewTag(to);
         });
       });
-    })();
+    };
+
+    onMounted(() => {
+      init();
+    });
+
+    onUnmounted(() => {
+      store.dispatch('tagsViewState/delAllViews');
+    });
 
     return {
       setTagViewsRef,
@@ -201,6 +209,6 @@ export default defineComponent({
 </script>
 
 <style lang="less" scoped>
-@import './TagsView.less';
+@import './PageTabs.less';
 </style>
 

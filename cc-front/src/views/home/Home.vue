@@ -10,18 +10,21 @@
         删除
       </a-button>
     </template>
-    <div>fdsfsdfsd</div>
+    <div>
+      <a-transfer :data-source="[]" />
+    </div>
   </app-def-main-layout>
 </template>
 
 <script lang="ts">
-import { Button } from 'ant-design-vue';
+import { Button, Transfer } from 'ant-design-vue';
 import { defineComponent, onMounted } from 'vue';
 
 export default defineComponent({
   name: 'Home',
   components: {
     AButton: Button,
+    ATransfer: Transfer,
   },
   setup() {
     onMounted(() => {

@@ -1,6 +1,10 @@
 <template>
   <div class="app-horizontal-scroll-container" ref="scrollContainer" @wheel.prevent="handleScroll">
-    <div class="app-horizontal-scroll-wrapper" ref="scrollWrapper" :style="{ left: left + 'px' }">
+    <div
+      class="app-horizontal-scroll-wrapper"
+      ref="scrollWrapper"
+      :style="{ transform: `translateX(${left}px)`, 'transition-duration': duration }"
+    >
       <slot></slot>
     </div>
   </div>
@@ -18,7 +22,11 @@ export default defineComponent({
     },
     step: {
       type: Number,
-      default: 10,
+      default: 50,
+    },
+    duration: {
+      type: String,
+      default: '0.5s',
     },
   },
   setup(props) {
@@ -81,6 +89,11 @@ export default defineComponent({
       }
 
       left.value += props.step;
+
+      if (left.value >= 0) {
+        left.value = 0;
+        return;
+      }
     };
 
     const moveToLeft = (includePadding = true) => {
@@ -105,6 +118,10 @@ export default defineComponent({
 
       if (left.value <= targetLeft) {
         left.value = targetLeft;
+      }
+
+      if (targetLeft > 0) {
+        left.value = 0;
         return;
       }
     };

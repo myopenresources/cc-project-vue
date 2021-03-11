@@ -1,6 +1,6 @@
 <template>
   <div class="app-right-main-container">
-    <app-tags-view />
+    <app-page-tabs />
     <div class="app-right-main-content-container">
       <router-view v-slot="{ Component }">
         <keep-alive :include="cachedViews">
@@ -14,12 +14,12 @@
 <script lang="ts">
 import { useStore } from 'vuex';
 import { computed, defineComponent } from 'vue';
-import TagsView from '../tags-view/TagsView.vue';
+import PageTabs from '../page-tabs/PageTabs.vue';
 
 export default defineComponent({
   name: 'RightMain',
   components: {
-    AppTagsView: TagsView,
+    AppPageTabs: PageTabs,
   },
   setup() {
     const store = useStore();
