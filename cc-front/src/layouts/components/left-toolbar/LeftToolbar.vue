@@ -20,12 +20,13 @@
       <div class="app-left-toolbar-bottom-item" @click="fullscreenToggle">
         <span
           class="iconfont"
-          :class="['iconfont', fullscreenState ? 'icon-compress' : 'icon-expend']"
+          :class="['iconfont', fullscreenState ? 'icon-fullscreen-exit' : 'icon-fullscreen']"
         ></span>
         <span>{{ fullscreenState ? '取消' : '全屏' }}</span>
       </div>
-      <div class="app-left-toolbar-bottom-avatar">
-        <img :src="originalUserAvatar" v-error-src="'./src/assets/img/default-avatar.png'" />
+
+      <div class="app-left-toolbar-bottom-avatar" @click="userDropdownVisible = true">
+        <img :src="originalUserAvatar" v-error-src="defaultAvatar" />
       </div>
     </div>
   </div>
@@ -39,10 +40,46 @@
       <app-nav-menu :treeData="menuData" />
     </div>
   </div>
+
+  <div
+    class="app-left-toolbar-user-dropdown-backdrop"
+    v-show="userDropdownVisible"
+    @click="userDropdownVisible = false"
+  >
+    <div class="app-left-toolbar-user-dropdown-popover" @click="stopPropagation($event)">
+      <a-menu :selectable="false">
+        <a-menu-item>
+          <a href="javascript:;">
+            <span class="iconfont icon-cloud-upload"></span>
+            头像上传
+          </a>
+        </a-menu-item>
+        <a-menu-item
+          @click="
+            updatePwdVisible = true;
+            userDropdownVisible = false;
+          "
+        >
+          <a href="javascript:;">
+            <span class="iconfont icon-lock"></span>
+            修改密码
+          </a>
+        </a-menu-item>
+        <a-menu-item @click="exitSys">
+          <a href="javascript:;">
+            <span class="iconfont icon-logout"></span>
+            退出系统
+          </a>
+        </a-menu-item>
+      </a-menu>
+    </div>
+  </div>
+
+  <app-update-pwd v-model:visible="updatePwdVisible" />
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, onUnmounted, ref, PropType, computed } from 'vue';
+import { defineComponent, onMounted, onUnmounted, ref, PropType, computed, createVNode } from 'vue';
 import Environments from '/@/common/util/env-util';
 import CommonUtil from '/@/common/util/common-util';
 import { useRouter } from 'vue-router';
@@ -52,12 +89,19 @@ import MenuType from '/@/types/menu-type';
 import { useStore } from 'vuex';
 import UserApi from '/@/api/user-api';
 import screenfull from 'screenfull';
-import { notification } from 'ant-design-vue';
+import { Modal, notification } from 'ant-design-vue';
+import { QuestionCircleOutlined } from '@ant-design/icons-vue';
+import defaultAvatarImg from '/@/assets/img/default-avatar.png';
+import UpdatePwd from '/@/components/update-pwd/UpdatePwd.vue';
+import SysStorageUtils from '/@/common/util/sys-storage-utils';
+import SysApi from '/@/api/sys-api';
+import HttpResultUtils from '/@/common/util/http-result-utils';
 
 export default defineComponent({
   name: 'LeftToolbar',
   components: {
     AppNavMenu: NavMenu,
+    AppUpdatePwd: UpdatePwd,
   },
   props: {
     userData: {
@@ -79,9 +123,14 @@ export default defineComponent({
     const toolbarBottomListRef = ref();
     const toolbarLogoRef = ref();
 
-    const originalUserAvatar = ref('./src/assets/img/default-avatar.png');
+    const originalUserAvatar = ref(defaultAvatarImg);
+    const defaultAvatar = ref(defaultAvatarImg);
 
     const fullscreenState = ref(false);
+
+    const userDropdownVisible = ref(false);
+
+    const updatePwdVisible = ref(false);
 
     /**
      * 跳转首页
@@ -117,9 +166,10 @@ export default defineComponent({
         });
         return false;
       }
-      fullscreenState.value = !fullscreenState.value;
 
-      screenfull.toggle();
+      screenfull.toggle().then(() => {
+        fullscreenState.value = !fullscreenState.value;
+      });
     };
 
     /**
@@ -136,17 +186,62 @@ export default defineComponent({
       toolbarTopListRef.value.style.height = toolbarTopListHeight + 'px';
     };
 
+    /**
+     * 停止事件冒泡
+     */
     const stopPropagation = (event: Event) => {
       event.stopPropagation();
       event.preventDefault();
     };
 
+    /**
+     * resize
+     */
     const resize = () => {
       calcToolbarTopListWidth();
     };
 
+    /**
+     * 初始化
+     */
     const init = () => {
       originalUserAvatar.value = UserApi.previewUserAvatar();
+
+      if (screenfull.isEnabled) {
+        screenfull.on('change', () => {
+          fullscreenState.value = screenfull['isFullscreen'];
+        });
+      }
+    };
+
+    /**
+     * 退出系统
+     */
+    const exitSys = () => {
+      userDropdownVisible.value = false;
+      Modal.confirm({
+        title: '确认',
+        icon: createVNode(QuestionCircleOutlined),
+        content: '您确认退出系统吗？',
+        onOk() {
+          SysApi.exitLogin().then((res) => {
+            if (HttpResultUtils.isSuccess(res)) {
+              SysStorageUtils.removeSessionUserInfo();
+              SysStorageUtils.removeSecurityKey();
+              SysStorageUtils.removeSessionUser();
+              router.push('/login');
+              setTimeout(() => {
+                notification.success({
+                  message: '提示',
+                  description: res.data.resultMsg,
+                });
+              }, 500);
+            } else {
+              HttpResultUtils.failureTipMsg(res);
+            }
+          });
+        },
+      });
     };
 
     onMounted(() => {
@@ -161,16 +256,20 @@ export default defineComponent({
 
     return {
       menuVisible,
+      userDropdownVisible,
+      updatePwdVisible,
       fullscreenState,
       toolbarTopListRef,
       toolbarBottomListRef,
       toolbarLogoRef,
       originalUserAvatar,
+      defaultAvatar,
       showLogo,
       toHome,
       stopPropagation,
       changeMenuVisible,
       fullscreenToggle,
+      exitSys,
     };
   },
 });

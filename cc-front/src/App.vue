@@ -1,5 +1,5 @@
 <template>
-  <a-config-provider>
+  <a-config-provider :locale="locale">
     <template #renderEmpty>
       <app-custom-empty />
     </template>
@@ -13,19 +13,27 @@
 import { defineComponent } from 'vue';
 import Spinning from '/@/components/spinning/Spinning.vue';
 import { ConfigProvider } from 'ant-design-vue';
-import CustomEmpty from '/@/components/custom-empty/CustomEmpty.vue';
+import zhCN from 'ant-design-vue/es/locale/zh_CN';
+
+import 'moment/dist/locale/zh-cn';
+import moment from 'moment';
+
 
 export default defineComponent({
   name: 'App',
   components: {
     AConfigProvider: ConfigProvider,
-    AppSpinning: Spinning,
-    AppCustomEmpty: CustomEmpty,
+    AppSpinning: Spinning
   },
-  setup() {},
+  setup() {
+    moment.locale('zhCN');
+    const locale = zhCN;
+    return {
+      locale,
+    };
+  },
 });
 </script>
 
 <style lang="less" scoped>
-
 </style>

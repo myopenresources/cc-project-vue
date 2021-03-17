@@ -46,9 +46,8 @@
 
 <script lang="ts">
 import { useStore } from 'vuex';
-import { defineComponent, reactive, ref, computed, nextTick, onMounted, onUnmounted } from 'vue';
+import { defineComponent, reactive, ref, computed, nextTick, onUnmounted } from 'vue';
 import HorizontalScrollPane from '/@/components/scroll-pane/HorizontalScrollPane.vue';
-import { Dropdown, Menu } from 'ant-design-vue';
 import {
   useRoute,
   onBeforeRouteUpdate,
@@ -62,9 +61,6 @@ export default defineComponent({
   name: 'PageTabs',
   components: {
     AppHorizontalScrollPane: HorizontalScrollPane,
-    ADropdown: Dropdown,
-    AMenu: Menu,
-    AMenuItem: Menu.Item,
   },
   setup() {
     const store = useStore();
@@ -100,7 +96,7 @@ export default defineComponent({
     const addViewTag = (currentRoute: RouteLocationNormalizedLoaded | RouteLocationNormalized) => {
       if (currentRoute && currentRoute.name) {
         selectedTag.value = currentRoute;
-        store.dispatch('tagsViewState/addVisitedViews', currentRoute);
+        store.dispatch('tagsViewState/addVisitedView', currentRoute);
         moveToCurrentTag();
       }
     };
@@ -124,7 +120,13 @@ export default defineComponent({
      * 关闭选择
      */
     const closeSelectedTag = (view: RouteLocationNormalizedLoaded | RouteLocationNormalized) => {
-      store.dispatch('tagsViewState/delVisitedViews', view).then((views) => {
+      if (
+        visitedViews.value.length == 1 &&
+        view.path === Environments.getEvnProp('VITE_HOME_ROUTER')
+      ) {
+        return;
+      }
+      store.dispatch('tagsViewState/delVisitedView', view).then((views) => {
         if (isActive(view)) {
           const latestView = views.slice(-1)[0];
           if (latestView) {
@@ -176,18 +178,14 @@ export default defineComponent({
     /**
      * 初始化
      */
-    const init = () => {
+    (() => {
       addViewTag(route);
       onBeforeRouteUpdate((to: RouteLocationNormalized) => {
         nextTick(() => {
           addViewTag(to);
         });
       });
-    };
-
-    onMounted(() => {
-      init();
-    });
+    })();
 
     onUnmounted(() => {
       store.dispatch('tagsViewState/delAllViews');

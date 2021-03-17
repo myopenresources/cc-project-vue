@@ -35,7 +35,7 @@
 @app-layout-left-toolbar-menu-fs               : 0.85rem;
 @app-layout-left-toolbar-menu-n-h-color        : lighten(@primary-color, 50%);
 @app-layout-left-toolbar-menu-n-h-bg           : lighten(@primary-color, 10%);
-@app-layout-left-toolbar-menu-empty-color      : lighten(@primary-color, 38%);
+@app-layout-left-toolbar-menu-empty-color      : #97cbfc;
 @app-layout-left-toolbar-menu-input-bg         : @app-layout-left-toolbar-menu-bg;
 @app-layout-left-toolbar-menu-input-bor-c      : #6fafeb;
 @app-layout-left-toolbar-menu-input-color      : #6fafeb;
@@ -50,13 +50,17 @@
 @app-layout-right-main-padding-space: 10px;
 @app-layout-right-header-height     : 50px;
 
-@app-layout-page-tabs-bg            : @component-background;
-@app-layout-page-tabs-shadow        : 0px 1px 10px rgba(0, 0, 0, 0.1);
-@app-layout-page-tabs-height        : 42px;
-@app-layout-page-tabs-color         : @text-color;
-@app-layout-page-tabs-close-color   : @error-color;
-@app-layout-page-tabs-active-color  : @white;
-@app-layout-page-tabs-active-bg     : @primary-color;
-@app-layout-page-tabs-item-bg       : @component-background;
-@app-layout-page-tabs-item-bor-color: @border-color-split;
-@app-layout-page-tabs-btn-hov-color : @primary-color;
+@app-layout-page-tabs-bg              : @component-background;
+@app-layout-page-tabs-shadow          : 0px 1px 10px rgba(0, 0, 0, 0.1);
+@app-layout-page-tabs-height          : 42px;
+@app-layout-page-tabs-color           : @text-color;
+@app-layout-page-tabs-close-color     : @error-color;
+@app-layout-page-tabs-active-color    : @white;
+@app-layout-page-tabs-active-bg       : linear-gradient(110deg, #18bbff,@primary-color,#0a86f8);
+@app-layout-page-tabs-active-bor-color: #18bbff;
+@app-layout-page-tabs-item-bg         : @component-background;
+@app-layout-page-tabs-item-bor-color  : @border-color-split;
+@app-layout-page-tabs-btn-hov-color   : @primary-color;
+
+// -------- custom empty ----------- 
+@app-custom-empty-img: url('../../img/empty/default-empty.svg');

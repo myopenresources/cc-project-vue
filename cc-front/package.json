@@ -11,6 +11,7 @@
     "ant-design-vue": "^2.0.0",
     "axios": "^0.21.1",
     "crypto-js": "^4.0.0",
+    "echarts": "^5.0.2",
     "install": "^0.13.0",
     "lodash": "^4.17.20",
     "npm": "^7.5.4",
@@ -19,6 +20,7 @@
     "qs": "^6.9.6",
     "screenfull": "^5.1.0",
     "vue": "^3.0.5",
+    "vue-echarts": "^6.0.0-rc.3",
     "vue-router": "^4.0.3",
     "vuex": "^4.0.0"
   },

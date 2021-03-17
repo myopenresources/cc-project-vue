@@ -12,12 +12,20 @@ export default class SysStorageUtils {
         return CookieUtils.get(SecurityUtils.securityKey);
     }
 
+    static removeSecurityKey() {
+        return CookieUtils.remove(SecurityUtils.securityKey);
+    }
+
     static setSessionUser(value: any) {
         CookieUtils.setObject(CommonConst.sessionUser, value, 0.125);
     }
 
-    static getSessionUser(name: any) {
-        return CookieUtils.getObject(name);
+    static getSessionUser() {
+        return CookieUtils.getObject(CommonConst.sessionUser);
+    }
+
+    static removeSessionUser() {
+        return CookieUtils.remove(CommonConst.sessionUser);
     }
 
     static getSessionUserInfo() {

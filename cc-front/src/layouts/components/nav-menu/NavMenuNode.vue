@@ -1,6 +1,6 @@
 <template>
   <ul
-    class="app-nav-menu-node-container animated fadeIn"
+    class="app-nav-menu-node-container"
     v-show="getObjProp(data, 'menuState')"
     v-if="!isLeaf(data)"
   >

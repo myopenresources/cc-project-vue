@@ -41,6 +41,4 @@ const router = createRouter({
     strict: true
 })
 
-
-
 export default router

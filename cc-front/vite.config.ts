@@ -4,11 +4,11 @@ import { loadEnv } from 'vite';
 import { resolve } from 'path';
 
 import vue from '@vitejs/plugin-vue'
-import { styleImportPlugin } from './config/plugin/styleImport';
+import { styleImportPlugin } from './app-config/plugin/styleImport';
 
-import { themeVars } from './config/theme/index';
-import { OUTPUT_DIR } from './config/build/buildConfig';
-import { wrapperEnv } from './config/build/buildUtils';
+import { themeVars } from './app-config/theme/index';
+import { OUTPUT_DIR } from './app-config/build/buildConfig';
+import { wrapperEnv } from './app-config/build/buildUtils';
 
 function pathResolve(dir: string) {
     return resolve(__dirname, '.', dir);

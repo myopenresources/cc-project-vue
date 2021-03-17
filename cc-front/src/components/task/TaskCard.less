@@ -1,0 +1,40 @@
+@import '../../assets/less/index.less';
+
+.app-task-card {
+    .app-task-table {
+        margin-top: 10px;
+
+        :deep(.ant-table-tbody) {
+            tr {
+                cursor: pointer;
+
+                td {
+                    border-width: 0;
+                }
+            }
+        }
+
+        .app-task-index {
+            width: 50px;
+        }
+
+        .app-task-date {
+            text-align: right;
+            color     : @success-color;
+        }
+    }
+
+    .app-task-empty-data {
+        margin-top   : 32px;
+        margin-bottom: 32px;
+    }
+
+
+    :deep(.ant-card-head) {
+        padding: 0px;
+    }
+
+    :deep(.ant-alert){
+        border: 0;
+    }
+}

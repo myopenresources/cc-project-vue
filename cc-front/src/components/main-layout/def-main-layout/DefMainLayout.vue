@@ -1,7 +1,9 @@
 <template>
   <div :class="containerClass">
     <div class="app-def-main-layout-header" v-show="showTool">
-      <div class="app-def-main-layout-header-title">首页</div>
+      <div class="app-def-main-layout-header-title">
+        <span class="iconfont icon-file"></span>{{ title && title.length ? title : routerTitle }}
+      </div>
       <div>
         <slot name="headerBtnsTpl"></slot>
       </div>
@@ -20,6 +22,7 @@
 </template>
 
 <script lang="ts">
+import { useRoute } from 'vue-router';
 import { defineComponent } from 'vue';
 
 export default defineComponent({
@@ -33,8 +36,13 @@ export default defineComponent({
       type: Boolean,
       default: true,
     },
+    title: {
+      type: String,
+      default: '',
+    },
   },
   setup() {
+    const routerTitle = useRoute().meta.title;
     const scrollOptions = {
       overflowBehavior: {
         y: 'scroll',
@@ -48,6 +56,7 @@ export default defineComponent({
 
     return {
       scrollOptions,
+      routerTitle,
     };
   },
 });

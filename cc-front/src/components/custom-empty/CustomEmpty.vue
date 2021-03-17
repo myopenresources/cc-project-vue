@@ -1,24 +1,21 @@
 <template>
-  <a-empty :image="image">
-    <template #description>
+  <div class="app-custom-empty">
+    <div class="app-custom-empty-image" :style="imgStyle"> </div>
+    <p class="app-custom-empty-description">
       <span>{{ description }}</span>
-    </template>
-  </a-empty>
+    </p>
+  </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { Empty } from 'ant-design-vue';
 
 export default defineComponent({
   name: 'CustomEmpty',
-  components: {
-    AEmpty: Empty,
-  },
   props: {
-    image: {
-      type: String,
-      default: './src/assets/img/empty/default-empty.svg',
+    imgStyle: {
+      type: Object,
+      default: () => {},
     },
     description: {
       type: String,

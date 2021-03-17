@@ -9,7 +9,7 @@
         <div class="app-search-msg" v-show="!searchMsgHidden">
           <app-custom-empty description="搜索的菜单不存在！" />
         </div>
-        <ul class="app-nav-menu-ul animated fadeIn" v-show="searchMsgHidden">
+        <ul class="app-nav-menu-ul" v-show="searchMsgHidden">
           <li v-for="item in data" :key="item.id">
             <a @click="itemClicked(item)">
               <div class="app-node">
@@ -39,17 +39,13 @@
 import { useRouter } from 'vue-router';
 import { computed, defineComponent, PropType, ref } from 'vue';
 import NavMenuNode from './NavMenuNode.vue';
-import { Input } from 'ant-design-vue';
 import NavMenuNodeType from '/@/types/nav-menu-node-type';
-import CustomEmpty from '/@/components/custom-empty/CustomEmpty.vue';
 import { useStore } from 'vuex';
 
 export default defineComponent({
   name: 'NavMenu',
   components: {
-    AppNavMenuNode: NavMenuNode,
-    AInputSearch: Input.Search,
-    AppCustomEmpty: CustomEmpty,
+    AppNavMenuNode: NavMenuNode
   },
   props: {
     treeData: {

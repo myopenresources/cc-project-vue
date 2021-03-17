@@ -1,5 +1,11 @@
 <template>
-  <div>DeptList</div>
+  <app-def-main-layout>
+    <template #headerBtnsTpl>
+      
+    </template>
+    <div>
+    </div>
+  </app-def-main-layout>
 </template>
 
 <script lang="ts">

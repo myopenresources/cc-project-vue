@@ -25,6 +25,7 @@ export default defineComponent({
     const store = useStore();
 
     const cachedViews = computed(() => {
+      console.info(store.getters['tagsViewState/getCachedViews']);
       return store.getters['tagsViewState/getCachedViews'];
     });
 

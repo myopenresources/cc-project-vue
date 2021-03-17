@@ -12,7 +12,7 @@ export default {
         }
     },
     mutations: {
-        ADD_VISITED_VIEWS: (state: any, view: any) => {
+        ADD_VISITED_VIEW: (state: any, view: any) => {
             if (state.visitedViews.some((v: any) => v.path === view.path)) {
                 return;
             }
@@ -25,7 +25,7 @@ export default {
                 state.cachedViews.push(view.name)
             }
         },
-        DEL_VISITED_VIEWS: (state: any, view: any) => {
+        DEL_VISITED_VIEW: (state: any, view: any) => {
             for (const [i, v] of state.visitedViews.entries()) {
                 if (v.path === view.path) {
                     state.visitedViews.splice(i, 1)
@@ -61,12 +61,12 @@ export default {
         }
     },
     actions: {
-        addVisitedViews({ commit }, view: any) {
-            commit('ADD_VISITED_VIEWS', view)
+        addVisitedView({ commit }, view: any) {
+            commit('ADD_VISITED_VIEW', view)
         },
-        delVisitedViews({ commit, state }, view: any) {
+        delVisitedView({ commit, state }, view: any) {
             return new Promise((resolve) => {
-                commit('DEL_VISITED_VIEWS', view)
+                commit('DEL_VISITED_VIEW', view)
                 resolve([...state.visitedViews])
             })
         },

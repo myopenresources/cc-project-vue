@@ -12,18 +12,30 @@ export default class SysApi {
      * @returns 
      */
     static login(params: any) {
-        const loginParams = {
+        return http.post(`${this.REQUEST_PREFIX}login`, {
             data: SecurityUtils.encrypt(JSON.stringify(params), Environments.getEvnProp("VITE_APP_S_KEY")),
             convert: false
-        };
+        });
+    }
 
-        return http.post(`${this.REQUEST_PREFIX}login`, loginParams);
+    /**
+   * 退回登录
+   */
+    static exitLogin() {
+        return http.post(`${this.REQUEST_PREFIX}exitLogin`);
     }
 
     /**
      * 初始化主数据
      */
-    static initMainData(){
-        return http.get(`${this.REQUEST_PREFIX}initMainData`, {});  
+    static initMainData() {
+        return http.get(`${this.REQUEST_PREFIX}initMainData`, {});
+    }
+
+    /**
+     * 初始化主页数据
+     */
+    static initHomeData(){
+        return http.get(`${this.REQUEST_PREFIX}initHomeData`, {});
     }
 }

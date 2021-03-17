@@ -143,4 +143,54 @@
         background-color          : @app-layout-left-toolbar-menu-bg;
         border                    : @border-width-base @border-style-base @app-layout-left-toolbar-menu-bor-color;
     }
+
+}
+
+.app-left-toolbar-user-dropdown-backdrop {
+    position        : fixed;
+    top             : 0;
+    right           : 0;
+    bottom          : 0;
+    left            : 0;
+    z-index         : 888;
+    background-color: transparent;
+    width           : 100vw;
+    height          : 100vh;
+
+    .app-left-toolbar-user-dropdown-popover {
+        width             : 125px;
+        height            : auto;
+        position          : fixed;
+        left              : @app-layout-left-toolbar-width;
+        bottom            : 5px;
+        margin-left       : 2px;
+        border-radius     : @border-radius-base;
+        -webkit-box-shadow: @app-base-shadow;
+        -moz-box-shadow   : @app-base-shadow;
+        box-shadow        : @shadow-1-right;
+        background-color  : @component-background;
+        border            : @border-width-base @border-style-base @border-color-split;
+        padding-left      : 1px;
+        padding-right     : 1px;
+
+        :deep(.ant-menu-vertical) {
+            border       : 0;
+            border-radius: @border-radius-base;
+
+            .ant-menu-item {
+                margin: 0;
+                &:hover {
+                    background-color: @item-hover-bg;
+
+                }
+
+                a {
+                    &:hover {
+                        color: @menu-item-color;
+                    }
+                }
+            }
+
+        }
+    }
 }

@@ -38,25 +38,19 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, UnwrapRef, toRaw } from 'vue';
+import { defineComponent, reactive, UnwrapRef } from 'vue';
 import { useRouter } from 'vue-router';
-import { Button, Form, Input, notification } from 'ant-design-vue';
 import { useForm } from '@ant-design-vue/use';
-import { ValidateErrorEntity } from 'ant-design-vue/es/form/interface';
+import { notification } from 'ant-design-vue';
 import UserLoginType from '../../types/user-login-type';
 import Environments from '/@/common/util/env-util';
 import SysApi from '/@/api/sys-api';
 import HttpResultUtils from '/@/common/util/http-result-utils';
 import SysStorageUtils from '/@/common/util/sys-storage-utils';
 
+
 export default defineComponent({
   name: 'Login',
-  components: {
-    AButton: Button,
-    AForm: Form,
-    AInput: Input,
-    AFormItem: Form.Item,
-  },
   setup() {
     const sysTitle = Environments.getEvnProp('VITE_SYS_TITLE') || '管理系统';
 
@@ -73,17 +67,17 @@ export default defineComponent({
         userName: [
           {
             required: true,
-            min: 4,
-            max: 16,
-            message: '用户名格式不正确(4-16位)!',
+            min: 6,
+            max: 15,
+            message: '用户名格式不正确(6-15位)!',
           },
         ],
         password: [
           {
             required: true,
-            min: 4,
-            max: 16,
-            message: '密码格式不正确(4-16位)!',
+            min: 6,
+            max: 15,
+            message: '密码格式不正确(6-15位)!',
           },
         ],
       })
@@ -109,15 +103,12 @@ export default defineComponent({
                   message: '欢迎',
                   description: res.data.resultMsg,
                 });
-              }, 1000);
+              }, 500);
             } else {
               HttpResultUtils.failureTipMsg(res);
             }
           });
         })
-        .catch((error: ValidateErrorEntity<UserLoginType>) => {
-          console.log('error', error);
-        });
     };
 
     return {

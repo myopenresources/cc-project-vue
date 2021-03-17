@@ -1,4 +1,4 @@
-import type { App, Directive } from 'vue'
+import type { Directive } from 'vue'
 import * as lodash from 'lodash'
 import OverlayScrollbars from 'overlayscrollbars'
 import 'overlayscrollbars/css/OverlayScrollbars.css'
@@ -11,7 +11,7 @@ const scrollbar: Directive = {
             },
             scrollbars: {
                 autoHide: 'leave',
-                autoHideDelay: 200
+                autoHideDelay:200
             }
         };
 
