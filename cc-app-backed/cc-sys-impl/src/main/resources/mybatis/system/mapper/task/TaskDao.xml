@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper   
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cjhme.system.core.dao.task.TaskDao">
+
+	<!-- 根据用户id获得待办列表 -->
+	<select id="queryTaskByUserId" parameterType="hashMap"
+		resultType="taskBean">
+		SELECT
+			T.TASK_ID AS taskId,
+			T.BUSNIESS_MARK AS busniessMark,
+			T.BUSNIESS_ID AS busniessId,
+			T.TASK_PARAMETER AS taskParameter,
+			T.TITLE AS title,
+			T.TASK_URL AS taskUrl,
+			T.CREATE_DATE AS createDate,
+			T2.REAL_NAME AS createUser
+		FROM T_TASK T
+		LEFT JOIN T_USER T2 ON(T2.USER_ID=T.CREATE_USER_ID)
+		WHERE
+		T.PROCESS_USER_ID =#{processUserId}
+		AND
+		T.STATUS='1'
+		ORDER BY T.CREATE_DATE DESC
+		LIMIT 0,5
+	</select>
+
+
+	<!-- 根据用户id获得待办列表条数 -->
+	<select id="queryTaskCountByUserId" parameterType="hashMap"
+		resultType="integer">
+		SELECT
+		COUNT(1)
+		FROM T_TASK T
+		WHERE
+		T.PROCESS_USER_ID =#{processUserId}
+		AND
+		T.STATUS='1'
+	</select>
+
+	<!-- 根据条件分页查询待办 -->
+	<select id="queryTaskByConditionPaging" parameterType="hashmap" resultType="taskBean">
+		SELECT
+		T.TASK_ID AS taskId,
+		T.TITLE AS title,
+		T.TASK_URL AS taskUrl,
+		T.TASK_PARAMETER AS taskParameter,
+		T.STATUS AS status,
+		T.CREATE_DATE AS createDate,
+		T2.REAL_NAME AS createUser
+		FROM T_TASK T 
+		LEFT JOIN T_USER T2 ON(T2.USER_ID=T.CREATE_USER_ID)
+		<trim prefix="where" prefixOverrides="and">
+			<if test="title!=null and title!=''">
+				T.TITLE LIKE '%${title}%'
+			</if>
+			<choose>
+				<when test="status!=null and status!='' and status=='-1'">
+					AND T.STATUS!='3'
+				</when>
+				<when test="status!=null and status!='' and status!='-1'">
+					AND T.STATUS=#{status}
+				</when>
+				<otherwise>
+					AND T.STATUS='1'
+				</otherwise>
+			</choose>
+			AND
+			T.CREATE_USER_ID=#{createUserId}
+		</trim>
+		ORDER BY T.STATUS
+	</select>
+
+	<!-- 根据id修改待办状态 -->
+	<update id="updateTaskById" parameterType="hashmap">
+		UPDATE T_TASK
+		SET
+		  STATUS=2,
+		  UPDATE_USER_ID=#{updateUserId},
+		  UPDATE_DATE=sysdate()
+		WHERE
+		  TASK_ID=#{taskId}
+	</update>
+
+</mapper>

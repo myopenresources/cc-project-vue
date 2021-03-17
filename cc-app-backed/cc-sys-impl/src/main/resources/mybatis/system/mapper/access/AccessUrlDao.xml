@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper   
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cjhme.system.core.dao.accessurl.AccessUrlDao">
+ <!-- 根据条件分页查询访问地址-->
+ <select id="queryAccessUrlByConditionPaging" parameterType="hashmap" resultType="accessUrlBean">
+      SELECT 
+          T.ACCESS_URL_ID AS accessUrlId,
+          T.ACCESS_URL AS accessUrl,
+          T.ACCESS_URL_NAME AS accessUrlName,
+          T.STATUS AS status,
+          T.CREATE_DATE AS createDate,
+          T.BUSNIESS_MARK AS busniessMark,
+          T2.REAL_NAME AS createUser,
+          T3.DIC_ITEM_NAME AS busniessMarkDesc
+       FROM T_ACCESS_URL T 
+       LEFT JOIN T_USER T2 ON(T.CREATE_USER_ID=T2.USER_ID) 
+       LEFT JOIN T_DATA_DIC_ITEM T3 ON(T3.DIC_ITEM_CODE=T.BUSNIESS_MARK) 
+       WHERE  
+       <choose>
+	      <when test="status!=null and status!='' and status=='-1'">
+	       T.STATUS!='3'
+	     </when>
+	     <when test="status!=null and status!='' and status!='-1'">
+	       T.STATUS=#{status}
+	     </when>
+	     <otherwise>
+	       T.STATUS='1'
+	     </otherwise>
+	  </choose>
+	   <if test="accessUrl!=null and accessUrl!=''">
+         AND 
+           T.ACCESS_URL LIKE '%${accessUrl}%'
+       </if>
+       <if test="accessUrlName!=null and accessUrlName!=''">
+         AND 
+           T.ACCESS_URL_NAME LIKE '%${accessUrlName}%'
+       </if>
+       <if test="busniessMark!=null and busniessMark!='' and busniessMark!='null'">
+         AND 
+           T.BUSNIESS_MARK = #{busniessMark}
+       </if>
+ </select>
+ 
+ <!-- 判断访问地址是否存在 -->
+ <select id="queryAccessUrlIsExists" parameterType="hashmap" resultType="integer">
+   SELECT 
+      COUNT(1)
+   FROM T_ACCESS_URL T
+   WHERE
+      T.ACCESS_URL=#{accessUrl}
+   <if test="accessUrlId!=null and accessUrlId!=''">
+      AND  T.ACCESS_URL_ID !=#{accessUrlId}
+   </if> 
+   AND T.STATUS!='3'
+   AND T.BUSNIESS_MARK = #{busniessMark}
+ </select>
+ 
+ <!-- 添加访问地址 -->
+ <insert id="saveAccessUrl" parameterType="hashmap">
+   INSERT INTO T_ACCESS_URL(
+      ACCESS_URL_ID,
+      ACCESS_URL,
+      ACCESS_URL_NAME,
+      STATUS,
+      CREATE_USER_ID,
+      CREATE_DATE,
+      BUSNIESS_MARK
+   )VALUES(
+      #{accessUrlId},
+      #{accessUrl},
+      #{accessUrlName},
+      #{status},
+      #{createUserId},
+      sysdate(),
+      #{busniessMark}
+   )
+ </insert>
+ 
+ <!-- 根据id查询访问地址 -->
+ <select id="queryAccessUrlById" parameterType="hashmap" resultType="accessUrlBean">
+  SELECT 
+          T.ACCESS_URL_ID AS accessUrlId,
+          T.ACCESS_URL AS accessUrl,
+          T.ACCESS_URL_NAME as accessUrlName,
+          T.STATUS AS status,
+          T.BUSNIESS_MARK AS busniessMark,
+          T.UPDATE_DATE AS updateDate,
+          T.CREATE_DATE AS createDate,
+          T2.REAL_NAME AS createUser,
+	      T3.REAL_NAME AS updateUser
+   FROM T_ACCESS_URL T  
+   LEFT JOIN T_USER T2 ON(T.CREATE_USER_ID=T2.USER_ID)  
+   LEFT JOIN T_USER T3 ON(T.UPDATE_USER_ID=T3.USER_ID)  
+   WHERE 
+      T.ACCESS_URL_ID=#{accessUrlId}
+ </select>
+ 
+ <!-- 根据id修改访问地址-->
+ <update id="updateAccessUrlById" parameterType="hashmap">
+   UPDATE T_ACCESS_URL
+   SET
+     ACCESS_URL=#{accessUrl},
+     ACCESS_URL_NAME=#{accessUrlName},
+     STATUS=#{status},
+     UPDATE_USER_ID=#{updateUserId},
+     UPDATE_DATE=sysdate()
+   WHERE
+    ACCESS_URL_ID=#{accessUrlId} 
+ </update>
+ 
+ <!-- 根据ids删除访问地址 -->
+ <update id="deleteAccessUrlByIds" parameterType="hashmap">
+   UPDATE T_ACCESS_URL
+     SET
+       STATUS='3',
+       UPDATE_USER_ID=#{updateUserId},
+       UPDATE_DATE=sysdate()
+   WHERE 
+       ACCESS_URL_ID IN
+       <foreach collection="ids" index="index" item="item" open="(" separator="," close=")">
+          #{item}
+       </foreach>
+ </update>
+ 
+ 
+ <!-- 查询所有访问地址列表 -->
+ <select id="queryAllAccessUrlList" resultType="accessUrlBean">
+    SELECT 
+       T.ACCESS_URL_ID AS accessUrlId,
+       T.ACCESS_URL_NAME AS accessUrlName
+    FROM T_ACCESS_URL T
+    WHERE
+     T.STATUS='1'
+ </select>
+ 
+ <!-- 根据访问地址ids删除访问地址角色映射 -->
+ <delete id="deleteAccessUrlRoleMappingByIds" parameterType="hashmap">
+   DELETE FROM 
+       T_ROLE_ACCESS_URL_MAPPING 
+   WHERE 
+       ACCESS_URL_ID in
+       <foreach collection="ids" index="index" item="item" open="(" separator="," close=")">
+          #{item}
+       </foreach>
+ </delete>
+ 
+ 
+</mapper>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper   
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cjhme.system.core.dao.fileupload.FileDataDao">
+
+<!-- 添加文件数据 -->
+<insert id="saveFileData" parameterType="hashMap">
+   INSERT INTO T_FILE_DATA(
+     FILE_ID,
+     BUSNIESS_MARK,
+     BUSNIESS_ID,
+     FILE_NAME,
+     FILE_URL,
+     FILE_DESCRIPT,
+     STATUS,
+     CREATE_USER_ID,
+     CREATE_DATE
+   )VALUES(
+     #{fileId},
+     #{busniessMark},
+     #{busniessId},
+     #{fileName},
+     #{fileUrl},
+     #{fileDescript},
+     1,
+     #{createUserId},
+     sysdate()
+   )
+</insert>
+
+<!-- 根据业务标识与业务id查询文件数据 -->
+<select id="queryFileDataByBMarkAndBId" resultType="fileDataBean" parameterType="hashMap">
+  SELECT 
+     FILE_ID AS fileId,
+     BUSNIESS_MARK AS busniessMark,
+     BUSNIESS_ID AS busniessId,
+     FILE_NAME AS fileName,
+     FILE_URL AS fileUrl,
+     FILE_DESCRIPT AS fileDescript
+  FROM T_FILE_DATA
+  WHERE
+     BUSNIESS_MARK=#{busniessMark}
+  AND 
+     BUSNIESS_ID=#{busniessId}
+</select>
+
+<!-- 根据id修改文件数据 -->
+<update id="updateFileDataByFileId" parameterType="hashMap">
+   UPDATE T_FILE_DATA
+   SET
+     FILE_URL=#{fileUrl},
+     FILE_NAME=#{fileName},
+     FILE_DESCRIPT=#{fileDescript},
+     UPDATE_USER_ID=#{updateUserId},
+     UPDATE_DATE=sysdate()
+   WHERE
+     FILE_ID=#{fileId}
+</update>
+ 
+</mapper>

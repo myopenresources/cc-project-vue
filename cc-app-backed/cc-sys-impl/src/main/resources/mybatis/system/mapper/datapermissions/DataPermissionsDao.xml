@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper   
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cjhme.system.impl.dao.datapermissions.DataPermissionsDao">
+ <!-- 根据条件分页查询数据权限-->
+ <select id="queryDataPermissionsByConditionPaging" parameterType="hashmap" resultType="dataPermissionsBean">
+      SELECT 
+          T.DATA_PERMISSIONS_ID AS dataPermissionsId,
+          T.DATA_PERMISSIONS_NAME AS dataPermissionsName,
+          T.ACCESS_URL AS accessUrl,
+          T.DATA_PERMISSIONS_CATEGORY AS dataPermissionsCategory,
+          T.PROCESSOR_PRIORITY AS processorPriority,
+          T.PARAM_KEY AS paramKey,
+          T.STATUS AS status,
+	      T.CREATE_DATE AS createDate,
+	      T.UPDATE_DATE AS updateDate,
+	      T2.REAL_NAME AS createUser,
+	      T3.REAL_NAME AS updateUser
+       FROM T_DATA_PERMISSIONS T 
+       LEFT JOIN T_USER T2 ON(T.CREATE_USER_ID=T2.USER_ID) 
+       LEFT JOIN T_USER T3 ON(T.CREATE_USER_ID=T3.USER_ID)
+       WHERE  
+       <choose>
+	      <when test="status!=null and status!='' and status=='-1'">
+	       T.STATUS!='3'
+	     </when>
+	     <when test="status!=null and status!='' and status!='-1'">
+	       T.STATUS=#{status}
+	     </when>
+	     <otherwise>
+	       T.STATUS='1'
+	     </otherwise>
+	  </choose>
+	   <if test="dataPermissionsName!=null and dataPermissionsName!=''">
+         AND 
+           T.DATA_PERMISSIONS_NAME LIKE '%${dataPermissionsName}%'
+       </if>
+       <if test="dataPermissionsCategory!=null and dataPermissionsCategory!='' and dataPermissionsCategory!='null'">
+         AND 
+           T.DATA_PERMISSIONS_CATEGORY = #{dataPermissionsCategory}
+       </if>
+       ORDER BY T.PROCESSOR_PRIORITY,T.PROCESSOR_PRIORITY
+ </select>
+ 
+ <!-- 判断数据权限是否存在 -->
+ <select id="queryDataPermissionsIsExists" parameterType="hashmap" resultType="integer">
+   SELECT 
+      COUNT(1)
+   FROM T_DATA_PERMISSIONS T
+   WHERE
+      T.DATA_PERMISSIONS_NAME=#{dataPermissionsName}
+   <if test="dataPermissionsId!=null and dataPermissionsId!=''">
+      AND  T.DATA_PERMISSIONS_ID !=#{dataPermissionsId}
+   </if> 
+   AND T.STATUS!='3'
+ </select>
+ 
+ <!-- 添加数据权限 -->
+ <insert id="saveDataPermissions" parameterType="hashmap">
+   INSERT INTO T_DATA_PERMISSIONS(
+      DATA_PERMISSIONS_ID,
+      DATA_PERMISSIONS_NAME,
+      DATA_PERMISSIONS_CATEGORY,
+      SQL_ID,
+      ACCESS_URL,
+      PRIMARY_PROCESSOR,
+      SECONDARY_PROCESSOR,
+      PROCESSOR_PRIORITY,
+      MATCH_COLUMN,
+      STATUS,
+      CREATE_USER_ID,
+      CREATE_DATE,
+      PARAM_KEY
+   )VALUES(
+      #{dataPermissionsId},
+      #{dataPermissionsName},
+      #{dataPermissionsCategory},
+      #{sqlId},
+      #{accessUrl},
+      #{primaryProcessor},
+      #{secondaryProcessor},
+      #{processorPriority},
+      #{matchColumn},
+      #{status},
+      #{createUserId},
+      sysdate(),
+      #{paramKey}
+   )
+ </insert>
+ 
+ <!-- 根据id查询数据权限 -->
+ <select id="queryDataPermissionsById" parameterType="hashmap" resultType="dataPermissionsBean">
+   SELECT 
+          T.DATA_PERMISSIONS_ID AS dataPermissionsId,
+          T.DATA_PERMISSIONS_NAME AS dataPermissionsName,
+          T.ACCESS_URL AS accessUrl,
+          T.DATA_PERMISSIONS_CATEGORY AS dataPermissionsCategory,
+          T.PROCESSOR_PRIORITY AS processorPriority,
+	      T.SQL_ID AS sqlId,
+	      T.PRIMARY_PROCESSOR AS primaryProcessor,
+	      T.SECONDARY_PROCESSOR AS secondaryProcessor,
+	      T.MATCH_COLUMN AS matchColumn,
+	      T.PARAM_KEY AS paramKey,
+          T.STATUS AS status,
+	      T.CREATE_DATE AS createDate,
+	      T.UPDATE_DATE AS updateDate,
+	      T2.REAL_NAME AS createUser,
+	      T3.REAL_NAME AS updateUser
+       FROM T_DATA_PERMISSIONS T 
+       LEFT JOIN T_USER T2 ON(T.CREATE_USER_ID=T2.USER_ID) 
+       LEFT JOIN T_USER T3 ON(T.CREATE_USER_ID=T3.USER_ID)
+   WHERE 
+      T.DATA_PERMISSIONS_ID=#{dataPermissionsId}
+ </select>
+ 
+ <!-- 根据id修改数据权限-->
+ <update id="updateDataPermissionsById" parameterType="hashmap">
+   UPDATE T_DATA_PERMISSIONS
+   SET
+     DATA_PERMISSIONS_NAME=#{dataPermissionsName},
+     ACCESS_URL=#{accessUrl},
+     DATA_PERMISSIONS_CATEGORY=#{dataPermissionsCategory},
+     PROCESSOR_PRIORITY=#{processorPriority},
+     SQL_ID=#{sqlId},
+     PRIMARY_PROCESSOR=#{primaryProcessor},
+     SECONDARY_PROCESSOR=#{secondaryProcessor},
+     MATCH_COLUMN=#{matchColumn},
+     PARAM_KEY=#{paramKey},
+     STATUS=#{status},
+     UPDATE_USER_ID=#{updateUserId},
+     UPDATE_DATE=sysdate()
+   WHERE
+    DATA_PERMISSIONS_ID=#{dataPermissionsId} 
+ </update>
+ 
+ <!-- 根据ids删除数据权限 -->
+ <update id="deleteDataPermissionsByIds" parameterType="hashmap">
+   UPDATE T_DATA_PERMISSIONS
+     SET
+       STATUS='3',
+       UPDATE_USER_ID=#{updateUserId},
+       UPDATE_DATE=sysdate()
+   WHERE 
+       DATA_PERMISSIONS_ID IN
+       <foreach collection="ids" index="index" item="item" open="(" separator="," close=")">
+          #{item}
+       </foreach>
+ </update>
+ 
+ 
+ <!-- 查询所有数据权限列表 -->
+ <select id="queryAllDataPermissionsList" resultType="dataPermissionsBean">
+    SELECT 
+       T.DATA_PERMISSIONS_ID AS dataPermissionsId,
+       T.DATA_PERMISSIONS_NAME AS dataPermissionsName,
+       T.DATA_PERMISSIONS_CATEGORY AS dataPermissionsCategory
+    FROM DATA_PERMISSIONS_ID T
+    WHERE
+     T.STATUS='1'
+ </select>
+ 
+ <!-- 根据数据权限ids删除数据权限角色映射 -->
+ <delete id="deleteDataPermissionsRoleMappingByIds" parameterType="hashmap">
+   DELETE FROM 
+       T_ROLE_DATA_PERMIT_MAPPING 
+   WHERE 
+       DATA_PERMISSIONS_ID in
+       <foreach collection="ids" index="index" item="item" open="(" separator="," close=")">
+          #{item}
+       </foreach>
+ </delete>
+ 
+ 
+</mapper>

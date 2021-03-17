@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    
+	<!-- ====== 定义实体类的别名 ====== -->
+	<typeAliases>
+	      
+	    <!-- ==后台管理系统== -->
+	    
+	      <!-- 树节点-->
+	      <typeAlias type="com.cjhme.common.model.base.TreeNodeBean" alias="treeNodeBean"/>
+	      
+	      <!-- 菜单 -->
+	      <typeAlias type="com.cjhme.common.model.menu.MenuBean" alias="menuBean"/>
+	      
+	      <!-- 用户 -->
+	      <typeAlias type="com.cjhme.common.model.user.UserBean" alias="userBean"/>
+	      
+	      <!-- 角色 -->
+	      <typeAlias type="com.cjhme.common.model.role.RoleBean" alias="roleBean"/>
+	      
+	      <!-- 用户角色映射 -->
+	      <typeAlias type="com.cjhme.common.model.user.UserRoleMappingBean" alias="userRoleMappingBean"/>
+	      
+	      <!-- 部门 -->
+	      <typeAlias type="com.cjhme.common.model.dept.DeptBean" alias="deptBean"/>
+	      
+	      <!-- 用户部门映射 -->
+	      <typeAlias type="com.cjhme.common.model.user.UserDeptMappingBean" alias="userDeptMappingBean"/>
+	      
+	      <!-- 数据字典分类 -->
+	      <typeAlias type="com.cjhme.common.model.datadic.DataDicTypeBean" alias="dataDicTypeBean"/>
+	      
+	      <!-- 数据字典明细 -->
+	      <typeAlias type="com.cjhme.common.model.datadic.DataDicItemBean" alias="dataDicItemBean"/>
+	      
+	      <!-- 角色菜单映射 -->
+	      <typeAlias type="com.cjhme.common.model.role.RoleMenuMappingBean" alias="roleMenuMappingBean"/>
+	      
+	      <!-- 角色按钮映射 -->
+	      <typeAlias type="com.cjhme.common.model.role.RoleButtonMappingBean" alias="roleButtonMappingBean"/>
+	      
+	      <!-- 按钮 -->
+	      <typeAlias type="com.cjhme.common.model.button.ButtonBean" alias="buttonBean"/>
+	      
+	
+	      <!-- 待办 -->
+	      <typeAlias type="com.cjhme.common.model.task.TaskBean" alias="taskBean"/>
+	      
+	      <!-- 登录日志 -->
+	      <typeAlias type="com.cjhme.common.model.log.LoginLogBean" alias="loginLogBean"/>
+	      
+	      <!-- 文件数据 -->
+	      <typeAlias type="com.cjhme.common.model.fileupload.FileDataBean" alias="fileDataBean"/>
+	      
+	      <!-- 公告 -->
+	      <typeAlias type="com.cjhme.common.model.notice.NoticeBean" alias="noticeBean"/>
+	      
+	      <!-- 公告用户映射-->
+	      <typeAlias type="com.cjhme.common.model.notice.NoticeUserMappingBean" alias="noticeUserMappingBean"/>
+	      
+	      <!-- 数据字典明细角色映射-->
+	      <typeAlias type="com.cjhme.common.model.datadic.DataDicItemRoleMappingBean" alias="dataDicItemRoleMappingBean"/>
+	      
+	      <!-- 访问地址-->
+	      <typeAlias type="com.cjhme.common.model.accessurl.AccessUrlBean" alias="accessUrlBean"/>
+	      
+	      <!-- 角色访问地址映射-->
+	      <typeAlias type="com.cjhme.common.model.role.RoleAccessUrlMappingBean" alias="roleAccessUrlMappingBean"/>
+
+          <!-- 数据权限-->
+	      <typeAlias type="com.cjhme.common.model.datapermissions.DataPermissionsBean" alias="dataPermissionsBean"/>
+	      
+	      <!-- 集联树节点-->
+	      <typeAlias type="com.cjhme.common.model.base.CascadeTreeNodeBean" alias="cascadeTreeNodeBean"/>
+	      
+
+	      
+	</typeAliases>
+
+
+
+</configuration>  

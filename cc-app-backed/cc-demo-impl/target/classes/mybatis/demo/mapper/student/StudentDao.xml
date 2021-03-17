@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper   
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cjhme.demo.impl.dao.student.StudentDao">
+
+ <select id="queryStudentByConditionPaging" parameterType="hashmap" resultType="com.cjhme.demo.common.model.DemoBean">
+      SELECT 
+         T.ID AS id,
+         T.NAME AS name,
+         T.DEPT_ID,
+         T.CREATE_USER_ID
+       FROM T_STUDENT T 
+ </select>
+ 
+  <select id="queryStudentByBean" parameterType="com.cjhme.demo.common.model.DemoBean" resultType="com.cjhme.demo.common.model.DemoBean">
+      SELECT 
+         T.ID AS id,
+         T.NAME AS name,
+         T.DEPT_ID,
+         T.CREATE_USER_ID
+       FROM T_STUDENT T  
+       WHERE T.ID=#{id}
+ </select>
+ 
+ <select id="queryStudentByMap" parameterType="hashmap" resultType="com.cjhme.demo.common.model.DemoBean">
+      SELECT 
+         T.ID AS id,
+         T.NAME AS name,
+         T.DEPT_ID,
+         T.CREATE_USER_ID
+       FROM T_STUDENT T 
+       WHERE T.ID=#{id}
+ </select>
+ 
+ <insert id="save" parameterType="hashmap">
+   INSERT INTO T_STUDENT(
+      ID,
+      NAME
+   )VALUES(
+      #{id},
+      #{name}
+   )
+ </insert>
+ 
+ 
+</mapper>

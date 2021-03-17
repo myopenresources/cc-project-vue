@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper   
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cjhme.system.impl.dao.common.CascadeTreeDao">
+
+
+<!-- 查询节点 -->
+<select id="queryNode" parameterType="hashmap" resultType="cascadeTreeNodeBean">
+   SELECT 
+	   ${idCol} AS id, 
+	   ${parentIdCol} AS parentId, 
+	   ${leftCol} AS leftValue, 
+	   ${rightCol} AS rightValue, 
+	   ${layerCol} AS layer 
+   FROM ${tableName} T
+     WHERE ${idCol}=#{id}
+</select>
+
+<!-- 查找兄弟节点 -->
+<select id="queryLeftBrother" parameterType="hashmap" resultType="cascadeTreeNodeBean">
+   SELECT 
+	   ${idCol} AS id, 
+	   ${parentIdCol} AS parentId, 
+	   ${leftCol} AS leftValue, 
+	   ${rightCol} AS rightValue, 
+	   ${layerCol} AS layer 
+   FROM  ${tableName} T 
+     WHERE ${leftCol}=#{left} AND ${layerCol}=#{layer}
+</select>
+
+<!-- 查找兄弟节点 -->
+<select id="queryRightBrother" parameterType="hashmap" resultType="cascadeTreeNodeBean">
+   SELECT 
+	   ${idCol} AS id, 
+	   ${parentIdCol} AS parentId, 
+	   ${leftCol} AS leftValue, 
+	   ${rightCol} AS rightValue, 
+	   ${layerCol} AS layer 
+   FROM  ${tableName} T 
+     WHERE ${rightCol}=#{right} AND ${layerCol}=#{layer}
+</select>
+
+
+<!-- 将右边的节点移动几个位置，腾出空间给新元素 -->
+<update id="updateRightAndLeftNode" parameterType="hashmap">
+   UPDATE ${tableName} 
+     SET
+       ${leftCol}=${leftCol}+2*#{step},
+       ${rightCol}=${rightCol}+2*#{step}
+   WHERE 
+       ${leftCol} &gt; #{baseLeft} AND ${rightCol} &gt; #{baseRight}
+</update>
+
+<!-- 调整某个节点的容量,以适应新的大小 -->
+<update id="updateRightNode" parameterType="hashmap">
+   UPDATE ${tableName} 
+     SET
+       ${rightCol}=${rightCol}+2*#{step}
+   WHERE 
+       ${leftCol} &lt;= #{baseLeft} AND ${rightCol} &gt;= #{baseRight}
+</update>
+
+
+<!-- 删除基准节点,包括所有子节点 -->
+<update id="deleteNodes" parameterType="hashmap">
+   UPDATE ${tableName} 
+     SET STATUS=3
+   WHERE 
+       ${leftCol} &gt;= #{baseLeft} AND ${rightCol} &lt;= #{baseRight}
+</update>
+
+
+<!-- 修改单个节点信息 -->
+<update id="updateNode" parameterType="hashmap">
+   UPDATE ${tableName} 
+     SET 
+       ${leftCol}=${leftCol}+#{distance},
+       ${rightCol}=${rightCol}+#{distance},
+       ${layerCol}=${layerCol}+#{layerDelta}
+   WHERE 
+       ${leftCol} &gt;= #{baseLeft} AND ${rightCol} &lt;= #{baseRight}
+</update>
+
+<!-- 获取整棵树最大的右值 -->
+<select id="queryMaxRight" parameterType="hashmap" resultType="int">
+   SELECT 
+	  MAX(${rightCol})
+   FROM  ${tableName} T 
+</select>
+
+</mapper>

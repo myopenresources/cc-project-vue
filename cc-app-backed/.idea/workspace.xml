@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="b3140e34-f369-4a71-8ecb-3bf267a53f19" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/cc-console/target/m2e-wtp/web-resources/META-INF/maven/com.cjhme/cc-app-console/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/cc-console/target/m2e-wtp/web-resources/META-INF/maven/com.cjhme/cc-app-console/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cc-console/transaction-logs/tmlog.lck" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cc-console/transaction-logs/tmlog385.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cc-demo-common/target/classes/META-INF/maven/com.cjhme/cc-demo-common/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/cc-demo-common/target/classes/META-INF/maven/com.cjhme/cc-demo-common/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cc-demo-impl/src/main/resources/mybatis/demo/mapper/student/StudentDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cc-demo-impl/src/main/resources/mybatis/demo/mapper/student/StudentDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cc-demo-impl/target/classes/META-INF/maven/com.cjhme/cc-demo-impl/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/cc-demo-impl/target/classes/META-INF/maven/com.cjhme/cc-demo-impl/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cc-demo-impl/target/classes/mybatis/demo/mapper/student/StudentDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cc-demo-impl/target/classes/mybatis/demo/mapper/student/StudentDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cc-demo-web/src/main/java/com/cjhme/web/action/StudentAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/cc-demo-web/src/main/java/com/cjhme/web/action/StudentAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cc-demo-web/target/classes/META-INF/maven/com.cjhme/cc-demo-web/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/cc-demo-web/target/classes/META-INF/maven/com.cjhme/cc-demo-web/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cc-demo-web/target/classes/com/cjhme/web/action/StudentAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/cc-demo-web/target/classes/com/cjhme/web/action/StudentAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cc-sys-common/target/classes/META-INF/maven/com.cjhme/cc-sys-common/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/cc-sys-common/target/classes/META-INF/maven/com.cjhme/cc-sys-common/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cc-sys-impl/target/classes/META-INF/maven/com.cjhme/cc-sys-impl/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/cc-sys-impl/target/classes/META-INF/maven/com.cjhme/cc-sys-impl/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cc-sys-web/target/classes/META-INF/maven/com.cjhme/cc-sys-web/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/cc-sys-web/target/classes/META-INF/maven/com.cjhme/cc-sys-web/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cc-front/src/app/business/view/student/student-list/student-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../cc-front/src/app/business/view/student/student-list/student-list.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cc-front/src/app/business/view/student/student-list/student-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../cc-front/src/app/business/view/student/student-list/student-list.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cc-front/src/app/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../cc-front/src/app/login/login.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cc-front/src/app/platform/api/role/role-api.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../cc-front/src/app/platform/api/role/role-api.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cc-front/src/app/platform/view/role/role-add/role-add.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../cc-front/src/app/platform/view/role/role-add/role-add.component.html" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="D:/Software/Maven" />
+        <option name="userSettingsFile" value="D:\Software\Maven\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="85" />
+    <option name="y" value="25" />
+    <option name="width" value="1750" />
+    <option name="height" value="980" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane" />
+      <pane id="PackagesPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Workspace01/phoenix-backend" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b3140e34-f369-4a71-8ecb-3bf267a53f19" name="Default Changelist" comment="" />
+      <created>1611983365456</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1611983365456</updated>
+      <workItem from="1611983772072" duration="340000" />
+      <workItem from="1612141432143" duration="309000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="649000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2533512" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="10" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Maven" order="3" />
+      <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="right" id="Palette&#9;" order="5" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper   
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cjhme.system.core.dao.menu.MenuDao">
+
+ <!-- 初始化用户菜单 -->
+ <select id="queryUserMenuByRoleId" parameterType="hashmap" resultType="treeNodeBean">
+        SELECT 
+          M.MENU_ID AS id,
+          M.MENU_NAME AS text,
+          M.ICON_CLS AS iconCls, 
+          M.ACCESS_URL AS attr1,
+          M.PARENT_MENU_ID AS parentId,
+          M.SORT_NUM AS attr2
+        FROM T_MENU M
+        LEFT JOIN T_ROLE_MENU_MAPPING RM ON(RM.MENU_ID=M.MENU_ID)
+        LEFT JOIN T_USER_ROLE_MAPPING UR ON(UR.ROLE_ID=RM.ROLE_ID)
+        LEFT JOIN T_USER U ON(U.USER_ID=UR.USER_ID)
+         WHERE 
+            M.STATUS='1' AND U.USER_ID=#{userId}
+         GROUP BY M.MENU_ID
+         ORDER BY M.MENU_LEVEL,M.SORT_NUM
+ </select>
+ 
+   
+ <!-- 查询菜单列表 -->
+ <select id="queryMenuList"  resultType="treeNodeBean">
+       SELECT 
+          M.MENU_ID AS id,
+          M.MENU_NAME AS text,
+          M.ICON_CLS AS iconCls, 
+          M.ACCESS_URL AS attr1,
+          M.PARENT_MENU_ID AS parentId,
+          M.SORT_NUM AS attr2,
+          M.MENU_LEVEL AS attr3
+        FROM T_MENU M
+       WHERE 
+            M.STATUS='1'
+        ORDER BY M.MENU_LEVEL,M.SORT_NUM
+ </select>
+   
+ <!-- 根据条件分页查询菜单-->
+ <select id="queryMenuByConditionPaging" parameterType="hashmap" resultType="menuBean">
+       SELECT 
+          T.MENU_ID AS menuId,
+          T.MENU_CODE AS menuCode,
+          T.MENU_NAME AS menuName,
+          T.PARENT_MENU_ID AS parentMenuId,
+          T.ICON_CLS AS iconCls,
+          T.ACCESS_URL AS accessUrl,
+          T.SORT_NUM AS sortNum,
+          T.MENU_LEVEL AS menuLevel,
+          T.CREATE_DATE AS createDate,
+          T.UPDATE_DATE AS updateDate,
+          T2.REAL_NAME AS createUser,
+          T3.REAL_NAME AS updateUser
+       FROM T_MENU  T 
+       LEFT JOIN T_USER T2 ON(T.CREATE_USER_ID=T2.USER_ID)  
+       LEFT JOIN T_USER T3 ON(T.UPDATE_USER_ID=T3.USER_ID)  
+       WHERE 
+       T.STATUS='1'
+       <choose>
+         <!--按指定菜单查询  -->
+	     <when test="queryStatus!=null and queryStatus!='' and (queryStatus=='1' or queryStatus==1)">
+	       AND 
+	         T.MENU_NAME LIKE '%${menuName}%' 
+	       AND 
+	         T.PARENT_MENU_ID=#{menuId}
+	     </when>
+	     <!--按所有菜单查询-->
+	     <when test="queryStatus!=null and queryStatus!='' and (queryStatus=='2' or queryStatus==2)">
+	       AND 
+	         T.MENU_NAME LIKE '%${menuName}%'  
+	     </when>
+	  </choose>
+       ORDER BY T.MENU_LEVEL,T.SORT_NUM
+ </select>
+
+ <!-- 判断菜单是否存在 -->
+ <select id="queryMenuIsExists" parameterType="hashmap" resultType="integer">
+   SELECT         
+      COUNT(1) 
+   FROM T_MENU  
+   WHERE 
+      (MENU_NAME=#{menuName} OR MENU_CODE=#{menuCode}) 
+   AND 
+      PARENT_MENU_ID=#{parentMenuId}
+   <if test="menuId!=null and menuId!=''">
+      AND  MENU_ID !=#{menuId} 
+   </if> 
+   AND STATUS!='3'
+ </select>
+ 
+ <!-- 根据父菜单id查询最大序号 -->
+ <select id="queryMenuMaxSortNumByPMId" parameterType="hashmap" resultType="integer">
+   SELECT 
+    IFNULL(MAX(SORT_NUM),0)
+   FROM T_MENU
+   WHERE
+    PARENT_MENU_ID=#{parentMenuId}
+ </select>
+ 
+ <!--添加菜单-->
+ <insert id="saveMenu" parameterType="hashmap">
+      INSERT INTO T_MENU(
+         MENU_ID,
+         MENU_CODE,
+         MENU_NAME,
+         ACCESS_URL,
+         PARENT_MENU_ID,
+         SORT_NUM,
+         ICON_CLS,
+         STATUS,
+         CREATE_USER_ID,
+         CREATE_DATE,
+         MENU_LEVEL
+      )VALUES(
+         #{menuId},
+         #{menuCode},
+         #{menuName},
+         #{accessUrl},
+         #{parentMenuId},
+         #{sortNum},
+         #{iconCls},
+         '1',
+         #{createUserId},
+         sysdate(),
+         #{menuLevel}
+      )
+ </insert>
+ 
+ <!-- 根据id查询菜单 -->
+ <select id="queryMenuByMenuId" parameterType="hashmap"  resultType="menuBean">
+   select 
+       T.MENU_ID AS menuId,
+       T.MENU_CODE AS menuCode,
+       T.MENU_NAME AS menuName,
+       T.PARENT_MENU_ID AS parentMenuId,
+       T.ICON_CLS AS iconCls,
+       T.ACCESS_URL AS accessUrl,
+       T.SORT_NUM AS sortNum,
+       T.CREATE_USER_ID AS createUserId,
+       T.UPDATE_USER_ID AS updateUserId,
+       T.CREATE_DATE AS createDate,
+       T.UPDATE_DATE AS updateDate,
+       T.MENU_LEVEL AS menuLevel,
+       T2.REAL_NAME AS createUser,
+       T3.REAL_NAME AS updateUser
+     FROM 
+       T_MENU T 
+       LEFT JOIN T_USER T2 ON(T.CREATE_USER_ID=T2.USER_ID)  
+       LEFT JOIN T_USER T3 ON(T.UPDATE_USER_ID=T3.USER_ID)  
+     WHERE 
+       T.MENU_ID=#{menuId}
+ </select>
+ 
+ <!-- 根据id修改菜单 -->
+ <update id="updateMenuByMenuId" parameterType="hashmap">
+    UPDATE 
+       T_MENU
+    SET 
+      MENU_CODE=#{menuCode},
+      MENU_NAME=#{menuName},
+      ICON_CLS=#{iconCls},
+      ACCESS_URL=#{accessUrl},
+      CREATE_USER_ID=#{updateUserId},
+      UPDATE_DATE=sysdate(),
+      MENU_LEVEL=#{menuLevel},
+      PARENT_MENU_ID=#{parentMenuId}
+    WHERE
+      MENU_ID=#{menuId}
+ </update>
+ 
+ <!-- 根据ids删除菜单 -->
+ <update id="deleteMenuByIds" parameterType="hashmap">
+   UPDATE T_MENU
+     SET
+       STATUS='3',
+       UPDATE_USER_ID=#{updateUserId},
+       UPDATE_DATE=sysdate()
+   WHERE 
+       MENU_ID in
+       <foreach collection="ids" index="index" item="item" open="(" separator="," close=")">
+          #{item}
+       </foreach>
+ </update>
+ 
+ <!-- 根据条件查询菜单 -->
+ <select id="queryMenuByCondition" parameterType="hashmap" resultType="treeNodeBean">
+     SELECT 
+          T.MENU_ID AS id,
+          T.MENU_NAME AS text,
+          T.PARENT_MENU_ID AS parentId,
+          T.ICON_CLS AS iconCls,
+          T.MENU_CODE AS attr1,
+          T.ACCESS_URL AS attr2,
+          T.MENU_LEVEL AS attr3
+     fROM 
+       T_MENU T
+     WHERE 
+       T.STATUS='1'
+     <if test="menuCode!=null and menuCode!=''">
+       AND T.MENU_CODE LIKE '%${menuCode}%' 
+     </if> 
+     <if test="menuName!=null and menuName!=''">
+       AND T.MENU_NAME LIKE '%${menuName}%' 
+     </if> 
+      ORDER BY T.PARENT_MENU_ID,T.SORT_NUM
+     
+ </select>
+ 
+ <!-- 根据移动菜单id查询菜单最大排序 -->
+ <select id="queryMaxSortNumByParentMenuId" parameterType="hashmap" resultType="string">
+    SELECT 
+      (MAX(SORT_NUM)+1)
+    FROM T_MENU T
+    WHERE 
+      T.PARENT_MENU_ID=#{parentMenuId}
+ </select>
+ 
+ <!-- 根据id移动菜单 -->
+ <update id="updateMenuParentMenuIdById" parameterType="hashmap">
+   UPDATE T_MENU
+     SET
+       PARENT_MENU_ID=#{parentMenuId},
+       UPDATE_USER_ID=#{updateUserId},
+       CREATE_DATE=sysdate(),
+       SORT_NUM=#{sortNum}
+   WHERE 
+       MENU_ID=#{menuId}
+ </update>
+ 
+ 
+ <!-- 获得当前行的上一条菜单 -->
+ <select id="queryPreviousMenuById" parameterType="hashmap" resultType="menuBean">
+    SELECT 
+      MENU_ID AS menuId,
+      SORT_NUM AS sortNum
+    FROM T_MENU T
+    WHERE
+     T.SORT_NUM &lt; #{sortNum}
+     AND T.PARENT_MENU_ID=#{parentMenuId}
+	 AND T.STATUS!='3'
+	 ORDER BY T.SORT_NUM DESC
+     LIMIT 0,1;
+ </select>
+
+ <!-- 获得当前行的下一条菜单 -->
+ <select id="queryNextMenuById" parameterType="hashmap" resultType="menuBean">
+    SELECT 
+      T.MENU_ID as menuId,
+      T.SORT_NUM as sortNum
+    FROM T_MENU T
+    WHERE
+      T.SORT_NUM &gt; #{sortNum}
+      aND T.PARENT_MENU_ID=#{parentMenuId}
+      AND T.STATUS!='3'
+	  ORDER BY T.SORT_NUM
+      LIMIT 0,1;
+ </select>
+
+ <!-- 根据id移动菜单序号 -->
+ <update id="updateMenuSortNumById" parameterType="hashmap">
+    UPDATE T_MENU 
+    SET
+       SORT_NUM=#{sortNum},
+       UPDATE_USER_ID=#{updateUserId},
+       UPDATE_DATE=sysdate()
+    WHERE 
+       MENU_ID =#{menuId}
+ </update>
+ 
+ <!-- 根据菜单ids删除菜单角色映射 -->
+ <delete id="deleteMenuRoleMappingByIds" parameterType="hashmap">
+   DELETE FROM 
+       T_ROLE_MENU_MAPPING 
+   WHERE 
+       MENU_ID in
+       <foreach collection="ids" index="index" item="item" open="(" separator="," close=")">
+          #{item}
+       </foreach>
+ </delete>
+ 
+ 
+</mapper>

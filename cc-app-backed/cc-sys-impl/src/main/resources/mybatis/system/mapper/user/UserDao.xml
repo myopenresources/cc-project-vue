@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper   
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cjhme.system.core.dao.user.UserDao" >
+
+ <!-- 用户角色部门映射 -->
+ <resultMap id="userRoleDeptRM"  type="userBean">
+   <id property="userId" column="userId" />
+   <result property="userCode" column="userCode" />
+   <result property="userName" column="userName" />
+   <result property="realName" column="realName" />
+   <result property="telephone" column="telephone" />
+   <result property="sex" column="sex" />
+   <result property="email" column="email" />
+   <result property="userDescribe" column="userDescribe" />
+   <result property="status" column="status" />
+   <result property="idCard" column="idCard" />
+   <result property="emailSwitch" column="emailSwitch" />
+   <result property="smsSwitch" column="smsSwitch" />
+   <collection property="roles"  ofType="java.util.ArrayList" column="userId" select="queryUserRoleMappingByUserId" />
+   <collection property="depts"  ofType="java.util.ArrayList" column="userId" select="queryUserDeptMappingByUserId" />
+ </resultMap>
+ 
+ <!-- 角色访问地址映射 -->
+ <resultMap  id="roleAccessUrlRM" type="roleBean">
+     <id property="roleId" column="roleId" />
+     <result property="roleCode" column="roleCode" />
+     <result property="roleName" column="roleName" />
+     <result property="isSuper" column="isSuper" />
+     <result property="roleDescribe" column="roleDescribe" />
+    <collection property="accessUrls" ofType="java.util.ArrayList" column="roleId" select="queryRoleAccessUrlMappingById"/>
+ </resultMap>
+
+ <!-- 根据用户id查询角色 -->
+ <select id="queryUserRoleMappingByUserId" resultMap="roleAccessUrlRM" parameterType="string">
+    SELECT 
+      T1.ROLE_ID AS roleId,
+      T1.ROLE_CODE AS roleCode,
+      T1.ROLE_NAME AS roleName,
+      T1.IS_SUPER AS isSuper,
+      T1.ROLE_DESCRIBE AS roleDescribe
+    FROM 
+      T_ROLE T1 JOIN 
+    (SELECT ROLE_ID FROM T_USER_ROLE_MAPPING WHERE USER_ID=#{userId}) T2
+	ON T1.ROLE_ID=T2.ROLE_ID 
+	WHERE 
+	  T1.STATUS='1'
+ </select>
+
+ <!-- 根据用户id查询部门 -->
+ <select id="queryUserDeptMappingByUserId" resultType="deptBean" parameterType="string">
+    SELECT 
+      T1.DEPT_ID AS deptId,
+      T1.DEPT_CODE AS deptCode,
+      T1.DEPT_NAME AS deptName,
+      T1.DEPT_SORT_NAME AS deptSortName,
+      T1.DEPT_LEVEL AS deptLevel
+    FROM 
+      T_DEPT T1 JOIN 
+    (SELECT DEPT_ID FROM T_USER_DEPT_MAPPING WHERE USER_ID=#{userId}) T2
+	ON T1.DEPT_ID=T2.DEPT_ID 
+    WHERE 
+	  T1.STATUS='1'
+ </select>
+
+ <!-- 根据角色id查询角色访问地址映射 -->
+ <select id="queryRoleAccessUrlMappingById" resultType="accessUrlBean" parameterType="string">
+   SELECT 
+     TT.ACCESS_URL_ID AS accessUrlId,
+     TT.ACCESS_URL AS accessUrl
+   FROM T_ROLE_ACCESS_URL_MAPPING T,T_ACCESS_URL TT
+   WHERE 
+     TT.STATUS='1' AND  TT.ACCESS_URL_ID=T.ACCESS_URL_ID AND T.ROLE_ID=#{roleId}
+ </select>
+
+
+ <!-- 用户登录 -->
+ <select id="login" parameterType="hashmap" resultMap="userRoleDeptRM">
+   SELECT 
+      USER_ID AS userId,
+      USER_CODE AS userCode,
+      USER_NAME AS userName,
+      REAL_NAME AS realName,
+      TELEPHONE AS telephone,
+      SEX AS sex,
+      EMAIL AS email,
+      USER_DESCRIBE AS userDescribe,
+      STATUS AS status,
+      EMAIL_SWITCH AS emailSwitch,
+      SMS_SWITCH AS smsSwitch,
+      ID_CARD AS idCard
+   FROM T_USER T 
+   WHERE 
+      USER_NAME=#{userName}
+   AND 
+      PASSWORD=#{password}
+   AND STATUS!='3'
+ </select>
+
+
+
+
+ <!-- 根据条件分页查询用户 -->
+ <select id="queryUserByConditionPaging" parameterType="hashmap" resultType="userBean">
+   SELECT 
+      T.USER_ID AS userId,
+      T.USER_CODE AS userCode,
+      T.USER_NAME AS userName,
+      T.REAL_NAME AS realName,
+      T.STATUS AS status,
+      T.CREATE_USER_ID AS createUserId,
+      T.UPDATE_USER_ID AS updateUserId,
+      T.CREATE_DATE AS createDate,
+      T.UPDATE_DATE AS updateDate,
+      T2.REAL_NAME AS createUser,
+      T3.REAL_NAME AS updateUser
+   FROM T_USER T
+    LEFT JOIN T_USER T2 ON(T.CREATE_USER_ID=T2.USER_ID)  
+    LEFT JOIN T_USER T3 ON(T.UPDATE_USER_ID=T3.USER_ID)  
+   <trim prefix="where" prefixOverrides="and">  
+      <if test="userCode!=null and userCode!=''">
+       T.USER_CODE LIKE '%${userCode}%'
+      </if>
+      
+      <if test="userName!=null and userName!=''">
+       AND T.USER_NAME LIKE '%${userName}%'
+      </if>
+      
+      <if test="realName!=null and realName!=''">
+       AND T.REAL_NAME LIKE '%${realName}%'
+      </if>
+   
+      <choose>
+	      <when test="status!=null and status!='' and status=='-1'">
+	        AND T.STATUS!='3'
+	     </when>
+	     <when test="status!=null and status!='' and status!='-1'">
+	        AND T.STATUS=#{status}
+	     </when>
+	     <otherwise>
+	       AND T.STATUS='1'
+	     </otherwise>
+	  </choose>
+   </trim>
+   ORDER BY T.USER_ID DESC
+ </select>
+
+ <!-- 判断用户是否存在 -->
+ <select id="queryUserIsExists" parameterType="hashmap" resultType="integer">
+   SELECT 
+      COUNT(1)
+   FROM T_USER 
+   WHERE
+      (USER_NAME=#{userName} OR USER_CODE=#{userCode})
+   <if test="userId!=null and userId!=''">
+      AND  USER_ID !=#{userId}
+   </if> 
+   AND STATUS!='3'
+ </select>
+
+
+
+ <!-- 添加用户 -->
+ <insert id="saveUser" parameterType="hashmap">
+   INSERT INTO T_USER(
+      USER_ID,
+      USER_CODE,
+      USER_NAME,
+      PASSWORD,
+      REAL_NAME,
+      TELEPHONE,
+      EMAIL,
+      SEX,
+      STATUS,
+      USER_DESCRIBE,
+      CREATE_USER_ID,
+      CREATE_DATE,
+      EMAIL_SWITCH,
+      SMS_SWITCH,
+      ID_CARD
+   )values(
+      #{userId},
+      #{userCode},
+      #{userName},
+      #{password},
+      #{realName},
+      #{telephone},
+      #{email},
+      #{sex},
+      #{status},
+      #{userDescribe},
+      #{createUserId},
+      sysdate(),
+      #{emailSwitch},
+      #{smsSwitch},
+      #{idCard}
+   )
+ </insert>
+
+ <!-- 根据id查询用户 -->
+ <select id="queryUserById" parameterType="hashmap" resultMap="userRoleDeptRM">
+  select 
+      T.USER_ID AS userId,
+      T.USER_CODE AS userCode,
+      T.USER_NAME AS userName,
+      T.REAL_NAME AS realName,
+      T.STATUS AS status,
+      T.CREATE_USER_ID AS createUserId,
+      T.UPDATE_USER_ID AS updateUserId,
+      T.CREATE_DATE AS createDate,
+      T.UPDATE_DATE AS updateDate,
+      T.TELEPHONE AS telephone,
+      T.SEX AS sex,
+      T.EMAIL AS email,
+      T.USER_DESCRIBE AS userDescribe,
+      T.EMAIL_SWITCH AS emailSwitch,
+      T.SMS_SWITCH AS smsSwitch,
+      T.ID_CARD AS idCard,
+      T2.REAL_NAME AS createUser,
+      T3.REAL_NAME AS updateUser
+   FROM T_USER T 
+   LEFT JOIN T_USER T2 ON(T.CREATE_USER_ID=T2.USER_ID)  
+   LEFT JOIN T_USER T3 ON(T.UPDATE_USER_ID=T3.USER_ID)  
+   WHERE 
+      T.USER_ID=#{userId}
+ </select>
+
+ <!-- 根据id修改用户 -->
+ <update id="updateUserById" parameterType="hashmap">
+   UPDATE T_USER 
+   <set>
+	    <if test="userCode!=null and userCode!=''">
+	     USER_CODE=#{userCode},
+	    </if>
+	    <if test="userName!=null and userName!=''">
+	     USER_NAME=#{userName},
+	    </if>
+	    <if test="status!=null and status!=''">
+	     STATUS=#{status},
+	    </if> 
+	    <if test="emailSwitch!=null and emailSwitch!=''">
+	     EMAIL_SWITCH=#{emailSwitch},
+	    </if> 
+	    <if test="smsSwitch!=null and smsSwitch!=''">
+	     SMS_SWITCH=#{smsSwitch},
+	    </if> 
+	    <if test="idCard!=null and idCard!=''">
+	     ID_CARD=#{idCard},
+	    </if> 
+	     REAL_NAME=#{realName},
+	     TELEPHONE=#{telephone},
+	     EMAIL=#{email},
+	     SEX=#{sex},
+	     USER_DESCRIBE=#{userDescribe},
+	     UPDATE_USER_ID=#{updateUserId},
+         UPDATE_DATE=sysdate()
+   </set>
+   WHERE
+    USER_ID=#{userId} 
+ </update>
+
+ <!-- 根据id修改密码 -->
+ <update id="updateUserPasswordById" parameterType="hashmap">
+   UPDATE T_USER 
+   SET
+     PASSWORD=#{password},
+     UPDATE_USER_ID=#{updateUserId},
+     UPDATE_DATE=sysdate()
+   WHERE
+    USER_ID=#{userId}
+ </update>
+
+ <!-- 根据ids重置用户密码 -->
+ <update id="updateUserPwdByIds" parameterType="hashmap">
+   UPDATE T_USER
+     SET
+       PASSWORD=#{password},
+       UPDATE_USER_ID=#{updateUserId},
+       UPDATE_DATE=sysdate()
+  WHERE
+    USER_ID  IN
+       <foreach collection="ids" index="index" item="item" open="(" separator="," close=")">
+          #{item}
+       </foreach>
+ </update>
+ 
+ <!-- 根据ids删除用户 -->
+ <update id="deleteUserByIds" parameterType="hashmap">
+    UPDATE T_USER
+     SET
+       STATUS='3',
+         UPDATE_USER_ID=#{updateUserId},
+       UPDATE_DATE=sysdate()
+   WHERE 
+       USER_ID IN
+       <foreach collection="ids" index="index" item="item" open="(" separator="," close=")">
+          #{item}
+       </foreach>
+ </update>
+
+
+ <!-- 根据用户id查询用户角色映射 -->
+ <select id="queryUserRoleMappingById" resultType="userRoleMappingBean" parameterType="hashmap">
+   select 
+      T.ROLE_ID AS roleId,
+      T.ROLE_CODE AS roleCode,
+      T.ROLE_NAME AS roleName
+   FROM T_ROLE T  
+   WHERE 
+     T.ROLE_ID  IN(SELECT TT.ROLE_ID FROM T_USER_ROLE_MAPPING TT WHERE TT.USER_ID=#{userId})
+ </select>
+
+ <!-- 根据用户id删除用户角色映射 -->
+ <delete id="deleteUserRoleMappingById" parameterType="hashmap">
+   DELETE FROM 
+      T_USER_ROLE_MAPPING 
+   WHERE 
+      USER_ID=#{userId}
+ </delete>
+ 
+ <!-- 根据用户ids删除用户角色映射 -->
+ <delete id="deleteUserRoleMappingByIds" parameterType="hashmap">
+   DELETE FROM 
+      T_USER_ROLE_MAPPING 
+   WHERE 
+      USER_ID in
+       <foreach collection="ids" index="index" item="item" open="(" separator="," close=")">
+          #{item}
+       </foreach>
+ </delete>
+
+ <!-- 保存用户角色映射 -->
+ <insert id="saveUserRoleMapping" parameterType="hashmap">
+   INSERT INTO 
+    T_USER_ROLE_MAPPING(
+      URM_ID,
+      USER_ID,
+      ROLE_ID
+    )VALUES(
+      #{urmId},
+      #{userId},
+      #{roleId}
+    )
+ </insert>
+
+ <!-- 根据角色id查询用户 -->
+ <select id="queryUserByRoleId" parameterType="hashmap" resultType="userBean">
+   SELECT 
+      T.USER_ID AS userId,
+      T.USER_CODE AS userCode,
+      T.USER_NAME AS userName,
+      T.REAL_NAME AS realName,
+      T.STATUS AS status
+   FROM T_USER T,T_USER_ROLE_MAPPING T2
+   WHERE 
+      T.USER_ID = T2.USER_ID
+   AND 
+      T2.ROLE_ID=#{roleId}
+   ORDER BY T.STATUS
+ </select>
+ 
+ <!-- 根据用户id查询用户部门映射 -->
+ <select id="queryUserDeptMappingById" resultType="userDeptMappingBean" parameterType="hashmap">
+   SELECT 
+      DEPT_ID AS deptId,
+      (SELECT TT.DEPT_NAME FROM T_DEPT TT WHERE TT.DEPT_ID=T.DEPT_ID) AS deptName
+   FROM T_USER_DEPT_MAPPING T 
+   WHERE 
+      T.USER_ID=#{userId}
+ </select>
+ 
+ <!-- 根据用户id删除用户部门映射 -->
+ <delete id="deleteUserDeptMappingById" parameterType="hashmap">
+   DELETE FROM 
+      T_USER_DEPT_MAPPING 
+   WHERE 
+      USER_ID=#{userId}
+ </delete>
+ 
+ <!-- 根据用户ids删除用户部门映射 -->
+ <delete id="deleteUserDeptMappingByIds" parameterType="hashmap">
+   DELETE FROM 
+      T_USER_DEPT_MAPPING 
+   WHERE 
+      USER_ID in
+       <foreach collection="ids" index="index" item="item" open="(" separator="," close=")">
+          #{item}
+       </foreach>
+ </delete>
+ 
+ <!-- 保存用户部门映射 -->
+ <insert id="saveUserDeptMapping" parameterType="hashmap">
+   INSERT INTO 
+    T_USER_DEPT_MAPPING(
+      UDM_ID,
+      USER_ID,
+      DEPT_ID
+    )VALUES(
+      #{udmId},
+      #{userId},
+      #{deptId}
+    )
+ </insert>
+ 
+ <!-- 根据部门id查询用户 -->
+ <select id="queryUserByDeptId" parameterType="hashmap" resultType="userBean">
+   SELECT 
+      T.USER_ID AS userId,
+      T.USER_CODE AS userCode,
+      T.USER_NAME AS userName,
+      T.REAL_NAME AS realName,
+      T.STATUS AS status
+   FROM T_USER T,T_USER_DEPT_MAPPING T2
+   WHERE 
+      T.USER_ID = T2.USER_ID
+   AND 
+      T2.DEPT_ID=#{deptId}
+   ORDER BY T.STATUS
+ </select>
+ 
+  <!-- 查询用户列表 -->
+ <select id="queryUserList" parameterType="hashmap" resultType="userBean">
+   SELECT 
+      T.USER_ID AS userId,
+      T.USER_CODE AS userCode,
+      T.USER_NAME AS userName,
+      T.REAL_NAME AS realName,
+      T.STATUS AS status
+   FROM T_USER T
+    <trim prefix="where" prefixOverrides="and">  
+      <if test="userCode!=null and userCode!=''">
+       T.USER_CODE LIKE '%${userCode}%'
+      </if>
+      
+      <if test="userName!=null and userName!=''">
+       AND T.USER_NAME LIKE '%${userName}%'
+      </if>
+      
+      <if test="realName!=null and realName!=''">
+       AND T.REAL_NAME LIKE '%${realName}%'
+      </if>
+      
+      <choose>
+	      <when test="status!=null and status!='' and status=='-1'">
+	       AND T.STATUS!='3'
+	     </when>
+	     <when test="status!=null and status!='' and status!='-1'">
+	       AND T.STATUS=#{status}
+	     </when>
+	     <otherwise>
+	       AND T.STATUS='1'
+	     </otherwise>
+	  </choose>
+   </trim>
+   ORDER BY T.USER_ID
+ </select>
+ 
+
+   
+</mapper>

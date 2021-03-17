@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper   
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cjhme.system.core.dao.notice.NoticeDao" >
+
+  <!-- 根据条件分页查询系统公告 -->
+  <select id="querySysNoticeByConditionPaging" parameterType="hashmap" resultType="noticeBean">
+    SELECT 
+      T.NOTICE_ID AS noticeId,
+      T.NOTICE_TITLE AS noticeTitle,
+      T.NOTICE_CONTENT AS noticeContent,
+      T.NOTICE_TYPE AS noticeType,
+      T.STATUS AS status,
+      T.CREATE_DATE AS createDate,
+      T.UPDATE_DATE AS updateDate,
+      T.CUTOFF_DATE AS cutoffDate,
+      T2.REAL_NAME AS createUser,
+      T3.REAL_NAME AS updateUser
+    FROM T_NOTICE T  
+    LEFT JOIN T_USER T2 ON(T.CREATE_USER_ID=T2.USER_ID)  
+    LEFT JOIN T_USER T3 ON(T.UPDATE_USER_ID=T3.USER_ID)  
+    <trim prefix="where" prefixOverrides="and">  
+      <if test="createUserId!=null and createUserId!=''">
+          T.CREATE_USER_ID=#{createUserId}
+      </if>
+      
+      <if test="noticeTitle!=null and noticeTitle!=''">
+        AND 
+          T.NOTICE_TITLE LIKE '%${noticeTitle}%'
+      </if>
+      <if test="cutoffDate!=null and cutoffDate!='' and cutoffDate!='null'">
+        AND
+          DATE_FORMAT(T.CUTOFF_DATE,'%Y-%M-%D')&lt;=DATE_FORMAT(#{cutoffDate},'%Y-%M-%D')
+      </if>
+      <choose>
+	      <when test="status!=null and status!='' and status=='-1'">
+	       AND T.STATUS!='3'
+	     </when>
+	     <when test="status!=null and status!='' and status!='-1'">
+	       AND T.STATUS=#{status}
+	     </when>
+	     <otherwise>
+	       AND T.STATUS='1'
+	     </otherwise>
+	  </choose>
+        AND 
+          T.NOTICE_TYPE=1
+    </trim>
+    ORDER BY T.CUTOFF_DATE DESC
+  </select>
+  
+  <!-- 保存公告 -->
+  <insert id="saveNotice"  parameterType="hashMap" >
+      INSERT INTO T_NOTICE(
+         NOTICE_ID,
+         NOTICE_TITLE,
+         NOTICE_CONTENT,
+         NOTICE_TYPE,
+         STATUS,
+         CREATE_USER_ID,
+         CREATE_DATE,
+         CUTOFF_DATE
+      )values(
+         #{noticeId},
+         #{noticeTitle},
+         #{noticeContent},
+         #{noticeType},
+         #{status},
+         #{createUserId},
+         sysdate(),
+         #{cutoffDate}
+      )
+  </insert>
+  
+  <!-- 根据id查询公告 -->
+  <select id="queryNoticeById" parameterType="hashMap" resultType="noticeBean">
+      SELECT
+          T.NOTICE_ID AS noticeId,
+	      T.NOTICE_TITLE AS noticeTitle,
+	      T.NOTICE_CONTENT AS noticeContent,
+	      T.NOTICE_TYPE AS noticeType,
+	      T.STATUS AS status,
+	      T.CREATE_DATE AS createDate,
+	      T.UPDATE_DATE AS updateDate,
+	      T.CUTOFF_DATE AS cutoffDate,
+	      T2.REAL_NAME AS createUser,
+	      T3.REAL_NAME AS updateUser
+     FROM T_NOTICE T  
+     LEFT JOIN T_USER T2 ON(T.CREATE_USER_ID=T2.USER_ID)   
+     LEFT JOIN T_USER T3 ON(T.UPDATE_USER_ID=T3.USER_ID)   
+     WHERE NOTICE_ID=#{noticeId}
+  </select>
+  
+  <!-- 根据id修改公告 -->
+  <update id="updateNoticeById" parameterType="hashMap">
+      UPDATE T_NOTICE
+      SET 
+        NOTICE_TITLE=#{noticeTitle},
+        NOTICE_CONTENT=#{noticeContent},
+        CUTOFF_DATE=#{cutoffDate},
+        STATUS=#{status},
+        UPDATE_USER_ID=#{updateUserId},
+        UPDATE_DATE=sysdate()
+      WHERE
+        NOTICE_ID=#{noticeId}
+  </update>
+  
+  
+   <!-- 根据ids删除公告 -->
+ <update id="deleteNoticeByIds" parameterType="hashmap">
+   UPDATE T_NOTICE
+     SET
+       STATUS='3',
+       UPDATE_USER_ID=#{updateUserId},
+       UPDATE_DATE=sysdate()
+   WHERE 
+       NOTICE_ID IN
+       <foreach collection="ids" index="index" item="item" open="(" separator="," close=")">
+          #{item}
+       </foreach>
+ </update>
+  
+  <!-- 根据用户id查看公告列表 -->
+  <select id="queryNoticeByUserId" parameterType="hashmap" resultType="noticeBean">
+       SELECT 
+		 T.NOTICE_ID AS noticeId,
+	     T.NOTICE_TITLE AS noticeTitle,
+		 T.CREATE_DATE AS createDate,
+		 T.NOTICE_TYPE AS noticeType,
+		 T.CUTOFF_DATE AS cutoffDate,
+		 T3.REAL_NAME AS createUser 
+	   FROM  T_NOTICE T 
+	   LEFT JOIN T_NOTICE_USER_MAPPING T2  ON(T.NOTICE_ID=T2.NOTICE_ID)
+	   LEFT JOIN T_USER T3 ON(T.CREATE_USER_ID=T3.USER_ID)   
+	   WHERE 
+	   (
+	      T.NOTICE_ID=T2.NOTICE_ID
+		AND 
+		  T.STATUS='1'
+		AND 
+		  T.NOTICE_TYPE !=1
+		AND 
+		  T2.USER_ID=#{userId}
+		AND
+		  DATE_FORMAT(T.CUTOFF_DATE,'%Y-%M-%D') &gt;=  DATE_FORMAT(sysdate(),'%Y-%M-%D')
+       )
+       OR 
+       (
+          T.STATUS='1'
+	   AND 
+		  T.NOTICE_TYPE=1
+	   AND
+		  DATE_FORMAT(T.CUTOFF_DATE,'%Y-%M-%D') &gt;=  DATE_FORMAT(sysdate(),'%Y-%M-%D')
+       )
+       GROUP BY  T.NOTICE_ID 
+	   ORDER BY T.CUTOFF_DATE DESC
+       LIMIT 0,5
+  </select>
+  
+  <!-- 根据用户id查询分页公告列表 -->
+  <select id="queryUserNoticeByConditionPaging" parameterType="hashmap" resultType="noticeBean">
+   SELECT 
+		  T.NOTICE_ID AS noticeId,
+	      T.NOTICE_TITLE AS noticeTitle,
+	      T.NOTICE_CONTENT AS noticeContent,
+	      T.NOTICE_TYPE AS noticeType,
+	      T.STATUS AS status,
+	      T.CREATE_DATE AS createDate,
+	      T.UPDATE_DATE AS updateDate,
+	      T.CUTOFF_DATE AS cutoffDate,
+		  T3.REAL_NAME AS createUser 
+	   FROM  T_NOTICE T 
+	   LEFT JOIN T_NOTICE_USER_MAPPING T2  ON(T.NOTICE_ID=T2.NOTICE_ID)
+	   LEFT JOIN T_USER T3 ON(T.CREATE_USER_ID=T3.USER_ID)   
+	   WHERE 
+	   ((
+	      T.NOTICE_ID=T2.NOTICE_ID
+		AND 
+		  T.STATUS='1'
+		AND 
+		  T.NOTICE_TYPE !=1
+		AND 
+		  T2.USER_ID=#{userId}
+		AND
+          DATE_FORMAT(T.CUTOFF_DATE,'%Y-%M-%D') &gt;=  DATE_FORMAT(sysdate(),'%Y-%M-%D')
+       )
+       OR
+       (
+          T.STATUS='1'
+	   AND 
+		  T.NOTICE_TYPE=1
+	   AND
+          DATE_FORMAT(T.CUTOFF_DATE,'%Y-%M-%D') &gt;=  DATE_FORMAT(sysdate(),'%Y-%M-%D')
+       ))
+       <if test="noticeTitle!=null and noticeTitle!=''">
+        AND 
+          T.NOTICE_TITLE LIKE '%${noticeTitle}%'
+      </if>
+       
+       GROUP BY  T.NOTICE_ID 
+	   ORDER BY T.CUTOFF_DATE DESC
+  </select>
+  
+  
+  
+   
+   
+</mapper>

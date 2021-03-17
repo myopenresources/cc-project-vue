@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper   
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cjhme.system.core.dao.dept.DeptDao">
+ 
+ <!-- 查询所有部门结构 -->
+ <select id="queryDeptList"  resultType="treeNodeBean">
+     SELECT 
+         T.DEPT_ID AS id,
+         T.DEPT_NAME AS text,
+         T.PARENT_DEPT_ID AS parentId,
+         T.ICON_CLS AS iconCls,
+         T.DEPT_CODE AS attr1,
+         T.DEPT_SORT_NAME AS attr2,
+         T.DEPT_LEVEL AS attr3,
+         T.LEFT_VALUE AS attr4,
+         T.RIGHT_VALUE AS attr5
+      FROM T_DEPT T 
+      WHERE 
+         T.STATUS='1'
+      ORDER BY T.DEPT_LEVEL,T.DEPT_NAME
+ </select>
+ 
+ <!-- 根据条件分页查询部门 -->
+ <select id="queryDeptByConditionPaging" parameterType="hashmap" resultType="deptBean">
+     SELECT 
+       T.DEPT_ID AS deptId,
+       T.DEPT_CODE AS deptCode,
+       T.DEPT_NAME AS deptName,
+       T.DEPT_SORT_NAME AS deptSortName,
+       T.DEPT_LEVEL AS deptLevel,
+       T.PARENT_DEPT_ID AS parentDeptId,
+       T.ICON_CLS AS iconCls,
+       T.LEFT_VALUE AS leftValue,
+       T.RIGHT_VALUE AS rightValue,
+       T.CREATE_DATE AS createDate,
+       T.UPDATE_DATE AS updateDate
+       T2.REAL_NAME AS createUser,
+       T3.REAL_NAME AS updateUser
+     FROM 
+       T_DEPT T
+       LEFT JOIN T_USER T2 ON(T.CREATE_USER_ID=T2.USER_ID)  
+       LEFT JOIN T_USER T3 ON(T.UPDATE_USER_ID=T3.USER_ID)  
+     where 
+       T.status='1'
+     <choose>
+         <!--按指定组织查询  -->
+	     <when test="queryStatus!=null and queryStatus!='' and (queryStatus=='1' or queryStatus==1)">
+	       AND 
+	         T.DEPT_NAME LIKE '%${deptName}%' 
+	       AND 
+	         T.PARENT_DEPT_ID=#{deptId}
+	     </when>
+	     <!--按所有组织查询-->
+	     <when test="queryStatus!=null and queryStatus!='' and (queryStatus=='2' or queryStatus==2)">
+	       AND 
+	         T.DEPT_NAME like '%${deptName}%'
+	     </when>
+	 </choose>
+     ORDER BY T.DEPT_LEVEL,T.DEPT_NAME
+ </select>
+ 
+<!-- 判断部门是否存在 -->
+<select id="queryDeptIsExists" parameterType="hashmap" resultType="integer">
+   SELECT         
+      COUNT(1) 
+   FROM T_DEPT  
+   WHERE 
+      (DEPT_NAME=#{deptName} OR DEPT_CODE=#{deptCode} 
+   <if test="deptSortName!=null and deptSortName!=''">
+       OR DEPT_NAME=#{deptSortName}
+   </if> 
+      ) 
+   <if test="deptId!=null and deptId!=''">
+      AND  DEPT_ID !=#{deptId} 
+   </if> 
+   AND STATUS!='3'
+</select>
+ 
+ <!--添加部门-->
+ <insert id="saveDept" parameterType="hashmap">
+      INSERT INTO T_DEPT(
+         DEPT_ID,
+         DEPT_CODE,
+         DEPT_NAME,
+         DEPT_SORT_NAME,
+         DEPT_LEVEL,
+         DEPT_DESCRIPT,
+         PARENT_DEPT_ID,
+         DEPT_LEADER_ID,
+         DEPT_TEL,
+         DEPT_ADDR,
+         ICON_CLS,
+         STATUS,
+         CREATE_USER_ID,
+         CREATE_DATE,
+         LEFT_VALUE,
+         RIGHT_VALUE
+      )VALUES(
+         #{deptId},
+         #{deptCode},
+         #{deptName},
+         #{deptSortName},
+         #{deptLevel},
+         #{deptDescript},
+         #{parentDeptId},
+         #{deptLeaderId},
+         #{deptTel},
+         #{deptAddr},
+         #{iconCls},
+         '1',
+         #{createUserId},
+         sysdate(),
+         #{leftValue},
+         #{rightValue}
+      )
+ </insert>
+ 
+ <!-- 根据id查询部门 -->
+ <select id="queryDeptByDeptId" parameterType="hashmap"  resultType="deptBean">
+   SELECT 
+       T.DEPT_ID AS deptId,
+       T.DEPT_CODE AS deptCode,
+       T.DEPT_NAME AS deptName,
+       T.DEPT_SORT_NAME AS deptSortName,
+       T.DEPT_LEVEL AS deptLevel,
+       T.DEPT_DESCRIPT AS deptDescript,
+       T.PARENT_DEPT_ID AS parentDeptId,
+       T.DEPT_TEL AS deptTel,
+       T.DEPT_ADDR AS deptAddr,
+       T.ICON_CLS AS iconCls,
+       T.STATUS AS status,
+       T.LEFT_VALUE AS leftValue,
+       T.RIGHT_VALUE AS rightValue,
+       T.DEPT_LEADER_ID AS deptLeaderId,
+       T.CREATE_DATE AS createDate,
+       T.UPDATE_DATE AS updateDate,
+       T2.REAL_NAME AS deptLeader,
+       T3.REAL_NAME AS createUser,
+       T4.REAL_NAME AS updateUser
+     FROM 
+       T_DEPT T  
+       LEFT JOIN T_USER T2 ON(T2.USER_ID=T.DEPT_LEADER_ID)
+       LEFT JOIN T_USER T3 ON(T.CREATE_USER_ID=T3.USER_ID)  
+       LEFT JOIN T_USER T4 ON(T.UPDATE_USER_ID=T4.USER_ID)  
+     WHERE 
+       T.DEPT_ID=#{deptId}
+ </select>
+ 
+ <!-- 根据id修改部门 -->
+ <update id="updateDeptByDeptId" parameterType="hashmap">
+    UPDATE 
+       T_DEPT
+    SET 
+      DEPT_CODE=#{deptCode},
+      DEPT_NAME=#{deptName},
+      DEPT_SORT_NAME=#{deptSortName},
+      PARENT_DEPT_ID=#{parentDeptId},
+      DEPT_LEVEL=#{deptLevel},
+      DEPT_DESCRIPT=#{deptDescript},
+      DEPT_TEL=#{deptTel},
+      DEPT_ADDR=#{deptAddr},
+      ICON_CLS=#{iconCls},
+      DEPT_LEADER_ID=#{deptLeaderId},
+      UPDATE_USER_ID=#{updateUserId},
+      UPDATE_DATE=sysdate()
+    WHERE
+      DEPT_ID=#{deptId}
+ </update>
+ 
+ <!-- 根据ids删除部门 -->
+ <update id="deleteDeptByIds" parameterType="hashmap">
+   UPDATE T_DEPT
+     SET
+       STATUS='3',
+       UPDATE_USER_ID=#{updateUserId},
+       UPDATE_DATE=sysdate()
+   WHERE 
+       DEPT_ID in
+       <foreach collection="ids" index="index" item="item" open="(" separator="," close=")">
+          #{item}
+       </foreach>
+ </update>
+ 
+ <!-- 根据条件查询部门 -->
+ <select id="queryDeptByCondition" parameterType="hashmap" resultType="treeNodeBean">
+     SELECT 
+         T.DEPT_ID as id,
+         T.DEPT_NAME as text,
+         T.PARENT_DEPT_ID as parentId,
+         T.ICON_CLS as iconCls,
+         T.DEPT_CODE as attr1,
+         T.DEPT_SORT_NAME as attr2,
+         T.LEFT_VALUE AS attr3,
+         T.RIGHT_VALUE AS attr4
+     FROM 
+       T_DEPT T
+     WHERE 
+       t.STATUS='1'
+     <if test="deptCode!=null and deptCode!=''">
+       AND T.DEPT_CODE LIKE '%${deptCode}%' 
+     </if> 
+     <if test="deptName!=null and deptName!=''">
+       AND T.DEPT_NAME LIKE '%${deptName}%' 
+     </if> 
+     <if test="deptSortName!=null and deptSortName!=''">
+       AND T.DEPT_SORT_NAME LIKE '%${deptSortName}%' 
+     </if>
+     ORDER BY T.DEPT_LEVEL,T.DEPT_NAME
+ </select>
+ 
+ <!-- 根据id移动部门 -->
+ <update id="updateDeptParentDeptIdById" parameterType="hashmap">
+   UPDATE T_DEPT
+     SET
+       PARENT_DEPT_ID=#{parentDeptId},
+       UPDATE_USER_ID=#{updateUserId},
+       UPDATE_DATE=sysdate()
+   WHERE 
+       DEPT_ID=#{deptId}
+ </update>
+ 
+ <!-- 根据组织ids删除部门用户映射 -->
+ <delete id="deleteDeptUserMappingByIds" parameterType="hashmap">
+   DELETE FROM 
+       T_USER_DEPT_MAPPING 
+   WHERE 
+       DEPT_ID in
+       <foreach collection="ids" index="index" item="item" open="(" separator="," close=")">
+          #{item}
+       </foreach>
+ </delete>
+   
+</mapper>

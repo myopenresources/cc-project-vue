@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: cc-demo-common
+Implementation-Version: 0.0.1
+Built-By: cc
+Implementation-Vendor-Id: com.cjhme
+Build-Jdk: 1.8.0_151
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/cc-app-backed/cc-demo-common
+Created-By: Maven Integration for Eclipse
+

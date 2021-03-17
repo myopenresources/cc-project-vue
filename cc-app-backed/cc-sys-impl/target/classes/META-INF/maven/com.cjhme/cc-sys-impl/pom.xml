@@ -1,0 +1,151 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.cjhme</groupId>
+		<artifactId>cc-app-backed</artifactId>
+		<version>0.0.1</version>
+	</parent>
+
+	<groupId>com.cjhme</groupId>
+	<artifactId>cc-sys-impl</artifactId>
+	<version>0.0.1</version>
+	<name>cc-sys-impl</name>
+
+
+	<dependencies>
+
+		<dependency>
+			<groupId>com.cjhme</groupId>
+			<artifactId>cc-sys-common</artifactId>
+			<version>0.0.1</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jdbc</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-cache</artifactId>
+		</dependency>
+		
+		<!-- ehcache start-->
+		<dependency>
+			<groupId>net.sf.ehcache</groupId>
+			<artifactId>ehcache</artifactId>
+		</dependency>
+		<!-- ehcache end-->
+
+		<!-- jta-atomikos start -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jta-atomikos</artifactId>
+		</dependency>
+		<!-- jta-atomikos end -->
+
+
+		<!-- mysql start -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql.version}</version>
+		</dependency>
+		<!-- mysql end -->
+
+
+		<!-- commons-fileupload start -->
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>${commons-fileupload.version}</version>
+		</dependency>
+		<!-- commons-fileupload end -->
+
+		<!-- commons-io start -->
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>${commons-io.version}</version>
+		</dependency>
+		<!-- commons-io end -->
+
+		<!-- mybatis start -->
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>${mybatis.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-spring</artifactId>
+			<version>${mybatis-spring.version}</version>
+		</dependency>
+		<!-- mybatis end -->
+
+
+		<!-- httpclient start -->
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>${httpclient.version}</version>
+		</dependency>
+		<!-- httpclient end -->
+
+		<!-- oshi-core start -->
+		<dependency>
+			<groupId>com.github.oshi</groupId>
+			<artifactId>oshi-core</artifactId>
+			<version>3.9.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>net.java.dev.jna</groupId>
+			<artifactId>jna</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>net.java.dev.jna</groupId>
+			<artifactId>jna-platform</artifactId>
+		</dependency>
+		<!-- oshi-core end -->
+
+
+
+		<!-- commons-beanutils start <dependency> <groupId>commons-beanutils</groupId> 
+			<artifactId>commons-beanutils</artifactId> <version>${commons-beanutils.version}</version> 
+			</dependency> -->
+		<!-- commons-beanutils end -->
+
+		<!-- commons-collections start <dependency> <groupId>commons-collections</groupId> 
+			<artifactId>commons-collections</artifactId> <version>${commons-collections.version}</version> 
+			</dependency> -->
+		<!-- commons-collections end -->
+
+
+		<!-- dom4j start <dependency> <groupId>dom4j</groupId> <artifactId>dom4j</artifactId> 
+			<version>${dom4j.version}</version> </dependency> -->
+		<!-- dom4j end -->
+
+		<!-- xmlbeans start <dependency> <groupId>org.apache.xmlbeans</groupId> 
+			<artifactId>xmlbeans</artifactId> <version>${xmlbeans.version}</version> 
+			</dependency> -->
+		<!-- xmlbeans end -->
+
+		<!-- ezmorph start <dependency> <groupId>net.sf.ezmorph</groupId> <artifactId>ezmorph</artifactId> 
+			<version>${ezmorph.version}</version> </dependency> -->
+		<!-- ezmorph end -->
+
+		<!-- stax start <dependency> <groupId>stax</groupId> <artifactId>stax-api</artifactId> 
+			<version>${stax.version}</version> </dependency> -->
+		<!-- stax end -->
+
+	</dependencies>
+
+</project>

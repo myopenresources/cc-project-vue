@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.cjhme</groupId>
+		<artifactId>cc-app-backed</artifactId>
+		<version>0.0.1</version>
+	</parent>
+
+	<groupId>com.cjhme</groupId>
+	<artifactId>cc-sys-common</artifactId>
+	<version>0.0.1</version>
+	<name>cc-sys-common</name>
+
+	<dependencies>
+
+
+		<!-- jackson start -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.10.0</version>
+		</dependency>
+		<!-- jackson end -->
+
+
+		<!-- json-lib start <dependency> <groupId>net.sf.json-lib</groupId> <artifactId>json-lib</artifactId> 
+			<version>${json-lib.version}</version> <classifier>jdk15</classifier> </dependency> -->
+
+		<!-- mybatis start <dependency> <groupId>org.mybatis</groupId> <artifactId>mybatis</artifactId> 
+			<version>${mybatis.version}</version> </dependency> <dependency> <groupId>org.mybatis</groupId> 
+			<artifactId>mybatis-spring</artifactId> <version>${mybatis-spring.version}</version> 
+			</dependency> -->
+		<!-- mybatis end -->
+
+	</dependencies>
+
+</project>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="cc-app-console-0.0.1">
+        <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
+        <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+        <dependent-module archiveName="cc-sys-web-0.0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/cc-sys-web/cc-sys-web">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="cc-sys-impl-0.0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/cc-sys-impl/cc-sys-impl">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="cc-sys-common-0.0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/cc-sys-common/cc-sys-common">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="cc-demo-web-0.0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/cc-demo-web/cc-demo-web">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="cc-demo-impl-0.0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/cc-demo-impl/cc-demo-impl">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="cc-demo-common-0.0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/cc-demo-common/cc-demo-common">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <property name="java-output-path" value="/cc-app-console/target/classes"/>
+        <property name="context-root" value="cc-app-console"/>
+    </wb-module>
+</project-modules>

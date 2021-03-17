@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper   
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cjhme.system.core.dao.button.ButtonDao" >
+
+ <!-- 根据条件分页查询按钮-->
+ <select id="queryButtonByConditionPaging" parameterType="hashmap" resultType="buttonBean">
+       SELECT 
+          T.BUTTON_ID AS buttonId,
+          T.BUTTON_NAME AS buttonName,
+          T.BUTTON_CODE AS buttonCode,
+          T.ICON_CLS AS iconCls,
+          T.BTN_CLS AS btnCls,
+          T.FUNCTION_NAME AS functionName,
+          T.BUSNIESS_MARK AS busniessMark,
+          T.LAYOUT_MARK AS layoutMark,
+          T.BUTTON_DESCRIBE AS buttonDescribe,
+          T.STATUS AS status,
+          T.SORT_NUM AS sortNum,
+          T.CREATE_DATE AS createDate,
+          T.UPDATE_DATE AS updateDate,
+          T.BTN_EXP AS btnExp,
+          T3.REAL_NAME AS createUser,
+          T4.REAL_NAME AS updateUser
+       FROM T_BUTTON T 
+       LEFT JOIN T_USER T3 ON(T.CREATE_USER_ID=T3.USER_ID)  
+       LEFT JOIN T_USER T4 ON(T.UPDATE_USER_ID=T4.USER_ID)  
+       WHERE  
+       <choose>
+	      <when test="status!=null and status!='' and status=='-1'">
+	       T.STATUS!='3'
+	     </when>
+	     <when test="status!=null and status!='' and status!='-1'">
+	       T.STATUS=#{status}
+	     </when>
+	     <otherwise>
+	       T.STATUS='1'
+	     </otherwise>
+	  </choose>
+       <if test="buttonName!=null and buttonName!=''">
+         AND 
+           T.BUTTON_NAME like '%${buttonName}%'
+       </if>
+       <if test="busniessMark!=null and busniessMark!='' and busniessMark!='-1' and busniessMark!='null'">
+         AND 
+          T.BUSNIESS_MARK =#{busniessMark}
+       </if>
+       <if test="layoutMark!=null and layoutMark!='' and layoutMark!='-1'  and layoutMark!='null'" >
+         AND 
+          T.LAYOUT_MARK =#{layoutMark}
+       </if>
+       ORDER BY T.BUSNIESS_MARK,T.SORT_NUM
+ </select>
+
+ <!-- 判断按钮是否存在 -->
+ <select id="queryButtonIsExists" parameterType="hashmap" resultType="integer">
+   SELECT 
+      COUNT(1)
+   FROM T_BUTTON T
+   WHERE
+      T.LAYOUT_MARK=#{layoutMark}
+   AND
+      T.BUSNIESS_MARK=#{busniessMark}
+   AND
+      T.FUNCTION_NAME=#{functionName}
+   AND
+      T.BUTTON_CODE=#{buttonCode}
+   <if test="buttonId!=null and buttonId!=''">
+      AND  T.BUTTON_ID !=#{buttonId}
+   </if> 
+   AND T.STATUS!='3'
+ </select>
+ 
+ <!-- 添加按钮 -->
+ <insert id="saveButton" parameterType="hashmap">
+   INSERT INTO T_BUTTON(
+      BUTTON_ID,
+      BUTTON_NAME,
+      BUTTON_CODE,
+      ICON_CLS,
+      BTN_CLS,
+      FUNCTION_NAME,
+      BUSNIESS_MARK,
+      LAYOUT_MARK,
+      BUTTON_DESCRIBE,
+      SORT_NUM,
+      STATUS,
+      CREATE_USER_ID,
+      BTN_EXP,
+      CREATE_DATE
+   )VALUES(
+      #{buttonId},
+      #{buttonName},
+      #{buttonCode},
+      #{iconCls},
+      #{btnCls},
+      #{functionName},
+      #{busniessMark},
+      #{layoutMark},
+      #{buttonDescribe},
+      #{sortNum},
+      #{status},
+      #{createUserId},
+      #{btnExp},
+      sysdate()
+   )
+ </insert>
+ 
+ <!-- 根据id查询按钮 -->
+ <select id="queryButtonById" parameterType="hashmap" resultType="buttonBean">
+  SELECT 
+       T.BUTTON_ID AS buttonId,
+       T.BUTTON_NAME AS buttonName,
+       T.BUTTON_CODE AS buttonCode,
+       T.ICON_CLS AS iconCls,
+       T.BTN_CLS AS btnCls,
+       T.FUNCTION_NAME AS functionName,
+       T.BUSNIESS_MARK AS busniessMark,
+       T.LAYOUT_MARK AS layoutMark,
+       T.BUTTON_DESCRIBE AS buttonDescribe,
+       T.STATUS AS status,
+       T.SORT_NUM AS sortNum,
+       T.CREATE_DATE AS createDate,
+       T.BTN_EXP AS btnExp,
+       T.UPDATE_DATE AS updateDate,
+       T3.REAL_NAME AS createUser,
+       T4.REAL_NAME AS updateUser
+   FROM T_BUTTON T 
+       LEFT JOIN T_USER T3 ON(T.CREATE_USER_ID=T3.USER_ID)  
+       LEFT JOIN T_USER T4 ON(T.UPDATE_USER_ID=T4.USER_ID)  
+   WHERE  
+      T.BUTTON_ID=#{buttonId}
+ </select>
+ 
+ <!-- 根据id修改按钮 -->
+ <update id="updateButtonById" parameterType="hashmap">
+   UPDATE T_BUTTON
+   SET
+     BUTTON_NAME=#{buttonName},
+     BUTTON_CODE=#{buttonCode},
+     ICON_CLS=#{iconCls},
+     BTN_CLS=#{btnCls},
+     FUNCTION_NAME=#{functionName},
+     BUSNIESS_MARK=#{busniessMark},
+     LAYOUT_MARK=#{layoutMark},
+     BUTTON_DESCRIBE=#{buttonDescribe},
+     SORT_NUM=#{sortNum},
+     STATUS=#{status},
+     UPDATE_USER_ID=#{updateUserId},
+     UPDATE_DATE=sysdate(),
+     BTN_EXP=#{btnExp}
+   WHERE
+    BUTTON_ID=#{buttonId} 
+ </update>
+ 
+ <!-- 根据ids删除按钮 -->
+ <update id="deleteButtonByIds" parameterType="hashmap">
+   UPDATE T_BUTTON
+     SET
+       STATUS='3',
+       UPDATE_USER_ID=#{updateUserId},
+       UPDATE_DATE=sysdate()
+   WHERE 
+       BUTTON_ID in
+       <foreach collection="ids" index="index" item="item" open="(" separator="," close=")">
+          #{item}
+       </foreach>
+ </update>
+ 
+ <!-- 查询所有按钮列表 -->
+ <select id="queryAllButtonList" resultType="buttonBean">
+    SELECT 
+          T.BUTTON_ID AS buttonId,
+          T.BUTTON_NAME AS buttonName,
+          T.BUSNIESS_MARK AS busniessMark,
+          T.LAYOUT_MARK AS layoutMark,
+          T.BUTTON_CODE AS buttonCode,
+          T.BTN_EXP AS btnExp
+    FROM T_BUTTON T  
+    WHERE
+     T.STATUS='1'
+     ORDER BY T.SORTNUM
+ </select>
+ 
+ <!-- 根据业务标识与用户id查询按钮 -->
+ <select id="queryBtnByBusniessMarkAndUserId" parameterType="hashmap" resultType="buttonBean">
+   SELECT 
+          T.BUTTON_ID AS buttonId,
+          T.BUTTON_CODE AS buttonCode,
+          T.BUTTON_NAME AS buttonName,
+          T.ICON_CLS AS iconCls,
+          T.BTN_CLS AS btnCls,
+          T.FUNCTION_NAME AS functionName,
+          T.LAYOUT_MARK AS layoutMark,
+          T.BTN_EXP AS btnExp
+   FROM T_BUTTON T 
+   LEFT JOIN T_ROLE_BUTTON_MAPPING TRB ON(T.BUTTON_ID=TRB.BUTTON_ID)
+   LEFT JOIN T_USER_ROLE_MAPPING UR ON(UR.ROLE_ID=TRB.ROLE_ID)
+   WHERE 
+      UR.USER_ID=#{userId}
+   AND 
+     T.BUSNIESS_MARK=#{busniessMark}   
+   AND
+      T.STATUS='1'   
+   GROUP BY T.BUTTON_ID 
+   ORDER BY T.SORT_NUM
+ </select>
+ 
+ <!-- 根据按钮ids删除按钮角色映射 -->
+ <delete id="deleteButtonRoleMappingByIds" parameterType="hashmap">
+   DELETE FROM 
+      T_ROLE_BUTTON_MAPPING 
+   WHERE 
+       BUTTON_ID in
+       <foreach collection="ids" index="index" item="item" open="(" separator="," close=")">
+          #{item}
+       </foreach>
+ </delete>
+ 
+
+</mapper>

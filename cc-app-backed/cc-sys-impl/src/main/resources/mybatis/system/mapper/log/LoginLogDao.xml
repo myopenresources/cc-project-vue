@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper   
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cjhme.system.core.dao.log.LoginLogDao">
+
+
+
+  <!-- 添加登录日志 -->
+  <insert id="saveLoginLog" parameterType="hashMap">
+    INSERT INTO T_LOGIN_LOG(
+      LOGIN_ID,
+      LOGIN_IP,
+      STATUS,
+      CREATE_USER_ID,
+      CREATE_DATE
+    )VALUES(
+      #{loginId},
+      #{loginIP},
+      '1',
+      #{createUserId},
+      sysdate()
+    )
+  </insert>  
+  
+  <!-- 根据条件分页查询登录日志-->
+  <select id="queryLoginLogByConditionPaging" parameterType="hashmap" resultType="loginLogBean">
+       SELECT 
+          T.LOGIN_ID AS loginId,
+          T.LOGIN_IP AS loginIP,
+          T.STATUS AS status,
+          T.CREATE_DATE createDate,
+          T2.REAL_NAME AS createUser
+       FROM T_LOGIN_LOG T 
+       LEFT JOIN T_USER T2 ON(T.CREATE_USER_ID=T2.USER_ID)  
+       WHERE  
+          T.STATUS='1'
+       <if test="queryUserId!=null and queryUserId!='-1'">
+         AND 
+           T.CREATE_USER_ID=#{queryUserId}
+       </if>
+  </select>
+  
+</mapper>

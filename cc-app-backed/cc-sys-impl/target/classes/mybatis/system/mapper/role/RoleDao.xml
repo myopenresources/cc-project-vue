@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper   
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cjhme.system.core.dao.role.RoleDao">
+
+	<!-- 根据条件分页查询角色 -->
+	<select id="queryRoleByConditionPaging" parameterType="hashmap"
+		resultType="roleBean">
+		SELECT
+			T.ROLE_ID AS roleId,
+			T.ROLE_CODE AS roleCode,
+			T.ROLE_NAME AS roleName,
+			T.IS_SUPER AS isSuper,
+			T.STATUS AS status,
+			T.CREATE_DATE AS createDate,
+			T.UPDATE_DATE AS updateDate,
+			T2.REAL_NAME AS createUser,
+	        T3.REAL_NAME AS updateUser
+		FROM T_ROLE T 
+		LEFT JOIN T_USER T2 ON(T.CREATE_USER_ID=T2.USER_ID)  
+        LEFT JOIN T_USER T3 ON(T.UPDATE_USER_ID=T3.USER_ID) 
+		<trim prefix="where" prefixOverrides="and">
+			<if test="roleCode!=null and roleCode!=''">
+				T.ROLE_CODE LIKE '%${roleCode}%'
+			</if>
+
+			<if test="roleName!=null and roleName!=''">
+				AND T.ROLE_NAME LIKE '%${roleName}%'
+			</if>
+
+			<if test="isSuper!=null and isSuper!='' and isSuper!='-1'">
+				AND T.IS_SUPER=#{isSuper}
+			</if>
+
+			<choose>
+				<when test="status!=null and status!='' and status=='-1'">
+					AND T.STATUS!='3'
+				</when>
+				<when test="status!=null and status!='' and status!='-1'">
+					AND T.STATUS=#{status}
+				</when>
+				<otherwise>
+					AND T.STATUS='1'
+				</otherwise>
+			</choose>
+		</trim>
+		ORDER BY T.CREATE_DATE DESC
+	</select>
+
+	<!-- 判断角色是否存在 -->
+	<select id="queryRoleIsExists" parameterType="hashmap"
+		resultType="integer">
+		SELECT
+		  COUNT(1)
+		FROM T_ROLE
+		WHERE
+		(ROLE_NAME=#{roleName} OR ROLE_CODE=#{roleCode})
+		<if test="roleId!=null and roleId!=''">
+			AND ROLE_ID !=#{roleId}
+		</if>
+		AND STATUS!='3'
+	</select>
+
+
+
+	<!-- 添加角色 -->
+	<insert id="saveRole" parameterType="hashmap">
+		INSERT INTO T_ROLE(
+		ROLE_ID,
+		ROLE_CODE,
+		ROLE_NAME,
+		ROLE_DESCRIBE,
+		IS_SUPER,
+		STATUS,
+		CREATE_USER_ID,
+		CREATE_DATE
+		)VALUES(
+		#{roleId},
+		#{roleCode},
+		#{roleName},
+		#{roleDescribe},
+		#{isSuper},
+		#{status},
+		#{createUserId},
+		sysdate()
+		)
+	</insert>
+
+	<!-- 根据id查询角色 -->
+	<select id="queryRoleById" parameterType="hashmap" resultType="roleBean">
+		SELECT
+			T.ROLE_ID AS roleId,
+			T.ROLE_CODE AS roleCode,
+			T.ROLE_NAME AS roleName,
+			T.ROLE_DESCRIBE AS roleDescribe,
+			T.IS_SUPER AS isSuper,
+			T.STATUS AS status,
+			T.CREATE_USER_ID AS createUserId,
+			T.UPDATE_USER_ID AS updateUserId,
+			T.CREATE_DATE AS createDate,
+			T.UPDATE_DATE AS updateDate,
+			T2.REAL_NAME AS createUser,
+		    T3.REAL_NAME AS updateUser
+		FROM T_ROLE T 
+		LEFT JOIN T_USER T2 ON(T.CREATE_USER_ID=T2.USER_ID)  
+        LEFT JOIN T_USER T3 ON(T.UPDATE_USER_ID=T3.USER_ID) 
+		WHERE
+		T.ROLE_ID=#{roleId}
+	</select>
+
+	<!-- 根据id修改角色 -->
+	<update id="updateRoleById" parameterType="hashmap">
+		UPDATE T_ROLE
+		SET
+		ROLE_CODE=#{roleCode},
+		ROLE_NAME=#{roleName},
+		ROLE_DESCRIBE=#{roleDescribe},
+		IS_SUPER=#{isSuper},
+		status=#{status},
+		UPDATE_USER_ID=#{updateUserId},
+		UPDATE_DATE=sysdate()
+		WHERE
+		ROLE_ID=#{roleId}
+	</update>
+
+
+	<!-- 根据ids删除角色 -->
+	<update id="deleteRoleByIds" parameterType="hashmap">
+		UPDATE T_ROLE
+		SET
+		STATUS='3',
+		UPDATE_USER_ID=#{updateUserId},
+		UPDATE_DATE=sysdate()
+		WHERE
+		ROLE_ID IN
+		<foreach collection="ids" index="index" item="item" open="("
+			separator="," close=")">
+			#{item}
+		</foreach>
+	</update>
+
+	<!-- 查询所有角色列表 -->
+	<select id="queryAllRoleList" resultType="roleBean">
+		select
+		    T.ROLE_ID AS roleId,
+			T.ROLE_CODE AS roleCode,
+			T.ROLE_NAME AS roleName
+		FROM T_ROLE T
+		WHERE
+		T.STATUS='1'
+	</select>
+
+
+	<!-- 根据角色查询角色菜单映射 -->
+	<select id="queryRoleMenuMappingById" resultType="roleMenuMappingBean"
+		parameterType="hashmap">
+		SELECT
+		MENU_ID AS menuId,
+		(SELECT TT.MENU_NAME FROM T_MENU TT WHERE TT.MENU_ID=T.MENU_ID) AS menuName
+		FROM T_ROLE_MENU_MAPPING T
+		WHERE
+		T.ROLE_ID=#{roleId}
+	</select>
+
+	<!-- 根据角色删除角色菜单映射 -->
+	<delete id="deleteRoleMenuMappingById" parameterType="hashmap">
+		DELETE FROM
+		T_ROLE_MENU_MAPPING
+		WHERE
+		ROLE_ID=#{roleId}
+	</delete>
+
+	<!-- 根据角色ids删除角色菜单映射 -->
+	<delete id="deleteRoleMenuMappingByIds" parameterType="hashmap">
+		DELETE FROM
+		T_ROLE_MENU_MAPPING
+		WHERE
+		ROLE_ID IN
+		<foreach collection="ids" index="index" item="item" open="("
+			separator="," close=")">
+			#{item}
+		</foreach>
+	</delete>
+
+	<!-- 保存角色菜单映射 -->
+	<insert id="saveRoleMenuMapping" parameterType="hashmap">
+		INSERT INTO
+		T_ROLE_MENU_MAPPING(
+		 RMM_ID,
+		 ROLE_ID,
+		 MENU_ID
+		)VALUES(
+		 #{rmmId},
+		 #{roleId},
+		 #{menuId}
+		)
+	</insert>
+
+	<!-- 根据角色查询角色按钮映射 -->
+	<select id="queryRoleButtonMappingById" resultType="roleButtonMappingBean" parameterType="hashmap">
+		SELECT
+		BUTTON_ID
+		FROM T_ROLE_BUTTON_MAPPING T
+		WHERE
+		T.ROLE_ID=#{roleId}
+	</select>
+
+	<!-- 根据角色删除角色按钮映射 -->
+	<delete id="deleteRoleButtonMappingById" parameterType="hashmap">
+		DELETE FROM
+		T_ROLE_BUTTON_MAPPING
+		WHERE
+		ROLE_ID=#{roleId}
+	</delete>
+
+	<!-- 根据角色ids删除角色按钮映射 -->
+	<delete id="deleteRoleButtonMappingByIds" parameterType="hashmap">
+		DELETE FROM
+		T_ROLE_BUTTON_MAPPING
+		WHERE
+		ROLE_ID IN
+		<foreach collection="ids" index="index" item="item" open="("
+			separator="," close=")">
+			#{item}
+		</foreach>
+	</delete>
+
+
+	<!-- 保存角色按钮映射 -->
+	<insert id="saveRoleButtonMapping" parameterType="hashmap">
+		INSERT INTO
+		T_ROLE_BUTTON_MAPPING(
+		RBM_ID,
+		ROLE_ID,
+		BUTTON_ID
+		)VALUES(
+		#{rbmId},
+		#{roleId},
+		#{buttonId}
+		)
+	</insert>
+
+	<!-- 根据角色ids删除角色用户映射 -->
+	<delete id="deleteRoleUserMappingByIds" parameterType="hashmap">
+		DELETE FROM
+		T_USER_ROLE_MAPPING
+		WHERE
+		ROLE_ID IN
+		<foreach collection="ids" index="index" item="item" open="("
+			separator="," close=")">
+			#{item}
+		</foreach>
+	</delete>
+
+	<!-- 根据角色ids删除数据字典明细角色映射 -->
+	<delete id="deleteDataDicItemRoleMappingByIds" parameterType="hashmap">
+		DELETE FROM
+		T_DATA_DIC_ITEM_ROLE_MAPPING
+		WHERE
+		ROLE_ID IN
+		<foreach collection="ids" index="index" item="item" open="("
+			separator="," close=")">
+			#{item}
+		</foreach>
+	</delete>
+
+	<!-- 根据角色查询角色访问地址映射 -->
+	<select id="queryRoleAccessUrlMappingById" resultType="roleAccessUrlMappingBean"
+		parameterType="hashmap">
+		SELECT
+		T.ACCESS_URL_ID AS accessUrlId,
+		(SELECT ACCESS_URL_NAME FROM T_ACCESS_URL TT WHERE TT.ACCESS_URL_ID=T.ACCESS_URL_ID) AS accessUrlName
+		FROM T_ROLE_ACCESS_URL_MAPPING T
+		WHERE
+		T.ROLE_ID=#{roleId}
+	</select>
+
+	<!-- 根据角色id删除角色访问地址映射 -->
+	<delete id="deleteRoleAccessUrlMappingById" parameterType="hashmap">
+		DELETE FROM
+		T_ROLE_ACCESS_URL_MAPPING
+		WHERE
+		ROLE_ID=#{roleId}
+	</delete>
+
+	<!-- 根据角色ids删除角色访问地址映射 -->
+	<delete id="deleteRoleAccessUrlMappingByIds" parameterType="hashmap">
+		DELETE FROM
+		T_ROLE_ACCESS_URL_MAPPING
+		WHERE
+		ROLE_ID IN
+		<foreach collection="ids" index="index" item="item" open="("
+			separator="," close=")">
+			#{item}
+		</foreach>
+	</delete>
+
+	<!-- 保存角色访问地址映射 -->
+	<insert id="saveRoleAccessUrlMapping" parameterType="hashmap">
+		INSERT INTO
+		T_ROLE_ACCESS_URL_MAPPING(
+		  RUM_ID,
+		  ROLE_ID,
+		  ACCESS_URL_ID
+		)values(
+		  #{rumId},
+		  #{roleId},
+		  #{accessUrlId}
+		)
+	</insert>
+
+    <!-- 根据条件查询角色访问地址与按钮列表-->
+	<select id="queryRoleAccessUrlAndButtonList" resultType="treeNodeBean" parameterType="hashmap">
+		SELECT 
+		  AB.ID AS id,
+		  AB.NAME AS text,
+		  AB.CHECKED AS checked,
+		  AB.BUSNIESS_MARK AS parentId,
+		  AB.TYPE AS attr1,
+		  AB.TYPE_NAME AS attr2,
+		  AB.BUSNIESS_MARK AS attr3,
+		  TDI.DIC_ITEM_NAME AS attr4
+		FROM
+		  (
+		    (SELECT 
+		      A.ACCESS_URL_ID AS ID,
+		      A.ACCESS_URL_NAME AS NAME,
+		      A.BUSNIESS_MARK AS BUSNIESS_MARK,
+		      'TYPE_ACCESS_URL' AS TYPE,
+		      '访问地址' AS TYPE_NAME,
+		      (
+		        CASE
+		          WHEN RA.RUM_ID IS NOT NULL 
+		          THEN 'true' 
+		          ELSE 'false' 
+		        END
+		      ) AS CHECKED 
+		    FROM
+		      T_ACCESS_URL A 
+		      LEFT JOIN T_ROLE_ACCESS_URL_MAPPING RA 
+		        ON (
+		          RA.ACCESS_URL_ID = A.ACCESS_URL_ID 
+		          AND RA.ROLE_ID = #{roleId}
+		        ) 
+		    WHERE A.STATUS = #{status} 
+		      AND A.BUSNIESS_MARK IS NOT NULL) 
+		    UNION
+		    (SELECT 
+		      B.BUTTON_ID AS ID,
+		      B.BUTTON_NAME AS NAME,
+		      B.BUSNIESS_MARK AS BUSNIESS_MARK,
+		      'TYPE_BTN' AS TYPE,
+		      '按钮' AS TYPE_NAME,
+		      (
+		        CASE
+		          WHEN RB.RBM_ID IS NOT NULL 
+		          THEN 'true' 
+		          ELSE 'false' 
+		        END
+		      ) AS CHECKED 
+		    FROM
+		      T_BUTTON B 
+		      LEFT JOIN T_ROLE_BUTTON_MAPPING RB 
+		        ON (
+		          RB.BUTTON_ID = B.BUTTON_ID 
+		          AND RB.ROLE_ID = #{roleId}
+		        ) 
+		    WHERE B.STATUS = #{status}  
+		      AND B.BUSNIESS_MARK IS NOT NULL)
+		  ) AS AB 
+		LEFT JOIN T_DATA_DIC_ITEM TDI ON(TDI.DIC_ITEM_CODE=AB.BUSNIESS_MARK)
+		ORDER BY AB.BUSNIESS_MARK,
+		  AB.TYPE DESC 
+	</select> 
+	
+	<!-- 根据条件查询角色数据权限列表-->
+	<select id="queryRoleDataPermissionsList" resultType="treeNodeBean" parameterType="hashmap">
+		SELECT 
+   			D.DATA_PERMISSIONS_ID AS id,
+			D.DATA_PERMISSIONS_NAME AS text,
+			D.DATA_PERMISSIONS_CATEGORY AS parentId,
+			DD.DIC_ITEM_NAME AS attr1,
+			DP1.DIC_ITEM_NAME AS attr2,
+			DP2.DIC_ITEM_NAME AS attr3,
+			(
+				CASE 
+				  WHEN RD.RDPM_ID IS NOT NULL THEN 'true'  
+				ELSE 'false' 
+				  END
+		    ) AS checked
+		FROM T_DATA_PERMISSIONS D   
+  		LEFT JOIN T_ROLE_DATA_PERMIT_MAPPING RD  
+   			ON(D.DATA_PERMISSIONS_ID=RD.DATA_PERMISSIONS_ID AND RD.ROLE_ID =  #{roleId})
+		LEFT JOIN T_DATA_DIC_ITEM DD 
+		    ON (DD.DIC_ITEM_VALUE=D.DATA_PERMISSIONS_CATEGORY AND DD.DIC_TYPE_CODE=#{dataPermissionsCategory})
+		LEFT JOIN T_DATA_DIC_ITEM DP1
+		    ON (DP1.DIC_ITEM_VALUE=D.PRIMARY_PROCESSOR AND DP1.DIC_TYPE_CODE=#{dataPermissionsProcessor})
+		LEFT JOIN T_DATA_DIC_ITEM DP2
+		    ON (DP2.DIC_ITEM_VALUE=D.SECONDARY_PROCESSOR AND DP2.DIC_TYPE_CODE=#{dataPermissionsProcessor})
+   		WHERE 
+   			D.STATUS = #{status}  
+   		ORDER BY D.DATA_PERMISSIONS_CATEGORY,D.PROCESSOR_PRIORITY
+	</select> 
+	
+	<!-- 根据角色id删除角色数据权限映射 -->
+	<delete id="deleteRoleDataPermissionsMappingById" parameterType="hashmap">
+		DELETE FROM
+		  T_ROLE_DATA_PERMIT_MAPPING
+		WHERE
+		  ROLE_ID=#{roleId}
+	</delete>
+	
+	<!-- 根据角色ids删除角色数据权限映射 -->
+	<delete id="deleteRoleDataPermissionsMappingByIds" parameterType="hashmap">
+		DELETE FROM
+		  T_ROLE_DATA_PERMIT_MAPPING
+		WHERE
+		  ROLE_ID IN
+		<foreach collection="ids" index="index" item="item" open="("
+			separator="," close=")">
+			#{item}
+		</foreach>
+	</delete>
+	
+	<!-- 保存角色数据权限映射 -->
+	<insert id="saveRoleDataPermissionsMapping" parameterType="hashmap">
+		INSERT INTO
+		T_ROLE_DATA_PERMIT_MAPPING(
+		  RDPM_ID,
+		  ROLE_ID,
+		  DATA_PERMISSIONS_ID
+		)values(
+		  #{rdpmId},
+		  #{roleId},
+		  #{dataPermissionsId}
+		)
+	</insert>
+	
+
+</mapper>
