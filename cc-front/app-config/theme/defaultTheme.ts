@@ -1,4 +1,5 @@
 export const overwriteVars = {
+  'drawer-body-padding': '0px'
   /*'primary-color': '#1DA57A',
   'link-color': '#1DA57A'*/
 }

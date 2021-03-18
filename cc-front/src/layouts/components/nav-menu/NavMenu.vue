@@ -4,7 +4,7 @@
       <a-input-search placeholder="搜索菜单..." @search="onSearch" v-model="searchTxt" />
     </div>
 
-    <div class="app-nav-menu-tree" v-scrollbar>
+    <div class="app-nav-menu-tree" v-app-scrollbar>
       <div class="app-nav-menu-tree-content">
         <div class="app-search-msg" v-show="!searchMsgHidden">
           <app-custom-empty description="搜索的菜单不存在！" />

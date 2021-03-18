@@ -25,6 +25,7 @@
       :showHeader="false"
       :bordered="false"
       :size="'middle'"
+      :custom-row="customRow"
       v-if="taskObj.tasks && taskObj.tasks.length"
       class="app-task-table"
     >
@@ -63,7 +64,8 @@ export default defineComponent({
       },
     },
   },
-  setup() {
+  emits: ['toTaskView', 'toTaskList'],
+  setup(props, context) {
     const columns = [
       { key: 'index', dataIndex: 'index', width: '50px', slots: { customRender: 'indexRender' } },
       {
@@ -82,11 +84,22 @@ export default defineComponent({
       },
     ];
 
-    const toTaskList = () => {};
+    const toTaskList = () => {
+      context.emit('toTaskList');
+    };
+
+    const customRow = (record) => {
+      return {
+        onClick: () => {
+          context.emit('toTaskView', record);
+        },
+      };
+    };
 
     return {
       columns,
       toTaskList,
+      customRow,
     };
   },
 });

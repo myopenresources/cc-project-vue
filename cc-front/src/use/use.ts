@@ -1,8 +1,10 @@
 
 import { App } from "vue";
-import { DefMainLayout } from "/@/components/main-layout";
+import DefMainLayout from "/@/components/main-layout/DefMainLayout.vue";
 import CustomEmpty from '/@/components/custom-empty/CustomEmpty.vue';
 import LineTitle from '/@/components/line-title/LineTitle.vue';
+import DefDrawerLayout from '/@/components/drawer-layout/DefDrawerLayout.vue';
+
 
 import scrollbar from "/@/directives/scrollbar/scrollbar";
 import errorSrc from "/@/directives/error-src/error-src";
@@ -15,7 +17,8 @@ import store from '/@/store/index';
 import {
     Button, Form, Input, Card, Dropdown,
     InputNumber, Row, Col, Select, Modal,
-    Menu, Table, Alert, Tag
+    Menu, Table, Alert, Tag, Drawer, Progress,
+    Descriptions
 } from "ant-design-vue";
 
 /**
@@ -26,7 +29,8 @@ function useAntdComponnet(app: App) {
     const comps = [
         Button, Form, Input, Card, Dropdown,
         InputNumber, Row, Col, Select, Modal,
-        Menu, Table, Alert, Tag
+        Menu, Table, Alert, Tag, Drawer, Progress,
+        Descriptions
     ];
     comps.forEach((componnet) => {
         app.use(componnet);
@@ -38,8 +42,8 @@ function useAntdComponnet(app: App) {
  * @param app  应用根
  */
 function useCustomDirectives(app: App) {
-    app.directive('scrollbar', scrollbar);
-    app.directive('error-src', errorSrc);
+    app.directive('app-scrollbar', scrollbar);
+    app.directive('app-error-src', errorSrc);
 }
 
 /**
@@ -50,6 +54,7 @@ function useCustomComponent(app: App) {
     app.component('AppDefMainLayout', DefMainLayout);
     app.component('AppCustomEmpty', CustomEmpty);
     app.component('AppLineTitle', LineTitle);
+    app.component('AppDefDrawerLayout', DefDrawerLayout);
 }
 
 /**

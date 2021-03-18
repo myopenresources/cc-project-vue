@@ -41,7 +41,7 @@ export function createBrowserTitleGuard(router: Router) {
  * @param router 
  */
 export function createNotFoundGuard(router: Router) {
-    router.beforeEach(async (to) => {
+    router.beforeEach((to) => {
         if (to.matched.length === 0) {
             router.push('/app/notFound')
             return true;

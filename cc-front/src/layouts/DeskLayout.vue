@@ -7,15 +7,15 @@
 
 <script lang="ts">
 import { defineComponent, onMounted, reactive } from 'vue';
-import RightMain from '../components/right-main/RightMain.vue';
-import LeftToolbar from '../components/left-toolbar/LeftToolbar.vue';
+import RightMain from './components/right-main/RightMain.vue';
+import LeftToolbar from './components/left-toolbar/LeftToolbar.vue';
 import SysApi from '/@/api/sys-api';
 import HttpResultUtils from '/@/common/util/http-result-utils';
 import MainDataType from '/@/types/main-data-type';
 import SysStorageUtils from '/@/common/util/sys-storage-utils';
 
 export default defineComponent({
-  name: 'AppDeskLayout',
+  name: 'DeskLayout',
   components: {
     appLeftToolbar: LeftToolbar,
     appRightMain: RightMain,
@@ -57,5 +57,5 @@ export default defineComponent({
 </script>
 
 <style lang="less" scoped>
-@import './AppDeskLayout.less';
+@import './DeskLayout.less';
 </style>

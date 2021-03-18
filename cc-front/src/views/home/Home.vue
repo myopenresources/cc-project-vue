@@ -2,7 +2,7 @@
   <app-def-main-layout :showTool="false">
     <div class="app-home-container">
       <a-row class="app-home-row">
-        <a-col :span="17" class="app-home-col" v-scrollbar>
+        <a-col :span="17" class="app-home-col" v-app-scrollbar>
           <a-card :bordered="false" class="app-home-card app-home-left-card">
             <div>
               <app-line-title title="图表示例" />
@@ -10,15 +10,19 @@
             </div>
 
             <div class="app-home-left-row">
-              <app-task-card :taskObj="taskObj" />
+              <app-task-card :taskObj="taskObj" @toTaskList="taskListView" @toTaskView="taskView" />
             </div>
 
             <div class="app-home-left-row">
-              <app-notice-card :noticeList="noticeList" />
+              <app-notice-card
+                :noticeList="noticeList"
+                @toNoticeList="noticeListView"
+                @toNoticeView="noticeView"
+              />
             </div>
           </a-card>
         </a-col>
-        <a-col :span="7" class="app-home-col" v-scrollbar>
+        <a-col :span="7" class="app-home-col" v-app-scrollbar>
           <a-card :bordered="false" class="app-home-card">
             <app-line-title title="图表示例" />
 
@@ -92,12 +96,17 @@
       </a-row>
     </div>
   </app-def-main-layout>
+
+  <app-notice-view v-model:visible="noticeViewVisible" :noticeId="noticeId" />
+  <app-task-view v-model:visible="taskViewVisible" :taskId="taskId" />
 </template>
 
 <script lang="ts">
 import { defineComponent, onMounted, ref, shallowRef } from 'vue';
 import TaskCard from '/@/components/task/TaskCard.vue';
 import NoticeCard from '/@/components/notice/NoticeCard.vue';
+import NoticeView from '/@/views/notice/NoticeView.vue';
+import TaskView from '/@/views/task/TaskView.vue';
 
 import SysApi from '/@/api/sys-api';
 import TaskObjType from '/@/types/task-obj';
@@ -116,6 +125,7 @@ import {
 } from 'echarts/components';
 import { BarChart, PieChart } from 'echarts/charts';
 import { CanvasRenderer } from 'echarts/renderers';
+import router from '/@/router';
 
 use([
   TitleComponent,
@@ -133,6 +143,8 @@ export default defineComponent({
   components: {
     AppTaskCard: TaskCard,
     AppNoticeCard: NoticeCard,
+    AppNoticeView: NoticeView,
+    AppTaskView: TaskView,
     VChart,
   },
   setup() {
@@ -239,7 +251,16 @@ export default defineComponent({
 
     const rightEchartOptionInit = () => {
       rightEchartOption.value = {
-        color: ['#388bff', '#2eca94', '#fbc448', '#f54949','#09c8ff','#23f4ac','#f96f36','#ae5ed2'],
+        color: [
+          '#388bff',
+          '#2eca94',
+          '#fbc448',
+          '#f54949',
+          '#09c8ff',
+          '#23f4ac',
+          '#f96f36',
+          '#ae5ed2',
+        ],
         legend: {
           show: false,
         },
@@ -279,6 +300,11 @@ export default defineComponent({
 
     const noticeList = shallowRef<NoticeType[]>([]);
 
+    const noticeViewVisible = ref(false);
+    const noticeId = ref('');
+    const taskViewVisible = ref(false);
+    const taskId = ref('');
+
     /**
      * 初始化主页数据
      */
@@ -293,6 +319,30 @@ export default defineComponent({
       });
     };
 
+    /**
+     * 公告查看
+     */
+    const noticeView = (record) => {
+      noticeId.value = record.noticeId;
+      noticeViewVisible.value = true;
+    };
+
+    const noticeListView = () => {
+      router.push('/app/noticeList');
+    };
+
+    /**
+     * 待办查看
+     */
+    const taskView = (record) => {
+      taskId.value = record.taskId;
+      taskViewVisible.value = true;
+    };
+
+    const taskListView = () => {
+      router.push('/app/taskList');
+    };
+
     onMounted(() => {
       centerEchartOptionInit();
       rightEchartOptionInit();
@@ -305,6 +355,14 @@ export default defineComponent({
       rightEchartOption,
       taskObj,
       noticeList,
+      noticeViewVisible,
+      noticeId,
+      taskViewVisible,
+      noticeView,
+      taskId,
+      taskView,
+      taskListView,
+      noticeListView,
     };
   },
 });

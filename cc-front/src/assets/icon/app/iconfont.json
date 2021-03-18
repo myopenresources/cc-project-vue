@@ -6,18 +6,158 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "20449351",
+      "name": "cpu",
+      "font_class": "cpu",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "20449352",
+      "name": "dev",
+      "font_class": "dev",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "20449353",
+      "name": "login-log",
+      "font_class": "login-log",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "20449354",
+      "name": "demo",
+      "font_class": "demo",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "20449355",
+      "name": "business-mark",
+      "font_class": "business-mark",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    },
+    {
+      "icon_id": "20449356",
+      "name": "processor",
+      "font_class": "processor",
+      "unicode": "e605",
+      "unicode_decimal": 58885
+    },
+    {
+      "icon_id": "20449357",
+      "name": "navbar",
+      "font_class": "navbar",
+      "unicode": "e606",
+      "unicode_decimal": 58886
+    },
+    {
+      "icon_id": "20449358",
+      "name": "data-permissions",
+      "font_class": "data-permissions",
+      "unicode": "e607",
+      "unicode_decimal": 58887
+    },
+    {
+      "icon_id": "20449360",
+      "name": "memory",
+      "font_class": "memory",
+      "unicode": "e609",
+      "unicode_decimal": 58889
+    },
+    {
+      "icon_id": "20449361",
+      "name": "sex",
+      "font_class": "sex",
+      "unicode": "e60a",
+      "unicode_decimal": 58890
+    },
+    {
+      "icon_id": "20449362",
+      "name": "super-admin",
+      "font_class": "super-admin",
+      "unicode": "e60b",
+      "unicode_decimal": 58891
+    },
+    {
+      "icon_id": "20449363",
+      "name": "status",
+      "font_class": "status",
+      "unicode": "e60c",
+      "unicode_decimal": 58892
+    },
+    {
+      "icon_id": "20449364",
+      "name": "sms",
+      "font_class": "sms",
+      "unicode": "e60d",
+      "unicode_decimal": 58893
+    },
+    {
+      "icon_id": "20449365",
+      "name": "log-manage",
+      "font_class": "log-manage",
+      "unicode": "e60e",
+      "unicode_decimal": 58894
+    },
+    {
+      "icon_id": "20449366",
+      "name": "wind",
+      "font_class": "wind",
+      "unicode": "e60f",
+      "unicode_decimal": 58895
+    },
+    {
+      "icon_id": "20449367",
+      "name": "sys-log",
+      "font_class": "sys-log",
+      "unicode": "e610",
+      "unicode_decimal": 58896
+    },
+    {
+      "icon_id": "20449368",
+      "name": "temperature",
+      "font_class": "temperature",
+      "unicode": "e611",
+      "unicode_decimal": 58897
+    },
+    {
+      "icon_id": "20449369",
+      "name": "sys-manage",
+      "font_class": "sys-manage",
+      "unicode": "e612",
+      "unicode_decimal": 58898
+    },
+    {
+      "icon_id": "20449370",
+      "name": "workbench",
+      "font_class": "workbench",
+      "unicode": "e613",
+      "unicode_decimal": 58899
+    },
+    {
+      "icon_id": "20449371",
+      "name": "pm25",
+      "font_class": "pm25",
+      "unicode": "e614",
+      "unicode_decimal": 58900
+    },
+    {
+      "icon_id": "20449372",
+      "name": "test",
+      "font_class": "test",
+      "unicode": "e615",
+      "unicode_decimal": 58901
+    },
+    {
       "icon_id": "380355",
       "name": "more-circle-o",
       "font_class": "more-circle",
       "unicode": "e657",
       "unicode_decimal": 58967
-    },
-    {
-      "icon_id": "10043883",
-      "name": "Organization",
-      "font_class": "org",
-      "unicode": "e62a",
-      "unicode_decimal": 58922
     }
   ]
 }

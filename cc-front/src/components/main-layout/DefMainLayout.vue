@@ -14,7 +14,7 @@
         'app-def-main-layout-content-full': !showTool,
       }"
     >
-      <div class="app-def-main-layout-inner-content" v-scrollbar="scrollOptions">
+      <div class="app-def-main-layout-inner-content" v-app-scrollbar="scrollOptions">
         <slot></slot>
       </div>
     </div>

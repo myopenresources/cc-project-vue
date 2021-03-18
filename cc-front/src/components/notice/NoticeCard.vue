@@ -2,7 +2,7 @@
   <a-card :bordered="false" class="app-notice-card" :bodyStyle="{ padding: 0 }">
     <template #extra>
       <a-button size="small" type="primary" ghost @click="toNoticeList">
-        更多 
+        更多
         <span class="iconfont icon-doubleright"></span>
       </a-button>
     </template>
@@ -25,6 +25,7 @@
       :showHeader="false"
       :bordered="false"
       :size="'middle'"
+      :custom-row="customRow"
       v-if="noticeList && noticeList.length"
       class="app-notice-table"
     >
@@ -60,7 +61,8 @@ export default defineComponent({
       },
     },
   },
-  setup() {
+  emits: ['toNoticeList', 'toNoticeView'],
+  setup(props, context) {
     const columns = [
       { key: 'index', dataIndex: 'index', width: '50px', slots: { customRender: 'indexRender' } },
       {
@@ -79,11 +81,22 @@ export default defineComponent({
       },
     ];
 
-    const toNoticeList = () => {};
+    const toNoticeList = () => {
+      context.emit('toNoticeList');
+    };
+
+    const customRow = (record) => {
+      return {
+        onClick: () => {
+          context.emit('toNoticeView', record);
+        },
+      };
+    };
 
     return {
       columns,
       toNoticeList,
+      customRow,
     };
   },
 });

@@ -7,4 +7,5 @@ cc-project-vue 是一个前后端分离的项目，前端使用的是vue3.0，后端使用srping boot，
 
 ## 界面展示
 ![login](./001.png) <br/>
-![home](./002.png)
+![home](./002.png) <br/>
+![home](./003.png)

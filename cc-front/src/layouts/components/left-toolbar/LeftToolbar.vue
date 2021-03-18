@@ -5,7 +5,7 @@
         <img src="../../../assets/img/logo.png" />
       </div>
 
-      <div class="app-left-toolbar-top-list" ref="toolbarTopListRef" v-scrollbar>
+      <div class="app-left-toolbar-top-list" ref="toolbarTopListRef" v-app-scrollbar>
         <div class="app-left-toolbar-top-item" @click="changeMenuVisible(true)">
           <span class="iconfont icon-menu"></span>
           <span>菜单</span>
@@ -26,7 +26,7 @@
       </div>
 
       <div class="app-left-toolbar-bottom-avatar" @click="userDropdownVisible = true">
-        <img :src="originalUserAvatar" v-error-src="defaultAvatar" />
+        <img :src="originalUserAvatar" v-app-error-src="defaultAvatar" />
       </div>
     </div>
   </div>

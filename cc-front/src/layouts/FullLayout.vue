@@ -6,10 +6,10 @@
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-  name: 'AppFullLayout',
+  name: 'FullLayout',
 });
 </script>
 
 <style lang="less" scoped>
-@import './AppFullLayout.less';
+@import './FullLayout.less';
 </style>
