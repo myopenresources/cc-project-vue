@@ -98,7 +98,6 @@
   </app-def-main-layout>
 
   <app-notice-view v-model:visible="noticeViewVisible" :noticeId="noticeId" />
-  <app-task-view v-model:visible="taskViewVisible" :taskId="taskId" />
 </template>
 
 <script lang="ts">
@@ -106,7 +105,6 @@ import { defineComponent, onMounted, ref, shallowRef } from 'vue';
 import TaskCard from '/@/components/task/TaskCard.vue';
 import NoticeCard from '/@/components/notice/NoticeCard.vue';
 import NoticeView from '/@/views/notice/NoticeView.vue';
-import TaskView from '/@/views/task/TaskView.vue';
 
 import SysApi from '/@/api/sys-api';
 import TaskObjType from '/@/types/task-obj';
@@ -144,7 +142,6 @@ export default defineComponent({
     AppTaskCard: TaskCard,
     AppNoticeCard: NoticeCard,
     AppNoticeView: NoticeView,
-    AppTaskView: TaskView,
     VChart,
   },
   setup() {
@@ -302,8 +299,6 @@ export default defineComponent({
 
     const noticeViewVisible = ref(false);
     const noticeId = ref('');
-    const taskViewVisible = ref(false);
-    const taskId = ref('');
 
     /**
      * 初始化主页数据
@@ -335,8 +330,7 @@ export default defineComponent({
      * 待办查看
      */
     const taskView = (record) => {
-      taskId.value = record.taskId;
-      taskViewVisible.value = true;
+      router.push({ path: record.taskUrl, query: JSON.parse(record.taskParameter) });
     };
 
     const taskListView = () => {
@@ -357,9 +351,7 @@ export default defineComponent({
       noticeList,
       noticeViewVisible,
       noticeId,
-      taskViewVisible,
       noticeView,
-      taskId,
       taskView,
       taskListView,
       noticeListView,

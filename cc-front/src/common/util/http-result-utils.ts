@@ -32,8 +32,8 @@ export default class HttpResultUtils {
                 description: res.data.resultMsg
             });
             return true;
-        } else {
-            return false;
+        }else {
+            HttpResultUtils.errorTipMsg(res);
         }
     }
 

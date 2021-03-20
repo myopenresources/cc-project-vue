@@ -10,6 +10,6 @@ export default class SysInfoApi {
    * @param params 
    */
     static initSysInfoData() {
-        return http.post(`${this.REQUEST_PREFIX}initSysInfoData`);
+        return http.post(`${SysInfoApi.REQUEST_PREFIX}initSysInfoData`);
     }
 }

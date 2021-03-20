@@ -6,7 +6,7 @@ import { resolve } from 'path';
 import vue from '@vitejs/plugin-vue'
 import { styleImportPlugin } from './app-config/plugin/styleImport';
 
-import { themeVars } from './app-config/theme/index';
+
 import { OUTPUT_DIR } from './app-config/build/buildConfig';
 import { wrapperEnv } from './app-config/build/buildUtils';
 
@@ -38,8 +38,12 @@ export default ({ mode }: ConfigEnv): UserConfig => {
         css: {
             preprocessorOptions: {
                 less: {
-                    modifyVars: themeVars,
-                    javascriptEnabled: true
+                    modifyVars: {
+                        hack: `true; @import "${resolve(
+                            './src/assets/less/overwrite/overwrite.less'
+                        )}";`,
+                    }
+                    , javascriptEnabled: true
                 }
             }
         },

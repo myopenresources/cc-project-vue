@@ -4,7 +4,7 @@
       <div class="app-def-main-layout-header-title">
         <span class="iconfont icon-file"></span>{{ title && title.length ? title : routerTitle }}
       </div>
-      <div>
+      <div class="app-def-main-layout-header-btns">
         <slot name="headerBtnsTpl"></slot>
       </div>
     </div>
@@ -13,8 +13,9 @@
         'app-def-main-layout-content': showTool,
         'app-def-main-layout-content-full': !showTool,
       }"
+      v-app-scrollbar="scrollOptions"
     >
-      <div class="app-def-main-layout-inner-content" v-app-scrollbar="scrollOptions">
+      <div class="app-def-main-layout-inner-content">
         <slot></slot>
       </div>
     </div>
@@ -39,7 +40,7 @@ export default defineComponent({
     title: {
       type: String,
       default: '',
-    },
+    }
   },
   setup() {
     const routerTitle = useRoute().meta.title;

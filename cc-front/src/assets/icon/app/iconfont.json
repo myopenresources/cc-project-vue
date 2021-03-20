@@ -6,6 +6,13 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "20481556",
+      "name": "data-dic",
+      "font_class": "data-dic",
+      "unicode": "e608",
+      "unicode_decimal": 58888
+    },
+    {
       "icon_id": "20449351",
       "name": "cpu",
       "font_class": "cpu",

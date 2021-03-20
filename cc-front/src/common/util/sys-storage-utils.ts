@@ -1,4 +1,4 @@
-import { CommonConst } from "../const/common-const";
+import { commonConst } from "../const/common-const";
 import CookieUtils from "./cookie-utils";
 import SecurityUtils from "./security-utils";
 import { SessionStorageUtils } from './storage-utils';
@@ -17,26 +17,26 @@ export default class SysStorageUtils {
     }
 
     static setSessionUser(value: any) {
-        CookieUtils.setObject(CommonConst.sessionUser, value, 0.125);
+        CookieUtils.setObject(commonConst.sessionUser, value, 0.125);
     }
 
     static getSessionUser() {
-        return CookieUtils.getObject(CommonConst.sessionUser);
+        return CookieUtils.getObject(commonConst.sessionUser);
     }
 
     static removeSessionUser() {
-        return CookieUtils.remove(CommonConst.sessionUser);
+        return CookieUtils.remove(commonConst.sessionUser);
     }
 
     static getSessionUserInfo() {
-        return SessionStorageUtils.getObject(CommonConst.sessionUserInfo);
+        return SessionStorageUtils.getObject(commonConst.sessionUserInfo);
     }
 
     static setSessionUserInfo(data: any) {
-        SessionStorageUtils.setObject(CommonConst.sessionUserInfo, data);
+        SessionStorageUtils.setObject(commonConst.sessionUserInfo, data);
     }
 
     static removeSessionUserInfo() {
-        return SessionStorageUtils.remove(CommonConst.sessionUserInfo);
+        return SessionStorageUtils.remove(commonConst.sessionUserInfo);
     }
 }

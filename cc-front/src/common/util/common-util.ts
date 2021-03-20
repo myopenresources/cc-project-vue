@@ -1,3 +1,9 @@
+import BusinessBtnType from "/@/types/business-btn-type";
+import * as lodash from 'lodash';
+import PaginationType from "/@/types/pagination-type";
+import { computed, ref } from "vue";
+import HttpResultUtils from "./http-result-utils";
+
 export default class CommonUtil {
 
     /**
@@ -242,7 +248,7 @@ export default class CommonUtil {
      * 转换url参数到json
      * @param data
      */
-     static parseUrlParamsToJson(url: any) {
+    static parseUrlParamsToJson(url: any) {
         const str = url.split('?')[1];
         const iterms = str.split('&');
         let arr = {};
@@ -252,5 +258,159 @@ export default class CommonUtil {
             json[arr[0]] = arr[1];
         }
         return json;
+    }
+
+    /**
+     * 表达式执行
+     * @param exp 
+     */
+    static expressionExe(exp: any, data: any) {
+        return new Function('data', 'return ' + exp)(data);
+    }
+
+    /**
+     * 抽屉初始化
+     * @param visible 
+     * @param props 
+     * @param cb 
+     */
+    static drawerAddOrViewInit(visible: boolean, props: any, cb: Function) {
+        if (visible && props.id && props.id.length) {
+            cb();
+        }
+    }
+
+    /**
+     * 抽屉关闭
+     * @param context 
+     */
+    static drawerClose(context: any, reload = false) {
+        context.emit('update:visible', false);
+        if (reload) {
+            context.emit('reload');
+        }
+    }
+
+
+    /**
+     * 按钮计算
+     */
+    static computedBtns(props): BusinessBtnType[] {
+        const list: BusinessBtnType[] = [];
+        if (props.buttonList && props.buttonList.length) {
+            props.buttonList.forEach((btn: BusinessBtnType) => {
+                if (btn.layoutMark === props.layoutMark) {
+                    if (props.data && props.showBtnFunction) {
+                        if (props.showBtnFunction(btn, props.data)) {
+                            list.push(btn);
+                        }
+                    } else if (props.data && btn.btnExp) {
+                        if (CommonUtil.expressionExe(btn.btnExp, props.data)) {
+                            list.push(btn);
+                        }
+                    } else {
+                        list.push(btn);
+                    }
+                }
+            });
+        }
+        return list;
+    }
+
+    /**
+     * 分页初始化参数
+     */
+    static paginationInitParams(customParams?: any) {
+        const paginationModel: PaginationType = {
+            total: 0,
+            page: 1,
+            rows: 10,
+            pageSizeOptions: ['10', '20', '30', '40', '50']
+        };
+        return lodash.extend(paginationModel, customParams);
+    }
+
+    /**
+     * 重置分页参数
+     */
+    static resetPaginationParams(oldPageParams: any, customPageParams?: any) {
+        return lodash.merge(oldPageParams, CommonUtil.paginationInitParams(customPageParams));
+    }
+
+    /**
+     * 查询参数合并分页参数
+     */
+    static queryParamsMergePageParams(queryParams: any, customPageParams?: any): any {
+        return lodash.merge(queryParams, CommonUtil.paginationInitParams(customPageParams));
+    }
+
+    /**
+     * 分页参数合并查询结果
+     */
+    static paginationParamsMergeResultParams(paginationParams: any, resultParams: any) {
+        return lodash.merge(paginationParams, {
+            total: resultParams.total
+        });
+    }
+
+    /**
+     * 分页计算
+     * @param queryParams 
+     * @returns 
+     */
+    static paginationComputed(queryParams: any) {
+        return computed(() => ({
+            total: queryParams.value.total,
+            current: queryParams.value.page,
+            pageSize: queryParams.value.rows,
+            showSizeChanger: true,
+            pageSizeOptions: queryParams.value.pageSizeOptions,
+            showTotal: (total, range) => `共 ${total} 条数据，当前显示 ${range[0]} 到 ${range[1]}`,
+        }));
+    }
+
+    /**
+     * 分页改变
+     * @param queryParams 
+     * @returns 
+     */
+    static paginationChange(queryParams: any, pag: any, cb: Function) {
+        queryParams.value.page = pag.current;
+        if (pag.pageSize !== queryParams.value.rows) {
+            queryParams.value.page = 1;
+        }
+        queryParams.value.rows = pag.pageSize;
+        cb();
+    }
+
+    /**
+     * 查询参数初始化
+     * @param params 
+     * @returns 
+     */
+    static queryParamsInit(params: any) {
+        return ref(CommonUtil.queryParamsMergePageParams(params));
+    }
+
+    /**
+     * 根据条件查询数据
+     * @param params 
+     * @returns 
+     */
+    static queryDataByConditionPaging(btnQuery = false, queryParams: any, queryService: any, dataSource: any) {
+        if (btnQuery) {
+            queryParams.value = CommonUtil.resetPaginationParams(queryParams.value);
+        }
+        queryService(queryParams.value).then((res) => {
+            if (HttpResultUtils.isSuccess(res)) {
+                queryParams.value = CommonUtil.paginationParamsMergeResultParams(
+                    queryParams.value,
+                    res.data.resultData
+                );
+                dataSource.value = res.data.resultData.rows;
+            } else {
+                HttpResultUtils.failureTipMsg(res);
+            }
+        });
     }
 }

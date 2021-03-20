@@ -3,16 +3,194 @@
 
 <head>
   <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta name="renderer" content="webkit" />
-    <meta
-      name="viewport"
-      content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0"
-    />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="renderer" content="webkit" />
+  <meta name="viewport"
+    content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0" />
   <title></title>
+  <style>
+    @-moz-keyframes appInitSpinning {
+      0% {
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+      }
+
+      50% {
+        transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+      }
+
+      100% {
+        transform: rotate(720deg);
+        -webkit-transform: rotate(720deg);
+        -moz-transform: rotate(720deg);
+        -o-transform: rotate(720deg);
+        -ms-transform: rotate(720deg);
+      }
+    }
+
+    @-o-keyframes appInitSpinning {
+      0% {
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+      }
+
+      50% {
+        transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+      }
+
+      100% {
+        transform: rotate(720deg);
+        -webkit-transform: rotate(720deg);
+        -moz-transform: rotate(720deg);
+        -o-transform: rotate(720deg);
+        -ms-transform: rotate(720deg);
+      }
+    }
+
+    @-webkit-keyframes appInitSpinning {
+      0% {
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+      }
+
+      50% {
+        transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+      }
+
+      100% {
+        transform: rotate(720deg);
+        -webkit-transform: rotate(720deg);
+        -moz-transform: rotate(720deg);
+        -o-transform: rotate(720deg);
+        -ms-transform: rotate(720deg);
+      }
+    }
+
+    @keyframes appInitSpinning {
+      0% {
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+      }
+
+      50% {
+        transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+      }
+
+      100% {
+        transform: rotate(720deg);
+        -webkit-transform: rotate(720deg);
+        -moz-transform: rotate(720deg);
+        -o-transform: rotate(720deg);
+        -ms-transform: rotate(720deg);
+      }
+    }
+
+    .app-init-spinning-container {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: #fff;
+      width: 100vw;
+      height: 100vh;
+      z-index: 9999998;
+    }
+
+    .app-init-spinning-bg {
+      position: absolute;
+      width: 160px;
+      height: 160px;
+      top: 50%;
+      left: 50%;
+      margin-left: -80px;
+      margin-top: -90px;
+      background: linear-gradient(88deg, #2ceed4 0, #06bfcc 50%);
+      display: -webkit-flex;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      box-shadow: 0 1px 5px 0 rgba(25, 50, 79, .07), 0 5px 10px 0 rgba(25, 50, 79, .1);
+    }
+
+    .app-init-spinning {
+      position: relative;
+      width: 90px;
+      height: 90px;
+      background: url('./src/assets/img/spinning/spinning.png');
+      background-size: 100% 100%;
+      z-index: 9999999;
+      -moz-animation: appInitSpinning 10s linear .5s infinite;
+      -o-animation: appInitSpinning 10s linear .5s infinite;
+      -webkit-animation: appInitSpinning 10s linear .5s infinite;
+      animation: appInitSpinning 6s linear .5s infinite;
+    }
+
+    .app-init-spinning-desc {
+      position: absolute;
+      top: 2%;
+      left: 50%;
+      margin-left: -250px;
+      height: 30px;
+      width: 500px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+  </style>
 </head>
 
 <body>
+  <div class="app-init-spinning-container" id="appInitSpinningId">
+    <div class="app-init-spinning-bg">
+      <div class="app-init-spinning"></div>
+    </div>
+    <div class="app-init-spinning-desc">河马开源：
+      <a href="https://github.com/myopenresources">https://github.com/myopenresources</a>
+    </div>
+  </div>
+  <script type="text/javascript">
+    (function initialize() {
+      let initSpinningObj = document.getElementById("appInitSpinningId");
+      initSpinningObj.style.display = 'block';
+      document.onreadystatechange = function () {
+        if (document.readyState == "complete") {
+          setTimeout(() => {
+            initSpinningObj.style.display = 'none';
+          }, 2000);
+        }
+      }
+    }());
+  </script>
+
   <div id="app"></div>
   <script type="module" src="/src/main.ts"></script>
 </body>

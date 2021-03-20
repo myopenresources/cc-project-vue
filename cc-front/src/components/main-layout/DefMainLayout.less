@@ -4,20 +4,26 @@
     height                 : @app-layout-right-header-height;
     border-top-left-radius : @app-layout-right-main-radius;
     border-top-right-radius: @app-layout-right-main-radius;
-    padding-left                : @app-layout-right-main-padding-space;
-    padding-right                : @app-layout-right-main-padding-space;
+    padding-left           : @app-layout-right-main-padding-space;
+    padding-right          : @app-layout-right-main-padding-space;
     width                  : 100%;
-    display: -webkit-flex;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    .app-def-main-layout-header-title{
-        font-size: 19px;
+    display                : -webkit-flex;
+    display                : flex;
+    justify-content        : space-between;
+    align-items            : center;
+
+    .app-def-main-layout-header-title {
+        font-size  : 19px;
         font-weight: 500;
-        .iconfont{
-            font-size: 19px;
+        padding-left: 2px;
+
+        .iconfont {
+            font-size   : 19px;
             margin-right: 2px;
         }
+    }
+    .app-def-main-layout-header-btns{
+        padding-right: 2px;
     }
 }
 
@@ -33,6 +39,7 @@
     .app-def-main-layout-inner-content {
         height: 100%;
         width : 100%;
+        padding: 2px;
     }
 }
 
@@ -43,5 +50,6 @@
     .app-def-main-layout-inner-content {
         height: 100%;
         width : 100%;
+        padding: 2px;
     }
 }

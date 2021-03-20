@@ -1,3 +1,123 @@
+//===页面统一样式===
+//滚动条
+@app-scrollbar-track      : rgba(0, 0, 0, 0.06);
+@app-scrollbar-thumb      : rgba(0, 0, 0, 0.08);
+@app-scrollbar-thumb-hover: rgba(0, 0, 0, 0.15);
+
+
+html,
+body {
+  padding: 0;
+  margin : 0;
+}
+
+a[href],
+input[type='submit'],
+input[type='radio'],
+input[type='checkbox'],
+input[type='image'],
+label[for],
+select,
+button,
+.tea-pointer {
+  cursor: pointer;
+}
+
+::-webkit-scrollbar {
+  width : 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: @app-scrollbar-track;
+}
+
+::-webkit-scrollbar-thumb {
+  background: @app-scrollbar-thumb;
+
+  &:hover {
+    background: @app-scrollbar-thumb-hover;
+  }
+}
+
+//=====自定义修改======
+
+
+// alert
+:deep(.ant-alert.ant-alert-no-icon) {
+  padding: 8px;
+}
+
+:deep(.ant-alert) {
+  padding: 8px 8px 8px 30px;
+  border : 0;
+}
+
+:deep(.ant-alert-icon) {
+  left: 8px;
+}
+
+:deep(.ant-alert-with-description) {
+  .ant-alert-icon {
+    left: 8px;
+  }
+
+  .ant-alert-message {
+    margin-left: 10px;
+  }
+
+  .ant-alert-description {
+    margin-left: 10px;
+  }
+}
+
+
+// table
+
+:deep(.ant-table-placeholder) {
+  border: @border-width-base @border-style-base @border-color-split;
+}
+
+// form 
+.app-query-form {
+  :deep(.ant-input-number) {
+    width: 260px;
+  }
+
+  :deep(.ant-input){
+    width: 260px;
+  }
+
+  :deep(.ant-select) {
+    width: 260px;
+  }
+
+  :deep(.ant-calendar-picker) {
+    width: 260px;
+  }
+
+  :deep(.ant-picker) {
+    width: 260px;
+  }
+}
+
+:deep(.ant-input-number) {
+  width: 100%;
+}
+
+:deep(.ant-select) {
+  width: 100%;
+}
+
+:deep(.ant-calendar-picker) {
+  width: 100%;
+}
+
+:deep(.ant-picker) {
+  width: 100%;
+}
+
+//=====自定义样式======
 .iconfont {
   line-height: normal;
 }
@@ -242,4 +362,29 @@
 
 .app-flex-align-content-stretch {
   align-content: stretch;
+}
+
+//模态框
+.app-modal-container {
+  margin-left : 15px;
+  margin-right: 15px;
+}
+
+//数据表格
+.app-data-table-container {
+  width     : 100%;
+  margin-top: 12px;
+  //border: @app-border-width-base @app-border-style-base @app-border-color-split;
+}
+
+//列表
+.app-data-list-container {
+  width   : 100%;
+  //border: @app-border-width-base @app-border-style-base @app-border-color-split;
+}
+
+
+// form 
+.app-inline-input {
+  width: 200px;
 }

@@ -9,21 +9,21 @@ export default class UserApi {
      * 用户头像
      */
     static previewUserAvatar() {
-        return HttpUtil.stringUrl(`${this.REQUEST_PREFIX}previewUserAvatar`);
+        return HttpUtil.stringUrl(`${UserApi.REQUEST_PREFIX}previewUserAvatar`);
     }
 
     /**
      * 修改当前用户密码
      */
     static updateCurrentUserPassword(params: any) {
-        return http.post(`${this.REQUEST_PREFIX}updateCurrentUserPassword`, params);
+        return http.post(`${UserApi.REQUEST_PREFIX}updateCurrentUserPassword`, params);
     }
 
     /**
      *  根据id修改密码
      */
     static updateUserPasswordById(params: any) {
-        return http.post(`${this.REQUEST_PREFIX}updateUserPasswordById`, params);
+        return http.post(`${UserApi.REQUEST_PREFIX}updateUserPasswordById`, params);
     }
 
     /**
@@ -31,7 +31,7 @@ export default class UserApi {
      * @param params 
      */
     static uploadUserAvatarImg(params: any) {
-        return http.post(`${this.REQUEST_PREFIX}uploadUserAvatarImg`, {
+        return http.post(`${UserApi.REQUEST_PREFIX}uploadUserAvatarImg`, {
             data: params,
             convert: false
         });

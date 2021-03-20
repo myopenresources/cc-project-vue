@@ -6,6 +6,7 @@ import SecurityUtils from "./security-utils";
 import Environments from "./env-util";
 import store from "/@/store";
 import router from "/@/router";
+import SingleModal from "/@/components/single-modal/single-modal";
 
 
 
@@ -65,22 +66,32 @@ http.interceptors.response.use(
 
         if (response.data && response.data.sysErrorResult) {
             let errorMsg = "未知系统错误！";
+            let skip = false;
+
             if (response.data.sysErrorResult === sysErrorResult.sessionTimeOut) {
                 errorMsg = "未登录系统或登录超时，请重新登录！";
+                skip = true;
+
+                SingleModal.open('提示', errorMsg, () => {
+                    SingleModal.close();
+                    router.push('/login');
+                    return Promise.reject(errorType.sessionTimeOutError);
+                });
+
             } else if (response.data.sysErrorResult === sysErrorResult.noAuthority) {
                 errorMsg = "权限验证未通过！";
             } else if (response.data.sysErrorResult === sysErrorResult.undistributedRole) {
                 errorMsg = "未分配角色！";
             }
-            notification.error({
-                message: "提示",
-                description: errorMsg
-            });
 
-            if (response.data.sysErrorResult === sysErrorResult.sessionTimeOut) {
-                router.push('/login');
-                return Promise.reject(errorType.sessionTimeOutError);
+            if (!skip) {
+                notification.error({
+                    message: "提示",
+                    description: errorMsg
+                })
             }
+
+            console.error(errorMsg)
 
             return response;
 

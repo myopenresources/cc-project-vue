@@ -10,53 +10,70 @@
     :visible="visible"
     :after-visible-change="afterVisibleChange"
   >
-    <app-def-drawer-layout :title="'查看'" @close="handleCancel">
+    <app-def-drawer-layout :title="'添加/编辑'" @close="handleCancel">
+      <template #headerBtnsTpl>
+        <a-button type="primary" @click="save">
+          <span class="iconfont icon-save"></span>保存
+        </a-button>
+      </template>
+
       <div>content</div>
     </app-def-drawer-layout>
   </a-drawer>
 </template>
-
 <script lang="ts">
 import { defineComponent } from 'vue';
+import CommonUtil from '/@/common/util/common-util';
 
 export default defineComponent({
-  name: 'TaskView',
+  name: 'ButtonAdd',
   props: {
     visible: {
       type: Boolean,
       default: false,
     },
-    taskId: {
+    id: {
       type: String,
       default: '',
     },
   },
-  emits: ['update:visible'],
+  emits: ['update:visible', 'reload'],
   setup(props, context) {
+    /**
+     * 初始化页面数据
+     */
+    const initPageData = () => {};
+
+    /**
+     * 保存
+     */
+    const save = () => {
+      CommonUtil.drawerClose(context, true);
+    };
+
     /**
      * 取消
      */
     const handleCancel = () => {
-      context.emit('update:visible', false);
+      CommonUtil.drawerClose(context);
     };
 
     /**
      * 打开
      */
     const afterVisibleChange = (visible) => {
-      if (visible) {
-        console.info(props.taskId);
-      }
+      CommonUtil.drawerAddOrViewInit(visible, props, initPageData);
     };
 
     return {
       handleCancel,
       afterVisibleChange,
+      save,
     };
   },
 });
 </script>
 
 <style lang="less" scoped>
-@import './TaskView.less';
+@import './ButtonAdd.less';
 </style>

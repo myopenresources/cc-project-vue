@@ -4,6 +4,9 @@ import DefMainLayout from "/@/components/main-layout/DefMainLayout.vue";
 import CustomEmpty from '/@/components/custom-empty/CustomEmpty.vue';
 import LineTitle from '/@/components/line-title/LineTitle.vue';
 import DefDrawerLayout from '/@/components/drawer-layout/DefDrawerLayout.vue';
+import BusinessToolBtns from '/@/components/business-btn/BusinessToolBtns.vue';
+import CustomButton from '/@/components/custom-button/CustomButton.vue';
+import BusinessRowBtns from '/@/components/business-btn/BusinessRowBtns.vue';
 
 
 import scrollbar from "/@/directives/scrollbar/scrollbar";
@@ -18,7 +21,7 @@ import {
     Button, Form, Input, Card, Dropdown,
     InputNumber, Row, Col, Select, Modal,
     Menu, Table, Alert, Tag, Drawer, Progress,
-    Descriptions
+    Descriptions, Divider
 } from "ant-design-vue";
 
 /**
@@ -30,7 +33,7 @@ function useAntdComponnet(app: App) {
         Button, Form, Input, Card, Dropdown,
         InputNumber, Row, Col, Select, Modal,
         Menu, Table, Alert, Tag, Drawer, Progress,
-        Descriptions
+        Descriptions, Divider
     ];
     comps.forEach((componnet) => {
         app.use(componnet);
@@ -55,6 +58,9 @@ function useCustomComponent(app: App) {
     app.component('AppCustomEmpty', CustomEmpty);
     app.component('AppLineTitle', LineTitle);
     app.component('AppDefDrawerLayout', DefDrawerLayout);
+    app.component('AppCustomButton', CustomButton);
+    app.component('AppBusinessToolBtns', BusinessToolBtns);
+    app.component('AppBusinessRowBtns', BusinessRowBtns);
 }
 
 /**
