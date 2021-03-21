@@ -39,7 +39,10 @@
         :pagination="pagination"
         :bordered="true"
         :row-key="'buttonId'"
-        :row-selection="{ selectedRowKeys: ['buttonId'] }"
+        :row-selection="{
+          selectedRowKeys: selectedRowKeys,
+          onChange: (changableRowKeys) => (selectedRowKeys = changableRowKeys),
+        }"
         @change="handleTableChange"
         class="app-data-table-container"
       >
@@ -69,16 +72,25 @@
     </div>
   </app-def-main-layout>
 
-  <app-button-add v-model:visible="buttonAddVisible" :id="buttonEditAndViewId" @reload="query(true)" />
+  <app-button-add
+    v-model:visible="buttonAddVisible"
+    :id="buttonEditAndViewId"
+    @reload="query(true)"
+  />
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, ref, shallowRef } from 'vue';
+import { createVNode, defineComponent, onMounted, ref, shallowRef } from 'vue';
 import ButtonApi from '/@/api/button-api';
 import HttpResultUtils from '/@/common/util/http-result-utils';
 import CommonUtil from '/@/common/util/common-util';
 import ButtonAdd from './ButtonAdd.vue';
 import { dataDicTransformPipe } from '/@/pipes/data-dic-pipe';
+import { ColumnProps } from 'ant-design-vue/es/table/interface';
+import { Modal, notification } from 'ant-design-vue';
+import { QuestionCircleOutlined } from '@ant-design/icons-vue';
+
+type Key = ColumnProps['key'];
 
 export default defineComponent({
   name: 'ButtonList',
@@ -94,6 +106,7 @@ export default defineComponent({
     const layoutMarkOptionList = shallowRef<any[]>([]);
     const statusOptionList = shallowRef<any[]>([]);
     const dataSource = ref<any>([]);
+    const selectedRowKeys = ref<Key[]>([]);
 
     const queryParams = CommonUtil.queryParamsInit({
       busniessMark: null,
@@ -212,7 +225,29 @@ export default defineComponent({
           buttonViewVisible.value = true;
           buttonEditAndViewId.value = btnId;
         },
-        deleteButton: () => {},
+        deleteButton: () => {
+          if (selectedRowKeys.value.length) {
+            Modal.confirm({
+              title: '确认',
+              icon: createVNode(QuestionCircleOutlined),
+              content: '您确认要删除吗？',
+              onOk() {
+                ButtonApi.deleteButtonByIds({
+                  ids: selectedRowKeys.value,
+                }).then((res) => {
+                  HttpResultUtils.successTipMsg(res, () => {
+                    query(true);
+                  }) && HttpResultUtils.failureTipMsg(res);
+                });
+              },
+            });
+          } else {
+            notification.warning({
+              message: '提示',
+              description: '请选择要删除的内容！',
+            });
+          }
+        },
       }[name]());
     };
 
@@ -237,6 +272,7 @@ export default defineComponent({
       handleTableChange,
       query,
       dataDicPipe,
+      selectedRowKeys,
     };
   },
 });

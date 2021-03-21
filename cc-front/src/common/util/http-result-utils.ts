@@ -32,17 +32,20 @@ export default class HttpResultUtils {
                 description: res.data.resultMsg
             });
             return true;
-        }else {
+        } else {
             HttpResultUtils.errorTipMsg(res);
         }
     }
 
-    static successTipMsg(res) {
+    static successTipMsg(res, cb?: Function) {
         if (HttpResultUtils.isSuccess(res)) {
             notification.success({
                 message: "提示",
                 description: res.data.resultMsg
             });
+            if (cb) {
+                cb();
+            }
             return true;
         } else {
             return false;

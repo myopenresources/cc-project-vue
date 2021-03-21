@@ -29,13 +29,13 @@ export default class SysApi {
      * 初始化主数据
      */
     static initMainData() {
-        return http.get(`${SysApi.REQUEST_PREFIX}initMainData`, {});
+        return http.get(`${SysApi.REQUEST_PREFIX}initMainData`);
     }
 
     /**
      * 初始化主页数据
      */
     static initHomeData(){
-        return http.get(`${SysApi.REQUEST_PREFIX}initHomeData`, {});
+        return http.get(`${SysApi.REQUEST_PREFIX}initHomeData`);
     }
 }

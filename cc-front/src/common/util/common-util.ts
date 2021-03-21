@@ -274,8 +274,9 @@ export default class CommonUtil {
      * @param props 
      * @param cb 
      */
-    static drawerAddOrViewInit(visible: boolean, props: any, cb: Function) {
-        if (visible && props.id && props.id.length) {
+    static drawerAddOrViewInit(visible: boolean, cb: Function, resetFields: Function = () => { }) {
+        resetFields();
+        if (visible) {
             cb();
         }
     }
@@ -289,6 +290,7 @@ export default class CommonUtil {
         if (reload) {
             context.emit('reload');
         }
+
     }
 
 
@@ -315,6 +317,17 @@ export default class CommonUtil {
             });
         }
         return list;
+    }
+
+    /**
+     * 装载form
+     */
+    static loadFormData(data: any, modelRef: any) {
+        Object.keys(modelRef).forEach((key) => {
+            if (data[key]) {
+                modelRef[key] = data[key];
+            }
+        });
     }
 
     /**

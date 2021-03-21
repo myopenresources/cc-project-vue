@@ -24,7 +24,7 @@
       </div>
 
       <div class="app-page-tabs-more">
-        <a-dropdown :placement="'bottomLeft'">
+        <a-dropdown :placement="'bottomLeft'" :trigger="['click']">
           <template #overlay>
             <a-menu>
               <a-menu-item key="closeSelectedTag" @click="closeSelectedTag(selectedTag.value)">

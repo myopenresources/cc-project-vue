@@ -6,7 +6,7 @@
       </div>
       <div class="app-def-drawer-layout-btns">
         <slot name="headerBtnsTpl"></slot>
-        <a-button
+        <app-custom-button
           :type="btnType"
           :size="btnSize"
           v-if="closable"
@@ -14,7 +14,7 @@
           class="app-def-drawer-layout-close"
         >
           <span class="iconfont icon-close"></span>关闭
-        </a-button>
+        </app-custom-button>
       </div>
     </div>
     <div
@@ -22,8 +22,9 @@
         'app-def-drawer-layout-content': showTool,
         'app-def-drawer-layout-content-full': !showTool,
       }"
+      v-app-scrollbar="scrollOptions"
     >
-      <div class="app-def-drawer-layout-content-inner" v-app-scrollbar="scrollOptions">
+      <div class="app-def-drawer-layout-content-inner">
         <slot></slot>
       </div>
     </div>
@@ -58,7 +59,7 @@ export default defineComponent({
     },
     btnType: {
       type: String,
-      default: 'danger',
+      default: 'error',
     },
   },
   emits: ['close'],
