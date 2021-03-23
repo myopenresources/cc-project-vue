@@ -5,26 +5,11 @@
     </template>
     <div>
       <a-form layout="inline" class="app-query-form">
-        <a-form-item label="按钮名称">
-          <a-input v-model:value="queryParams.buttonName" placeholder="请输入..." />
+        <a-form-item label="标题">
+          <a-input v-model:value="queryParams.noticeTitle" placeholder="请输入..." />
         </a-form-item>
-        <a-form-item label="业务标识">
-          <a-select
-            v-model:value="queryParams.busniessMark"
-            :allowClear="true"
-            :showSearch="true"
-            :optionFilterProp="'title'"
-            placeholder="请选择..."
-          >
-            <a-select-option
-              :value="mark.dicItemValue"
-              :key="index"
-              :title="mark.dicItemName"
-              v-for="(mark, index) in busniessMarkOptionList"
-            >
-              {{ mark.dicItemName }}
-            </a-select-option>
-          </a-select>
+        <a-form-item label="截止时间">
+          <a-date-picker v-model:value="queryParams.cutoffDate" placeholder="请选择..." />
         </a-form-item>
         <a-form-item>
           <a-button type="primary" @click="query(true)">
@@ -38,7 +23,7 @@
         :columns="columns"
         :pagination="pagination"
         :bordered="true"
-        :row-key="'buttonId'"
+        :row-key="'noticeId'"
         :row-selection="{
           selectedRowKeys: selectedRowKeys,
           onChange: (changableRowKeys) => (selectedRowKeys = changableRowKeys),
@@ -50,14 +35,6 @@
           {{ index + 1 }}
         </template>
 
-        <template #busniessMarkRender="{ record }">
-          {{ dataDicPipe(busniessMarkOptionList, 'dicItemValue', record.busniessMark) }}
-        </template>
-
-        <template #layoutMarkRender="{ record }">
-          {{ dataDicPipe(layoutMarkOptionList, 'dicItemValue', record.layoutMark) }}
-        </template>
-
         <template #statusRender="{ record }">
           {{ dataDicPipe(statusOptionList, 'dicItemValue', record.status) }}
         </template>
@@ -65,55 +42,55 @@
         <template #actionRender="{ record }">
           <app-business-row-btns
             :buttonList="buttonList"
-            @btnClick="btnClick($event, record.buttonId)"
+            @btnClick="btnClick($event, record.noticeId)"
           />
         </template>
       </a-table>
     </div>
   </app-def-main-layout>
 
-  <app-button-add
-    v-model:visible="buttonAddVisible"
-    v-model:id="buttonEditAndViewId"
+  <app-sys-notice-view v-model:visible="viewVisible" :id="editAndViewId" />
+  <app-sys-notice-add
+    v-model:visible="addVisible"
+    :id="editAndViewId"
     @reload="query(true)"
   />
-  <app-button-view v-model:visible="buttonViewVisible" v-model:id="buttonEditAndViewId" />
 </template>
 
 <script lang="ts">
 import { createVNode, defineComponent, onMounted, ref, shallowRef } from 'vue';
-import ButtonApi from '/@/api/button-api';
+import NoticeApi from '/@/api/notice-api';
 import HttpResultUtils from '/@/common/util/http-result-utils';
 import CommonUtil from '/@/common/util/common-util';
-import ButtonAdd from './ButtonAdd.vue';
-import ButtonView from './ButtonView.vue';
 import { dataDicTransformPipe } from '/@/pipes/data-dic-pipe';
 import { ColumnProps } from 'ant-design-vue/es/table/interface';
 import { Modal, notification } from 'ant-design-vue';
 import { QuestionCircleOutlined } from '@ant-design/icons-vue';
+import SysNoticeView from './SysNoticeView.vue';
+import SysNoticeAdd from './SysNoticeAdd.vue';
 
 type Key = ColumnProps['key'];
 
 export default defineComponent({
-  name: 'ButtonList',
+  name: 'SysNoticeList',
   components: {
-    AppButtonAdd: ButtonAdd,
-    AppButtonView: ButtonView,
+    AppSysNoticeView: SysNoticeView,
+    AppSysNoticeAdd: SysNoticeAdd,
   },
   setup() {
     const buttonList = shallowRef<any>([]);
-    const buttonAddVisible = ref<boolean>(false);
-    const buttonViewVisible = ref<boolean>(false);
-    const buttonEditAndViewId = ref<string>('');
-    const busniessMarkOptionList = shallowRef<any[]>([]);
-    const layoutMarkOptionList = shallowRef<any[]>([]);
+    const addVisible = ref<boolean>(false);
+    const viewVisible = ref<boolean>(false);
+    const editAndViewId = ref<string>('');
+
     const statusOptionList = shallowRef<any[]>([]);
     const dataSource = ref<any>([]);
     const selectedRowKeys = ref<Key[]>([]);
 
     const queryParams = CommonUtil.queryParamsInit({
-      busniessMark: null,
-      buttonName: '',
+      cutoffDate: null,
+      noticeTitle: '',
+      status: '-1',
     });
 
     const columns = [
@@ -125,26 +102,14 @@ export default defineComponent({
         slots: { customRender: 'indexRender' },
       },
       {
-        title: '业务标识',
-        dataIndex: 'busniessMark',
-        key: 'busniessMark',
-        slots: { customRender: 'busniessMarkRender' },
+        title: '标题',
+        dataIndex: 'noticeTitle',
+        key: 'noticeTitle',
       },
       {
-        title: '按钮编号',
-        dataIndex: 'buttonCode',
-        key: 'buttonCode',
-      },
-      {
-        title: '按钮名称',
-        dataIndex: 'buttonName',
-        key: 'buttonName',
-      },
-      {
-        title: '布局标识',
-        dataIndex: 'layoutMark',
-        key: 'layoutMark',
-        slots: { customRender: 'layoutMarkRender' },
+        title: '截止时间',
+        dataIndex: 'cutoffDate',
+        key: 'cutoffDate',
       },
       {
         title: '状态',
@@ -182,12 +147,10 @@ export default defineComponent({
      * 初始化页面数据
      */
     const initPageData = () => {
-      ButtonApi.initButtonManageData().then((res) => {
+      NoticeApi.initSysNoticeManageData({}).then((res) => {
         if (HttpResultUtils.isSuccess(res)) {
           buttonList.value = res.data.resultData.buttonList;
-          busniessMarkOptionList.value = res.data.resultData.BUSNIESS_MARK_TYPE;
-          layoutMarkOptionList.value = res.data.resultData.BUTTON_LAYOUT_MARK_TYPE;
-          statusOptionList.value = res.data.resultData.STATUS_TYPE;
+          statusOptionList.value = res.data.resultData.FORM_STATUS_TYPE;
         } else {
           HttpResultUtils.failureTipMsg(res);
         }
@@ -202,7 +165,7 @@ export default defineComponent({
       CommonUtil.queryDataByConditionPaging(
         btnQuery,
         queryParams,
-        ButtonApi.queryButtonByConditionPaging,
+        NoticeApi.querySysNoticeByConditionPaging,
         dataSource
       );
     };
@@ -216,27 +179,27 @@ export default defineComponent({
     const handleTableChange = (pag: any) => CommonUtil.paginationChange(queryParams, pag, query);
 
     //动态按钮处理
-    const btnClick = (name, btnId = '') => {
+    const btnClick = (name, itemId = '') => {
       ({
-        buttonAdd: () => {
-          buttonAddVisible.value = true;
+        sysNoticeAdd: () => {
+          addVisible.value = true;
         },
-        buttonEdit: () => {
-          buttonAddVisible.value = true;
-          buttonEditAndViewId.value = btnId;
+        sysNoticeView: () => {
+          viewVisible.value = true;
+          editAndViewId.value = itemId;
         },
-        buttonView: () => {
-          buttonViewVisible.value = true;
-          buttonEditAndViewId.value = btnId;
+        sysNoticeEdit: () => {
+          addVisible.value = true;
+          editAndViewId.value = itemId;
         },
-        deleteButton: () => {
+        deleteSysNotice: () => {
           if (selectedRowKeys.value.length) {
             Modal.confirm({
               title: '确认',
               icon: createVNode(QuestionCircleOutlined),
               content: '您确认要删除吗？',
               onOk() {
-                ButtonApi.deleteButtonByIds({
+                NoticeApi.deleteSysNoticeByIds({
                   ids: selectedRowKeys.value,
                 }).then((res) => {
                   HttpResultUtils.successTipMsg(res, () => {
@@ -262,11 +225,9 @@ export default defineComponent({
 
     return {
       buttonList,
-      buttonAddVisible,
-      buttonEditAndViewId,
-      buttonViewVisible,
-      busniessMarkOptionList,
-      layoutMarkOptionList,
+      addVisible,
+      editAndViewId,
+      viewVisible,
       statusOptionList,
       queryParams,
       columns,
@@ -283,5 +244,5 @@ export default defineComponent({
 </script>
 
 <style lang="less" scoped>
-@import './ButtonList.less';
+@import './SysNoticeList.less';
 </style>

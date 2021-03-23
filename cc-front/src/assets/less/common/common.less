@@ -84,7 +84,7 @@ button,
     width: 260px;
   }
 
-  :deep(.ant-input){
+  :deep(.ant-input) {
     width: 260px;
   }
 
@@ -384,7 +384,13 @@ button,
 }
 
 
-// form 
-.app-inline-input {
-  width: 200px;
+.app-data-view-container {
+  :deep(.ant-row){
+    .ant-col{
+      line-height: 39.9999px;
+      &:first-of-type{
+        text-align: right;
+      }
+    }
+  }
 }

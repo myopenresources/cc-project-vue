@@ -1,7 +1,7 @@
 
 
 
-export default interface BusinessType {
+export default interface ButtonType {
     buttonId?: string;
     buttonName?: string;
     functionName?: string;

@@ -130,7 +130,7 @@
 import { defineComponent, reactive, shallowRef, UnwrapRef } from 'vue';
 import { useForm } from '@ant-design-vue/use';
 import CommonUtil from '/@/common/util/common-util';
-import BusinessType from '/@/types/button-type';
+import ButtonType from '/@/types/button-type';
 import ButtonApi from '/@/api/button-api';
 import HttpResultUtils from '/@/common/util/http-result-utils';
 
@@ -146,14 +146,14 @@ export default defineComponent({
       default: '',
     },
   },
-  emits: ['update:visible', 'reload'],
+  emits: ['update:visible', 'update:id', 'reload'],
   setup(props, context) {
     const busniessMarkOptionList = shallowRef<any[]>([]);
     const layoutMarkOptionList = shallowRef<any[]>([]);
     const statusOptionList = shallowRef<any[]>([]);
     const btnClsOptionList = shallowRef<any[]>([]);
 
-    const modelRef: UnwrapRef<BusinessType> = reactive({
+    const modelRef: UnwrapRef<ButtonType> = reactive({
       buttonName: '',
       buttonCode: '',
       functionName: '',
@@ -163,7 +163,7 @@ export default defineComponent({
       btnCls: undefined,
       buttonDescribe: '',
       sortNum: 1,
-      status: '',
+      status: undefined,
       btnExp: '',
     });
 

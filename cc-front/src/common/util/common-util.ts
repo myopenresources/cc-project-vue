@@ -287,6 +287,7 @@ export default class CommonUtil {
      */
     static drawerClose(context: any, reload = false) {
         context.emit('update:visible', false);
+        context.emit('update:id', '');
         if (reload) {
             context.emit('reload');
         }
@@ -323,11 +324,14 @@ export default class CommonUtil {
      * 装载form
      */
     static loadFormData(data: any, modelRef: any) {
-        Object.keys(modelRef).forEach((key) => {
-            if (data[key]) {
-                modelRef[key] = data[key];
-            }
-        });
+        if (data) {
+            Object.keys(modelRef).forEach((key) => {
+                if (data[key]) {
+                    modelRef[key] = data[key];
+                }
+            });
+        }
+
     }
 
     /**

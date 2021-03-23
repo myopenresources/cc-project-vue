@@ -1,3 +1,4 @@
+import { Moment } from 'moment';
 export default interface NoticeType {
     noticeId?: string;
     //标题
@@ -7,6 +8,8 @@ export default interface NoticeType {
     //创建时间
     createDate?: string;
     //截止时间
-    cutoffDate?: string;
+    cutoffDate?: string | Moment | undefined;
     createUser?: string;
+    noticeContent?: string;
+    status?: string;
 }
