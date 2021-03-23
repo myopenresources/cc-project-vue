@@ -96,7 +96,7 @@ export default defineComponent({
           {
             required: true,
             min: 1,
-            max: 100,
+            max: 50,
             message: '标题格式不正确（格式：1-50个字符）！',
           },
         ],
@@ -104,7 +104,7 @@ export default defineComponent({
           {
             required: true,
             min: 1,
-            max: 1024,
+            max: 512,
             message: '内容格式不正确（格式：1-512个字符）！',
           },
         ],

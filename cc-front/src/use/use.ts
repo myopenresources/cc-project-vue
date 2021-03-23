@@ -21,7 +21,8 @@ import {
     Button, Form, Input, Card, Dropdown,
     InputNumber, Row, Col, Select, Modal,
     Menu, Table, Alert, Tag, Drawer, Progress,
-    Descriptions, Divider, List, DatePicker
+    Descriptions, Divider, List, DatePicker,
+    Tabs, Tree, Checkbox
 } from "ant-design-vue";
 
 /**
@@ -33,7 +34,8 @@ function useAntdComponnet(app: App) {
         Button, Form, Input, Card, Dropdown,
         InputNumber, Row, Col, Select, Modal,
         Menu, Table, Alert, Tag, Drawer, Progress,
-        Descriptions, Divider, List, DatePicker
+        Descriptions, Divider, List, DatePicker,
+        Tabs, Tree, Checkbox
     ];
     comps.forEach((componnet) => {
         app.use(componnet);

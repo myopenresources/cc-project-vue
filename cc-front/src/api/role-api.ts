@@ -10,14 +10,14 @@ export default class RoleApi {
    * 初始角色管理数据
    * @param params 
    */
-    initRoleManageData(params: any) {
+    static initRoleManageData(params: any) {
         return http.post(`${RoleApi.REQUEST_PREFIX}initRoleManageData`, params);
     }
 
     /**
      * 根据条件分页查询角色
      */
-    queryRoleByConditionPaging(params: any) {
+    static queryRoleByConditionPaging(params: any) {
         return http.post(`${RoleApi.REQUEST_PREFIX}queryRoleByConditionPaging`, params);
     }
 
@@ -26,7 +26,7 @@ export default class RoleApi {
      * 初始化角色添加数据
      * @param params 
      */
-    initRoleAddData(params: any) {
+    static initRoleAddData(params: any) {
         return http.post(`${RoleApi.REQUEST_PREFIX}initRoleAddData`, params);
     }
 
@@ -35,7 +35,7 @@ export default class RoleApi {
      * 保存角色
      * @param params 
      */
-    saveRole(params: any) {
+    static saveRole(params: any) {
         return http.post(`${RoleApi.REQUEST_PREFIX}saveRole`, params);
     }
 
@@ -43,7 +43,7 @@ export default class RoleApi {
     * 删除角色
     * @param params 
     */
-    deleteRoleByIds(params: any) {
+    static deleteRoleByIds(params: any) {
         return http.post(`${RoleApi.REQUEST_PREFIX}deleteRoleByIds`, params);
     }
 
@@ -51,7 +51,7 @@ export default class RoleApi {
     /**
      * 查询角色信息
      */
-    queryRoleById(roleId: string) {
+    static queryRoleById(roleId: string) {
         return http.get(`${RoleApi.REQUEST_PREFIX}queryRoleById`, {
             params: {
                 roleId: roleId
@@ -62,7 +62,7 @@ export default class RoleApi {
     /**
      * 查询角色用户
      */
-    queryRoleUsers(roleId: string) {
+    static queryRoleUsers(roleId: string) {
         return http.get(`${RoleApi.REQUEST_PREFIX}queryRoleUsers`, {
             params: {
                 roleId: roleId
@@ -73,7 +73,7 @@ export default class RoleApi {
     /**
      * 查询角色权限分配
      */
-    queryRolePermissionDistribute(roleId: string) {
+    static queryRolePermissionDistribute(roleId: string) {
         return http.get(`${RoleApi.REQUEST_PREFIX}queryRolePermissionDistribute`, {
             params: {
                 roleId: roleId
@@ -85,7 +85,7 @@ export default class RoleApi {
      * 保存角色权限分配
      * @param params 
      */
-    saveRolePermissionDistribute(params: any) {
+    static saveRolePermissionDistribute(params: any) {
         return http.post(`${RoleApi.REQUEST_PREFIX}saveRolePermissionDistribute`, params);
     }
 
