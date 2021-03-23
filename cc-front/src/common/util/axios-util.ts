@@ -73,8 +73,8 @@ http.interceptors.response.use(
                 skip = true;
 
                 SingleModal.open('提示', errorMsg, () => {
-                    SingleModal.close();
                     router.push('/login');
+                    SingleModal.close();
                     return Promise.reject(errorType.sessionTimeOutError);
                 });
 

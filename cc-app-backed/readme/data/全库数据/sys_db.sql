@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 80017
 File Encoding         : 65001
 
-Date: 2021-03-20 19:25:14
+Date: 2021-03-23 16:13:47
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -80,7 +80,7 @@ INSERT INTO `t_access_url` VALUES ('47gdfgdfgdfgdfgdfgdfgdf', '/menu/saveMenu.jh
 INSERT INTO `t_access_url` VALUES ('48gdfgdfgdfgdfgdfg', '/menu/deleteMenuByIds.jhtml', '根据ids删除菜单', 'MENU_MANAGE', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-10 09:59:06', null);
 INSERT INTO `t_access_url` VALUES ('49gdfsgdsfgdsfgdfg', '/notice/initSysNoticeManageData.jhtml', '初始系统公告管理数据', 'SYS_NOTICE_MANAGE', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-10 10:00:00', null);
 INSERT INTO `t_access_url` VALUES ('4gdfgdgdfgdfgdfg', '/accessUrl/saveAccessUrl.jhtml', '保存访问地址', 'ACCESS_URL_MANAGE', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-09 15:34:45', null);
-INSERT INTO `t_access_url` VALUES ('4sdfbgfdfssssgsd1', '/system/initHomeData.jhtml', '初始化主页', 'SYS_COMMON', '1', '1aaaaaaaaaaaaaaaaaaaa', '1aaaaaaaaaaaaaaaaaaaa', '2018-06-10 09:55:01', '2019-11-09 16:52:48');
+INSERT INTO `t_access_url` VALUES ('4sdfbgfdfssssgsd1', '/system/initHomeData.jhtml', '初始化主页', 'SYS_COMMON', '1', '1aaaaaaaaaaaaaaaaaaaa', '1aaaaaaaaaaaaaaaaaaaa', '2018-06-10 09:55:01', '2021-03-23 16:03:04');
 INSERT INTO `t_access_url` VALUES ('4sggdfgdsfdfsgdfg2', '/menu/initMenuManageData.jhtml', '初始菜单管理数据', 'MENU_MANAGE', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-10 09:56:32', null);
 INSERT INTO `t_access_url` VALUES ('4ybtybytryebtrb0', '/system/initMainData.jhtml', '初始化首页', 'SYS_COMMON', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-10 09:54:41', null);
 INSERT INTO `t_access_url` VALUES ('5fdsfsfsfdfsdaf5', '/notice/queryUserSysNoticeById.jhtml', '查询用户系统公告信息', 'SYS_NOTICE_MANAGE', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-10 10:03:24', null);
@@ -502,31 +502,42 @@ CREATE TABLE `t_login_log` (
 INSERT INTO `t_login_log` VALUES ('15b16a2c6f6046f2a8a28e40e9c5d285', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-19 17:57:58');
 INSERT INTO `t_login_log` VALUES ('22b1089956f84e33a90a73f8988ae0a3', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-19 13:51:42');
 INSERT INTO `t_login_log` VALUES ('26dbd8d8a737422fb43fd724872588e8', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-20 17:15:55');
+INSERT INTO `t_login_log` VALUES ('42d9e1770fe94c51a568678a3c975e88', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-23 13:48:02');
+INSERT INTO `t_login_log` VALUES ('4ddc968617794fabbe9cabc28cdcfee1', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-22 13:48:50');
 INSERT INTO `t_login_log` VALUES ('50637a226fb84d03a046057aee097149', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2019-12-27 09:24:03');
 INSERT INTO `t_login_log` VALUES ('5bd10bc308754c9cbff6ac361e33bdd7', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2019-12-26 09:18:06');
+INSERT INTO `t_login_log` VALUES ('63c094149eae4f578737b1f1611e14d0', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-23 10:56:14');
 INSERT INTO `t_login_log` VALUES ('65a722bf6b9c4fa68a1bc2bafad41b30', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2019-12-26 08:58:31');
 INSERT INTO `t_login_log` VALUES ('6c2fc59685674ab3af4f668ea8856c11', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-19 23:04:27');
 INSERT INTO `t_login_log` VALUES ('70fdb05cae394ff59a603c20b907868c', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-19 22:20:00');
+INSERT INTO `t_login_log` VALUES ('76f7429d43e940c5b253797bf763f27a', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-23 15:59:52');
 INSERT INTO `t_login_log` VALUES ('7d16620ff27d4b7b824ba4dfd755d2cf', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2020-01-09 18:49:31');
 INSERT INTO `t_login_log` VALUES ('81c599e78e384bcfa042118abe8db719', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2019-12-26 08:51:03');
 INSERT INTO `t_login_log` VALUES ('8567459f2c84496b97ee367965f525e8', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-20 10:16:37');
+INSERT INTO `t_login_log` VALUES ('87e35d524803491b9d4e3b397b17a055', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-22 18:08:54');
 INSERT INTO `t_login_log` VALUES ('8ff718d31fbf4d258cd598a77ff64d4e', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2020-01-09 18:36:01');
+INSERT INTO `t_login_log` VALUES ('926b5487559248fe9ce9b6e0d0f43b65', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-23 09:23:00');
+INSERT INTO `t_login_log` VALUES ('9390cbd89d014caf8fb9eab482ffad4b', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-21 16:03:08');
 INSERT INTO `t_login_log` VALUES ('9e27da80fb38475d8bce06c6846d86e9', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2019-12-30 16:58:34');
 INSERT INTO `t_login_log` VALUES ('9fdceb6a3f5742a1bf4b4f9e3d0404d2', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-19 09:56:20');
+INSERT INTO `t_login_log` VALUES ('a398e1eaec9547a6962c3c02194bc9df', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-22 15:12:54');
 INSERT INTO `t_login_log` VALUES ('a5f638e42e6c4ebfad62610cdd4b2b49', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2019-12-26 09:11:38');
 INSERT INTO `t_login_log` VALUES ('a766d1d10c784031b5f17ae99f8f962f', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-19 10:28:18');
 INSERT INTO `t_login_log` VALUES ('ade37334831d4480910af227ff40b971', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2019-12-26 09:19:51');
 INSERT INTO `t_login_log` VALUES ('b46f9c9ee3b748d79fd67f3e4edb5e18', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2019-12-27 09:27:34');
+INSERT INTO `t_login_log` VALUES ('bd97ea194e4f41378576ad94b9d1c89d', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-21 10:14:35');
 INSERT INTO `t_login_log` VALUES ('c206defc11eb4144bd92e6b36c1f47ce', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2019-12-27 09:01:31');
 INSERT INTO `t_login_log` VALUES ('c6d7884b2dc54b63930b2a40cb02bc47', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2019-12-28 21:44:25');
 INSERT INTO `t_login_log` VALUES ('cbfdd6f6d8674b6e9f94d3aaaaf623c2', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2019-12-30 16:35:52');
 INSERT INTO `t_login_log` VALUES ('d1923617851c47388f0d268b2d03139e', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-19 17:14:11');
 INSERT INTO `t_login_log` VALUES ('d379c6552c964139bb0f613d8a8fa5ae', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2019-12-27 09:09:50');
+INSERT INTO `t_login_log` VALUES ('d475e0b6151144cd897e6d946dce53ef', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-22 16:34:54');
 INSERT INTO `t_login_log` VALUES ('d82df13b512c4e0d8d6d26ffa7f64356', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2019-12-30 16:36:30');
 INSERT INTO `t_login_log` VALUES ('db512d3e22b3461282f20e206d1f253d', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2019-12-28 21:46:39');
 INSERT INTO `t_login_log` VALUES ('de74e00e077541aab4be1b239d87f390', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2019-12-26 08:47:07');
 INSERT INTO `t_login_log` VALUES ('e69408d909b94aab8df1c91c82b002df', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2019-12-28 21:44:50');
 INSERT INTO `t_login_log` VALUES ('fbe7e5b55e1a43b49a08a483f773fd85', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2019-12-30 11:02:11');
+INSERT INTO `t_login_log` VALUES ('fd709f41316f47e7a35d7406a20007f6', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-21 16:55:53');
 
 -- ----------------------------
 -- Table structure for `t_menu`
@@ -559,8 +570,8 @@ CREATE TABLE `t_menu` (
 INSERT INTO `t_menu` VALUES ('1gdfdggfdgdfggdfg1', '009', '访问地址管理', '3', 'icon-api', '/app/accessUrlList', '3yrtyerhgfyerty', '6', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2015-08-27 20:01:00', null);
 INSERT INTO `t_menu` VALUES ('1gdfgdfgdfgdfg2', '010', '数据字典管理', '3', 'icon-data-dic', '/app/dataDicList', '3yrtyerhgfyerty', '8', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2014-09-29 17:18:23', null);
 INSERT INTO `t_menu` VALUES ('1gdfgdfgdfgdfgdfg3', '015', '系统公告管理', '3', 'icon-notification', '/app/sysNoticeList', 'ytryrtyrety4', '1', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2015-04-26 09:30:46', null);
-INSERT INTO `t_menu` VALUES ('1gdfgdfgdfgdfsg5', '012', '我的公告', '3', 'icon-notification', '/app/noticeList', 'ytryedhhdtryrty2', '2', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2014-12-21 16:33:05', null);
-INSERT INTO `t_menu` VALUES ('1gdfgdfgdfgfdg4', '011', '我的待办', '3', 'icon-tags', '/app/taskList', 'ytryedhhdtryrty2', '1', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2014-12-21 16:31:41', null);
+INSERT INTO `t_menu` VALUES ('1gdfgdfgdfgdfsg5', '012', '我的公告', '3', 'icon-notification', '/app/myNoticeList', 'ytryedhhdtryrty2', '2', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2014-12-21 16:33:05', null);
+INSERT INTO `t_menu` VALUES ('1gdfgdfgdfgfdg4', '011', '我的待办', '3', 'icon-tags', '/app/myTaskList', 'ytryedhhdtryrty2', '1', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2014-12-21 16:31:41', null);
 INSERT INTO `t_menu` VALUES ('1gdfgdsfgdsfgdfg6', '014', '登录日志管理', '3', 'icon-login-log', '/app/loginLogList', '5tytryreyyrtyrt', '1', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2015-04-26 09:30:46', null);
 INSERT INTO `t_menu` VALUES ('1gdfsgfgfdg7', '013', '系统日志管理', '3', 'icon-sys-log', '/app/sysLogList', '5tytryreyyrtyrt', '2', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2015-04-24 21:25:28', null);
 INSERT INTO `t_menu` VALUES ('1gfdgsdgsdgfdgsdfg0', '010', '按钮管理', '3', 'icon-border', '/app/buttonList', '3yrtyerhgfyerty', '5', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2014-12-21 16:26:20', null);
@@ -572,7 +583,7 @@ INSERT INTO `t_menu` VALUES ('7ereeet', '007', '部门管理', '3', 'icon-apartm
 INSERT INTO `t_menu` VALUES ('82273d9bb3144250a6997a1bfbd90bfe', '016', '系统信息', '3', 'icon-dashboard', '/app/sysInfo', 'ytryrtyrety4', '2', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2019-12-12 05:57:28', null);
 INSERT INTO `t_menu` VALUES ('8ytryrtytry', '008', '角色管理', '3', 'icon-team', '/app/roleList', '3yrtyerhgfyerty', '3', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2014-10-16 14:50:03', null);
 INSERT INTO `t_menu` VALUES ('9stryytrytrytr', '011', '菜单管理', '3', 'icon-menu', '/app/menuList', '3yrtyerhgfyerty', '4', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2014-11-21 21:28:03', null);
-INSERT INTO `t_menu` VALUES ('a2cf1e8ab74449c29861404214421841', '018', '学生管理', '3', 'icon-user', 'app/studentList', 'e041386708254e31beae8df1c92a4a8c', '1', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2019-12-24 07:28:37', null);
+INSERT INTO `t_menu` VALUES ('a2cf1e8ab74449c29861404214421841', '018', '学生管理', '3', 'icon-user', '/app/studentList', 'e041386708254e31beae8df1c92a4a8c', '1', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2019-12-24 07:28:37', null);
 INSERT INTO `t_menu` VALUES ('dfhgfhhgf3gdgdsgfh1', '001', '系统菜单', '1', 'icon-menu', null, '', '1', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2014-09-28 19:41:19', null);
 INSERT INTO `t_menu` VALUES ('e041386708254e31beae8df1c92a4a8c', '017', '演示', '2', 'icon-demo', '', 'dfhgfhhgf3gdgdsgfh1', '5', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2019-12-24 07:26:52', null);
 INSERT INTO `t_menu` VALUES ('ytryedhhdtryrty2', '002', '个人工作台', '2', 'icon-workbench', '', 'dfhgfhhgf3gdgdsgfh1', '1', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2014-09-29 17:17:20', null);
@@ -603,8 +614,10 @@ CREATE TABLE `t_notice` (
 -- ----------------------------
 -- Records of t_notice
 -- ----------------------------
-INSERT INTO `t_notice` VALUES ('1', 'CC2.0 正在不断开发与完善中，即将闪联登场，期待!', 'CC2.0 正在不断开发与完善中，即将闪联登场，期待!', '1', '1', '2021-03-18', '1aaaaaaaaaaaaaaaaaaaa', null, '2019-09-26 19:58:44', null);
-INSERT INTO `t_notice` VALUES ('1f46c8f22f1b467ca76bd8247ff33724', '根据目标将项目工作分解成具体工作项根据目标将根据目标将项目工作分解成具体工作项根据目标将', '第一步：根据目标将项目工作分解成具体工作项\n\n以网易严选为例，整合营销项目既要承担拉高GMV的职责，也要考虑市场做大声量。\n\n我们将一个项目拆分成6个子项目：\n\n意见征集：征集项目管理、活动策略玩法的建议；\n营销策略产出：根据竞品调研，产出核心玩法，促销节奏，核心沟通策略；\nKPI制定BD，渠道等各资源方的推广计划，避免资源错配的情况。\n第二步：根据各个子项目的目标，再将各个子项目拆解成各个工作包\n\n如“KPI的制定与拆解”子项目，目的是帮助严选各业务线规划目标，帮助具体执行人员根据当前目标做足准备。\n\n根据财务指标，拆分完整体业绩KPI以后，我们从用户线、流量线、商品线三个角度分别看应该如何完成总的目标。\n\n\n第三步：明确各个工作包的工作内容以及责任人和用时\n\n以“KPI的制定与拆解”子项目中“整体财务KPI”这个工作包为例，整体KPI不仅影响促销的玩法策略制定，会对“供应链订货”“仓配资源”上下游的业务线的策略制定产生影响。\n\n我们一般用5个工作日，协同数据分析师根据历史数据及财务指标推测出整体目标，并将目标拆分至：销售额KPI、毛利额KPI、毛利率KPI等财务指标，再将这些财务指标细分到各个销售渠道。\n\n\n\n我们将一个项目拆分成6个子项目：\n\n意见征集：征集项目管理、活动策略玩法的建议；\n营销策略产出：根据竞品调研，产出核心玩法，促销节奏，核心沟通策略；\nKPI制定与拆解：根据财务目标，拆分出销售毛利目标，并分拆至销售，用户，流量，商品四个角度；\n具体方案制定与落地：根据核心策略策划各业务线落地方案；\n商品盘货统筹：通过策划案中各线玩法制定盘点策略，盘点出不同商品在不同节点做什么价格，做什么推荐；\n促销推广落地：根据整体沟通策略和货品盘点结果，梳理品牌，BD，渠道等各资源方的推广计划，避免资源错配的情况。\n第二步：根据各个子项目的目标，再将各个子项目拆解成各个工作包\n\n如“KPI的制定与拆解”子项目，目的是帮助严选各业务线规划目标，帮助具体执行人员根据当前目标做足准备。\n\n\n', '1', '1', '2021-03-18', '1aaaaaaaaaaaaaaaaaaaa', '1aaaaaaaaaaaaaaaaaaaa', '2019-12-04 20:28:22', '2019-12-04 20:43:47');
+INSERT INTO `t_notice` VALUES ('1', 'CC2.0 正在不断开发与完善中，即将闪联登场，期待!', 'CC2.0 正在不断开发与完善中，即将闪联登场，期待!', '1', '1', '2021-03-18', '1aaaaaaaaaaaaaaaaaaaa', '1aaaaaaaaaaaaaaaaaaaa', '2019-09-26 19:58:44', '2021-03-22 17:30:38');
+INSERT INTO `t_notice` VALUES ('1f46c8f22f1b467ca76bd8247ff33724', '根据目标将项目工作分解成具体工作项根据目标将根据目标将项目工作分解成具体工作项根据目标将', '第一步：根据目标将项目工作分解成具体工作项\n\n以网易严选为例，整合营销项目既要承担拉高GMV的职责，也要考虑市场做大声量。\n\n我们将一个项目拆分成6个子项目：\n\n意见征集：征集项目管理、活动策略玩法的建议；\n营销策略产出：根据竞品调研，产出核心玩法，促销节奏，核心沟通策略；\nKPI制定BD，渠道等各资源方的推广计划，避免资源错配的情况。\n第二步：根据各个子项目的目标，再将各个子项目拆解成各个工作包\n\n如“KPI的制定与拆解”子项目，目的是帮助严选各业务线规划目标，帮助具体执行人员根据当前目标做足准备。\n\n根据财务指标，拆分完整体业绩KPI以后，我们从用户线、流量线、商品线三个角度分别看应该如何完成总的目标。\n\n\n第三步：明确各个工作包的工作内容以及责任人和用时\n\n以“KPI的制定与拆解”子项目中“整体财务KPI”这个工作包为例，整体KPI不仅影响促销的玩法策略制定，会对“供应链订货”“仓配资源”上下游的业务线的策略制定产生影响。\n\n我们一般用5个工作日，协同数据分析师根据历史数据及财务指标推测出整体目标，并将目标拆分至：销售额KPI、毛利额KPI、毛利率KPI等财务指标，再将这些财务指标细分到各个销售渠道。\n\n\n\n我们将一个项目拆分成6个子项目：\n\n意见征集：征集项目管理、活动策略玩法的建议；\n营销策略产出：根据竞品调研，产出核心玩法，促销节奏，核心沟通策略；\nKPI制定与拆解：根据财务目标，拆分出销售毛利目标，并分拆至销售，用户，流量，商品四个角度；\n具体方案制定与落地：根据核心策略策划各业务线落地方案；\n商品盘货统筹：通过策划案中各线玩法制定盘点策略，盘点出不同商品在不同节点做什么价格，做什么推荐；\n促销推广落地：根据整体沟通策略和货品盘点结果，梳理品牌，BD，渠道等各资源方的推广计划，避免资源错配的情况。\n第二步：根据各个子项目的目标，再将各个子项目拆解成各个工作包\n\n如“KPI的制定与拆解”子项目，目的是帮助严选各业务线规划目标，帮助具体执行人员根据当前目标做足准备。\n\n\n', '1', '1', '2021-03-18', '1aaaaaaaaaaaaaaaaaaaa', '1aaaaaaaaaaaaaaaaaaaa', '2019-12-04 20:28:22', '2021-03-22 17:30:38');
+INSERT INTO `t_notice` VALUES ('340fd2a2a2984e65a2c70bd00268a809', 'DSF', 'FDSF', '1', '1', '2021-03-23', '1aaaaaaaaaaaaaaaaaaaa', null, '2021-03-23 09:30:22', null);
+INSERT INTO `t_notice` VALUES ('939c1be63fa04e84b4200f7e4c88cea3', 'FASDF1', 'ASDFASDF1', '1', '1', '2021-03-28', '1aaaaaaaaaaaaaaaaaaaa', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-23 09:30:43', '2021-03-23 09:42:12');
 
 -- ----------------------------
 -- Table structure for `t_notice_user_mapping`
@@ -926,8 +939,8 @@ CREATE TABLE `t_task` (
 -- ----------------------------
 -- Records of t_task
 -- ----------------------------
-INSERT INTO `t_task` VALUES ('1', null, null, '您有一个用户信息待查看！！！', '/app/user/userView', '{\"id\":\"1aaaaaaaaaaaaaaaaaaaa\"}', '1', '1aaaaaaaaaaaaaaaaaaaa', '1aaaaaaaaaaaaaaaaaaaa', '1aaaaaaaaaaaaaaaaaaaa', '2019-09-26 20:01:07', '2019-12-05 20:43:34');
-INSERT INTO `t_task` VALUES ('2', null, null, '您有一个角色信息待查看！！！', '/app/role/roleView', '{\"id\":\"1fsdfsdafasfqfs234fgdgsfsdf\"}', '1', '1aaaaaaaaaaaaaaaaaaaa', '1aaaaaaaaaaaaaaaaaaaa', '1aaaaaaaaaaaaaaaaaaaa', '2019-09-26 20:15:40', '2019-12-05 20:43:21');
+INSERT INTO `t_task` VALUES ('1', null, null, '您有一个用户信息待查看！！！', '/app/user/userView', '{\"id\":\"1aaaaaaaaaaaaaaaaaaaa\"}', '1', '1aaaaaaaaaaaaaaaaaaaa', '1aaaaaaaaaaaaaaaaaaaa', '1aaaaaaaaaaaaaaaaaaaa', '2019-09-26 20:01:07', '2021-03-23 11:26:23');
+INSERT INTO `t_task` VALUES ('2', null, null, '您有一个角色信息待查看！！！', '/app/role/roleView', '{\"id\":\"1fsdfsdafasfqfs234fgdgsfsdf\"}', '1', '1aaaaaaaaaaaaaaaaaaaa', '1aaaaaaaaaaaaaaaaaaaa', '1aaaaaaaaaaaaaaaaaaaa', '2019-09-26 20:15:40', '2021-03-23 11:26:24');
 
 -- ----------------------------
 -- Table structure for `t_user`
