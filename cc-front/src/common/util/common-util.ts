@@ -415,6 +415,7 @@ export default class CommonUtil {
      * @returns 
      */
     static queryDataByConditionPaging(btnQuery = false, queryParams: any, queryService: any, dataSource: any) {
+        dataSource.value = [];
         if (btnQuery) {
             queryParams.value = CommonUtil.resetPaginationParams(queryParams.value);
         }

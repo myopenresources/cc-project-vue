@@ -123,7 +123,7 @@ import {
 } from 'echarts/components';
 import { BarChart, PieChart } from 'echarts/charts';
 import { CanvasRenderer } from 'echarts/renderers';
-import router from '/@/router';
+import { useRouter } from 'vue-router';
 
 use([
   TitleComponent,
@@ -145,6 +145,8 @@ export default defineComponent({
     VChart,
   },
   setup() {
+    const router = useRouter();
+    
     // 以下这部分可删除
     let centerEchartOption = ref<any>({});
     let rightEchartOption = ref<any>({});
@@ -323,7 +325,7 @@ export default defineComponent({
     };
 
     const noticeListView = () => {
-      router.push('/app/noticeList');
+      router.push('/app/myNoticeList');
     };
 
     /**
@@ -334,7 +336,7 @@ export default defineComponent({
     };
 
     const taskListView = () => {
-      router.push('/app/taskList');
+      router.push('/app/myTaskList');
     };
 
     onMounted(() => {
