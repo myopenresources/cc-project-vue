@@ -18,7 +18,7 @@
       </template>
 
       <div class="app-user-dept-distribute-container">
-        <div class="app-dept-tree-container">
+        <div class="app-dept-tree-container" v-app-scrollbar="scrollOptions">
           <a-tree
             :tree-data="deptTreeData"
             :blockNode="true"
@@ -35,7 +35,7 @@
           </a-tree>
         </div>
 
-        <div class="app-dept-selected-container">
+        <div class="app-dept-selected-container" v-app-scrollbar="scrollOptions">
           <a-list :data-source="selectNodeList">
             <template #renderItem="{ item }">
               <a-list-item>
@@ -76,6 +76,17 @@ export default defineComponent({
   },
   emits: ['update:visible', 'update:id', 'reload'],
   setup(props, context) {
+    const scrollOptions = {
+      overflowBehavior: {
+        y: 'scroll',
+        x: 'scroll',
+      },
+      scrollbars: {
+        autoHide: 'leave',
+        autoHideDelay: 200,
+      },
+    };
+
     const selectNodeList = ref<any[]>([]);
     const targetKeys = ref<string[]>([]);
     const deptTreeData = shallowRef<any[]>([]);
@@ -171,6 +182,7 @@ export default defineComponent({
       save,
       deleteNode,
       selectNode,
+      scrollOptions,
     };
   },
 });

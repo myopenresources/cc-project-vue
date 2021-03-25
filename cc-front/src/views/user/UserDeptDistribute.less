@@ -3,10 +3,12 @@
 .app-user-dept-distribute-container {
     display: -webkit-flex;
     display: flex;
+    height: 100%;
+    overflow: hidden;
 
     .app-dept-tree-container {
         width        : 363px;
-        height       : 400px;
+        height       : 100%;
         overflow     : auto;
         border       : @border-color-split @border-width-base @border-style-base;
         border-radius: @border-radius-base;
@@ -16,7 +18,7 @@
 
     .app-dept-selected-container {
         width        : 363px;
-        height       : 400px;
+        height       : 100%;
         overflow     : auto;
         border       : @border-color-split @border-width-base @border-style-base;
         border-radius: @border-radius-base;
@@ -27,7 +29,7 @@
         }
 
         .app-dept-name {
-            width        : 280px;
+            width        : 210px;
             overflow     : hidden;
             text-overflow: ellipsis;
             white-space  : nowrap;
