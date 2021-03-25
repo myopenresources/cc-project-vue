@@ -205,6 +205,20 @@ export default class CommonUtil {
     }
 
     /**
+    * 数组转换成单数组
+    * @param list 
+    * @param key 
+    */
+    static ArrayToSimpleArray(list: Array<any>, key: string) {
+        const keys: any[] = [];
+        for (const item of list) {
+            keys.push(item[key]);
+        }
+
+        return keys;
+    }
+
+    /**
      * 防抖
      */
     static debounce(cb: Function, time: number, args?: any) {

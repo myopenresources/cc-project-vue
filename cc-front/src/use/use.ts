@@ -22,7 +22,7 @@ import {
     InputNumber, Row, Col, Select, Modal,
     Menu, Table, Alert, Tag, Drawer, Progress,
     Descriptions, Divider, List, DatePicker,
-    Tabs, Tree, Checkbox
+    Tabs, Tree, Checkbox, Transfer
 } from "ant-design-vue";
 
 /**
@@ -35,7 +35,7 @@ function useAntdComponnet(app: App) {
         InputNumber, Row, Col, Select, Modal,
         Menu, Table, Alert, Tag, Drawer, Progress,
         Descriptions, Divider, List, DatePicker,
-        Tabs, Tree, Checkbox
+        Tabs, Tree, Checkbox, Transfer
     ];
     comps.forEach((componnet) => {
         app.use(componnet);

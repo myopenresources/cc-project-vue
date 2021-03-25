@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 80017
 File Encoding         : 65001
 
-Date: 2021-03-23 16:13:47
+Date: 2021-03-25 11:32:31
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -502,6 +502,8 @@ CREATE TABLE `t_login_log` (
 INSERT INTO `t_login_log` VALUES ('15b16a2c6f6046f2a8a28e40e9c5d285', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-19 17:57:58');
 INSERT INTO `t_login_log` VALUES ('22b1089956f84e33a90a73f8988ae0a3', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-19 13:51:42');
 INSERT INTO `t_login_log` VALUES ('26dbd8d8a737422fb43fd724872588e8', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-20 17:15:55');
+INSERT INTO `t_login_log` VALUES ('30a4060b290040ddbda23664fefd6eac', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-25 10:44:53');
+INSERT INTO `t_login_log` VALUES ('34aa8991d8ac4bafa2460ed4677e5f3e', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-25 11:00:39');
 INSERT INTO `t_login_log` VALUES ('42d9e1770fe94c51a568678a3c975e88', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-23 13:48:02');
 INSERT INTO `t_login_log` VALUES ('4ddc968617794fabbe9cabc28cdcfee1', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-22 13:48:50');
 INSERT INTO `t_login_log` VALUES ('50637a226fb84d03a046057aee097149', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2019-12-27 09:24:03');
@@ -512,30 +514,41 @@ INSERT INTO `t_login_log` VALUES ('6c2fc59685674ab3af4f668ea8856c11', '127.0.0.1
 INSERT INTO `t_login_log` VALUES ('70fdb05cae394ff59a603c20b907868c', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-19 22:20:00');
 INSERT INTO `t_login_log` VALUES ('76f7429d43e940c5b253797bf763f27a', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-23 15:59:52');
 INSERT INTO `t_login_log` VALUES ('7d16620ff27d4b7b824ba4dfd755d2cf', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2020-01-09 18:49:31');
+INSERT INTO `t_login_log` VALUES ('7fd279f216a54a39878683ccb9f9e004', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-25 11:21:04');
+INSERT INTO `t_login_log` VALUES ('7fda1e0f233e4b37a09d72606d608d2b', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-25 09:32:56');
 INSERT INTO `t_login_log` VALUES ('81c599e78e384bcfa042118abe8db719', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2019-12-26 08:51:03');
 INSERT INTO `t_login_log` VALUES ('8567459f2c84496b97ee367965f525e8', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-20 10:16:37');
 INSERT INTO `t_login_log` VALUES ('87e35d524803491b9d4e3b397b17a055', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-22 18:08:54');
 INSERT INTO `t_login_log` VALUES ('8ff718d31fbf4d258cd598a77ff64d4e', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2020-01-09 18:36:01');
 INSERT INTO `t_login_log` VALUES ('926b5487559248fe9ce9b6e0d0f43b65', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-23 09:23:00');
 INSERT INTO `t_login_log` VALUES ('9390cbd89d014caf8fb9eab482ffad4b', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-21 16:03:08');
+INSERT INTO `t_login_log` VALUES ('95d7aec9bd3746959b54499dd953f1b6', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-25 10:42:42');
 INSERT INTO `t_login_log` VALUES ('9e27da80fb38475d8bce06c6846d86e9', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2019-12-30 16:58:34');
 INSERT INTO `t_login_log` VALUES ('9fdceb6a3f5742a1bf4b4f9e3d0404d2', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-19 09:56:20');
 INSERT INTO `t_login_log` VALUES ('a398e1eaec9547a6962c3c02194bc9df', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-22 15:12:54');
 INSERT INTO `t_login_log` VALUES ('a5f638e42e6c4ebfad62610cdd4b2b49', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2019-12-26 09:11:38');
 INSERT INTO `t_login_log` VALUES ('a766d1d10c784031b5f17ae99f8f962f', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-19 10:28:18');
+INSERT INTO `t_login_log` VALUES ('a9f64e02c085484f857ec5e52a0ca7c2', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-25 11:20:32');
 INSERT INTO `t_login_log` VALUES ('ade37334831d4480910af227ff40b971', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2019-12-26 09:19:51');
+INSERT INTO `t_login_log` VALUES ('af7c39d7b1a9490c987a4ba52fd41f58', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-25 11:03:15');
 INSERT INTO `t_login_log` VALUES ('b46f9c9ee3b748d79fd67f3e4edb5e18', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2019-12-27 09:27:34');
 INSERT INTO `t_login_log` VALUES ('bd97ea194e4f41378576ad94b9d1c89d', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-21 10:14:35');
 INSERT INTO `t_login_log` VALUES ('c206defc11eb4144bd92e6b36c1f47ce', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2019-12-27 09:01:31');
 INSERT INTO `t_login_log` VALUES ('c6d7884b2dc54b63930b2a40cb02bc47', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2019-12-28 21:44:25');
+INSERT INTO `t_login_log` VALUES ('c7bba96b91a9495d9a8ea2a10b2d8f53', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-24 15:46:38');
 INSERT INTO `t_login_log` VALUES ('cbfdd6f6d8674b6e9f94d3aaaaf623c2', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2019-12-30 16:35:52');
+INSERT INTO `t_login_log` VALUES ('cd82f9cf607b4b4188d7d46e1bcae35a', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-24 09:22:25');
 INSERT INTO `t_login_log` VALUES ('d1923617851c47388f0d268b2d03139e', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-19 17:14:11');
+INSERT INTO `t_login_log` VALUES ('d3659252e2fe4181b59351a588e6a8fa', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-25 11:05:31');
 INSERT INTO `t_login_log` VALUES ('d379c6552c964139bb0f613d8a8fa5ae', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2019-12-27 09:09:50');
 INSERT INTO `t_login_log` VALUES ('d475e0b6151144cd897e6d946dce53ef', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-22 16:34:54');
 INSERT INTO `t_login_log` VALUES ('d82df13b512c4e0d8d6d26ffa7f64356', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2019-12-30 16:36:30');
 INSERT INTO `t_login_log` VALUES ('db512d3e22b3461282f20e206d1f253d', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2019-12-28 21:46:39');
+INSERT INTO `t_login_log` VALUES ('ddd2ad142a5045dca66811085dd5fd9b', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-25 10:54:30');
 INSERT INTO `t_login_log` VALUES ('de74e00e077541aab4be1b239d87f390', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2019-12-26 08:47:07');
 INSERT INTO `t_login_log` VALUES ('e69408d909b94aab8df1c91c82b002df', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2019-12-28 21:44:50');
+INSERT INTO `t_login_log` VALUES ('ed626c35065d4e5882e08031f0f8bbb6', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-25 11:19:15');
+INSERT INTO `t_login_log` VALUES ('f58e0fcd9d8b40cc81797d5fffe78258', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-24 17:49:28');
 INSERT INTO `t_login_log` VALUES ('fbe7e5b55e1a43b49a08a483f773fd85', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2019-12-30 11:02:11');
 INSERT INTO `t_login_log` VALUES ('fd709f41316f47e7a35d7406a20007f6', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-21 16:55:53');
 
@@ -664,6 +677,7 @@ CREATE TABLE `t_role` (
 -- Records of t_role
 -- ----------------------------
 INSERT INTO `t_role` VALUES ('1fsdfsdafasfqfs234fgdgsfsdf', '001', '开发超级管理员', '开发最高权限', '1', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-10 17:58:16', null);
+INSERT INTO `t_role` VALUES ('3b370aa1bc464890a0bc99d9b7c42a4b', '111', '111地', '无可奈何在在', '2', '1', '1aaaaaaaaaaaaaaaaaaaa', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-23 16:45:40', '2021-03-23 16:47:22');
 
 -- ----------------------------
 -- Table structure for `t_role_access_url_mapping`
@@ -828,6 +842,7 @@ INSERT INTO `t_role_button_mapping` VALUES ('7ee489af2caf43958390747e8884aaa0', 
 INSERT INTO `t_role_button_mapping` VALUES ('8b66ae06aa30480c875963444fa7c843', '1fsdfsdafasfqfs234fgdgsfsdf', '1fsgdfsgddf5');
 INSERT INTO `t_role_button_mapping` VALUES ('99f77880c332430c933f9601d3852bff', '1fsdfsdafasfqfs234fgdgsfsdf', '3fsafsdfsaf2');
 INSERT INTO `t_role_button_mapping` VALUES ('9b0a37fe197c4f6e9bfd1d41ceb09420', '1fsdfsdafasfqfs234fgdgsfsdf', '4543gdfsfg53454');
+INSERT INTO `t_role_button_mapping` VALUES ('9b4fd3271e2f4699b196ba4577d6f356', '3b370aa1bc464890a0bc99d9b7c42a4b', '1hgfhfghfg0');
 INSERT INTO `t_role_button_mapping` VALUES ('a466ba76e56e4d2a8fb9e19aa7004aeb', '1fsdfsdafasfqfs234fgdgsfsdf', '3vcxzcvzvxzcv4');
 INSERT INTO `t_role_button_mapping` VALUES ('a921fc226b774e66915cd209a963b491', '1fsdfsdafasfqfs234fgdgsfsdf', '3dgfdsgvvzcvfg9');
 INSERT INTO `t_role_button_mapping` VALUES ('b21c84575e4a4d8e94cd018a7c28a254', '1fsdfsdafasfqfs234fgdgsfsdf', 'fsadfsadfasdff6');
@@ -868,6 +883,7 @@ CREATE TABLE `t_role_data_permit_mapping` (
 -- ----------------------------
 INSERT INTO `t_role_data_permit_mapping` VALUES ('767197840e9b4de58643d2be31585b35', 'asdfghj1234566fsfasdfaddsf', '1fsdfsdafasfqfs234fgdgsfsdf');
 INSERT INTO `t_role_data_permit_mapping` VALUES ('a3918c05362f43208ef70342318be6b4', 'asdfghj1234566fsfasdfadsf', '1fsdfsdafasfqfs234fgdgsfsdf');
+INSERT INTO `t_role_data_permit_mapping` VALUES ('ade589d717b541289374ffbdc7621070', 'asdfff1234566fsfasdfaddsaaf', '3b370aa1bc464890a0bc99d9b7c42a4b');
 INSERT INTO `t_role_data_permit_mapping` VALUES ('b77877ef68574e1181deafafc7131a7d', 'asdfff1234566fsfasdfaddsaaf', '1fsdfsdafasfqfs234fgdgsfsdf');
 
 -- ----------------------------
@@ -888,18 +904,24 @@ CREATE TABLE `t_role_menu_mapping` (
 -- ----------------------------
 -- Records of t_role_menu_mapping
 -- ----------------------------
+INSERT INTO `t_role_menu_mapping` VALUES ('07f598e7e1cc4138bad28c60f0485766', '3b370aa1bc464890a0bc99d9b7c42a4b', '1gdfgdsfgdsfgdfg6');
+INSERT INTO `t_role_menu_mapping` VALUES ('08836804da9f4cc8aec4c904e63cc6f7', '3b370aa1bc464890a0bc99d9b7c42a4b', 'dfhgfhhgf3gdgdsgfh1');
 INSERT INTO `t_role_menu_mapping` VALUES ('0df3fd647e8b4ab5ab29d729318f15a5', '1fsdfsdafasfqfs234fgdgsfsdf', '8ytryrtytry');
+INSERT INTO `t_role_menu_mapping` VALUES ('10efb2f006554dfea520d9611cb0cf7f', '3b370aa1bc464890a0bc99d9b7c42a4b', '5tytryreyyrtyrt');
 INSERT INTO `t_role_menu_mapping` VALUES ('33c36f6fe7324bd9b2c9bdea03cb006b', '1fsdfsdafasfqfs234fgdgsfsdf', '1gdfgdsfgdsfgdfg6');
 INSERT INTO `t_role_menu_mapping` VALUES ('3a06adf2c45e454db512a7017d81cd82', '1fsdfsdafasfqfs234fgdgsfsdf', '1gdfgdfgdfgdfsg5');
 INSERT INTO `t_role_menu_mapping` VALUES ('3f69aad1792b4ef58d1d945d19e8b1cc', '1fsdfsdafasfqfs234fgdgsfsdf', '3yrtyerhgfyerty');
+INSERT INTO `t_role_menu_mapping` VALUES ('4333fb0eea784eb082f9150af7ae14e9', '3b370aa1bc464890a0bc99d9b7c42a4b', '1gdfgdfgdfgdfsg5');
 INSERT INTO `t_role_menu_mapping` VALUES ('46891f56f6a846bbaf017137906b6df2', '1fsdfsdafasfqfs234fgdgsfsdf', 'e041386708254e31beae8df1c92a4a8c');
 INSERT INTO `t_role_menu_mapping` VALUES ('476ef38c268a4f3cbf0f200c1a69c499', '1fsdfsdafasfqfs234fgdgsfsdf', '2cce82e8b5274b6d8acb65c888415bb2');
+INSERT INTO `t_role_menu_mapping` VALUES ('4bb3795d19044125b29f0f493c40d4a2', '3b370aa1bc464890a0bc99d9b7c42a4b', '3yrtyerhgfyerty');
 INSERT INTO `t_role_menu_mapping` VALUES ('6f390d180c72491c85ee37ac3db8ad5e', '1fsdfsdafasfqfs234fgdgsfsdf', '7ereeet');
 INSERT INTO `t_role_menu_mapping` VALUES ('905c385690ee463dbaecc06a826a4a4d', '1fsdfsdafasfqfs234fgdgsfsdf', '5tytryreyyrtyrt');
 INSERT INTO `t_role_menu_mapping` VALUES ('955c09774da24fd3bcaa49353d2a7876', '1fsdfsdafasfqfs234fgdgsfsdf', '1gdfgdfgdfgdfgdfg3');
 INSERT INTO `t_role_menu_mapping` VALUES ('95f52a4724804c74a1c30044a60465c4', '1fsdfsdafasfqfs234fgdgsfsdf', '1gdfgdfgdfgfdg4');
 INSERT INTO `t_role_menu_mapping` VALUES ('ab866d9030f8425eaa9072ea5405e2d7', '1fsdfsdafasfqfs234fgdgsfsdf', '1gdfgdfgdfgdfg2');
 INSERT INTO `t_role_menu_mapping` VALUES ('b12d422e857543daadbf452190545c83', '1fsdfsdafasfqfs234fgdgsfsdf', '82273d9bb3144250a6997a1bfbd90bfe');
+INSERT INTO `t_role_menu_mapping` VALUES ('b26be975666e4807932e2be3b987fb78', '3b370aa1bc464890a0bc99d9b7c42a4b', '1gdfsgfgfdg7');
 INSERT INTO `t_role_menu_mapping` VALUES ('b95b384b514f4b78aec56747e5f16913', '1fsdfsdafasfqfs234fgdgsfsdf', '9stryytrytrytr');
 INSERT INTO `t_role_menu_mapping` VALUES ('ba98527071434add96952b5ffa2b90f5', '1fsdfsdafasfqfs234fgdgsfsdf', 'ytryrtyrety4');
 INSERT INTO `t_role_menu_mapping` VALUES ('bfbd7e27839a4cd6b759a54fec7f72aa', '1fsdfsdafasfqfs234fgdgsfsdf', 'a2cf1e8ab74449c29861404214421841');
@@ -908,6 +930,7 @@ INSERT INTO `t_role_menu_mapping` VALUES ('d3b60747df124a9a98a5b5505cb84229', '1
 INSERT INTO `t_role_menu_mapping` VALUES ('d3ec061dacf54c7c9b3532ac43b2de2a', '1fsdfsdafasfqfs234fgdgsfsdf', 'dfhgfhhgf3gdgdsgfh1');
 INSERT INTO `t_role_menu_mapping` VALUES ('db5329cc472541f1999b93cfcdc0fa54', '1fsdfsdafasfqfs234fgdgsfsdf', '6ytryetryeeytrt');
 INSERT INTO `t_role_menu_mapping` VALUES ('e95c81a7a2da47a197ef8028e202c712', '1fsdfsdafasfqfs234fgdgsfsdf', '1gfdgsdgsdgfdgsdfg0');
+INSERT INTO `t_role_menu_mapping` VALUES ('ea2433d1638246dcab5b9221857e3235', '3b370aa1bc464890a0bc99d9b7c42a4b', 'ytryedhhdtryrty2');
 INSERT INTO `t_role_menu_mapping` VALUES ('ed1ed4bea19e4cb1a894644608fcd783', '1fsdfsdafasfqfs234fgdgsfsdf', '1gdfsgfgfdg7');
 
 -- ----------------------------

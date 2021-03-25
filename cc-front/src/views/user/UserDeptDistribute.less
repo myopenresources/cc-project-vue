@@ -1,0 +1,36 @@
+@import '../../assets/less/index.less';
+
+.app-user-dept-distribute-container {
+    display: -webkit-flex;
+    display: flex;
+
+    .app-dept-tree-container {
+        width        : 363px;
+        height       : 400px;
+        overflow     : auto;
+        border       : @border-color-split @border-width-base @border-style-base;
+        border-radius: @border-radius-base;
+        margin-right : 25px;
+        padding      : 10px;
+    }
+
+    .app-dept-selected-container {
+        width        : 363px;
+        height       : 400px;
+        overflow     : auto;
+        border       : @border-color-split @border-width-base @border-style-base;
+        border-radius: @border-radius-base;
+        padding      : 10px;
+
+        .app-dept-selected-delete {
+            color: @error-color;
+        }
+
+        .app-dept-name {
+            width        : 280px;
+            overflow     : hidden;
+            text-overflow: ellipsis;
+            white-space  : nowrap;
+        }
+    }
+}

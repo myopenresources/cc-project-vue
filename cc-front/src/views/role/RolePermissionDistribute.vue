@@ -27,7 +27,12 @@
               :checkStrictly="true"
               :checkable="true"
               v-model:checkedKeys="roleMenuData"
-            />
+            >
+              <template #title="node">
+                <span :class="['iconfont', node.icon]"></span>
+                {{ node.title }}
+              </template>
+            </a-tree>
           </a-tab-pane>
           <a-tab-pane key="2" tab="按钮与访问地址">
             <a-menu :mode="'inline'" :inlineIndent="2">
@@ -44,7 +49,10 @@
                       <a-checkbox v-model:checked="item.checked" />
                       <span class="app-btn-accessurl-item-name">
                         <span
-                          :class="['iconfont', item.attr1 === 'TYPE_ACCESS_URL' ? 'api' : 'border']"
+                          :class="[
+                            'iconfont',
+                            item.attr1 === 'TYPE_ACCESS_URL' ? 'icon-api' : 'icon-border',
+                          ]"
                         ></span>
                         {{ item.label }}
                       </span>

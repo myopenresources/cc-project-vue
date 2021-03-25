@@ -37,7 +37,6 @@
 import { defineComponent, reactive, UnwrapRef } from 'vue';
 import { useForm } from '@ant-design-vue/use';
 import { notification } from 'ant-design-vue';
-import Environments from '/@/common/util/env-util';
 import passwordValidator from '/@/validator/password-validator';
 import equalValidator from '/@/validator/equal-validator';
 import { RuleObject } from 'ant-design-vue/lib/form/interface';
@@ -55,8 +54,8 @@ export default defineComponent({
   emits: ['update:visible'],
   setup(props, context) {
     const modelRef: UnwrapRef<{ password: string; confPassword: string }> = reactive({
-      confPassword: Environments.getEvnProp('VITE_ADMIN_USER_NAME'),
-      password: Environments.getEvnProp('VITE_ADMIN_PASSWORD'),
+      confPassword: '',
+      password: '',
     });
 
     const { validate, validateInfos } = useForm(

@@ -2,10 +2,12 @@ import { commonConst } from "../const/common-const";
 import CookieUtils from "./cookie-utils";
 import SecurityUtils from "./security-utils";
 import { SessionStorageUtils } from './storage-utils';
+import Environments from "./env-util";
 
 export default class SysStorageUtils {
     static setSecurityKey(value: any) {
-        CookieUtils.set(SecurityUtils.securityKey, value, 0.125);
+        const timeout = Number.parseFloat(Environments.getEvnProp('VITE_SESSION_TIMEOUT'));
+        CookieUtils.set(SecurityUtils.securityKey, value, timeout);
     }
 
     static getSecurityKey() {
@@ -17,7 +19,8 @@ export default class SysStorageUtils {
     }
 
     static setSessionUser(value: any) {
-        CookieUtils.setObject(commonConst.sessionUser, value, 0.125);
+        const timeout = Number.parseFloat(Environments.getEvnProp('VITE_SESSION_TIMEOUT'));
+        CookieUtils.setObject(commonConst.sessionUser, value, timeout);
     }
 
     static getSessionUser() {
