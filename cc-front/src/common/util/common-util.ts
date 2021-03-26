@@ -356,7 +356,8 @@ export default class CommonUtil {
             total: 0,
             page: 1,
             rows: 10,
-            pageSizeOptions: ['10', '20', '30', '40', '50']
+            pageSizeOptions: ['10', '20', '30', '40', '50'],
+            showSizeChanger: true
         };
         return lodash.extend(paginationModel, customParams);
     }
@@ -394,7 +395,7 @@ export default class CommonUtil {
             total: queryParams.value.total,
             current: queryParams.value.page,
             pageSize: queryParams.value.rows,
-            showSizeChanger: true,
+            showSizeChanger: queryParams.value.showSizeChanger,
             pageSizeOptions: queryParams.value.pageSizeOptions,
             showTotal: (total, range) => `共 ${total} 条数据，当前显示 ${range[0]} 到 ${range[1]}`,
         }));
@@ -419,8 +420,8 @@ export default class CommonUtil {
      * @param params 
      * @returns 
      */
-    static queryParamsInit(params: any) {
-        return ref(CommonUtil.queryParamsMergePageParams(params));
+    static queryParamsInit(params: any, customPageParams?: any) {
+        return ref(CommonUtil.queryParamsMergePageParams(params, customPageParams));
     }
 
     /**

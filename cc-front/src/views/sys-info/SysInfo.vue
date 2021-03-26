@@ -1,5 +1,5 @@
 <template>
-  <app-def-main-layout :showTool="false">
+  <app-def-main-layout :showTool="false" :usePadding="false">
     <div class="app-sys-info-container">
       <a-row class="app-sys-info-row">
         <a-col

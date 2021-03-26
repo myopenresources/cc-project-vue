@@ -22,7 +22,8 @@ import {
     InputNumber, Row, Col, Select, Modal,
     Menu, Table, Alert, Tag, Drawer, Progress,
     Descriptions, Divider, List, DatePicker,
-    Tabs, Tree, Checkbox, Transfer, Tooltip
+    Tabs, Tree, Checkbox, Transfer, Tooltip,
+    TreeSelect
 } from "ant-design-vue";
 
 /**
@@ -35,7 +36,8 @@ function useAntdComponnet(app: App) {
         InputNumber, Row, Col, Select, Modal,
         Menu, Table, Alert, Tag, Drawer, Progress,
         Descriptions, Divider, List, DatePicker,
-        Tabs, Tree, Checkbox, Transfer, Tooltip
+        Tabs, Tree, Checkbox, Transfer, Tooltip,
+        TreeSelect
     ];
     comps.forEach((componnet) => {
         app.use(componnet);

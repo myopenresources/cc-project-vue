@@ -1,0 +1,84 @@
+@import '../../assets/less/index.less';
+
+.app-menu-container {
+    overflow: hidden;
+    height  : 100%;
+
+    .app-menu-row {
+        height: 100%;
+
+        .app-menu-col {
+            height: 100%;
+        }
+    }
+
+    .app-menu-left-col {
+        border-right: @border-width-base @border-style-base @border-color-split;
+        padding     : @app-layout-right-main-padding-space;
+
+        .app-menu-tree-title {
+            margin-bottom: 10px;
+        }
+
+        .app-menu-tree-container {
+            height :~"-webkit-calc(100% - @{app-layout-right-main-padding-space} - @{app-layout-right-main-padding-space} - 15px)";
+            height :~"calc(100% - @{app-layout-right-main-padding-space} - @{app-layout-right-main-padding-space} - 15px)";
+
+            :deep(.ant-tree-node-selected) {
+                background-color: transparent !important;
+            }
+
+            :deep(.ant-tree-node-content-wrapper) {
+                &:hover {
+                    background: @tree-node-hover-bg  !important;
+                }
+            }
+
+            .app-menu-tree-search {
+                margin-bottom: 10px;
+            }
+
+            .app-menu-tree {
+                height: ~"-webkit-calc(100% - 40px)";
+                height: ~"calc(100% - 40px)";
+
+                :deep(.ant-tree-title) {
+                    display: inline-block;
+                    width  : 100%;
+                }
+
+                .app-menu-tree-node {
+                    display: inline-block;
+                    width  : 100%;
+                }
+
+                .app-menu-tree-search-node {
+                    color: @error-color;
+                }
+            }
+
+        }
+    }
+
+
+
+    .app-menu-right-col {
+        padding: @app-layout-right-main-padding-space;
+
+        .app-menu-tree-title {
+            margin-bottom: 10px;
+        }
+
+        .app-menu-info {
+            height :~"-webkit-calc(100% - @{app-layout-right-main-padding-space} - @{app-layout-right-main-padding-space} - 15px)";
+            height :~"calc(100% - @{app-layout-right-main-padding-space} - @{app-layout-right-main-padding-space} - 15px)";
+            .app-menu-info-empty{
+                height: 100%;
+                display: -webkit-flex;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
+}

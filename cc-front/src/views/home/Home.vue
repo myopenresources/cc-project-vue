@@ -1,5 +1,5 @@
 <template>
-  <app-def-main-layout :showTool="false">
+  <app-def-main-layout :showTool="false" :usePadding="false">
     <div class="app-home-container">
       <a-row class="app-home-row">
         <a-col :span="17" class="app-home-col" v-app-scrollbar>
@@ -146,7 +146,7 @@ export default defineComponent({
   },
   setup() {
     const router = useRouter();
-    
+
     // 以下这部分可删除
     let centerEchartOption = ref<any>({});
     let rightEchartOption = ref<any>({});

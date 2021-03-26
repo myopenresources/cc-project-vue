@@ -1,0 +1,84 @@
+@import '../../assets/less/index.less';
+
+.app-dept-container {
+    overflow: hidden;
+    height  : 100%;
+
+    .app-dept-row {
+        height: 100%;
+
+        .app-dept-col {
+            height: 100%;
+        }
+    }
+
+    .app-dept-left-col {
+        border-right: @border-width-base @border-style-base @border-color-split;
+        padding     : @app-layout-right-main-padding-space;
+
+        .app-dept-tree-title {
+            margin-bottom: 10px;
+        }
+
+        .app-dept-tree-container {
+            height :~"-webkit-calc(100% - @{app-layout-right-main-padding-space} - @{app-layout-right-main-padding-space} - 15px)";
+            height :~"calc(100% - @{app-layout-right-main-padding-space} - @{app-layout-right-main-padding-space} - 15px)";
+
+            :deep(.ant-tree-node-selected) {
+                background-color: transparent !important;
+            }
+
+            :deep(.ant-tree-node-content-wrapper) {
+                &:hover {
+                    background: @tree-node-hover-bg  !important;
+                }
+            }
+
+            .app-dept-tree-search {
+                margin-bottom: 10px;
+            }
+
+            .app-dept-tree {
+                height: ~"-webkit-calc(100% - 40px)";
+                height: ~"calc(100% - 40px)";
+
+                :deep(.ant-tree-title) {
+                    display: inline-block;
+                    width  : 100%;
+                }
+
+                .app-dept-tree-node {
+                    display: inline-block;
+                    width  : 100%;
+                }
+
+                .app-dept-tree-search-node {
+                    color: @error-color;
+                }
+            }
+
+        }
+    }
+
+
+
+    .app-dept-right-col {
+        padding: @app-layout-right-main-padding-space;
+
+        .app-dept-tree-title {
+            margin-bottom: 10px;
+        }
+
+        .app-dept-info {
+            height :~"-webkit-calc(100% - @{app-layout-right-main-padding-space} - @{app-layout-right-main-padding-space} - 15px)";
+            height :~"calc(100% - @{app-layout-right-main-padding-space} - @{app-layout-right-main-padding-space} - 15px)";
+            .app-dept-info-empty{
+                height: 100%;
+                display: -webkit-flex;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
+}

@@ -1,6 +1,6 @@
 export default interface MenuType {
     //ID
-    id: string;
+    id?: string;
 
     //父ID
     parentId?: string;
@@ -19,4 +19,18 @@ export default interface MenuType {
 
     //子节点
     children?: MenuType[];
+
+    menuId?: string;
+
+    menuCode?: string;
+
+    menuName?: string;
+
+    accessUrl?: string;
+
+    parentMenuId?: string;
+
+    sortNum?: string;
+
+    menuLevel?: string;
 }

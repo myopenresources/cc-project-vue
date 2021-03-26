@@ -12,6 +12,7 @@
       :class="{
         'app-def-main-layout-content': showTool,
         'app-def-main-layout-content-full': !showTool,
+        'app-def-main-layout-content-pd': usePadding,
       }"
       v-app-scrollbar="scrollOptions"
     >
@@ -40,7 +41,11 @@ export default defineComponent({
     title: {
       type: String,
       default: '',
-    }
+    },
+    usePadding: {
+      type: Boolean,
+      default: true,
+    },
   },
   setup() {
     const routerTitle = useRoute().meta.title;

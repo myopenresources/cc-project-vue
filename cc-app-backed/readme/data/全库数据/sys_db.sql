@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 80017
 File Encoding         : 65001
 
-Date: 2021-03-25 11:32:31
+Date: 2021-03-26 18:32:53
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -189,7 +189,6 @@ INSERT INTO `t_button` VALUES ('2vzxvxzvzxv8', 'dataDicItemAdd', '添加', 'data
 INSERT INTO `t_button` VALUES ('2xvxcvzvzxvdsgxv7', 'deleteDataDic', '删除', 'deleteDataDic', 'DATA_DIC_MANAGE', 'LEFT_TOOL_BTN', 'icon-delete', '', '4', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-21 20:37:55', null, 'error', null);
 INSERT INTO `t_button` VALUES ('33afasfsafas', 'downloadFile', '下载', 'downloadFile', 'SYS_LOG_MANAGE', 'ROW_BTN', 'icon-download', '', '1', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-21 20:45:43', null, 'success', null);
 INSERT INTO `t_button` VALUES ('38gfdsgsdfg', 'accessUrlView', '查看', 'accessUrlView', 'ACCESS_URL_MANAGE', 'ROW_BTN', 'icon-search', '', '2', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-08-29 16:28:27', null, 'info', null);
-INSERT INTO `t_button` VALUES ('3d224750b9854b56b3f072e09129ea1b', 'deptStructure', '部门结构图', 'deptStructure', 'DEPT_MANAGE', 'TOOL_BTN', 'icon-apartment', '', '4', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2019-12-13 19:20:27', null, 'primary', '');
 INSERT INTO `t_button` VALUES ('3dgfdsgvvzcvfg9', 'accessUrlEdit', '编辑', 'accessUrlEdit', 'ACCESS_URL_MANAGE', 'ROW_BTN', 'icon-edit', '', '3', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-08-29 16:29:06', null, 'success', null);
 INSERT INTO `t_button` VALUES ('3fsadfasfas1', 'deleteDicItem', '删除', 'deleteDicItem', 'DATA_DIC_MANAGE', 'RIGHT_TOOL_BTN', 'icon-delete', '', '4', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-21 20:40:08', null, 'error', null);
 INSERT INTO `t_button` VALUES ('3fsafsdfsaf2', 'dicItemRoleDistribute', '分配角色', 'dicItemRoleDistribute', 'DATA_DIC_MANAGE', 'RIGHT_ROW_BTN', 'icon-setting', '', '7', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-21 20:41:20', null, 'warning', null);
@@ -448,11 +447,12 @@ CREATE TABLE `t_dept` (
 -- ----------------------------
 -- Records of t_dept
 -- ----------------------------
-INSERT INTO `t_dept` VALUES ('0b0b2c801064448394457e4fc1eb8a0d', '005', '某国际股份有限公司-研发部', '研发部', '3', '', 'e4a59e69b3f943a6906392eb6915d2e7', '1aaaaaaaaaaaaaaaaaaaa', '', '', 'platform/icon:dev', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2020-01-08 16:17:18', null, '5', '6');
-INSERT INTO `t_dept` VALUES ('1aaaaaaaaaaaaaaaaaaaafsadf', '001', '某国际股份有限公司', '某国际股份有限公司', '1', '某国际股份有限公司总公司', '', '1aaaaaaaaaaaaaaaaaaaa', '', '中国', 'apartment', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-10 17:58:16', null, '1', '10');
-INSERT INTO `t_dept` VALUES ('220ba8e14bc545ac8924a42b0a37176a', '003', '某国际股份有限公司-人力部', '人力部', '2', '', '1aaaaaaaaaaaaaaaaaaaafsadf', '1aaaaaaaaaaaaaaaaaaaa', '', '', 'user', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2020-01-08 16:16:03', null, '8', '9');
-INSERT INTO `t_dept` VALUES ('864824f014754b6186d2ef6356e9ed3f', '004', '某国际股份有限公司-测试部', '测试部', '3', '', 'e4a59e69b3f943a6906392eb6915d2e7', '1aaaaaaaaaaaaaaaaaaaa', '', '', 'platform/icon:test', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2020-01-08 16:16:37', null, '3', '4');
-INSERT INTO `t_dept` VALUES ('e4a59e69b3f943a6906392eb6915d2e7', '002', '某国际股份有限公司-软件部', '软件部', '2', '', '1aaaaaaaaaaaaaaaaaaaafsadf', '1aaaaaaaaaaaaaaaaaaaa', '', '', 'platform/icon:dev', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2020-01-08 16:15:25', null, '2', '7');
+INSERT INTO `t_dept` VALUES ('0b0b2c801064448394457e4fc1eb8a0d', '005', '某国际股份有限公司-研发部', '研发部', '3', '', 'e4a59e69b3f943a6906392eb6915d2e7', '1aaaaaaaaaaaaaaaaaaaa', '', '', 'icon-dev', '1', '1aaaaaaaaaaaaaaaaaaaa', '1aaaaaaaaaaaaaaaaaaaa', '2020-01-08 16:17:18', '2021-03-26 15:44:01', '5', '6');
+INSERT INTO `t_dept` VALUES ('1aaaaaaaaaaaaaaaaaaaafsadf', '001', '某国际股份有限公司', '某国际股份有限公司', '1', '某国际股份有限公司总公司', '', '1aaaaaaaaaaaaaaaaaaaa', '', '中国', 'icon-apartment', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-10 17:58:16', null, '1', '12');
+INSERT INTO `t_dept` VALUES ('220ba8e14bc545ac8924a42b0a37176a', '003', '某国际股份有限公司-人力部', '人力部', '2', '北京', '1aaaaaaaaaaaaaaaaaaaafsadf', '1aaaaaaaaaaaaaaaaaaaa', '18989898999', '北京', 'icon-user', '1', '1aaaaaaaaaaaaaaaaaaaa', '1aaaaaaaaaaaaaaaaaaaa', '2020-01-08 16:16:03', '2021-03-26 17:49:41', '8', '9');
+INSERT INTO `t_dept` VALUES ('864824f014754b6186d2ef6356e9ed3f', '004', '某国际股份有限公司-测试部', '测试部', '3', '', 'e4a59e69b3f943a6906392eb6915d2e7', '1aaaaaaaaaaaaaaaaaaaa', '', '', 'icon-test', '1', '1aaaaaaaaaaaaaaaaaaaa', '1aaaaaaaaaaaaaaaaaaaa', '2020-01-08 16:16:37', '2021-03-26 15:44:01', '3', '4');
+INSERT INTO `t_dept` VALUES ('ba87fb8be24246feb9d66f55542d663d', '008', '中国区软件部', '软件部', '2', '', '1aaaaaaaaaaaaaaaaaaaafsadf', '1aaaaaaaaaaaaaaaaaaaa', '18989898988', '', 'icon-dev', '1', '1aaaaaaaaaaaaaaaaaaaa', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-26 17:46:15', '2021-03-26 17:49:59', '10', '11');
+INSERT INTO `t_dept` VALUES ('e4a59e69b3f943a6906392eb6915d2e7', '006', '某国际股份有限公司行政部', '行政部', '2', '', '1aaaaaaaaaaaaaaaaaaaafsadf', '1aaaaaaaaaaaaaaaaaaaa', '18989898999', '', 'icon-user', '1', '1aaaaaaaaaaaaaaaaaaaa', '1aaaaaaaaaaaaaaaaaaaa', '2020-01-08 16:15:25', '2021-03-26 17:31:10', '2', '7');
 
 -- ----------------------------
 -- Table structure for `t_file_data`
@@ -533,6 +533,7 @@ INSERT INTO `t_login_log` VALUES ('ade37334831d4480910af227ff40b971', '127.0.0.1
 INSERT INTO `t_login_log` VALUES ('af7c39d7b1a9490c987a4ba52fd41f58', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-25 11:03:15');
 INSERT INTO `t_login_log` VALUES ('b46f9c9ee3b748d79fd67f3e4edb5e18', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2019-12-27 09:27:34');
 INSERT INTO `t_login_log` VALUES ('bd97ea194e4f41378576ad94b9d1c89d', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-21 10:14:35');
+INSERT INTO `t_login_log` VALUES ('c0c8dadf5f9f40f0b2b3e592afef6fd1', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-25 11:35:21');
 INSERT INTO `t_login_log` VALUES ('c206defc11eb4144bd92e6b36c1f47ce', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2019-12-27 09:01:31');
 INSERT INTO `t_login_log` VALUES ('c6d7884b2dc54b63930b2a40cb02bc47', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2019-12-28 21:44:25');
 INSERT INTO `t_login_log` VALUES ('c7bba96b91a9495d9a8ea2a10b2d8f53', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-24 15:46:38');
@@ -542,6 +543,7 @@ INSERT INTO `t_login_log` VALUES ('d1923617851c47388f0d268b2d03139e', '127.0.0.1
 INSERT INTO `t_login_log` VALUES ('d3659252e2fe4181b59351a588e6a8fa', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-25 11:05:31');
 INSERT INTO `t_login_log` VALUES ('d379c6552c964139bb0f613d8a8fa5ae', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2019-12-27 09:09:50');
 INSERT INTO `t_login_log` VALUES ('d475e0b6151144cd897e6d946dce53ef', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-22 16:34:54');
+INSERT INTO `t_login_log` VALUES ('d5e4b05172a4457e9c01eb4474d10789', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-26 10:10:22');
 INSERT INTO `t_login_log` VALUES ('d82df13b512c4e0d8d6d26ffa7f64356', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2019-12-30 16:36:30');
 INSERT INTO `t_login_log` VALUES ('db512d3e22b3461282f20e206d1f253d', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2019-12-28 21:46:39');
 INSERT INTO `t_login_log` VALUES ('ddd2ad142a5045dca66811085dd5fd9b', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-25 10:54:30');
@@ -860,7 +862,6 @@ INSERT INTO `t_role_button_mapping` VALUES ('e7fd2c36d005458d8c06aa533ce05bd8', 
 INSERT INTO `t_role_button_mapping` VALUES ('ead0e82b9b64420492992130a0605a84', '1fsdfsdafasfqfs234fgdgsfsdf', '1fsdfsdfsdfsadf');
 INSERT INTO `t_role_button_mapping` VALUES ('eb87e60bf3524b17b14e79ac0c564b7c', '1fsdfsdafasfqfs234fgdgsfsdf', '1yy54yhtrbbbb9');
 INSERT INTO `t_role_button_mapping` VALUES ('f0deafea49b94bb0b57a002a095b0e91', '1fsdfsdafasfqfs234fgdgsfsdf', '2dfsfgdgfdsuiutiuyi4');
-INSERT INTO `t_role_button_mapping` VALUES ('f2eaba36d6194615b3d3631be9b39652', '1fsdfsdafasfqfs234fgdgsfsdf', '3d224750b9854b56b3f072e09129ea1b');
 INSERT INTO `t_role_button_mapping` VALUES ('f86c657c23a2417dbbe326908a43a786', '1fsdfsdafasfqfs234fgdgsfsdf', '24c0d24080ee406c9d88fe93ecb78b81');
 
 -- ----------------------------

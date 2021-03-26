@@ -89,11 +89,16 @@ export default defineComponent({
 
     const modalVisble = ref<boolean>(false);
 
-    let queryParams = CommonUtil.queryParamsInit({
-      busniessMark: null,
-      accessUrlName: '',
-      status: '-1',
-    });
+    let queryParams = CommonUtil.queryParamsInit(
+      {
+        busniessMark: null,
+        accessUrlName: '',
+        status: '-1',
+      },
+      {
+        showSizeChanger: false,
+      }
+    );
 
     watch(
       () => props.visible,
