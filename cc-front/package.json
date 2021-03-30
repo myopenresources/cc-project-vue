@@ -10,6 +10,7 @@
     "animate.css": "^4.1.1",
     "ant-design-vue": "^2.1.0",
     "axios": "^0.21.1",
+    "cropperjs": "^1.5.11",
     "crypto-js": "^4.0.0",
     "echarts": "^5.0.2",
     "install": "^0.13.0",

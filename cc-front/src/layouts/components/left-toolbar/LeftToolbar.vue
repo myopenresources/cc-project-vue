@@ -48,7 +48,12 @@
   >
     <div class="app-left-toolbar-user-dropdown-popover" @click="stopPropagation($event)">
       <a-menu :selectable="false">
-        <a-menu-item>
+        <a-menu-item
+          @click="
+            imgCropperVisible = true;
+            userDropdownVisible = false;
+          "
+        >
           <a href="javascript:;">
             <span class="iconfont icon-cloud-upload"></span>
             头像上传
@@ -76,6 +81,14 @@
   </div>
 
   <app-update-pwd v-model:visible="updatePwdVisible" />
+  <app-img-cropper-modal
+    v-model:visible="imgCropperVisible"
+    :title="'头像上传'"
+    :previewTitle="'头像预览'"
+    :originalImgLabel="'原头像'"
+    :originalImgSrc="originalUserAvatar"
+    @imgUpload="imgUpload"
+  />
 </template>
 
 <script lang="ts">
@@ -96,12 +109,14 @@ import UpdatePwd from '/@/components/update-pwd/UpdatePwd.vue';
 import SysStorageUtils from '/@/common/util/sys-storage-utils';
 import SysApi from '/@/api/sys-api';
 import HttpResultUtils from '/@/common/util/http-result-utils';
+import ImgCropperModal from '/@/components/img-cropper/ImgCropperModal.vue';
 
 export default defineComponent({
   name: 'LeftToolbar',
   components: {
     AppNavMenu: NavMenu,
     AppUpdatePwd: UpdatePwd,
+    AppImgCropperModal: ImgCropperModal,
   },
   props: {
     userData: {
@@ -131,6 +146,8 @@ export default defineComponent({
     const userDropdownVisible = ref(false);
 
     const updatePwdVisible = ref(false);
+
+    const imgCropperVisible = ref(false);
 
     /**
      * 跳转首页
@@ -244,6 +261,20 @@ export default defineComponent({
       });
     };
 
+    const imgUpload = (imgData) => {
+      UserApi.uploadUserAvatarImg(imgData).then((res) => {
+        if (HttpResultUtils.isSuccess(res)) {
+          notification.success({
+            message: '提示',
+            description: '上传头像成功，刷新页面后生效！',
+          });
+          updatePwdVisible.value = false;
+        } else {
+          HttpResultUtils.failureTipMsg(res);
+        }
+      });
+    };
+
     onMounted(() => {
       init();
       resize();
@@ -270,6 +301,8 @@ export default defineComponent({
       changeMenuVisible,
       fullscreenToggle,
       exitSys,
+      imgCropperVisible,
+      imgUpload,
     };
   },
 });

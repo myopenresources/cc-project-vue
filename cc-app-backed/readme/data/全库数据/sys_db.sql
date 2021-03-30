@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 80017
 File Encoding         : 65001
 
-Date: 2021-03-26 18:32:53
+Date: 2021-03-30 18:30:47
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -301,6 +301,7 @@ INSERT INTO `t_data_dic_item` VALUES ('7fsdfsdfsdfsddfsfmsdfsdf', '3fsdfsdfsdfsd
 INSERT INTO `t_data_dic_item` VALUES ('8fsdfsdfsddfsdfsdfmsdfsdf', '4afdsfsdfsdfdsfdsfdff', 'EMAIL_SWITCH_TYPE', 'OPEN', '-1', '开', '1', null, null, null, null, '1', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-05-20 22:42:01', null, null);
 INSERT INTO `t_data_dic_item` VALUES ('9fsdfsdfsdfsddfsdfsdfsf', '4afdsfsdfsdfdsfdsfdff', 'EMAIL_SWITCH_TYPE', 'CLOSE', '-1', '关', '2', null, null, null, null, '2', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-05-20 22:42:01', null, null);
 INSERT INTO `t_data_dic_item` VALUES ('a096a99cbc0e4383b692228cdf576038', 'e2222b2f55714b48b72b82bbee6c8d0e', 'DATA_PERMIT_PROCESSOR', 'system.currentUserDeptsProcessor', '-1', '当前用户所有部门', 'system.currentUserDeptsProcessor', '', '', '', '', '3', '1', '1aaaaaaaaaaaaaaaaaaaa', '1aaaaaaaaaaaaaaaaaaaa', '2019-12-30 11:12:47', '2020-01-09 18:44:05', null);
+INSERT INTO `t_data_dic_item` VALUES ('a486c4a645b64817a854524860c147d5', '14316fbcd58148f4af8586a6650cf30e', '11', '1', '-1', '1', '1', '', '', '', '', '1', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2021-03-30 09:28:31', null, null);
 INSERT INTO `t_data_dic_item` VALUES ('a7a7c90c73564877a0ed18105c17cabe', 'e2222b2f55714b48b72b82bbee6c8d0e', 'DATA_PERMIT_PROCESSOR', 'system.designatedDeptProcessor', '-1', '指定部门', 'system.designatedDeptProcessor', '', '', '', '', '2', '1', '1aaaaaaaaaaaaaaaaaaaa', '1aaaaaaaaaaaaaaaaaaaa', '2019-12-30 11:09:07', '2020-01-09 18:43:55', null);
 INSERT INTO `t_data_dic_item` VALUES ('afdfsdfdsfdfsdfaaaaf', '12fdsfsdfsdfsdfsdfsdf', 'BUSNIESS_MARK_TYPE', 'SYS_INFO', '-1', '系统信息', 'SYS_INFO', '', '', '', '', '14', '1', '1aaaaaaaaaaaaaaaaaaaa', '1aaaaaaaaaaaaaaaaaaaa', '2019-12-12 13:44:16', '2019-12-12 05:46:47', null);
 INSERT INTO `t_data_dic_item` VALUES ('c20c2b6f836c42749d1e0792e51872c9', '4f0fcd49c8384e209ef66f26ac0fc92b', 'DATA_PERMIT_CATEGORY', 'USER_DATA_PERMIT', '-1', '用户数据权限', 'USER_DATA_PERMIT', '', '', '', '', '2', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2019-12-27 09:06:02', null, null);
@@ -334,6 +335,7 @@ CREATE TABLE `t_data_dic_item_role_mapping` (
 -- ----------------------------
 -- Records of t_data_dic_item_role_mapping
 -- ----------------------------
+INSERT INTO `t_data_dic_item_role_mapping` VALUES ('dfaf5ed37a55431e92538a012f6b0ad9', 'a486c4a645b64817a854524860c147d5', '1fsdfsdafasfqfs234fgdgsfsdf');
 
 -- ----------------------------
 -- Table structure for `t_data_dic_type`
@@ -360,11 +362,12 @@ CREATE TABLE `t_data_dic_type` (
 -- ----------------------------
 -- Records of t_data_dic_type
 -- ----------------------------
-INSERT INTO `t_data_dic_type` VALUES ('10afdsfsdfsdfsdfdsfsd', 'DIC_CATEGORY_TYPE', '数据字典类别', '1', 'database', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-01-24 20:26:46', null);
-INSERT INTO `t_data_dic_type` VALUES ('10fdfdfdfdfdfdfdfaad', 'BUTTON_CLS_TYPE', '按钮样式', '1', 'border', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2019-11-10 10:26:37', null);
+INSERT INTO `t_data_dic_type` VALUES ('10afdsfsdfsdfsdfdsfsd', 'DIC_CATEGORY_TYPE', '数据字典类别', '1', 'icon-database', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-01-24 20:26:46', null);
+INSERT INTO `t_data_dic_type` VALUES ('10fdfdfdfdfdfdfdfaad', 'BUTTON_CLS_TYPE', '按钮样式', '1', 'icon-border', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2019-11-10 10:26:37', null);
 INSERT INTO `t_data_dic_type` VALUES ('11fsdfsdfsdfsdfsdfsdf', 'SYS_FILE_UPLOAD_PATH', '系统文件上传路径', '1', 'upload', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-01-24 20:26:46', null);
 INSERT INTO `t_data_dic_type` VALUES ('12fdsfsdfsdfsdfsdfsdf', 'BUSNIESS_MARK_TYPE', '业务标识', '1', 'platform/icon:business-mark', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-01-24 20:26:46', null);
 INSERT INTO `t_data_dic_type` VALUES ('13fsdfsdfsdfsdfsdfsdf', 'FORM_STATUS_TYPE', '表单状态类型', '1', 'platform/icon:status', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-01-24 20:26:46', null);
+INSERT INTO `t_data_dic_type` VALUES ('14316fbcd58148f4af8586a6650cf30e', '11', '11', '2', 'icon-user', '1', '1aaaaaaaaaaaaaaaaaaaa', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-29 16:50:01', '2021-03-29 16:58:06');
 INSERT INTO `t_data_dic_type` VALUES ('14fsdfsdfsdfsdfsdfsa', 'QUERY_FORM_STATUS_TYPE', '表单查询状态', '1', 'search', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-01-24 20:26:46', null);
 INSERT INTO `t_data_dic_type` VALUES ('1FSDFSDFSFAAdfasdfsdf', 'STATUS_TYPE', '状态类型', '1', 'platform/icon:status', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-01-24 20:26:46', null);
 INSERT INTO `t_data_dic_type` VALUES ('2fsdfsdfsdfsdfsdfsdfs', 'QUERY_STATUS_TYPE', '查询状态类型', '1', 'search', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-01-24 20:26:46', null);
@@ -480,6 +483,7 @@ CREATE TABLE `t_file_data` (
 -- ----------------------------
 -- Records of t_file_data
 -- ----------------------------
+INSERT INTO `t_file_data` VALUES ('2a5711921044498e965ef7fc869b4b2e', 'USER_HEAD_IMG', '1aaaaaaaaaaaaaaaaaaaa', '5fb318e7-fe6a-4152-a3d8-d89ce8948b4b.png', 'D:/cjhme/images/userAvatar/5fb318e7-fe6a-4152-a3d8-d89ce8948b4b.png', '管理员的用户头像！', '1', '1aaaaaaaaaaaaaaaaaaaa', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-30 18:20:35', '2021-03-30 18:21:55');
 
 -- ----------------------------
 -- Table structure for `t_login_log`
@@ -519,6 +523,7 @@ INSERT INTO `t_login_log` VALUES ('7fda1e0f233e4b37a09d72606d608d2b', '127.0.0.1
 INSERT INTO `t_login_log` VALUES ('81c599e78e384bcfa042118abe8db719', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2019-12-26 08:51:03');
 INSERT INTO `t_login_log` VALUES ('8567459f2c84496b97ee367965f525e8', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-20 10:16:37');
 INSERT INTO `t_login_log` VALUES ('87e35d524803491b9d4e3b397b17a055', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-22 18:08:54');
+INSERT INTO `t_login_log` VALUES ('8913d0e3b3ee4fc7acaac6c4f33ddeca', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-29 11:30:32');
 INSERT INTO `t_login_log` VALUES ('8ff718d31fbf4d258cd598a77ff64d4e', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2020-01-09 18:36:01');
 INSERT INTO `t_login_log` VALUES ('926b5487559248fe9ce9b6e0d0f43b65', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-23 09:23:00');
 INSERT INTO `t_login_log` VALUES ('9390cbd89d014caf8fb9eab482ffad4b', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-21 16:03:08');
@@ -539,6 +544,7 @@ INSERT INTO `t_login_log` VALUES ('c6d7884b2dc54b63930b2a40cb02bc47', '127.0.0.1
 INSERT INTO `t_login_log` VALUES ('c7bba96b91a9495d9a8ea2a10b2d8f53', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-24 15:46:38');
 INSERT INTO `t_login_log` VALUES ('cbfdd6f6d8674b6e9f94d3aaaaf623c2', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2019-12-30 16:35:52');
 INSERT INTO `t_login_log` VALUES ('cd82f9cf607b4b4188d7d46e1bcae35a', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-24 09:22:25');
+INSERT INTO `t_login_log` VALUES ('d06cda2e544f405d8f2011edd5a8af6d', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-30 09:26:26');
 INSERT INTO `t_login_log` VALUES ('d1923617851c47388f0d268b2d03139e', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-19 17:14:11');
 INSERT INTO `t_login_log` VALUES ('d3659252e2fe4181b59351a588e6a8fa', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-25 11:05:31');
 INSERT INTO `t_login_log` VALUES ('d379c6552c964139bb0f613d8a8fa5ae', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2019-12-27 09:09:50');

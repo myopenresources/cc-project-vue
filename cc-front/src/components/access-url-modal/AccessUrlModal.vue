@@ -3,13 +3,15 @@
     :width="'850px'"
     v-model:visible="modalVisble"
     :destroyOnClose="true"
-    :forceRender="true"
+    :forceRender="false"
     :maskClosable="false"
     :keyboard="false"
     :zIndex="1001"
     title="访问地址"
+    :footer="null"
     @cancel="handleCancel"
   >
+    <template #okText>fdfdf</template>
     <a-form layout="inline" class="app-query-form">
       <a-form-item label="地址名称">
         <a-input v-model:value="queryParams.accessUrlName" placeholder="请输入..." />
