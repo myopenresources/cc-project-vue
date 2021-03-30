@@ -18,7 +18,6 @@
       </template>
 
       <a-form
-        class="app-update-pwd-form"
         :label-col="{ span: 5 }"
         :wrapper-col="{ span: 19 }"
         layout="horizontal"
@@ -150,7 +149,7 @@ export default defineComponent({
             required: true,
             min: 3,
             max: 15,
-            message: '编号格式不正确（格式：3-15位字符！',
+            message: '编号格式不正确（格式：3-15位字符）！',
           },
         ],
         deptName: [
@@ -254,7 +253,6 @@ export default defineComponent({
     };
 
     const selectParentDept = (value, label, extra) => {
-      console.info(value);
       let deptLevel: number = Number.parseInt(extra.triggerNode.dataRef.attr3);
       if (props.add) {
         modelRef.deptLevel = deptLevel + 1 + '';

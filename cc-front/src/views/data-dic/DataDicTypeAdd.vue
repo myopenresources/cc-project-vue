@@ -22,15 +22,16 @@
         :wrapper-col="{ span: 19 }"
         layout="horizontal"
       >
-        <a-form-item v-bind="validateInfos.roleCode" label="编号">
-          <a-input v-model:value="modelRef.roleCode" placeholder="请输入..." />
+        <a-form-item v-bind="validateInfos.dicTypeCode" label="编号">
+          <a-input v-model:value="modelRef.dicTypeCode" placeholder="请输入..." />
         </a-form-item>
-        <a-form-item v-bind="validateInfos.roleName" label="角色名">
-          <a-input v-model:value="modelRef.roleName" placeholder="请输入..." />
+        <a-form-item v-bind="validateInfos.dicTypeName" label="名称">
+          <a-input v-model:value="modelRef.dicTypeName" placeholder="请输入..." />
         </a-form-item>
-        <a-form-item v-bind="validateInfos.isSuper" label="超级管理员">
+
+        <a-form-item v-bind="validateInfos.dicCategory" label="字典组">
           <a-select
-            v-model:value="modelRef.isSuper"
+            v-model:value="modelRef.dicCategory"
             :showSearch="true"
             :optionFilterProp="'title'"
             placeholder="请选择..."
@@ -39,36 +40,15 @@
               :value="item.dicItemValue"
               :key="index"
               :title="item.dicItemName"
-              v-for="(item, index) in isSuperOptionList"
+              v-for="(item, index) in dicCategoryOptionList"
             >
               {{ item.dicItemName }}
             </a-select-option>
           </a-select>
         </a-form-item>
 
-        <a-form-item v-bind="validateInfos.status" label="状态">
-          <a-select
-            v-model:value="modelRef.status"
-            :showSearch="true"
-            :optionFilterProp="'title'"
-            placeholder="请选择..."
-          >
-            <a-select-option
-              :value="item.dicItemValue"
-              :key="index"
-              :title="item.dicItemName"
-              v-for="(item, index) in statusOptionList"
-            >
-              {{ item.dicItemName }}
-            </a-select-option>
-          </a-select>
-        </a-form-item>
-        <a-form-item v-bind="validateInfos.roleDescribe" label="描述">
-          <a-textarea
-            v-model:value="modelRef.roleDescribe"
-            placeholder="请输入..."
-            :auto-size="{ minRows: 2, maxRows: 2 }"
-          />
+        <a-form-item v-bind="validateInfos.iconCls" label="图标">
+          <a-input v-model:value="modelRef.iconCls" placeholder="请输入..." />
         </a-form-item>
       </a-form>
     </app-def-drawer-layout>
@@ -78,14 +58,18 @@
 import { defineComponent, reactive, shallowRef, UnwrapRef } from 'vue';
 import { useForm } from '@ant-design-vue/use';
 import CommonUtil from '/@/common/util/common-util';
-import RoleType from '/@/types/role-type';
-import RoleApi from '/@/api/role-api';
+import DataDicTypeType from '/@/types/data-dic-type-type';
+import DataDicApi from '/@/api/data-dic-api';
 import HttpResultUtils from '/@/common/util/http-result-utils';
 
 export default defineComponent({
-  name: 'RoleAdd',
+  name: 'DataDicTypeAdd',
   props: {
     visible: {
+      type: Boolean,
+      default: false,
+    },
+    add: {
       type: Boolean,
       default: false,
     },
@@ -96,54 +80,46 @@ export default defineComponent({
   },
   emits: ['update:visible', 'update:id', 'reload'],
   setup(props, context) {
-    const isSuperOptionList = shallowRef<any[]>([]);
-    const statusOptionList = shallowRef<any[]>([]);
+    const dicCategoryOptionList = shallowRef<any[]>([]);
 
-    const modelRef: UnwrapRef<RoleType> = reactive({
-      roleCode: '',
-      roleName: '',
-      roleDescribe: '',
-      isSuper: undefined,
-      status: undefined,
+    const modelRef: UnwrapRef<DataDicTypeType> = reactive({
+      dicTypeCode: '',
+      dicTypeName: '',
+      dicCategory: undefined,
+      iconCls: '',
     });
 
     const { validate, validateInfos, resetFields } = useForm(
       modelRef,
       reactive({
-        roleCode: [
-          {
-            required: true,
-            min: 3,
-            max: 15,
-            message: '编号格式不正确（格式：3-15位字符）！',
-          },
-        ],
-        roleName: [
+        dicTypeCode: [
           {
             required: true,
             min: 1,
-            max: 25,
-            message: '用户名格式不正确（格式：1-25位字符）！',
+            max: 30,
+            message: '编号格式不正确（格式：1-30个字符）',
           },
         ],
-        roleDescribe: [
-          {
-            required: false,
-            min: 0,
-            max: 128,
-            message: '描述格式不正确（格式：0-128个字符）!',
-          },
-        ],
-        isSuper: [
+        dicTypeName: [
           {
             required: true,
-            message: '请选择是否超级管理员！',
+            min: 1,
+            max: 30,
+            message: '名称格式不正确（格式：1-30个字符）！',
           },
         ],
-        status: [
+        dicCategory: [
           {
             required: true,
-            message: '请选择状态！',
+            message: '请选择字典组!',
+          },
+        ],
+        iconCls: [
+          {
+            required: true,
+            min: 1,
+            max: 32,
+            message: '图标格式不正确（格式：1-32个字符）！',
           },
         ],
       })
@@ -153,13 +129,12 @@ export default defineComponent({
      * 初始化页面数据
      */
     const initPageData = () => {
-      RoleApi.initRoleAddData({
-        roleId: props.id,
+      DataDicApi.initDataDicTypeAddData({
+        dicTypeId: props.add ? undefined : props.id,
       }).then((res) => {
         if (HttpResultUtils.isSuccess(res)) {
-          isSuperOptionList.value = res.data.resultData.IS_SUPER_TYPE;
-          statusOptionList.value = res.data.resultData.STATUS_TYPE;
-          CommonUtil.loadFormData(res.data.resultData.roleData, modelRef);
+          dicCategoryOptionList.value = res.data.resultData.DIC_CATEGORY_TYPE;
+          CommonUtil.loadFormData(res.data.resultData.dataDicTypeData, modelRef);
         } else {
           HttpResultUtils.failureTipMsg(res);
         }
@@ -172,14 +147,15 @@ export default defineComponent({
     const save = () => {
       validate().then((values) => {
         const params = values;
-        params.roleId = props.id;
-        RoleApi.saveRole(params).then((res) => {
+        params.dicTypeId = props.add ? undefined : props.id;
+        DataDicApi.saveDataDicType(params).then((res) => {
           HttpResultUtils.successTipMsg(res, () => {
             CommonUtil.drawerClose(context, true);
           }) && HttpResultUtils.failureTipMsg(res);
         });
       });
     };
+
 
     /**
      * 取消
@@ -196,8 +172,7 @@ export default defineComponent({
     };
 
     return {
-      isSuperOptionList,
-      statusOptionList,
+      dicCategoryOptionList,
       validateInfos,
       modelRef,
       handleCancel,
@@ -209,5 +184,5 @@ export default defineComponent({
 </script>
 
 <style lang="less" scoped>
-@import './RoleAdd.less';
+@import './DataDicTypeAdd.less';
 </style>

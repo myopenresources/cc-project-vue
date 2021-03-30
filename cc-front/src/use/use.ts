@@ -7,6 +7,7 @@ import DefDrawerLayout from '/@/components/drawer-layout/DefDrawerLayout.vue';
 import BusinessToolBtns from '/@/components/business-btn/BusinessToolBtns.vue';
 import CustomButton from '/@/components/custom-button/CustomButton.vue';
 import BusinessRowBtns from '/@/components/business-btn/BusinessRowBtns.vue';
+import BusinessDropdownBtns from '/@/components/business-btn/BusinessDropdownBtns.vue';
 
 
 import scrollbar from "/@/directives/scrollbar/scrollbar";
@@ -23,7 +24,7 @@ import {
     Menu, Table, Alert, Tag, Drawer, Progress,
     Descriptions, Divider, List, DatePicker,
     Tabs, Tree, Checkbox, Transfer, Tooltip,
-    TreeSelect
+    TreeSelect, Collapse
 } from "ant-design-vue";
 
 /**
@@ -37,7 +38,7 @@ function useAntdComponnet(app: App) {
         Menu, Table, Alert, Tag, Drawer, Progress,
         Descriptions, Divider, List, DatePicker,
         Tabs, Tree, Checkbox, Transfer, Tooltip,
-        TreeSelect
+        TreeSelect, Collapse
     ];
     comps.forEach((componnet) => {
         app.use(componnet);
@@ -65,6 +66,7 @@ function useCustomComponent(app: App) {
     app.component('AppCustomButton', CustomButton);
     app.component('AppBusinessToolBtns', BusinessToolBtns);
     app.component('AppBusinessRowBtns', BusinessRowBtns);
+    app.component('AppBusinessDropdownBtns', BusinessDropdownBtns);
 }
 
 /**

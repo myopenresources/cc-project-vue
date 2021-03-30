@@ -57,7 +57,7 @@
           </div>
         </a-col>
         <a-col :span="17" class="app-menu-col app-menu-right-col">
-          <div class="app-menu-tree-title">
+          <div class="app-menu-info-title">
             <a-row>
               <a-col :xs="12" :sm="6" :md="7" :lg="8" :xl="8">
                 <app-line-title title="菜单信息" />

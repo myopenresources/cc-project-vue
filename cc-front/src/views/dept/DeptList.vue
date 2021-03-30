@@ -57,7 +57,7 @@
           </div>
         </a-col>
         <a-col :span="17" class="app-dept-col app-dept-right-col">
-          <div class="app-dept-tree-title">
+          <div class="app-dept-info-title">
             <a-row>
               <a-col :xs="12" :sm="6" :md="7" :lg="8" :xl="8">
                 <app-line-title title="部门信息" />

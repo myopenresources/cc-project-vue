@@ -6,7 +6,7 @@ export default interface MenuType {
     parentId?: string;
 
     //名称
-    text: string;
+    text?: string;
 
     //图标
     iconCls?: string;

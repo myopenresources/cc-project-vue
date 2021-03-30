@@ -18,7 +18,6 @@
       </template>
 
       <a-form
-        class="app-update-pwd-form"
         :label-col="{ span: 5 }"
         :wrapper-col="{ span: 19 }"
         layout="horizontal"
@@ -121,7 +120,7 @@ export default defineComponent({
             required: true,
             min: 3,
             max: 15,
-            message: '编号格式不正确（格式：3-15位字符！',
+            message: '编号格式不正确（格式：3-15位字符）！',
           },
         ],
         menuName: [
@@ -201,7 +200,6 @@ export default defineComponent({
     };
 
     const selectParentMenu = (value, label, extra) => {
-      console.info(value);
       let menuLevel: number = Number.parseInt(extra.triggerNode.dataRef.attr3);
       if (props.add) {
         modelRef.menuLevel = menuLevel + 1 + '';
