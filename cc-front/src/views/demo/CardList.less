@@ -1,0 +1,25 @@
+@import '../../assets/less/index.less';
+
+.app-card-container {
+    box-shadow   : @app-light-shadow;
+    margin-bottom: 15px;
+
+    &:hover {
+        box-shadow: @app-hover-shadow;
+    }
+
+    :deep(.ant-card-meta-description) {
+        height            : 70px;
+        overflow          : hidden;
+        text-overflow     : ellipsis;
+        -webkit-line-clamp: 3;
+        display           : -webkit-box;
+        overflow-wrap     : break-word;
+    }
+}
+
+.app-card-pagination{
+    padding-bottom: 12px;
+    display: flex;
+    justify-content: flex-end;
+}

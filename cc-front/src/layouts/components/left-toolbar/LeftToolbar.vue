@@ -268,7 +268,7 @@ export default defineComponent({
             message: '提示',
             description: '上传头像成功，刷新页面后生效！',
           });
-          updatePwdVisible.value = false;
+          imgCropperVisible.value = false;
         } else {
           HttpResultUtils.failureTipMsg(res);
         }

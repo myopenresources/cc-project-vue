@@ -3,6 +3,7 @@ import * as lodash from 'lodash';
 import PaginationType from "/@/types/pagination-type";
 import { computed, ref } from "vue";
 import HttpResultUtils from "./http-result-utils";
+import Environments from "./env-util";
 
 export default class CommonUtil {
 
@@ -445,5 +446,38 @@ export default class CommonUtil {
                 HttpResultUtils.failureTipMsg(res);
             }
         });
+    }
+
+    static getWaterMarkerOpts(userData: any) {
+        const watermarkOpts = {
+            showWaterMark: true,
+            watermarkLabel: '',
+        };
+
+        const waterMarkerVisible = Environments.getEvnProp('VITE_WATER_MARKER_VISIBLE');
+        const waterMarkerLabel = Environments.getEvnProp('VITE_WATER_MARKER_LABEL');
+        const waterMarkerUserKeys = Environments.getEvnProp('VITE_WATER_MARKER_USER_KEYS');
+        const waterMarkerChart = Environments.getEvnProp('VITE_WATER_MARKER_SPLIT_CHART');
+
+        const showWaterMark = CommonUtil.toBoolean(waterMarkerVisible);
+
+        watermarkOpts.showWaterMark = showWaterMark;
+        if (waterMarkerVisible && waterMarkerUserKeys && waterMarkerUserKeys.length > 0) {
+            const userkeys = waterMarkerUserKeys.split(',');
+            let label = '';
+            let index = 0;
+            userkeys.forEach((key) => {
+                label += (userData[key] || '无');
+                if (index < userkeys.length - 1) {
+                    label += waterMarkerChart;
+                }
+                watermarkOpts.watermarkLabel = label;
+                index++;
+            });
+        } else {
+            watermarkOpts.watermarkLabel = waterMarkerLabel;
+        }
+
+        return watermarkOpts;
     }
 }

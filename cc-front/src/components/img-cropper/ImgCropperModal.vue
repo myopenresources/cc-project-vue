@@ -222,6 +222,7 @@ export default defineComponent({
      * 取消
      */
     const handleCancel = () => {
+      imgSrc.value = '';
       context.emit('update:visible', false);
     };
 

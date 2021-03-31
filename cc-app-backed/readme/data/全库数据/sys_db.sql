@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 80017
 File Encoding         : 65001
 
-Date: 2021-03-30 18:30:47
+Date: 2021-03-31 17:57:23
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -483,7 +483,7 @@ CREATE TABLE `t_file_data` (
 -- ----------------------------
 -- Records of t_file_data
 -- ----------------------------
-INSERT INTO `t_file_data` VALUES ('2a5711921044498e965ef7fc869b4b2e', 'USER_HEAD_IMG', '1aaaaaaaaaaaaaaaaaaaa', '5fb318e7-fe6a-4152-a3d8-d89ce8948b4b.png', 'D:/cjhme/images/userAvatar/5fb318e7-fe6a-4152-a3d8-d89ce8948b4b.png', '管理员的用户头像！', '1', '1aaaaaaaaaaaaaaaaaaaa', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-30 18:20:35', '2021-03-30 18:21:55');
+INSERT INTO `t_file_data` VALUES ('2a5711921044498e965ef7fc869b4b2e', 'USER_HEAD_IMG', '1aaaaaaaaaaaaaaaaaaaa', 'a9aaa4b0-d87d-4ed1-910a-23ca8704ba5c.png', 'D:/cjhme/images/userAvatar/a9aaa4b0-d87d-4ed1-910a-23ca8704ba5c.png', '管理员的用户头像！', '1', '1aaaaaaaaaaaaaaaaaaaa', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-30 18:20:35', '2021-03-31 10:17:14');
 
 -- ----------------------------
 -- Table structure for `t_login_log`
@@ -504,6 +504,7 @@ CREATE TABLE `t_login_log` (
 -- Records of t_login_log
 -- ----------------------------
 INSERT INTO `t_login_log` VALUES ('15b16a2c6f6046f2a8a28e40e9c5d285', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-19 17:57:58');
+INSERT INTO `t_login_log` VALUES ('16ab7ba643f44c86bb939cc4b067887f', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-31 10:02:02');
 INSERT INTO `t_login_log` VALUES ('22b1089956f84e33a90a73f8988ae0a3', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-19 13:51:42');
 INSERT INTO `t_login_log` VALUES ('26dbd8d8a737422fb43fd724872588e8', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-20 17:15:55');
 INSERT INTO `t_login_log` VALUES ('30a4060b290040ddbda23664fefd6eac', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-25 10:44:53');
@@ -540,6 +541,7 @@ INSERT INTO `t_login_log` VALUES ('b46f9c9ee3b748d79fd67f3e4edb5e18', '127.0.0.1
 INSERT INTO `t_login_log` VALUES ('bd97ea194e4f41378576ad94b9d1c89d', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-21 10:14:35');
 INSERT INTO `t_login_log` VALUES ('c0c8dadf5f9f40f0b2b3e592afef6fd1', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-25 11:35:21');
 INSERT INTO `t_login_log` VALUES ('c206defc11eb4144bd92e6b36c1f47ce', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2019-12-27 09:01:31');
+INSERT INTO `t_login_log` VALUES ('c4259867bd0147908eca87eddee9abec', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-31 11:02:52');
 INSERT INTO `t_login_log` VALUES ('c6d7884b2dc54b63930b2a40cb02bc47', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2019-12-28 21:44:25');
 INSERT INTO `t_login_log` VALUES ('c7bba96b91a9495d9a8ea2a10b2d8f53', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-24 15:46:38');
 INSERT INTO `t_login_log` VALUES ('cbfdd6f6d8674b6e9f94d3aaaaf623c2', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2019-12-30 16:35:52');
@@ -604,9 +606,11 @@ INSERT INTO `t_menu` VALUES ('7ereeet', '007', '部门管理', '3', 'icon-apartm
 INSERT INTO `t_menu` VALUES ('82273d9bb3144250a6997a1bfbd90bfe', '016', '系统信息', '3', 'icon-dashboard', '/app/sysInfo', 'ytryrtyrety4', '2', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2019-12-12 05:57:28', null);
 INSERT INTO `t_menu` VALUES ('8ytryrtytry', '008', '角色管理', '3', 'icon-team', '/app/roleList', '3yrtyerhgfyerty', '3', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2014-10-16 14:50:03', null);
 INSERT INTO `t_menu` VALUES ('9stryytrytrytr', '011', '菜单管理', '3', 'icon-menu', '/app/menuList', '3yrtyerhgfyerty', '4', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2014-11-21 21:28:03', null);
-INSERT INTO `t_menu` VALUES ('a2cf1e8ab74449c29861404214421841', '018', '学生管理', '3', 'icon-user', '/app/studentList', 'e041386708254e31beae8df1c92a4a8c', '1', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2019-12-24 07:28:37', null);
+INSERT INTO `t_menu` VALUES ('a2cf1e8ab74449c29861404214421841', '018', '卡片列表', '3', 'icon-demo', '/app/cardList', 'e041386708254e31beae8df1c92a4a8c', '1', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2019-12-24 07:28:37', '2021-03-31 15:33:33');
+INSERT INTO `t_menu` VALUES ('caf02e05617f4b3ea81b372bd5a10a35', '0013', '页签列表', '3', 'icon-demo', '/app/tabList', 'e041386708254e31beae8df1c92a4a8c', '2', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2021-03-31 15:33:19', '2021-03-31 15:33:38');
+INSERT INTO `t_menu` VALUES ('d2801e0e39654be8a57785cde7430bba', '0015', '图表列表', '3', 'icon-demo', '/app/chartList', 'e041386708254e31beae8df1c92a4a8c', '3', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2021-03-31 16:26:36', null);
 INSERT INTO `t_menu` VALUES ('dfhgfhhgf3gdgdsgfh1', '001', '系统菜单', '1', 'icon-menu', null, '', '1', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2014-09-28 19:41:19', null);
-INSERT INTO `t_menu` VALUES ('e041386708254e31beae8df1c92a4a8c', '017', '演示', '2', 'icon-demo', '', 'dfhgfhhgf3gdgdsgfh1', '5', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2019-12-24 07:26:52', null);
+INSERT INTO `t_menu` VALUES ('e041386708254e31beae8df1c92a4a8c', '017', '界面示例', '2', 'icon-demo', '', 'dfhgfhhgf3gdgdsgfh1', '5', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2019-12-24 07:26:52', '2021-03-31 13:49:12');
 INSERT INTO `t_menu` VALUES ('ytryedhhdtryrty2', '002', '个人工作台', '2', 'icon-workbench', '', 'dfhgfhhgf3gdgdsgfh1', '1', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2014-09-29 17:17:20', null);
 INSERT INTO `t_menu` VALUES ('ytryrtyrety4', '004', '系统功能', '2', 'icon-appstore', '', 'dfhgfhhgf3gdgdsgfh1', '3', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2014-12-21 16:28:19', null);
 
@@ -685,7 +689,7 @@ CREATE TABLE `t_role` (
 -- Records of t_role
 -- ----------------------------
 INSERT INTO `t_role` VALUES ('1fsdfsdafasfqfs234fgdgsfsdf', '001', '开发超级管理员', '开发最高权限', '1', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-10 17:58:16', null);
-INSERT INTO `t_role` VALUES ('3b370aa1bc464890a0bc99d9b7c42a4b', '111', '111地', '无可奈何在在', '2', '1', '1aaaaaaaaaaaaaaaaaaaa', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-23 16:45:40', '2021-03-23 16:47:22');
+INSERT INTO `t_role` VALUES ('3b370aa1bc464890a0bc99d9b7c42a4b', '111', '用户1', '', '2', '1', '1aaaaaaaaaaaaaaaaaaaa', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-23 16:45:40', '2021-03-31 16:27:11');
 
 -- ----------------------------
 -- Table structure for `t_role_access_url_mapping`
@@ -705,99 +709,99 @@ CREATE TABLE `t_role_access_url_mapping` (
 -- ----------------------------
 -- Records of t_role_access_url_mapping
 -- ----------------------------
-INSERT INTO `t_role_access_url_mapping` VALUES ('029d9866bc724eb19c6da63edacf9be7', '1fsdfsdafasfqfs234fgdgsfsdf', '1gdfgdfgdfgdfgdfg4');
-INSERT INTO `t_role_access_url_mapping` VALUES ('05d7bca753244beea2fc4d47c494b9e1', '1fsdfsdafasfqfs234fgdgsfsdf', '1gdfgdfgdfgdfgdfgdfgdsfgdfg7');
-INSERT INTO `t_role_access_url_mapping` VALUES ('0cac98dd770746c492b3ac7240c1851c', '1fsdfsdafasfqfs234fgdgsfsdf', '1esgrgregergergerg3');
-INSERT INTO `t_role_access_url_mapping` VALUES ('0f24e397911c475089a1bad2e3339ef5', '1fsdfsdafasfqfs234fgdgsfsdf', '2gsdfgdsfgdsf1');
-INSERT INTO `t_role_access_url_mapping` VALUES ('14f39917e6b5453e85cc9aa7d2aceae1', '1fsdfsdafasfqfs234fgdgsfsdf', '5gfdssdg5sggwg0');
-INSERT INTO `t_role_access_url_mapping` VALUES ('17768709548c418aa0c7d84b9b106f79', '1fsdfsdafasfqfs234fgdgsfsdf', '62gfdgdfgdfgdf');
-INSERT INTO `t_role_access_url_mapping` VALUES ('185107bbc6e94d7eb1aedc198b5d1d7d', '1fsdfsdafasfqfs234fgdgsfsdf', '9gfdgdfgdfgdfgdfgdfgdfg');
-INSERT INTO `t_role_access_url_mapping` VALUES ('19de0133d0cf489bb0b3d4a0473e13f6', '1fsdfsdafasfqfs234fgdgsfsdf', '3gdfgdfgdfg1');
-INSERT INTO `t_role_access_url_mapping` VALUES ('21817c9484cc478db80a21b8b145e253', '1fsdfsdafasfqfs234fgdgsfsdf', 'ae162d184bbd494882c29db315586ef9');
-INSERT INTO `t_role_access_url_mapping` VALUES ('21c8a7ad87464be1a7a1f2a114dfa230', '1fsdfsdafasfqfs234fgdgsfsdf', '36867u7b5b54b56b754b7b');
-INSERT INTO `t_role_access_url_mapping` VALUES ('266b3a1fca2c491080b98532b7ee24af', '1fsdfsdafasfqfs234fgdgsfsdf', '5fsdfsdfsadfsdf2');
-INSERT INTO `t_role_access_url_mapping` VALUES ('2805cdf6a5b74eb68a3d711c9f9687e5', '1fsdfsdafasfqfs234fgdgsfsdf', '6gdgdfgdffgdgdfgdfg5');
-INSERT INTO `t_role_access_url_mapping` VALUES ('28ffdc3158f44bd2aaef92025971c2b1', '1fsdfsdafasfqfs234fgdgsfsdf', '7fdsaffsfsaf4');
-INSERT INTO `t_role_access_url_mapping` VALUES ('29b4f9a87b5f44b0a5eb832e7de867b5', '1fsdfsdafasfqfs234fgdgsfsdf', '4sdfbgfdfssssgsd1');
-INSERT INTO `t_role_access_url_mapping` VALUES ('2e6f1b00fd834c5caae21d4387f6b769', '1fsdfsdafasfqfs234fgdgsfsdf', 'a4fe8b2c9ce543719596e7f92ef0e12b');
-INSERT INTO `t_role_access_url_mapping` VALUES ('2f54897b69564ebf99e41567c1e7c8d2', '1fsdfsdafasfqfs234fgdgsfsdf', '4gdfgdgdfgdfgdfg');
-INSERT INTO `t_role_access_url_mapping` VALUES ('3612ffd6d9f24d6aa2b4c559290dc720', '1fsdfsdafasfqfs234fgdgsfsdf', '48gdfgdfgdfgdfgdfg');
-INSERT INTO `t_role_access_url_mapping` VALUES ('3808c07e70bc4cf587bda3c149adcf3c', '1fsdfsdafasfqfs234fgdgsfsdf', '3gdfgdfgdfgdfgdfg3');
-INSERT INTO `t_role_access_url_mapping` VALUES ('392d9b6e185e44b2bb9cad34c9973717', '1fsdfsdafasfqfs234fgdgsfsdf', '5fsdafsdghfjfh1');
-INSERT INTO `t_role_access_url_mapping` VALUES ('3a1ddbbcfcf846e987602fb36ca28fac', '1fsdfsdafasfqfs234fgdgsfsdf', '84fsdfsdfsdafsadf');
-INSERT INTO `t_role_access_url_mapping` VALUES ('3cbc34cfbda7476ba59c37126b8fb1ea', '1fsdfsdafasfqfs234fgdgsfsdf', '6gdgfdgdfgfgdf4');
-INSERT INTO `t_role_access_url_mapping` VALUES ('41037caff52f430ab25503b28c577c5e', '1fsdfsdafasfqfs234fgdgsfsdf', '1gdfsgsdfgdfsgdsgssdsdghj3gre1');
-INSERT INTO `t_role_access_url_mapping` VALUES ('417f6e9cdae346e1bcae1dbbdf5a8a90', '1fsdfsdafasfqfs234fgdgsfsdf', 'jhg59hgjghjghjghjgfhjgh');
-INSERT INTO `t_role_access_url_mapping` VALUES ('449421ffa674416785d93d11cca1dd6c', '1fsdfsdafasfqfs234fgdgsfsdf', '88380e50bd004745a3ccfb85e72aabf3');
-INSERT INTO `t_role_access_url_mapping` VALUES ('4857cc638da54e83b346989c5a44fad7', '1fsdfsdafasfqfs234fgdgsfsdf', '2gfdgdfgdfg');
-INSERT INTO `t_role_access_url_mapping` VALUES ('4c3370cbbf0549acb4864ba9d9b9c981', '1fsdfsdafasfqfs234fgdgsfsdf', '1gfdgdfgdsgdsgdfgsdg5');
-INSERT INTO `t_role_access_url_mapping` VALUES ('4f3fd2788ac742b2934f7ada75ae70ff', '1fsdfsdafasfqfs234fgdgsfsdf', '7gsdgsadgsagsag5');
-INSERT INTO `t_role_access_url_mapping` VALUES ('50e346207e364ddb9503c8747135cd9d', '1fsdfsdafasfqfs234fgdgsfsdf', '6gdsfgdfgdsfgdfgdfg');
-INSERT INTO `t_role_access_url_mapping` VALUES ('5262aec2ada2462c848eae72a0885e44', '1fsdfsdafasfqfs234fgdgsfsdf', '43gdfsgdfgdfgdfgdfg');
-INSERT INTO `t_role_access_url_mapping` VALUES ('551d3a2734564a4db1044aeaa7ea8aae', '1fsdfsdafasfqfs234fgdgsfsdf', '1gdsfgsdfgdfgdsfgdsfgdfsg9');
-INSERT INTO `t_role_access_url_mapping` VALUES ('55acec1bec104150ab0a53e1f8cae23c', '1fsdfsdafasfqfs234fgdgsfsdf', '3gdfgdfgdgdgdfg5');
-INSERT INTO `t_role_access_url_mapping` VALUES ('57140ddc24924439bedf0731d4e08339', '1fsdfsdafasfqfs234fgdgsfsdf', 'fafdsfsdfsadfa1sdfas11');
-INSERT INTO `t_role_access_url_mapping` VALUES ('57153b5911ec41caa135fb14d4321af4', '1fsdfsdafasfqfs234fgdgsfsdf', '7gdfgdfgdfgdfg0');
-INSERT INTO `t_role_access_url_mapping` VALUES ('582ded47e1ef49e1b3849480bbba66e1', '1fsdfsdafasfqfs234fgdgsfsdf', '47gdfgdfgdfgdfgdfgdfgdf');
-INSERT INTO `t_role_access_url_mapping` VALUES ('5ee709d5ab3947c4aa4df24ed5e52c47', '1fsdfsdafasfqfs234fgdgsfsdf', '83afdsadafsdfdssf');
-INSERT INTO `t_role_access_url_mapping` VALUES ('5efaab804eef432987ff6dc0ccfc3dfc', '1fsdfsdafasfqfs234fgdgsfsdf', '44gfdsgdfgdfgdfgdfg');
-INSERT INTO `t_role_access_url_mapping` VALUES ('5efe46c1b95a40c2b953179f2c277ff8', '1fsdfsdafasfqfs234fgdgsfsdf', '8fsfsadfsdf1');
-INSERT INTO `t_role_access_url_mapping` VALUES ('623b0d503b2d48c8ba68239d8ffeb20b', '1fsdfsdafasfqfs234fgdgsfsdf', '79fsdfsdfsdgsgsag');
-INSERT INTO `t_role_access_url_mapping` VALUES ('717da67305a248278a2b45f4b55c0f6a', '1fsdfsdafasfqfs234fgdgsfsdf', '49gdfsgdsfgdsfgdfg');
-INSERT INTO `t_role_access_url_mapping` VALUES ('72569d0fcbde4e468e72511ba5daf2fc', '1fsdfsdafasfqfs234fgdgsfsdf', '7gsagsagsdagsag3');
-INSERT INTO `t_role_access_url_mapping` VALUES ('72bcf335ed044ca7a914de910c50d76c', '1fsdfsdafasfqfs234fgdgsfsdf', '3f696ebe5d8d4181afde428239284412');
-INSERT INTO `t_role_access_url_mapping` VALUES ('74996957df70461f85a0b86a49a77e7f', '1fsdfsdafasfqfs234fgdgsfsdf', 'd15a0d4d5aef496d8d3a912ecb7980b6');
-INSERT INTO `t_role_access_url_mapping` VALUES ('755d3ccfad8643b09d4e8b9ee559aa21', '1fsdfsdafasfqfs234fgdgsfsdf', '4sggdfgdsfdfsgdfg2');
-INSERT INTO `t_role_access_url_mapping` VALUES ('759f0469f8b446e7a26a59ff9eb0ef2b', '1fsdfsdafasfqfs234fgdgsfsdf', '7sdgsdgsdagasggh1');
-INSERT INTO `t_role_access_url_mapping` VALUES ('75c7f3a3c3434f77854c56645c379ccb', '1fsdfsdafasfqfs234fgdgsfsdf', '5fsaffsdfsdfsdf3');
-INSERT INTO `t_role_access_url_mapping` VALUES ('7624f4366e044d598cabef4967039dfc', '1fsdfsdafasfqfs234fgdgsfsdf', '67gdfgdsfgsdgdfg');
-INSERT INTO `t_role_access_url_mapping` VALUES ('78599bef83444905b01510504eec3c5f', '1fsdfsdafasfqfs234fgdgsfsdf', '375b54b75b75b8');
-INSERT INTO `t_role_access_url_mapping` VALUES ('8084104c6a984472b86e084fb97cfbd0', '1fsdfsdafasfqfs234fgdgsfsdf', '25gdfgdfsgdfgdfgdfg');
-INSERT INTO `t_role_access_url_mapping` VALUES ('83f2a87029f74e07a3a9eb959f4a6e6e', '1fsdfsdafasfqfs234fgdgsfsdf', 'gdfggfdsgsdfgdfgd5');
-INSERT INTO `t_role_access_url_mapping` VALUES ('85d05bf4136648e693b421e0ab9e771b', '1fsdfsdafasfqfs234fgdgsfsdf', '2gdfgdfgdfggdsfgsdg4');
-INSERT INTO `t_role_access_url_mapping` VALUES ('8d5e8c9bda0d48e198be97d7b0a242e4', '1fsdfsdafasfqfs234fgdgsfsdf', '37b754b754b75b75b546b');
-INSERT INTO `t_role_access_url_mapping` VALUES ('8fd7585ecf8b451984c788b077532768', '1fsdfsdafasfqfs234fgdgsfsdf', '85fdsfsdfsdfsdfsdf');
-INSERT INTO `t_role_access_url_mapping` VALUES ('91cd7d308513405fa39fd2871062dde2', '1fsdfsdafasfqfs234fgdgsfsdf', '5fsdfsfsdfdfsdf6');
-INSERT INTO `t_role_access_url_mapping` VALUES ('944a564906e448e5bdcebeab805dc872', '1fsdfsdafasfqfs234fgdgsfsdf', '68sgfdgdfgdfgdfgdfg');
-INSERT INTO `t_role_access_url_mapping` VALUES ('967815dbeaab41c48fd69b7cb788206c', '1fsdfsdafasfqfs234fgdgsfsdf', '1gdfgdfgdfgdfgdfgdfgdfg6');
-INSERT INTO `t_role_access_url_mapping` VALUES ('9a4897421370450d8bc371f23ee7892c', '1fsdfsdafasfqfs234fgdgsfsdf', '45gfdsgdfgdfgdfgdfg');
-INSERT INTO `t_role_access_url_mapping` VALUES ('9b6a15ba804a4214a29637f3c98c7d1e', '1fsdfsdafasfqfs234fgdgsfsdf', '2gdfgdsfgdsfgdf9');
-INSERT INTO `t_role_access_url_mapping` VALUES ('9da27b8e95894404a1a8f7256c0f83d4', '1fsdfsdafasfqfs234fgdgsfsdf', '3gdfgdfgdfgdfg');
-INSERT INTO `t_role_access_url_mapping` VALUES ('a232b800f5874915b543f880c6a0d0f3', '1fsdfsdafasfqfs234fgdgsfsdf', '82asffsdfasdfsfsdaf');
-INSERT INTO `t_role_access_url_mapping` VALUES ('a24d7a6f8a17487380fea3b8716ef910', '1fsdfsdafasfqfs234fgdgsfsdf', '3gdfsfgsdgdgdsfgdfg2');
-INSERT INTO `t_role_access_url_mapping` VALUES ('a4d18f0633b34d3c9ea31ba5ebd6666c', '1fsdfsdafasfqfs234fgdgsfsdf', '22gdfsgdfgdfgdfgdf');
-INSERT INTO `t_role_access_url_mapping` VALUES ('a6fbec207dfd406e89ed9d2dc816cd2d', '1fsdfsdafasfqfs234fgdgsfsdf', '7gsadgasdgasdgas2');
-INSERT INTO `t_role_access_url_mapping` VALUES ('a855f369ee044824a3d6ee93a1b9dc3e', '1fsdfsdafasfqfs234fgdgsfsdf', '61gdfsgsdfghgjhgjghjjhg');
-INSERT INTO `t_role_access_url_mapping` VALUES ('aa98e8d19d454e50b6bc6f3cd38e82ad', '1fsdfsdafasfqfs234fgdgsfsdf', '46gdfgdfgdfgdfgdfgdfg');
-INSERT INTO `t_role_access_url_mapping` VALUES ('ac05f8b1e45f495ca955b6c3ae88db70', '1fsdfsdafasfqfs234fgdgsfsdf', '23gdfgdfsgsdg');
-INSERT INTO `t_role_access_url_mapping` VALUES ('b0daaedc4d1f4b0ea431cc6ace4b73dd', '1fsdfsdafasfqfs234fgdgsfsdf', '20gdfgdfgdfgdfgdffg');
-INSERT INTO `t_role_access_url_mapping` VALUES ('b1d94a41b4cd49e99d8e98e34126c5de', '1fsdfsdafasfqfs234fgdgsfsdf', '3gdfggdfgdfgdfgd0');
-INSERT INTO `t_role_access_url_mapping` VALUES ('b21823781f8d4a318caab3445e5bb3c6', '1fsdfsdafasfqfs234fgdgsfsdf', '96c4075e36c643e0af43028005fe0569');
-INSERT INTO `t_role_access_url_mapping` VALUES ('b9d7737ac8a24199b5aac93dfcaad19e', '1fsdfsdafasfqfs234fgdgsfsdf', '5fdsfsfsfdfsdaf5');
-INSERT INTO `t_role_access_url_mapping` VALUES ('bc1912343af54a9684d7a3dfec82843d', '1fsdfsdafasfqfs234fgdgsfsdf', '5fsdfsdfsdfsdfsd7');
-INSERT INTO `t_role_access_url_mapping` VALUES ('bfe1172c8d8b43ac8641794da4dbece2', '1fsdfsdafasfqfs234fgdgsfsdf', '2gdfdfgdfgdfgd8');
-INSERT INTO `t_role_access_url_mapping` VALUES ('c55d8704d2834cdcbd617220cca0d48a', '1fsdfsdafasfqfs234fgdgsfsdf', '80ffdsfsdafasfdsf');
-INSERT INTO `t_role_access_url_mapping` VALUES ('c5ffa147f517415db52eb63666959e01', '1fsdfsdafasfqfs234fgdgsfsdf', '1dffgsdfgsdgdfgdfgdfgdfg0');
-INSERT INTO `t_role_access_url_mapping` VALUES ('c6fc3ed9f71a4a4ab5abd076bf8a840c', '1fsdfsdafasfqfs234fgdgsfsdf', '375b5bbtbytrb9');
-INSERT INTO `t_role_access_url_mapping` VALUES ('c7cd98b51aff4187bf2203a4fb197fbd', '1fsdfsdafasfqfs234fgdgsfsdf', '5fsdafsafsdaf4');
-INSERT INTO `t_role_access_url_mapping` VALUES ('c84e27b5208141a799847427e167a914', '1fsdfsdafasfqfs234fgdgsfsdf', '7asgsadgsagsadg8');
-INSERT INTO `t_role_access_url_mapping` VALUES ('c90aa4fa1a21485ab5333d9a0b4e5081', '1fsdfsdafasfqfs234fgdgsfsdf', '3bc110a666b6490d820819f3a2329d3f');
-INSERT INTO `t_role_access_url_mapping` VALUES ('d05f383bbc074c8791e242fdf4d1f3ed', '1fsdfsdafasfqfs234fgdgsfsdf', '6jhgjgjghjhgjghjgh0');
-INSERT INTO `t_role_access_url_mapping` VALUES ('d5985c10457c459ebff7d1c23b2deb9c', '1fsdfsdafasfqfs234fgdgsfsdf', '26gdfgdfgdfgdgdgdfgdfg');
-INSERT INTO `t_role_access_url_mapping` VALUES ('d5ac4469044a46d8a8c21dada7e5de40', '1fsdfsdafasfqfs234fgdgsfsdf', '12ggdfgdfrewrgwrg');
-INSERT INTO `t_role_access_url_mapping` VALUES ('d665955e710146e9b07519200e2e5148', '1fsdfsdafasfqfs234fgdgsfsdf', '3sdgsdgdgdfgdg4');
-INSERT INTO `t_role_access_url_mapping` VALUES ('d6d3ff3e2f924efe9eb9d7f5ff783521', '1fsdfsdafasfqfs234fgdgsfsdf', '5fjfhdgsdfasdfsfsdf8');
-INSERT INTO `t_role_access_url_mapping` VALUES ('d7aa7e98b9644f87b95a5685f43bfb96', '1fsdfsdafasfqfs234fgdgsfsdf', '7gdfgsdfgdfgdfgdfgdfg');
-INSERT INTO `t_role_access_url_mapping` VALUES ('d80e5c0e53c94b448139657b1ea307c4', '1fsdfsdafasfqfs234fgdgsfsdf', '1gdfgdfgdfgdfg');
-INSERT INTO `t_role_access_url_mapping` VALUES ('d826293e3a584346a2cc52ebc4783d21', '1fsdfsdafasfqfs234fgdgsfsdf', '66gfdgdfgfdgdfg');
-INSERT INTO `t_role_access_url_mapping` VALUES ('dea7f2f5519240d387017fdd9aa401ff', '1fsdfsdafasfqfs234fgdgsfsdf', 'gdfgdfsgdsgdfsgdfg18');
-INSERT INTO `t_role_access_url_mapping` VALUES ('e1e3d815e7ea4ff18d0f929e6c37b3ba', '1fsdfsdafasfqfs234fgdgsfsdf', '8gdfgdfgdfgdfgdgdfgdfgdfg');
-INSERT INTO `t_role_access_url_mapping` VALUES ('e6b244a3bac042f6a543e27a153b6d62', '1fsdfsdafasfqfs234fgdgsfsdf', '6gdfgfdgdfggdgdfg3');
-INSERT INTO `t_role_access_url_mapping` VALUES ('f0e8d05a92ed4aab88aa33537fd5dd0d', '1fsdfsdafasfqfs234fgdgsfsdf', '7asgasdgsag6');
-INSERT INTO `t_role_access_url_mapping` VALUES ('f34b3c91bd47418c9601ed31e40c7900', '1fsdfsdafasfqfs234fgdgsfsdf', 'gdfgdfgdfgdfg27');
-INSERT INTO `t_role_access_url_mapping` VALUES ('f36ee37a8cee46248127201fe79d7a54', '1fsdfsdafasfqfs234fgdgsfsdf', '6gdfgdfsgdsg9');
-INSERT INTO `t_role_access_url_mapping` VALUES ('f60a116998ad47359aa9729df61d9269', '1fsdfsdafasfqfs234fgdgsfsdf', '4ybtybytryebtrb0');
-INSERT INTO `t_role_access_url_mapping` VALUES ('fb43f0d9f93c4f9d8671ce0ca583900c', '1fsdfsdafasfqfs234fgdgsfsdf', '7agsdagsagsadggsg7');
+INSERT INTO `t_role_access_url_mapping` VALUES ('0203d8ee333a43c8b9412ff017f1974f', '1fsdfsdafasfqfs234fgdgsfsdf', '25gdfgdfsgdfgdfgdfg');
+INSERT INTO `t_role_access_url_mapping` VALUES ('03695b7db8c340028dbbb51ba1dcd016', '1fsdfsdafasfqfs234fgdgsfsdf', '83afdsadafsdfdssf');
+INSERT INTO `t_role_access_url_mapping` VALUES ('0af0b99ac0d640ca94083f7db7d72447', '1fsdfsdafasfqfs234fgdgsfsdf', '2gfdgdfgdfg');
+INSERT INTO `t_role_access_url_mapping` VALUES ('0b94234b56a74103b3302a1d73b22813', '1fsdfsdafasfqfs234fgdgsfsdf', '3gdfsfgsdgdgdsfgdfg2');
+INSERT INTO `t_role_access_url_mapping` VALUES ('11d0ea115e5341b591c130cddebcb77b', '1fsdfsdafasfqfs234fgdgsfsdf', '3gdfgdfgdfg1');
+INSERT INTO `t_role_access_url_mapping` VALUES ('13bdd8b0842349c2ba32bfff7153c273', '1fsdfsdafasfqfs234fgdgsfsdf', '7fdsaffsfsaf4');
+INSERT INTO `t_role_access_url_mapping` VALUES ('16df07bba8fb4a7cb69351319ca02811', '1fsdfsdafasfqfs234fgdgsfsdf', 'gdfgdfgdfgdfg27');
+INSERT INTO `t_role_access_url_mapping` VALUES ('1abf0a6010e545ceac3d893fbc19698e', '1fsdfsdafasfqfs234fgdgsfsdf', '43gdfsgdfgdfgdfgdfg');
+INSERT INTO `t_role_access_url_mapping` VALUES ('1cb115dd85964ddfa5d4a72dce79ef48', '1fsdfsdafasfqfs234fgdgsfsdf', '1gdfgdfgdfgdfg');
+INSERT INTO `t_role_access_url_mapping` VALUES ('1df896e35b844e9692197c3dc867bf6c', '1fsdfsdafasfqfs234fgdgsfsdf', '4sdfbgfdfssssgsd1');
+INSERT INTO `t_role_access_url_mapping` VALUES ('1fd5d346c6ba4a75ba1efce8d9f7d70d', '1fsdfsdafasfqfs234fgdgsfsdf', '8fsfsadfsdf1');
+INSERT INTO `t_role_access_url_mapping` VALUES ('20cfc77de92545a3a4f7a484cc30ece9', '1fsdfsdafasfqfs234fgdgsfsdf', '62gfdgdfgdfgdf');
+INSERT INTO `t_role_access_url_mapping` VALUES ('21503b89ae754489bb82ee75e8a2ea73', '1fsdfsdafasfqfs234fgdgsfsdf', '23gdfgdfsgsdg');
+INSERT INTO `t_role_access_url_mapping` VALUES ('227615a05c234869a0e444d19fcccc04', '1fsdfsdafasfqfs234fgdgsfsdf', '6gdfgfdgdfggdgdfg3');
+INSERT INTO `t_role_access_url_mapping` VALUES ('269927b0cdfb42228ac8666e3d8c7e95', '1fsdfsdafasfqfs234fgdgsfsdf', '88380e50bd004745a3ccfb85e72aabf3');
+INSERT INTO `t_role_access_url_mapping` VALUES ('296c713b5fe14f429b7cdf6416ab1452', '1fsdfsdafasfqfs234fgdgsfsdf', '1gdfsgsdfgdfsgdsgssdsdghj3gre1');
+INSERT INTO `t_role_access_url_mapping` VALUES ('2ca6f21e42c24bb7922f45f8697fb9f4', '1fsdfsdafasfqfs234fgdgsfsdf', '7gsagsagsdagsag3');
+INSERT INTO `t_role_access_url_mapping` VALUES ('2ce5c3093edd471e9ad1da7c9c46f921', '1fsdfsdafasfqfs234fgdgsfsdf', '84fsdfsdfsdafsadf');
+INSERT INTO `t_role_access_url_mapping` VALUES ('2cfa706aac2e497cab735e10fab13e26', '1fsdfsdafasfqfs234fgdgsfsdf', '26gdfgdfgdfgdgdgdfgdfg');
+INSERT INTO `t_role_access_url_mapping` VALUES ('2d907c0f408e457cbc11c5c592b22c85', '1fsdfsdafasfqfs234fgdgsfsdf', '49gdfsgdsfgdsfgdfg');
+INSERT INTO `t_role_access_url_mapping` VALUES ('30853be49bef4df4bb059d7a5a238228', '1fsdfsdafasfqfs234fgdgsfsdf', 'gdfggfdsgsdfgdfgd5');
+INSERT INTO `t_role_access_url_mapping` VALUES ('3296d9d9f1994d578886122ba9ab3cc2', '1fsdfsdafasfqfs234fgdgsfsdf', '3bc110a666b6490d820819f3a2329d3f');
+INSERT INTO `t_role_access_url_mapping` VALUES ('36bb46aaf6264f2cb722b1dc44afcbbe', '1fsdfsdafasfqfs234fgdgsfsdf', '46gdfgdfgdfgdfgdfgdfg');
+INSERT INTO `t_role_access_url_mapping` VALUES ('3732cb95542742bf96747dc7d2b5b943', '1fsdfsdafasfqfs234fgdgsfsdf', 'gdfgdfsgdsgdfsgdfg18');
+INSERT INTO `t_role_access_url_mapping` VALUES ('389cad2afd2f42a78506a846efb25242', '1fsdfsdafasfqfs234fgdgsfsdf', '96c4075e36c643e0af43028005fe0569');
+INSERT INTO `t_role_access_url_mapping` VALUES ('39d38a5f9b6a4be691360fab666bd196', '1fsdfsdafasfqfs234fgdgsfsdf', '82asffsdfasdfsfsdaf');
+INSERT INTO `t_role_access_url_mapping` VALUES ('3a9b834ae9084272b7b5387ee26403d0', '1fsdfsdafasfqfs234fgdgsfsdf', '1esgrgregergergerg3');
+INSERT INTO `t_role_access_url_mapping` VALUES ('3b586fe2125545149e1e0de445d30205', '1fsdfsdafasfqfs234fgdgsfsdf', '12ggdfgdfrewrgwrg');
+INSERT INTO `t_role_access_url_mapping` VALUES ('3f59136982684dd3abe76c89b058fb2f', '1fsdfsdafasfqfs234fgdgsfsdf', '4gdfgdgdfgdfgdfg');
+INSERT INTO `t_role_access_url_mapping` VALUES ('3fd0350b03c746728f4b93890193d272', '1fsdfsdafasfqfs234fgdgsfsdf', '37b754b754b75b75b546b');
+INSERT INTO `t_role_access_url_mapping` VALUES ('4080d40975c243a08a13b63a38096f66', '1fsdfsdafasfqfs234fgdgsfsdf', '375b54b75b75b8');
+INSERT INTO `t_role_access_url_mapping` VALUES ('42cf99ff14394be7a84c7e93c0330fce', '1fsdfsdafasfqfs234fgdgsfsdf', '2gsdfgdsfgdsf1');
+INSERT INTO `t_role_access_url_mapping` VALUES ('4398d2a30717456db86ae196af528529', '1fsdfsdafasfqfs234fgdgsfsdf', 'd15a0d4d5aef496d8d3a912ecb7980b6');
+INSERT INTO `t_role_access_url_mapping` VALUES ('503284b5881e46f88ab03483ea8982fd', '1fsdfsdafasfqfs234fgdgsfsdf', '80ffdsfsdafasfdsf');
+INSERT INTO `t_role_access_url_mapping` VALUES ('53f925ec412e45e5b495181c571d9c15', '1fsdfsdafasfqfs234fgdgsfsdf', '6gdfgdfsgdsg9');
+INSERT INTO `t_role_access_url_mapping` VALUES ('5472a07c278d49159fc27c990fed30c8', '1fsdfsdafasfqfs234fgdgsfsdf', '5fsdafsdghfjfh1');
+INSERT INTO `t_role_access_url_mapping` VALUES ('57a1cafa4e894437ae3b0c7b519b4c3e', '1fsdfsdafasfqfs234fgdgsfsdf', '375b5bbtbytrb9');
+INSERT INTO `t_role_access_url_mapping` VALUES ('57d81dc524894e5cb60004c092ed4740', '1fsdfsdafasfqfs234fgdgsfsdf', '6jhgjgjghjhgjghjgh0');
+INSERT INTO `t_role_access_url_mapping` VALUES ('58380f732dc546ecbe1a815c17892369', '1fsdfsdafasfqfs234fgdgsfsdf', '22gdfsgdfgdfgdfgdf');
+INSERT INTO `t_role_access_url_mapping` VALUES ('58fd2526fb384aa483411e88ffec3731', '1fsdfsdafasfqfs234fgdgsfsdf', '3gdfgdfgdfgdfgdfg3');
+INSERT INTO `t_role_access_url_mapping` VALUES ('5b390a9bd76b4c8f9cbef5869d4c241e', '1fsdfsdafasfqfs234fgdgsfsdf', '6gdgfdgdfgfgdf4');
+INSERT INTO `t_role_access_url_mapping` VALUES ('5ce12f3bd2434967b6568454c5a08573', '1fsdfsdafasfqfs234fgdgsfsdf', '6gdsfgdfgdsfgdfgdfg');
+INSERT INTO `t_role_access_url_mapping` VALUES ('5d5dc7365db34de5b1bf88a2158bab8f', '1fsdfsdafasfqfs234fgdgsfsdf', '8gdfgdfgdfgdfgdgdfgdfgdfg');
+INSERT INTO `t_role_access_url_mapping` VALUES ('5fc95f068a8544f895837e77593cf792', '1fsdfsdafasfqfs234fgdgsfsdf', '44gfdsgdfgdfgdfgdfg');
+INSERT INTO `t_role_access_url_mapping` VALUES ('6019bc0024044ccbb39e90519225dd8f', '1fsdfsdafasfqfs234fgdgsfsdf', '7gdfgsdfgdfgdfgdfgdfg');
+INSERT INTO `t_role_access_url_mapping` VALUES ('650e183570e240ddaf3a1dcbe5ee1992', '1fsdfsdafasfqfs234fgdgsfsdf', '7asgasdgsag6');
+INSERT INTO `t_role_access_url_mapping` VALUES ('65204066ea724e89a7c511bfc00c26c2', '1fsdfsdafasfqfs234fgdgsfsdf', '85fdsfsdfsdfsdfsdf');
+INSERT INTO `t_role_access_url_mapping` VALUES ('69336e5a6fe5411e8eda70add548d5f6', '1fsdfsdafasfqfs234fgdgsfsdf', '5fdsfsfsfdfsdaf5');
+INSERT INTO `t_role_access_url_mapping` VALUES ('6a037f98410d4a22853593ae24b73819', '1fsdfsdafasfqfs234fgdgsfsdf', '7agsdagsagsadggsg7');
+INSERT INTO `t_role_access_url_mapping` VALUES ('70bfb9d5c5674f76941a99085851f2aa', '1fsdfsdafasfqfs234fgdgsfsdf', '2gdfgdsfgdsfgdf9');
+INSERT INTO `t_role_access_url_mapping` VALUES ('72653eca48eb4f379eafbd2d41f65e5b', '1fsdfsdafasfqfs234fgdgsfsdf', '5gfdssdg5sggwg0');
+INSERT INTO `t_role_access_url_mapping` VALUES ('75624c9647b94ec78e69b1e8191eee89', '1fsdfsdafasfqfs234fgdgsfsdf', '5fsaffsdfsdfsdf3');
+INSERT INTO `t_role_access_url_mapping` VALUES ('76e34975c75940ce84d48e483a65b09b', '1fsdfsdafasfqfs234fgdgsfsdf', '3gdfggdfgdfgdfgd0');
+INSERT INTO `t_role_access_url_mapping` VALUES ('77eb75959bce4be99d6e3cc2da4285fc', '1fsdfsdafasfqfs234fgdgsfsdf', '68sgfdgdfgdfgdfgdfg');
+INSERT INTO `t_role_access_url_mapping` VALUES ('7b717ce970474fc485f5830a0c0ff57b', '1fsdfsdafasfqfs234fgdgsfsdf', '61gdfsgsdfghgjhgjghjjhg');
+INSERT INTO `t_role_access_url_mapping` VALUES ('7e51284fa37c46dfa293b07146ca1591', '1fsdfsdafasfqfs234fgdgsfsdf', '1gdfgdfgdfgdfgdfg4');
+INSERT INTO `t_role_access_url_mapping` VALUES ('823f932817734724a66f3a82a2b64fb2', '1fsdfsdafasfqfs234fgdgsfsdf', '2gdfdfgdfgdfgd8');
+INSERT INTO `t_role_access_url_mapping` VALUES ('8a6895a1e17541ff8db15547bd3f039b', '1fsdfsdafasfqfs234fgdgsfsdf', 'a4fe8b2c9ce543719596e7f92ef0e12b');
+INSERT INTO `t_role_access_url_mapping` VALUES ('8c37fc91d17a430b9da1c1903d33eac8', '1fsdfsdafasfqfs234fgdgsfsdf', '7sdgsdgsdagasggh1');
+INSERT INTO `t_role_access_url_mapping` VALUES ('8cae4b72021f48a3923867a639aa82d1', '1fsdfsdafasfqfs234fgdgsfsdf', '5fjfhdgsdfasdfsfsdf8');
+INSERT INTO `t_role_access_url_mapping` VALUES ('8d2047cedc974865ac4eeb0167819f7e', '1fsdfsdafasfqfs234fgdgsfsdf', '45gfdsgdfgdfgdfgdfg');
+INSERT INTO `t_role_access_url_mapping` VALUES ('932b26bc578f4e54bf66fde9ccb67cec', '1fsdfsdafasfqfs234fgdgsfsdf', '2gdfgdfgdfggdsfgsdg4');
+INSERT INTO `t_role_access_url_mapping` VALUES ('99f50f52d06b4f29b6d22ccedc16d3ce', '1fsdfsdafasfqfs234fgdgsfsdf', '7asgsadgsagsadg8');
+INSERT INTO `t_role_access_url_mapping` VALUES ('9a2997d69bbb4114a97383d35da91400', '1fsdfsdafasfqfs234fgdgsfsdf', '1dffgsdfgsdgdfgdfgdfgdfg0');
+INSERT INTO `t_role_access_url_mapping` VALUES ('9ad1a23d183f4a97bd4e2653877f3b72', '1fsdfsdafasfqfs234fgdgsfsdf', '3gdfgdfgdfgdfg');
+INSERT INTO `t_role_access_url_mapping` VALUES ('9b02dd3aace348dfa072ed3fe02ad278', '1fsdfsdafasfqfs234fgdgsfsdf', '4sggdfgdsfdfsgdfg2');
+INSERT INTO `t_role_access_url_mapping` VALUES ('9cd82ea07c1b43a5979c60d8021dd12a', '1fsdfsdafasfqfs234fgdgsfsdf', '20gdfgdfgdfgdfgdffg');
+INSERT INTO `t_role_access_url_mapping` VALUES ('9da14003ff6f4132a5a3e1eaca48deaf', '1fsdfsdafasfqfs234fgdgsfsdf', 'jhg59hgjghjghjghjgfhjgh');
+INSERT INTO `t_role_access_url_mapping` VALUES ('9f1f889f613d4e99bdd09c5059204d68', '1fsdfsdafasfqfs234fgdgsfsdf', '7gdfgdfgdfgdfg0');
+INSERT INTO `t_role_access_url_mapping` VALUES ('a23950ced8c0420683a0a57befd94cd1', '1fsdfsdafasfqfs234fgdgsfsdf', '47gdfgdfgdfgdfgdfgdfgdf');
+INSERT INTO `t_role_access_url_mapping` VALUES ('a76a798fe7fd4e4f80966de4f8ee6bdc', '1fsdfsdafasfqfs234fgdgsfsdf', '66gfdgdfgfdgdfg');
+INSERT INTO `t_role_access_url_mapping` VALUES ('adaca6c802514f1f996a71da6ba92676', '1fsdfsdafasfqfs234fgdgsfsdf', '7gsadgasdgasdgas2');
+INSERT INTO `t_role_access_url_mapping` VALUES ('ae18166749704d0b8feef6c6046629ca', '1fsdfsdafasfqfs234fgdgsfsdf', '3f696ebe5d8d4181afde428239284412');
+INSERT INTO `t_role_access_url_mapping` VALUES ('b2f74bf1e1cd4d938ae2e61069986e68', '1fsdfsdafasfqfs234fgdgsfsdf', '5fsdfsfsdfdfsdf6');
+INSERT INTO `t_role_access_url_mapping` VALUES ('b34240ff696049ef8f38437594c2268e', '1fsdfsdafasfqfs234fgdgsfsdf', '3gdfgdfgdgdgdfg5');
+INSERT INTO `t_role_access_url_mapping` VALUES ('b3847c401a4d4c7f965db4667069487c', '1fsdfsdafasfqfs234fgdgsfsdf', 'ae162d184bbd494882c29db315586ef9');
+INSERT INTO `t_role_access_url_mapping` VALUES ('b6658956cf5e44658fc177107c8454a5', '1fsdfsdafasfqfs234fgdgsfsdf', '3sdgsdgdgdfgdg4');
+INSERT INTO `t_role_access_url_mapping` VALUES ('b7a9a8d1800a4a7dbf03ccd3497d83d0', '1fsdfsdafasfqfs234fgdgsfsdf', '1gdfgdfgdfgdfgdfgdfgdfg6');
+INSERT INTO `t_role_access_url_mapping` VALUES ('badd83985c104091beae2bcb761ae2cf', '1fsdfsdafasfqfs234fgdgsfsdf', '6gdgdfgdffgdgdfgdfg5');
+INSERT INTO `t_role_access_url_mapping` VALUES ('c14477fe115c48329f795be402f4163e', '1fsdfsdafasfqfs234fgdgsfsdf', '9gfdgdfgdfgdfgdfgdfgdfg');
+INSERT INTO `t_role_access_url_mapping` VALUES ('c17a9bd319a344b49664a1a3b0968f4a', '1fsdfsdafasfqfs234fgdgsfsdf', '7gsdgsadgsagsag5');
+INSERT INTO `t_role_access_url_mapping` VALUES ('c3a58550caf74c5fb082730c3643c654', '1fsdfsdafasfqfs234fgdgsfsdf', '67gdfgdsfgsdgdfg');
+INSERT INTO `t_role_access_url_mapping` VALUES ('c68ce6a6d1ec428681447c4836d0dd96', '1fsdfsdafasfqfs234fgdgsfsdf', '5fsdfsdfsdfsdfsd7');
+INSERT INTO `t_role_access_url_mapping` VALUES ('c8e41c387812456d955d1dbd999099bc', '1fsdfsdafasfqfs234fgdgsfsdf', '1gdsfgsdfgdfgdsfgdsfgdfsg9');
+INSERT INTO `t_role_access_url_mapping` VALUES ('cb07b749024c49db97e1ad6eba87eb14', '1fsdfsdafasfqfs234fgdgsfsdf', '1gfdgdfgdsgdsgdfgsdg5');
+INSERT INTO `t_role_access_url_mapping` VALUES ('cbd704a02c734ad4ab8179859168e45f', '1fsdfsdafasfqfs234fgdgsfsdf', '48gdfgdfgdfgdfgdfg');
+INSERT INTO `t_role_access_url_mapping` VALUES ('e341b1470a7d42969bbade2b5989cfd2', '1fsdfsdafasfqfs234fgdgsfsdf', '79fsdfsdfsdgsgsag');
+INSERT INTO `t_role_access_url_mapping` VALUES ('e7ee0c54e1a340439fef4bb6b9efc1cf', '1fsdfsdafasfqfs234fgdgsfsdf', '1gdfgdfgdfgdfgdfgdfgdsfgdfg7');
+INSERT INTO `t_role_access_url_mapping` VALUES ('e8d80cb9dcd24385bf148fafaebf4bee', '1fsdfsdafasfqfs234fgdgsfsdf', 'fafdsfsdfsadfa1sdfas11');
+INSERT INTO `t_role_access_url_mapping` VALUES ('ef6026fbad4449ddb3cff51b26e30a43', '1fsdfsdafasfqfs234fgdgsfsdf', '5fsdfsdfsadfsdf2');
+INSERT INTO `t_role_access_url_mapping` VALUES ('f1f2ee2e4c464a51aa068fe265b58461', '1fsdfsdafasfqfs234fgdgsfsdf', '4ybtybytryebtrb0');
+INSERT INTO `t_role_access_url_mapping` VALUES ('fc84cd984e724be7a975f3f7f1f17f71', '1fsdfsdafasfqfs234fgdgsfsdf', '36867u7b5b54b56b754b7b');
+INSERT INTO `t_role_access_url_mapping` VALUES ('fd303d28477a4db58d5b0761ab0ad299', '1fsdfsdafasfqfs234fgdgsfsdf', '5fsdafsafsdaf4');
 
 -- ----------------------------
 -- Table structure for `t_role_button_mapping`
@@ -817,58 +821,58 @@ CREATE TABLE `t_role_button_mapping` (
 -- ----------------------------
 -- Records of t_role_button_mapping
 -- ----------------------------
-INSERT INTO `t_role_button_mapping` VALUES ('003af848ee874858a51959d93f542e16', '1fsdfsdafasfqfs234fgdgsfsdf', '16gdfsgdfgdsg');
-INSERT INTO `t_role_button_mapping` VALUES ('0b83053b79564ed495bafa5703550e8c', '1fsdfsdafasfqfs234fgdgsfsdf', '38gfdsgsdfg');
-INSERT INTO `t_role_button_mapping` VALUES ('0d85312b8e1f4a27b7c4a3439b08a33c', '1fsdfsdafasfqfs234fgdgsfsdf', '46fsdfsadfsadf');
-INSERT INTO `t_role_button_mapping` VALUES ('1386826932d34aa3bbb11fdc724049f4', '1fsdfsdafasfqfs234fgdgsfsdf', '3fsdafasfsafb6');
-INSERT INTO `t_role_button_mapping` VALUES ('1ea84a7636c64b17b3c69d6a7fef0417', '1fsdfsdafasfqfs234fgdgsfsdf', '29hfdfghfghdfhdfh');
-INSERT INTO `t_role_button_mapping` VALUES ('237cbea1d37c464e8786b0ef827e5e0e', '1fsdfsdafasfqfs234fgdgsfsdf', '1hgfhfghfg0');
-INSERT INTO `t_role_button_mapping` VALUES ('2a3e69095f0b4c978a34bff2b0bc0a95', '1fsdfsdafasfqfs234fgdgsfsdf', '2gdfsbdsjhghfdsgdgsd0');
-INSERT INTO `t_role_button_mapping` VALUES ('2a8567cc4aac4efcba3bc323b21f0a0c', '1fsdfsdafasfqfs234fgdgsfsdf', '3sdafsavasdfs5');
-INSERT INTO `t_role_button_mapping` VALUES ('2ecd40c22a3a47989edc079fd7a43921', '1fsdfsdafasfqfs234fgdgsfsdf', '3gfdsgsdfgdsfg0');
-INSERT INTO `t_role_button_mapping` VALUES ('389e290678af4e56b9de516ee0ddb4a1', '1fsdfsdafasfqfs234fgdgsfsdf', '47gsdgfdsgdsfgdsg');
-INSERT INTO `t_role_button_mapping` VALUES ('39456d939a71418bb304bd54a905caaf', '1fsdfsdafasfqfs234fgdgsfsdf', '3fsfsdfsdffsafsad');
-INSERT INTO `t_role_button_mapping` VALUES ('3c071d181c2247c3a59d05e651527165', '1fsdfsdafasfqfs234fgdgsfsdf', '33afasfsafas');
-INSERT INTO `t_role_button_mapping` VALUES ('3da785a2dcdf4bf2821da78a49b098fd', '1fsdfsdafasfqfs234fgdgsfsdf', '12hfghdfhfdhfgh');
-INSERT INTO `t_role_button_mapping` VALUES ('3dc97fd5176548be9cd0450f1bf39bd3', '1fsdfsdafasfqfs234fgdgsfsdf', '41sgdfgdsfg4454');
-INSERT INTO `t_role_button_mapping` VALUES ('3dec82966bd14d26a86168d428464007', '1fsdfsdafasfqfs234fgdgsfsdf', '1bfbvcbcvxbvcxbbbxcb7');
-INSERT INTO `t_role_button_mapping` VALUES ('4bf8574d5a664a1382804c30fa7a94ff', '1fsdfsdafasfqfs234fgdgsfsdf', '9hghghfghfghfghh');
-INSERT INTO `t_role_button_mapping` VALUES ('4c62f80ec57343c19df91488778e5d6e', '1fsdfsdafasfqfs234fgdgsfsdf', '1safsafsafbfdgsg4');
-INSERT INTO `t_role_button_mapping` VALUES ('51d86747febb406dbcca5eb8b001ef90', '1fsdfsdafasfqfs234fgdgsfsdf', '1hdfghfghfghfgh1');
-INSERT INTO `t_role_button_mapping` VALUES ('5ceed7156b544c16adcb3ae2c7312fc3', '1fsdfsdafasfqfs234fgdgsfsdf', '26fdsgdfsgdsfggdsf');
-INSERT INTO `t_role_button_mapping` VALUES ('5f2a658fee0c42bfa5f0c0a04a109f42', '1fsdfsdafasfqfs234fgdgsfsdf', '2tryeyruiibbxvcb5');
-INSERT INTO `t_role_button_mapping` VALUES ('60ca822f2c2c442c9dfc2e7bf96c5cd4', '1fsdfsdafasfqfs234fgdgsfsdf', '1tretrgsdgdfsgsdgsdg8');
-INSERT INTO `t_role_button_mapping` VALUES ('640a5c41500044bd8840fbe8350ae329', '1fsdfsdafasfqfs234fgdgsfsdf', '2dsfgdgdfgdfgdgdsg2');
-INSERT INTO `t_role_button_mapping` VALUES ('652e122d7fc148989da652ee28b66088', '1fsdfsdafasfqfs234fgdgsfsdf', 'gsdgsdgdsgsag8');
-INSERT INTO `t_role_button_mapping` VALUES ('65db163a1413474ba0943b1263d81293', '1fsdfsdafasfqfs234fgdgsfsdf', '76b6091761d04de39f8bd5436c1806dc');
-INSERT INTO `t_role_button_mapping` VALUES ('67f1924b0f224b5c863db7192e6864b3', '1fsdfsdafasfqfs234fgdgsfsdf', '5fsdfsadfsafsdf');
-INSERT INTO `t_role_button_mapping` VALUES ('6d564262a14c4041aab35baa6a52ae92', '1fsdfsdafasfqfs234fgdgsfsdf', '4fsfsadfsddf');
-INSERT INTO `t_role_button_mapping` VALUES ('6d6376dd5d524a0bacf7e465e3416cbb', '1fsdfsdafasfqfs234fgdgsfsdf', 'e546d68fd1a24fddae70212ee1a6a5d5');
-INSERT INTO `t_role_button_mapping` VALUES ('77b296bb49f74325a8bd41165162edca', '1fsdfsdafasfqfs234fgdgsfsdf', '4gfdsgsgf0');
-INSERT INTO `t_role_button_mapping` VALUES ('78dd516a4cef434f899e74fc4e7c6b65', '1fsdfsdafasfqfs234fgdgsfsdf', '2hjhgjkklhjghgjfhfdh3');
-INSERT INTO `t_role_button_mapping` VALUES ('7ee489af2caf43958390747e8884aaa0', '1fsdfsdafasfqfs234fgdgsfsdf', '2vzxvxzvzxv8');
-INSERT INTO `t_role_button_mapping` VALUES ('8b66ae06aa30480c875963444fa7c843', '1fsdfsdafasfqfs234fgdgsfsdf', '1fsgdfsgddf5');
-INSERT INTO `t_role_button_mapping` VALUES ('99f77880c332430c933f9601d3852bff', '1fsdfsdafasfqfs234fgdgsfsdf', '3fsafsdfsaf2');
-INSERT INTO `t_role_button_mapping` VALUES ('9b0a37fe197c4f6e9bfd1d41ceb09420', '1fsdfsdafasfqfs234fgdgsfsdf', '4543gdfsfg53454');
+INSERT INTO `t_role_button_mapping` VALUES ('072f09f8e76c495ca0839baaaedb5fb8', '1fsdfsdafasfqfs234fgdgsfsdf', '2fsdfsdfsdfsdf');
+INSERT INTO `t_role_button_mapping` VALUES ('089c9871074149e49378b49349b4b865', '1fsdfsdafasfqfs234fgdgsfsdf', '3sdafsavasdfs5');
+INSERT INTO `t_role_button_mapping` VALUES ('0f489585e2d548179ad644b826f54e07', '1fsdfsdafasfqfs234fgdgsfsdf', '4htetgdfsg435t53455');
+INSERT INTO `t_role_button_mapping` VALUES ('10be6806fb9d427e95f0ef24f06a7518', '1fsdfsdafasfqfs234fgdgsfsdf', '3fsdafasfsafb6');
+INSERT INTO `t_role_button_mapping` VALUES ('13a851ed883b4aeba179a615631dc35b', '1fsdfsdafasfqfs234fgdgsfsdf', 'ggsdgsg7');
+INSERT INTO `t_role_button_mapping` VALUES ('13d7550458374eda9cc111e88c9d5248', '1fsdfsdafasfqfs234fgdgsfsdf', '3dgfdsgvvzcvfg9');
+INSERT INTO `t_role_button_mapping` VALUES ('1997f4af60c54af7aa06944174b30648', '1fsdfsdafasfqfs234fgdgsfsdf', '2aadsafsdfsdf1');
+INSERT INTO `t_role_button_mapping` VALUES ('203b5d7a0e3c404a8c0cc2553240b0b1', '1fsdfsdafasfqfs234fgdgsfsdf', '2vzxvxzvzxv8');
+INSERT INTO `t_role_button_mapping` VALUES ('21fb6448955e424d85651e222bba8693', '1fsdfsdafasfqfs234fgdgsfsdf', '1hgfhfghfg0');
+INSERT INTO `t_role_button_mapping` VALUES ('25fe8026519749f1b98731c47c61f835', '1fsdfsdafasfqfs234fgdgsfsdf', '3vcxzcvzvxzcv4');
+INSERT INTO `t_role_button_mapping` VALUES ('276355fcd6424c91be8e741c918ba98c', '1fsdfsdafasfqfs234fgdgsfsdf', '13hdfhdfghfds');
+INSERT INTO `t_role_button_mapping` VALUES ('28b7847b83c6416f8bd7ddd24a6a0226', '1fsdfsdafasfqfs234fgdgsfsdf', '46fsdfsadfsadf');
+INSERT INTO `t_role_button_mapping` VALUES ('2c7b5a55e8ad4eb2a8ad7c2039354cbc', '1fsdfsdafasfqfs234fgdgsfsdf', '4fsfsadfsddf');
+INSERT INTO `t_role_button_mapping` VALUES ('2d0e470a4d05405b9d652cf5576f0492', '1fsdfsdafasfqfs234fgdgsfsdf', '41sgdfgdsfg4454');
+INSERT INTO `t_role_button_mapping` VALUES ('3157637eab4640a78d8f3d2b228fe968', '1fsdfsdafasfqfs234fgdgsfsdf', '3gfdsgsdfgdsfg0');
+INSERT INTO `t_role_button_mapping` VALUES ('3799ad4f6a00469e8918186258a6207b', '1fsdfsdafasfqfs234fgdgsfsdf', '1yy54yhtrbbbb9');
+INSERT INTO `t_role_button_mapping` VALUES ('37a30284e7ad470f877ac6fa39ab8b7a', '1fsdfsdafasfqfs234fgdgsfsdf', '24c0d24080ee406c9d88fe93ecb78b81');
+INSERT INTO `t_role_button_mapping` VALUES ('37dc534701f8405dade85c42c41ca546', '1fsdfsdafasfqfs234fgdgsfsdf', 'gsdgsdgdsgsag8');
+INSERT INTO `t_role_button_mapping` VALUES ('3d43ac5b8d0345279c9d380e49a35846', '1fsdfsdafasfqfs234fgdgsfsdf', '3fsafsdfsaf2');
+INSERT INTO `t_role_button_mapping` VALUES ('4351a1d8fe254c53aee12eb94774b1a0', '1fsdfsdafasfqfs234fgdgsfsdf', '4gsggsdgdgdfg3');
+INSERT INTO `t_role_button_mapping` VALUES ('447148b0c49b4652a8e30c0eb074caaf', '1fsdfsdafasfqfs234fgdgsfsdf', '5fsdfsadfsafsdf');
+INSERT INTO `t_role_button_mapping` VALUES ('49e09c83933640c584e4d8c0b1a1b30c', '1fsdfsdafasfqfs234fgdgsfsdf', '1fsdfsdfsdfsadf');
+INSERT INTO `t_role_button_mapping` VALUES ('4a69ce872812423d8ce9ff8222f02976', '1fsdfsdafasfqfs234fgdgsfsdf', '1safsafsafbfdgsg4');
+INSERT INTO `t_role_button_mapping` VALUES ('4cde70d14d6f4841829dd31d1fe8ad79', '1fsdfsdafasfqfs234fgdgsfsdf', '2dfsfgdgfdsuiutiuyi4');
+INSERT INTO `t_role_button_mapping` VALUES ('561a9e9db2f7444fa9cad6b958618b3e', '1fsdfsdafasfqfs234fgdgsfsdf', '12hfghdfhfdhfgh');
+INSERT INTO `t_role_button_mapping` VALUES ('562466e3e134417ca53d5e1bb5237293', '1fsdfsdafasfqfs234fgdgsfsdf', '33afasfsafas');
+INSERT INTO `t_role_button_mapping` VALUES ('5ea9711f3e5f43ccad0b605540dc6c7d', '1fsdfsdafasfqfs234fgdgsfsdf', '26fdsgdfsgdsfggdsf');
+INSERT INTO `t_role_button_mapping` VALUES ('5f38d0bd5f0a4eae9cffd9e054530aa3', '1fsdfsdafasfqfs234fgdgsfsdf', '2dsfgdgdfgdfgdgdsg2');
+INSERT INTO `t_role_button_mapping` VALUES ('6a98b2e41a0e4e259346d20d64a22e60', '1fsdfsdafasfqfs234fgdgsfsdf', '38gfdsgsdfg');
+INSERT INTO `t_role_button_mapping` VALUES ('6e190a26fdfa47c78e1daa112c95007d', '1fsdfsdafasfqfs234fgdgsfsdf', '1fsgdfsgddf5');
+INSERT INTO `t_role_button_mapping` VALUES ('7d24e400b9674439be557f729adc196f', '1fsdfsdafasfqfs234fgdgsfsdf', '1hdfghfghfghfgh1');
+INSERT INTO `t_role_button_mapping` VALUES ('7ee636041533468fa02b5a10732fdd3a', '1fsdfsdafasfqfs234fgdgsfsdf', '2gdfsbdsjhghfdsgdgsd0');
+INSERT INTO `t_role_button_mapping` VALUES ('7f941f55b3b64aa281cb79a46f4da33c', '1fsdfsdafasfqfs234fgdgsfsdf', '29hfdfghfghdfhdfh');
+INSERT INTO `t_role_button_mapping` VALUES ('81df807a37b54207a5ac7b6944486d0d', '1fsdfsdafasfqfs234fgdgsfsdf', '3fsfsdfsdffsafsad');
+INSERT INTO `t_role_button_mapping` VALUES ('89505832e0874cd6af8f541eb25232bd', '1fsdfsdafasfqfs234fgdgsfsdf', '2xvxcvzvzxvdsgxv7');
+INSERT INTO `t_role_button_mapping` VALUES ('8a55323733884a3c974a82c727015413', '1fsdfsdafasfqfs234fgdgsfsdf', '1bfbvcbcvxbvcxbbbxcb7');
+INSERT INTO `t_role_button_mapping` VALUES ('96780f7e34d8487590d559ef030281aa', '1fsdfsdafasfqfs234fgdgsfsdf', 'fsadfsadfasdff6');
 INSERT INTO `t_role_button_mapping` VALUES ('9b4fd3271e2f4699b196ba4577d6f356', '3b370aa1bc464890a0bc99d9b7c42a4b', '1hgfhfghfg0');
-INSERT INTO `t_role_button_mapping` VALUES ('a466ba76e56e4d2a8fb9e19aa7004aeb', '1fsdfsdafasfqfs234fgdgsfsdf', '3vcxzcvzvxzcv4');
-INSERT INTO `t_role_button_mapping` VALUES ('a921fc226b774e66915cd209a963b491', '1fsdfsdafasfqfs234fgdgsfsdf', '3dgfdsgvvzcvfg9');
-INSERT INTO `t_role_button_mapping` VALUES ('b21c84575e4a4d8e94cd018a7c28a254', '1fsdfsdafasfqfs234fgdgsfsdf', 'fsadfsadfasdff6');
-INSERT INTO `t_role_button_mapping` VALUES ('bafe4d3e7e3f4c449a6123ea0c1467ac', '1fsdfsdafasfqfs234fgdgsfsdf', 'ggsdgsg7');
-INSERT INTO `t_role_button_mapping` VALUES ('bc9cc6bb092c4e65bf207d400a07c912', '1fsdfsdafasfqfs234fgdgsfsdf', '5038fc7f3b5846a0a075193079f74dff');
-INSERT INTO `t_role_button_mapping` VALUES ('c01046ea4db140059c7846dfb9e52a37', '1fsdfsdafasfqfs234fgdgsfsdf', '2fsdfsdfsdfsdf');
-INSERT INTO `t_role_button_mapping` VALUES ('c3aff66826bb4f33a13cc22eede179ce', '1fsdfsdafasfqfs234fgdgsfsdf', '2aadsafsdfsdf1');
-INSERT INTO `t_role_button_mapping` VALUES ('c7cef892904442d7923caa8966589e53', '1fsdfsdafasfqfs234fgdgsfsdf', '4gsggsdgdgdfg3');
-INSERT INTO `t_role_button_mapping` VALUES ('d6463cc9a1e64216a29be313bae86522', '1fsdfsdafasfqfs234fgdgsfsdf', '4gfdsgdfs2');
-INSERT INTO `t_role_button_mapping` VALUES ('da707ebef9f24dc483af04a30924a21e', '1fsdfsdafasfqfs234fgdgsfsdf', '3fsadfasfas1');
-INSERT INTO `t_role_button_mapping` VALUES ('e1a4a3c08d944d11b120b8321ef8df10', '1fsdfsdafasfqfs234fgdgsfsdf', '3gdsfgvbcgdhdgh7');
-INSERT INTO `t_role_button_mapping` VALUES ('e27f65c1bc8f43429aab49e5b81cc7aa', '1fsdfsdafasfqfs234fgdgsfsdf', '4htetgdfsg435t53455');
-INSERT INTO `t_role_button_mapping` VALUES ('e4ed8617c2744f76beceba3dd8f4f418', '1fsdfsdafasfqfs234fgdgsfsdf', '13hdfhdfghfds');
-INSERT INTO `t_role_button_mapping` VALUES ('e7fd2c36d005458d8c06aa533ce05bd8', '1fsdfsdafasfqfs234fgdgsfsdf', '2xvxcvzvzxvdsgxv7');
-INSERT INTO `t_role_button_mapping` VALUES ('ead0e82b9b64420492992130a0605a84', '1fsdfsdafasfqfs234fgdgsfsdf', '1fsdfsdfsdfsadf');
-INSERT INTO `t_role_button_mapping` VALUES ('eb87e60bf3524b17b14e79ac0c564b7c', '1fsdfsdafasfqfs234fgdgsfsdf', '1yy54yhtrbbbb9');
-INSERT INTO `t_role_button_mapping` VALUES ('f0deafea49b94bb0b57a002a095b0e91', '1fsdfsdafasfqfs234fgdgsfsdf', '2dfsfgdgfdsuiutiuyi4');
-INSERT INTO `t_role_button_mapping` VALUES ('f86c657c23a2417dbbe326908a43a786', '1fsdfsdafasfqfs234fgdgsfsdf', '24c0d24080ee406c9d88fe93ecb78b81');
+INSERT INTO `t_role_button_mapping` VALUES ('a04c08d68cbe4117b3aaea0aaa07d1e1', '1fsdfsdafasfqfs234fgdgsfsdf', '47gsdgfdsgdsfgdsg');
+INSERT INTO `t_role_button_mapping` VALUES ('ad9e85e8225147c98ac2cfc731bb54a8', '1fsdfsdafasfqfs234fgdgsfsdf', '2tryeyruiibbxvcb5');
+INSERT INTO `t_role_button_mapping` VALUES ('afdc51c3fce74434b44c7d2655f6322d', '1fsdfsdafasfqfs234fgdgsfsdf', '4gfdsgdfs2');
+INSERT INTO `t_role_button_mapping` VALUES ('b47838a8313646e5b6cbd8ac9a7d8cd9', '1fsdfsdafasfqfs234fgdgsfsdf', '9hghghfghfghfghh');
+INSERT INTO `t_role_button_mapping` VALUES ('baaccf2ab0bf4fc494e13eafd998dbec', '1fsdfsdafasfqfs234fgdgsfsdf', 'e546d68fd1a24fddae70212ee1a6a5d5');
+INSERT INTO `t_role_button_mapping` VALUES ('be32ad09c5d74c5495fbfbbd66dfdb7e', '1fsdfsdafasfqfs234fgdgsfsdf', '76b6091761d04de39f8bd5436c1806dc');
+INSERT INTO `t_role_button_mapping` VALUES ('d979de802cdb435f9b65de497773113d', '1fsdfsdafasfqfs234fgdgsfsdf', '3gdsfgvbcgdhdgh7');
+INSERT INTO `t_role_button_mapping` VALUES ('dbd21af8941245b6aeff777a8840c2f8', '1fsdfsdafasfqfs234fgdgsfsdf', '4gfdsgsgf0');
+INSERT INTO `t_role_button_mapping` VALUES ('dc2f4cf674804332a091afc8f0a54ebb', '1fsdfsdafasfqfs234fgdgsfsdf', '4543gdfsfg53454');
+INSERT INTO `t_role_button_mapping` VALUES ('e29bad6df9db4016b911f0e6c31a5e75', '1fsdfsdafasfqfs234fgdgsfsdf', '5038fc7f3b5846a0a075193079f74dff');
+INSERT INTO `t_role_button_mapping` VALUES ('e642a497c2b54e0f9c91b74efb75b97e', '1fsdfsdafasfqfs234fgdgsfsdf', '16gdfsgdfgdsg');
+INSERT INTO `t_role_button_mapping` VALUES ('f45aab22a8ac499b84433aa97b28576c', '1fsdfsdafasfqfs234fgdgsfsdf', '3fsadfasfas1');
+INSERT INTO `t_role_button_mapping` VALUES ('f4730f5f02f24f328102a7efee634d84', '1fsdfsdafasfqfs234fgdgsfsdf', '1tretrgsdgdfsgsdgsdg8');
+INSERT INTO `t_role_button_mapping` VALUES ('faf04b292bf04a4482be44e0ffaf0bbc', '1fsdfsdafasfqfs234fgdgsfsdf', '2hjhgjkklhjghgjfhfdh3');
 
 -- ----------------------------
 -- Table structure for `t_role_data_permit_mapping`
@@ -888,10 +892,10 @@ CREATE TABLE `t_role_data_permit_mapping` (
 -- ----------------------------
 -- Records of t_role_data_permit_mapping
 -- ----------------------------
-INSERT INTO `t_role_data_permit_mapping` VALUES ('767197840e9b4de58643d2be31585b35', 'asdfghj1234566fsfasdfaddsf', '1fsdfsdafasfqfs234fgdgsfsdf');
-INSERT INTO `t_role_data_permit_mapping` VALUES ('a3918c05362f43208ef70342318be6b4', 'asdfghj1234566fsfasdfadsf', '1fsdfsdafasfqfs234fgdgsfsdf');
 INSERT INTO `t_role_data_permit_mapping` VALUES ('ade589d717b541289374ffbdc7621070', 'asdfff1234566fsfasdfaddsaaf', '3b370aa1bc464890a0bc99d9b7c42a4b');
-INSERT INTO `t_role_data_permit_mapping` VALUES ('b77877ef68574e1181deafafc7131a7d', 'asdfff1234566fsfasdfaddsaaf', '1fsdfsdafasfqfs234fgdgsfsdf');
+INSERT INTO `t_role_data_permit_mapping` VALUES ('bd65a19a3d3b41f58e3b549767654ed5', 'asdfghj1234566fsfasdfaddsf', '1fsdfsdafasfqfs234fgdgsfsdf');
+INSERT INTO `t_role_data_permit_mapping` VALUES ('c78ef8b3c8e8455e9bf67c1136a4d5e4', 'asdfff1234566fsfasdfaddsaaf', '1fsdfsdafasfqfs234fgdgsfsdf');
+INSERT INTO `t_role_data_permit_mapping` VALUES ('d40878b1cf1d467caef88becaf60cf25', 'asdfghj1234566fsfasdfadsf', '1fsdfsdafasfqfs234fgdgsfsdf');
 
 -- ----------------------------
 -- Table structure for `t_role_menu_mapping`
@@ -911,34 +915,36 @@ CREATE TABLE `t_role_menu_mapping` (
 -- ----------------------------
 -- Records of t_role_menu_mapping
 -- ----------------------------
+INSERT INTO `t_role_menu_mapping` VALUES ('037f1cbb97914f1da1e0db0c81cf4bd0', '1fsdfsdafasfqfs234fgdgsfsdf', 'dfhgfhhgf3gdgdsgfh1');
+INSERT INTO `t_role_menu_mapping` VALUES ('0617e4a281a24f6c9aa02decc4c3b190', '1fsdfsdafasfqfs234fgdgsfsdf', '1gfdgsdgsdgfdgsdfg0');
 INSERT INTO `t_role_menu_mapping` VALUES ('07f598e7e1cc4138bad28c60f0485766', '3b370aa1bc464890a0bc99d9b7c42a4b', '1gdfgdsfgdsfgdfg6');
 INSERT INTO `t_role_menu_mapping` VALUES ('08836804da9f4cc8aec4c904e63cc6f7', '3b370aa1bc464890a0bc99d9b7c42a4b', 'dfhgfhhgf3gdgdsgfh1');
-INSERT INTO `t_role_menu_mapping` VALUES ('0df3fd647e8b4ab5ab29d729318f15a5', '1fsdfsdafasfqfs234fgdgsfsdf', '8ytryrtytry');
 INSERT INTO `t_role_menu_mapping` VALUES ('10efb2f006554dfea520d9611cb0cf7f', '3b370aa1bc464890a0bc99d9b7c42a4b', '5tytryreyyrtyrt');
-INSERT INTO `t_role_menu_mapping` VALUES ('33c36f6fe7324bd9b2c9bdea03cb006b', '1fsdfsdafasfqfs234fgdgsfsdf', '1gdfgdsfgdsfgdfg6');
-INSERT INTO `t_role_menu_mapping` VALUES ('3a06adf2c45e454db512a7017d81cd82', '1fsdfsdafasfqfs234fgdgsfsdf', '1gdfgdfgdfgdfsg5');
-INSERT INTO `t_role_menu_mapping` VALUES ('3f69aad1792b4ef58d1d945d19e8b1cc', '1fsdfsdafasfqfs234fgdgsfsdf', '3yrtyerhgfyerty');
+INSERT INTO `t_role_menu_mapping` VALUES ('16223eedda6a44d7a2fc42fec547c357', '1fsdfsdafasfqfs234fgdgsfsdf', '3yrtyerhgfyerty');
+INSERT INTO `t_role_menu_mapping` VALUES ('320501b308224233a72621af72ab2a1c', '1fsdfsdafasfqfs234fgdgsfsdf', '5tytryreyyrtyrt');
+INSERT INTO `t_role_menu_mapping` VALUES ('3d7b759901854919975b37e05c15129c', '1fsdfsdafasfqfs234fgdgsfsdf', '1gdfgdfgdfgdfg2');
+INSERT INTO `t_role_menu_mapping` VALUES ('3ec58b06715147ce8111b94e557c425d', '1fsdfsdafasfqfs234fgdgsfsdf', '2cce82e8b5274b6d8acb65c888415bb2');
+INSERT INTO `t_role_menu_mapping` VALUES ('41ce156e15de481abf755be5382a8d63', '1fsdfsdafasfqfs234fgdgsfsdf', 'ytryedhhdtryrty2');
 INSERT INTO `t_role_menu_mapping` VALUES ('4333fb0eea784eb082f9150af7ae14e9', '3b370aa1bc464890a0bc99d9b7c42a4b', '1gdfgdfgdfgdfsg5');
-INSERT INTO `t_role_menu_mapping` VALUES ('46891f56f6a846bbaf017137906b6df2', '1fsdfsdafasfqfs234fgdgsfsdf', 'e041386708254e31beae8df1c92a4a8c');
-INSERT INTO `t_role_menu_mapping` VALUES ('476ef38c268a4f3cbf0f200c1a69c499', '1fsdfsdafasfqfs234fgdgsfsdf', '2cce82e8b5274b6d8acb65c888415bb2');
+INSERT INTO `t_role_menu_mapping` VALUES ('4b622f7b617d4cbfa998a53a824e7bc0', '1fsdfsdafasfqfs234fgdgsfsdf', '1gdfsgfgfdg7');
 INSERT INTO `t_role_menu_mapping` VALUES ('4bb3795d19044125b29f0f493c40d4a2', '3b370aa1bc464890a0bc99d9b7c42a4b', '3yrtyerhgfyerty');
-INSERT INTO `t_role_menu_mapping` VALUES ('6f390d180c72491c85ee37ac3db8ad5e', '1fsdfsdafasfqfs234fgdgsfsdf', '7ereeet');
-INSERT INTO `t_role_menu_mapping` VALUES ('905c385690ee463dbaecc06a826a4a4d', '1fsdfsdafasfqfs234fgdgsfsdf', '5tytryreyyrtyrt');
-INSERT INTO `t_role_menu_mapping` VALUES ('955c09774da24fd3bcaa49353d2a7876', '1fsdfsdafasfqfs234fgdgsfsdf', '1gdfgdfgdfgdfgdfg3');
-INSERT INTO `t_role_menu_mapping` VALUES ('95f52a4724804c74a1c30044a60465c4', '1fsdfsdafasfqfs234fgdgsfsdf', '1gdfgdfgdfgfdg4');
-INSERT INTO `t_role_menu_mapping` VALUES ('ab866d9030f8425eaa9072ea5405e2d7', '1fsdfsdafasfqfs234fgdgsfsdf', '1gdfgdfgdfgdfg2');
-INSERT INTO `t_role_menu_mapping` VALUES ('b12d422e857543daadbf452190545c83', '1fsdfsdafasfqfs234fgdgsfsdf', '82273d9bb3144250a6997a1bfbd90bfe');
+INSERT INTO `t_role_menu_mapping` VALUES ('51f24ad1158e4933bcd5f396ef2353d6', '1fsdfsdafasfqfs234fgdgsfsdf', '1gdfdggfdgdfggdfg1');
+INSERT INTO `t_role_menu_mapping` VALUES ('5d8438c3c68f4c06b67b56fc0af4d6f1', '1fsdfsdafasfqfs234fgdgsfsdf', 'd2801e0e39654be8a57785cde7430bba');
+INSERT INTO `t_role_menu_mapping` VALUES ('5dd2131f5d274a40bd08d52af1faecd8', '1fsdfsdafasfqfs234fgdgsfsdf', '1gdfgdfgdfgdfsg5');
+INSERT INTO `t_role_menu_mapping` VALUES ('60c0d9c6e61a47f6b81071bb2db8a92a', '1fsdfsdafasfqfs234fgdgsfsdf', '1gdfgdsfgdsfgdfg6');
+INSERT INTO `t_role_menu_mapping` VALUES ('6bdabdb57787434b878695e51ace9ed2', '1fsdfsdafasfqfs234fgdgsfsdf', 'e041386708254e31beae8df1c92a4a8c');
+INSERT INTO `t_role_menu_mapping` VALUES ('734fe87f35c54f7bbe7e4ec7f7d1f1a4', '1fsdfsdafasfqfs234fgdgsfsdf', '9stryytrytrytr');
+INSERT INTO `t_role_menu_mapping` VALUES ('7918763a82c04f8b82cb3785540a2c54', '1fsdfsdafasfqfs234fgdgsfsdf', '7ereeet');
+INSERT INTO `t_role_menu_mapping` VALUES ('7baa5d41faa048789e3009f830fc1a3c', '1fsdfsdafasfqfs234fgdgsfsdf', '8ytryrtytry');
+INSERT INTO `t_role_menu_mapping` VALUES ('a9d7e7309f7d42cbbc27f35fe677f55e', '1fsdfsdafasfqfs234fgdgsfsdf', '6ytryetryeeytrt');
+INSERT INTO `t_role_menu_mapping` VALUES ('adde713f24764027926e0965d9b67150', '1fsdfsdafasfqfs234fgdgsfsdf', 'caf02e05617f4b3ea81b372bd5a10a35');
+INSERT INTO `t_role_menu_mapping` VALUES ('b0269d7fb8fc4912bde7fe4f1a91d56a', '1fsdfsdafasfqfs234fgdgsfsdf', '1gdfgdfgdfgfdg4');
 INSERT INTO `t_role_menu_mapping` VALUES ('b26be975666e4807932e2be3b987fb78', '3b370aa1bc464890a0bc99d9b7c42a4b', '1gdfsgfgfdg7');
-INSERT INTO `t_role_menu_mapping` VALUES ('b95b384b514f4b78aec56747e5f16913', '1fsdfsdafasfqfs234fgdgsfsdf', '9stryytrytrytr');
-INSERT INTO `t_role_menu_mapping` VALUES ('ba98527071434add96952b5ffa2b90f5', '1fsdfsdafasfqfs234fgdgsfsdf', 'ytryrtyrety4');
-INSERT INTO `t_role_menu_mapping` VALUES ('bfbd7e27839a4cd6b759a54fec7f72aa', '1fsdfsdafasfqfs234fgdgsfsdf', 'a2cf1e8ab74449c29861404214421841');
-INSERT INTO `t_role_menu_mapping` VALUES ('c0c150196607417dbf5b87596c7558b5', '1fsdfsdafasfqfs234fgdgsfsdf', '1gdfdggfdgdfggdfg1');
-INSERT INTO `t_role_menu_mapping` VALUES ('d3b60747df124a9a98a5b5505cb84229', '1fsdfsdafasfqfs234fgdgsfsdf', 'ytryedhhdtryrty2');
-INSERT INTO `t_role_menu_mapping` VALUES ('d3ec061dacf54c7c9b3532ac43b2de2a', '1fsdfsdafasfqfs234fgdgsfsdf', 'dfhgfhhgf3gdgdsgfh1');
-INSERT INTO `t_role_menu_mapping` VALUES ('db5329cc472541f1999b93cfcdc0fa54', '1fsdfsdafasfqfs234fgdgsfsdf', '6ytryetryeeytrt');
-INSERT INTO `t_role_menu_mapping` VALUES ('e95c81a7a2da47a197ef8028e202c712', '1fsdfsdafasfqfs234fgdgsfsdf', '1gfdgsdgsdgfdgsdfg0');
+INSERT INTO `t_role_menu_mapping` VALUES ('d78a4c0f3451460eb911eb1f7471ff4c', '1fsdfsdafasfqfs234fgdgsfsdf', 'ytryrtyrety4');
+INSERT INTO `t_role_menu_mapping` VALUES ('d9f803cad1db4c4f9c380a235ada4671', '1fsdfsdafasfqfs234fgdgsfsdf', 'a2cf1e8ab74449c29861404214421841');
+INSERT INTO `t_role_menu_mapping` VALUES ('e41f2475f0e34cbebfaf39ff811d5fea', '1fsdfsdafasfqfs234fgdgsfsdf', '82273d9bb3144250a6997a1bfbd90bfe');
 INSERT INTO `t_role_menu_mapping` VALUES ('ea2433d1638246dcab5b9221857e3235', '3b370aa1bc464890a0bc99d9b7c42a4b', 'ytryedhhdtryrty2');
-INSERT INTO `t_role_menu_mapping` VALUES ('ed1ed4bea19e4cb1a894644608fcd783', '1fsdfsdafasfqfs234fgdgsfsdf', '1gdfsgfgfdg7');
+INSERT INTO `t_role_menu_mapping` VALUES ('fa684d41886047a1baff565902a4a735', '1fsdfsdafasfqfs234fgdgsfsdf', '1gdfgdfgdfgdfgdfg3');
 
 -- ----------------------------
 -- Table structure for `t_task`

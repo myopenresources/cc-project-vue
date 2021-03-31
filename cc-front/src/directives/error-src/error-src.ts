@@ -4,7 +4,6 @@ const errorSrc: Directive = {
     mounted(el, binding) {
 
         const errSrc = binding.value;
-        console.info(errSrc)
         el.addEventListener('error', () => {
             if (errSrc !== '') {
                 el.src = errSrc;

@@ -14,6 +14,7 @@
         'app-def-main-layout-content-full': !showTool,
         'app-def-main-layout-content-pd': usePadding,
       }"
+      :style="contentBodyStyle"
       v-app-scrollbar="scrollOptions"
     >
       <div class="app-def-main-layout-inner-content">
@@ -41,6 +42,10 @@ export default defineComponent({
     title: {
       type: String,
       default: '',
+    },
+    contentBodyStyle: {
+      type: Object,
+      default: () => {},
     },
     usePadding: {
       type: Boolean,
