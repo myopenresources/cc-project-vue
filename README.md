@@ -1,14 +1,14 @@
-# cc-project  vue °æ±¾
+# cc-project  vue ç‰ˆæœ¬
 
-angular°æ±¾Çëµ½ https://github.com/myopenresources/cc-project ÕâÀï¿´
+angularç‰ˆæœ¬è¯·åˆ° https://github.com/myopenresources/cc-project è¿™é‡Œçœ‹
 
-ÏêÏ¸ÎÄµµ Çëµ½ [cc-projectÏêÏ¸ÎÄµµ£¨Õı³£±àĞ´£©](https://www.toutiao.com/c/user/token/MS4wLjABAAAAnEldphQhg0oBXhLDdmI5RkzefU_ikt6GDtUizQ9CCTs/)
+è¯¦ç»†æ–‡æ¡£ è¯·åˆ° [cc-projectè¯¦ç»†æ–‡æ¡£](https://www.toutiao.com/i6945750297834701348/)
 
 
-## ½éÉÜ
-cc-project-vue ÊÇÒ»¸öÇ°ºó¶Ë·ÖÀëµÄÏîÄ¿£¬Ç°¶ËÊ¹ÓÃµÄÊÇvue3.0£¬ºó¶ËÊ¹ÓÃsrping boot£¬cc-app-backedÎªºó¶Ë²¿·Ö£¬cc-frontÎªÇ°¶Ë²¿·Ö¡£
+## ä»‹ç»
+cc-project-vue æ˜¯ä¸€ä¸ªå‰åç«¯åˆ†ç¦»çš„é¡¹ç›®ï¼Œå‰ç«¯ä½¿ç”¨çš„æ˜¯vue3.0ï¼Œåç«¯ä½¿ç”¨srping bootï¼Œcc-app-backedä¸ºåç«¯éƒ¨åˆ†ï¼Œcc-frontä¸ºå‰ç«¯éƒ¨åˆ†ã€‚
 
-##  VUE °æ±¾²¿·Ö½çÃæÕ¹Ê¾
+##  VUE ç‰ˆæœ¬éƒ¨åˆ†ç•Œé¢å±•ç¤º
 ![001](./001.png) <br/>
 ![002](./002.png) <br/>
 ![003](./003.png) <br/>
