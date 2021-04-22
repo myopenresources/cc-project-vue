@@ -134,7 +134,7 @@ export default defineComponent({
     };
 
     const waterMarkerDestroy = () => {
-      if (waterMarkerObj !== undefined &&  waterMarkerRef.value) {
+      if (waterMarkerObj !== undefined && waterMarkerRef.value) {
         waterMarkerRef.value.removeChild(waterMarkerObj);
         waterMarkerObj = undefined;
       }
