@@ -1,0 +1,38 @@
+@import '../../../assets/platform/style/index.less';
+
+.app-user-dept-distribute-container {
+  display: -webkit-flex;
+  display: flex;
+  height: 100%;
+  overflow: hidden;
+
+  .app-dept-tree-container {
+    width: 363px;
+    height: 100%;
+    overflow: auto;
+    border: var(--border-color-split) var(--border-width-base) var(--border-style-base);
+    border-radius: var(--border-radius-base);
+    margin-right: 25px;
+    padding: 10px;
+  }
+
+  .app-dept-selected-container {
+    width: 363px;
+    height: 100%;
+    overflow: auto;
+    border: var(--border-color-split) var(--border-width-base) var(--border-style-base);
+    border-radius: var(--border-radius-base);
+    padding: 10px;
+
+    .app-dept-selected-delete {
+      color: var(--error-color);
+    }
+
+    .app-dept-name {
+      width: 210px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+}

@@ -1,0 +1,167 @@
+@import '../../../assets/platform/style/index.less';
+
+.app-sys-info-container {
+  height: 100%;
+  overflow: hidden;
+
+  .app-sys-info-row {
+    height: 100%;
+
+    .app-sys-info-col {
+      height: 100%;
+
+      :deep(.ant-card-body) {
+        padding: 12px;
+      }
+    }
+  }
+
+  .app-sys-info-left-row {
+    border-top: var(--border-color-split) var(--border-width-base) var(--border-style-base);
+    margin-top: 25px;
+    padding-top: 15px;
+  }
+
+  .app-sys-info-right-row {
+    border-top: var(--border-color-split) var(--border-width-base) var(--border-style-base);
+    margin-top: 25px;
+    padding-top: 15px;
+  }
+
+  .app-sys-info-right-container {
+    border-left: var(--border-color-split) var(--border-width-base) var(--border-style-base);
+  }
+
+  .app-sys-info-left-container {
+    background: var(--component-background);
+  }
+
+  .app-cpu-item {
+    padding: 5px;
+    margin-top: 15px;
+    color: var(--white);
+    border-radius: 6px;
+    -moz-box-shadow: var(--light-shadow);
+    -webkit-box-shadow: var(--light-shadow);
+    box-shadow: var(--light-shadow);
+
+    :deep(.icon) {
+      font-size: 60px;
+      margin-right: 30px;
+    }
+
+    .app-cpu-count {
+      font-size: 14px;
+      margin-top: 10px;
+    }
+
+    .app-cpu-label {
+      font-size: 15px;
+      font-weight: bold;
+      margin-top: 5px;
+    }
+  }
+
+  .app-cpu-number {
+    background: linear-gradient(88deg, var(--primary-color) 0, var(--primary-color) 50%);
+  }
+
+  .app-cpu-used {
+    background: linear-gradient(88deg, var(--warning-color) 0, var(--warning-color) 50%);
+  }
+
+  .app-cpu-sys {
+    background: linear-gradient(88deg, var(--error-color) 0, var(--error-color) 50%);
+  }
+
+  .app-cpu-free {
+    background: linear-gradient(88deg, var(--success-color) 0, var(--success-color) 50%);
+  }
+
+  .app-memory-item {
+    padding: 5px;
+    margin-top: 15px;
+    color: var(--white);
+    border-radius: 6px;
+    box-shadow: var(--light-shadow);
+
+    :deep(.icon) {
+      font-size: 58px;
+      margin-right: 20px;
+      font-weight: 400;
+    }
+
+    .app-memory-title {
+      font-size: 15px;
+      margin-bottom: 5px;
+      margin-top: 5px;
+      font-weight: bold;
+    }
+
+    .app-memory-label {
+      font-size: 14px;
+      margin-top: 5px;
+    }
+
+    .app-memory-jvm-label {
+      font-size: 14px;
+      margin-top: 5px;
+    }
+  }
+
+  .app-memory-total {
+    background: linear-gradient(88deg, var(--primary-color) 0, var(--primary-color) 50%);
+  }
+
+  .app-memory-used {
+    background: linear-gradient(88deg, var(--warning-color) 0, var(--warning-color) 50%);
+  }
+
+  .app-memory-usage {
+    background: linear-gradient(88deg, var(--error-color) 0, var(--error-color) 50%);
+    margin-bottom: 0px;
+  }
+
+  .app-memory-free {
+    background: linear-gradient(88deg, var(--success-color) 0, var(--success-color) 50%);
+  }
+
+  .app-disk-item {
+    -moz-box-shadow: var(--light-shadow);
+    -webkit-box-shadow: var(--light-shadow);
+    box-shadow: var(--light-shadow);
+
+    svg {
+      width: 52px;
+      height: 52px;
+      margin-right: 15px;
+      margin-top: 2px;
+    }
+
+    .app-disk-progress {
+      width: 100%;
+
+      .app-disk-path {
+        font-size: 13px;
+        margin-top: 5px;
+      }
+
+      .app-disk-progress-bar {
+        line-height: 25px;
+        height: 25px;
+      }
+    }
+  }
+
+  .app-computer-item {
+    -moz-box-shadow: var(--light-shadow);
+    -webkit-box-shadow: var(--light-shadow);
+    box-shadow: var(--light-shadow);
+  }
+
+  .app-jvm-item {
+    -moz-box-shadow: var(--light-shadow);
+    -webkit-box-shadow: var(--light-shadow);
+    box-shadow: var(--light-shadow);
+  }
+}

@@ -1,0 +1,101 @@
+@import '../../../assets/platform/style/index.less';
+
+.app-home-container{
+    overflow: hidden;
+    height: 100%;
+    .app-home-left-row{
+      border-top: var(--border-color-split) var(--border-width-base) var(--border-style-base);
+      margin-top: 25px;
+    }
+    .app-home-right-row{
+      border-top: var(--border-color-split) var(--border-width-base) var(--border-style-base);
+       margin-top: 25px;
+       padding-top: 15px;
+    }
+    .app-home-right-top-row{
+      padding-top: 15px;
+    }
+    :deep(.ant-card-head){
+      border-width: 0;
+    }
+
+    .app-home-row{
+      height: 100%;
+      .app-home-col{
+        height: 100%;
+      }
+    }
+ }
+
+ .app-home-left-card{
+  border-right: var(--border-color-split) var(--border-width-base) var(--border-style-base);
+  height: 100%;
+ }
+
+ .app-home-card {
+   border-radius: 0;
+   :deep(.ant-card-body){
+     padding: 12px;
+   }
+  .app-home-card-title {
+    margin-bottom: 0px;
+  }
+  .app-home-card-btn {
+    font-size: 13px;
+  }
+  .app-home-card-chart {
+    position: relative;
+    .app-chart-header {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      .app-chart-meta-wrap {
+        float: left;
+        .app-chart-meta {
+          height: 22px;
+          color: var(text-color);
+          line-height: 22px;
+          font-size: 16px;
+          font-weight: 500;
+        }
+        .app-chart-total {
+          height: 45px;
+          margin-top: 4px;
+          margin-bottom: 0;
+          overflow: hidden;
+          font-size: 28px;
+          line-height: 45px;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          word-break: break-all;
+          :deep(.icon){
+            font-size: 28px;
+          }
+          span {
+            margin-left: 8px;
+          }
+        }
+      }
+    }
+    .app-chart-content {
+      position: relative;
+      width: 100%;
+      margin-bottom: 12px;
+      margin-top: 15px;
+      font-size: 14px;
+      color: var(--text-color);
+    }
+    .app-chart-footer {
+      margin-top: 0px;
+      padding-top: 0px;
+      font-size: 13px;
+      color: var(--text-color-secondary);
+    }
+  }
+
+  .app-home-chart{
+    height: 266px;
+    width: 100%;
+  }
+}
+

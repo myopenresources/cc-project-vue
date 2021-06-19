@@ -1,0 +1,58 @@
+@import '../../../assets/platform/style/index.less';
+
+.app-def-main-layout-header {
+    height                 : var(--layout-right-header-height);
+    border-top-left-radius : var(--layout-right-main-radius);
+    border-top-right-radius: var(--layout-right-main-radius);
+    padding-left           : var(--layout-right-main-padding-space);
+    padding-right          : var(--layout-right-main-padding-space);
+    width                  : 100%;
+    display                : -webkit-flex;
+    display                : flex;
+    justify-content        : space-between;
+    align-items            : center;
+
+    .app-def-main-layout-header-title {
+        font-size   : 19px;
+        font-weight : 500;
+        padding-left: 2px;
+
+        :deep(.icon) {
+            font-size   : 19px;
+            margin-right: 2px;
+        }
+    }
+
+    .app-def-main-layout-header-btns {
+        padding-right: 2px;
+    }
+}
+
+.app-def-main-layout-content {
+    height                    :calc(100% - var(--layout-right-header-height));
+    width                     : 100%;
+    border                    : var(--border-width-base) var(--border-style-base) var(--border-color-split);
+    border-bottom-left-radius : var(--layout-right-main-radius);
+    border-bottom-right-radius: var(--layout-right-main-radius);
+
+    .app-def-main-layout-inner-content {
+        height : 100%;
+        width  : 100%;
+        padding: 2px;
+    }
+}
+
+.app-def-main-layout-content-pd {
+    padding: var(--layout-right-main-padding-space);
+}
+
+.app-def-main-layout-content-full {
+    height: 100%;
+    width : 100%;
+
+    .app-def-main-layout-inner-content {
+        height : 100%;
+        width  : 100%;
+        padding: 2px;
+    }
+}

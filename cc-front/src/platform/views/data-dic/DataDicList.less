@@ -1,0 +1,96 @@
+@import '../../../assets/platform/style/index.less';
+
+.app-data-dic-type-container {
+    border-right: var(--border-width-base) var(--border-style-base) var(--border-color-split);
+    height      : 100%;
+
+    .app-data-dic-row {
+        height: 100%;
+
+        .app-data-dic-col {
+            height: 100%;
+        }
+
+        .app-data-dic-left-col {
+            border-right: var(--border-width-base) var(--border-style-base) var(--border-color-split);
+            padding     : var(--layout-right-main-padding-space);
+
+
+            .app-data-dic-type-title {
+                margin-bottom: 10px;
+            }
+
+            .app-data-dic-type-list {
+                height :calc(100% - var(--layout-right-main-padding-space) - var(--layout-right-main-padding-space) - 15px);
+
+                .app-data-dic-type-item-name {
+                    margin-left: 10px;
+                }
+
+                :deep(.ant-collapse-borderless) {
+                    background-color: transparent;
+                }
+
+                :deep(.ant-collapse) {
+                    background-color: transparent;
+
+                    .ant-collapse-item {
+                        border: 0;
+
+                        .ant-collapse-header {
+                            padding-left: 25px;
+
+                            .ant-collapse-arrow {
+                                left: 5px;
+                            }
+                        }
+                    }
+                }
+
+
+                :deep(.ant-menu-submenu-title) {
+                    padding: 0;
+                }
+
+                :deep(.ant-menu-submenu-arrow) {
+                    right: 2px;
+                }
+
+
+                :deep(.ant-menu-vertical) {
+                    border-right: 0;
+                }
+
+                :deep(.ant-menu-item) {
+                    padding-left: 28px;
+                }
+
+
+                :deep(.ant-menu-item-selected) {
+                    background-color: transparent;
+                }
+            }
+        }
+
+        .app-data-dic-right-col {
+            height: 100%;
+
+            .app-data-dic-item-title {
+                margin-bottom: 10px;
+                padding-left: var(--layout-right-main-padding-space);
+                padding-right: var(--layout-right-main-padding-space);
+                padding-top: var(---layout-right-main-padding-space);
+            }
+            .app-data-dic-item-table{
+                padding: var(--layout-right-main-padding-space);
+                height :calc(100% - var(--layout-right-main-padding-space) - var(--layout-right-main-padding-space) - 35px);
+
+            }
+        }
+    }
+
+
+
+
+
+}

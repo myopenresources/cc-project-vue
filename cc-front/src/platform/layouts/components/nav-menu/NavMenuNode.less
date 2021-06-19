@@ -1,0 +1,49 @@
+@import '../../../../assets/platform/style/index.less';
+
+.app-nav-menu-node-container {
+    display   : block;
+    list-style: none;
+    padding   : 0;
+    margin    : 0;
+
+    li {
+        padding: 0;
+        margin : 0;
+
+        a {
+            padding-top    : 6px;
+            padding-bottom : 6px;
+            color          : var(--layout-left-toolbar-menu-color);
+            border         : 0px;
+            display        : flex;
+            display        : -webkit-box;
+            flex-direction : row;
+            justify-content: space-between;
+            font-size: var(--layout-left-toolbar-menu-fs);
+
+            .app-node {
+                width: 25px;
+            }
+
+            :deep(.icon) {
+                width: 25px !important;
+            }
+
+            :deep(.app-node-icon) {
+                margin-left : 5px;
+                margin-right: 5px;
+            }
+
+            &:hover {
+                background        : var(--layout-left-toolbar-menu-n-h-bg);
+                color             : var(--layout-left-toolbar-menu-n-h-color);
+                -webkit-transition: 0.2s;
+                transition        : 0.2s;
+                -moz-transition   : 0.2s;
+                -o-transition     : 0.2s;
+                border-radius     :var(--border-radius-sm);
+                cursor            : pointer;
+            }
+        }
+    }
+}

@@ -1,0 +1,41 @@
+@import '../../../assets/platform/style/index.less';
+
+.app-notice-card {
+    .app-notice-table {
+        margin-top: 10px;
+
+        :deep(.ant-table-tbody) {
+            tr {
+                cursor: pointer;
+
+                td {
+                    border-width: 0;
+                }
+            }
+        }
+
+        .app-notice-date {
+            text-align: right;
+            color     : var(--success-color);
+            width     : 120px;
+        }
+
+        .app-notice-index {
+            width: 50px;
+        }
+    }
+
+    .app-notice-empty-data {
+        margin-top   : 32px;
+        margin-bottom: 32px;
+    }
+
+    :deep(.ant-card-head) {
+        padding: 0px;
+    }
+
+    :deep(.ant-alert){
+        border: 0;
+    }
+
+}

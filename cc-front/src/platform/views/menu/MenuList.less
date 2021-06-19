@@ -1,0 +1,81 @@
+@import '../../../assets/platform/style/index.less';
+
+.app-menu-container {
+    overflow: hidden;
+    height  : 100%;
+
+    .app-menu-row {
+        height: 100%;
+
+        .app-menu-col {
+            height: 100%;
+        }
+    }
+
+    .app-menu-left-col {
+        border-right: var(--border-color-split) var(--border-width-base) var(--border-style-base);
+        padding     : var(--layout-right-main-padding-space);
+
+        .app-menu-tree-title {
+            margin-bottom: 10px;
+        }
+
+        .app-menu-tree-container {
+            height :calc(100% - var(--layout-right-main-padding-space) - var(--layout-right-main-padding-space) - 15px);
+
+            :deep(.ant-tree-node-selected) {
+                background-color: transparent !important;
+            }
+
+            :deep(.ant-tree-node-content-wrapper) {
+                &:hover {
+                    background: var(--tree-node-hover-bg)  !important;
+                }
+            }
+
+            .app-menu-tree-search {
+                margin-bottom: 10px;
+            }
+
+            .app-menu-tree {
+                height: ~"calc(100% - 40px)";
+
+                :deep(.ant-tree-title) {
+                    display: inline-block;
+                    width  : 100%;
+                }
+
+                .app-menu-tree-node {
+                    display: inline-block;
+                    width  : 100%;
+                }
+
+                .app-menu-tree-search-node {
+                    color: var(--error-color);
+                }
+            }
+
+        }
+    }
+
+
+
+    .app-menu-right-col {
+        padding: var(--layout-right-main-padding-space);
+
+        .app-menu-info-title {
+            margin-bottom: 10px;
+        }
+
+        .app-menu-info {
+            height :calc(100% - var(--layout-right-main-padding-space) - var(--layout-right-main-padding-space) - 15px);
+            .app-menu-info-empty{
+                height: 100%;
+                display: -webkit-flex;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
+}

@@ -1,0 +1,118 @@
+// =========平台部分样式============
+:root {
+  //-------- base -----------
+  --white: #fff;
+  --black: #000;
+  --primary-color: #1890ff;
+  --error-color: #f5222d;
+  --info-color: #1890ff;
+  --success-color: #52c41a;
+  --warning-color: #faad14;
+  --processing-color: #1890ff;
+
+  --text-color: fade(#000, 85%);
+  --text-color-secondary: fade(#000, 45%);
+  --text-color-dark: fade(#fff, 85%);
+  --text-color-secondary-dark: fade(#fff, 65%);
+
+  --component-background: #fff;
+
+  --border-color-base: hsv(0, 0, 85%);
+  --border-color-split: hsv(0, 0, 94%);
+  --border-color-inverse: #fff;
+  --border-width-base: 1px;
+  --border-style-base: solid;
+  --border-radius-base: 2px;
+  --border-radius-sm: 2px;
+
+  --item-hover-bg: #f5f5f5;
+
+  //-------- button -----------
+  --btn-primary-color: #fff;
+  --btn-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);
+  --btn-primary-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
+  --btn-default-bg: var(--component-background);
+
+  //-------- 滚动条 -----------
+  --scrollbar-track: rgba(0, 0, 0, 0.06);
+  --scrollbar-thumb: rgba(0, 0, 0, 0.08);
+  --scrollbar-thumb-hover: rgba(0, 0, 0, 0.15);
+
+  // -------- shadow -----------
+  --base-shadow: 0 2px 11px 0 rgba(190, 202, 218, 0.17);
+  --hover-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
+  --light-shadow: 0 1px 5px 0 rgba(25, 50, 79, 0.07), 0 5px 10px 0 rgba(25, 50, 79, 0.1);
+
+  // -------- login -----------
+  --default-login-img: url('../img/login/default-login-img.svg');
+  --default-login-bg: url('../img/login/default-login-bg.svg');
+  --blue-login-img: url('../img/login/blue-login-img.svg');
+  --blue-login-bg: url('../img/login/blue-login-bg.svg');
+  --red-login-img: url('../img/login/red-login-img.svg');
+  --red-login-bg: url('../img/login/red-login-bg.svg');
+  --green-login-img: url('../img/login/green-login-img.svg');
+  --green-login-bg: url('../img/login/green-login-bg.svg');
+
+  --login-bg: linear-gradient(88deg, #18bbff 0, #06bfcc 50%);
+  --login-bg-img: var(--default-login-bg);
+  --login-img: var(--default-login-img);
+  --login-input-color: #000;
+  --login-default-color: #555;
+
+  // -------- spinning -----------
+  --spinning-bg: transparent;
+
+  // -------- desk layout -----------
+  --layout-desk-bg: #e8ecf1;
+
+  --layout-left-toolbar-width: 60px;
+  --layout-left-toolbar-bg: #001529;
+  --layout-left-toolbar-shadow: 2px 0px 5px rgba(0, 0, 0, 0.12);
+  --layout-left-toolbar-fs: 0.8rem;
+  --layout-left-toolbar-icon-fs: 1.45rem;
+  --layout-left-toolbar-color: #97cbfc;
+  --layout-left-toolbar-item-hover-bc: #193754;
+  --layout-left-toolbar-item-hover-fc: #97cbfc;
+
+  --layout-left-toolbar-menu-bg: #021c35;
+  --layout-left-toolbar-menu-bor-color: rgba(255, 255, 255, 0.2);
+  --layout-left-toolbar-menu-width: 260px;
+  --layout-left-toolbar-menu-color: #97cbfc;
+  --layout-left-toolbar-menu-fs: 0.85rem;
+  --layout-left-toolbar-menu-n-h-color: #fff;
+  --layout-left-toolbar-menu-n-h-bg: #4ba9ff;
+  --layout-left-toolbar-menu-empty-color: #97cbfc;
+  --layout-left-toolbar-menu-input-bg: var(--layout-left-toolbar-menu-bg);
+  --layout-left-toolbar-menu-input-bor-c: #6fafeb;
+  --layout-left-toolbar-menu-input-color: #6fafeb;
+  --layout-left-toolbar-menu-input-b-f-c: #6fafeb;
+  --layout-left-toolbar-menu-input-placeholder: #6fafeb;
+  --layout-left-toolbar-menu-header-height: 35px;
+  --layout-left-toolbar-menu-header-close-h-color: #197cda;
+
+  --layout-right-main-bg: #fff;
+  --layout-right-main-shadow: 0px 2px 5px rgba(0, 0, 0, 0.12);
+  --layout-right-main-radius: 4px;
+  --layout-right-main-margin-space: 5px;
+  --layout-right-main-padding-space: 10px;
+  --layout-right-header-height: 50px;
+
+  --layout-page-tabs-bg: var(--component-background);
+  --layout-page-tabs-shadow: 0px 1px 10px rgba(0, 0, 0, 0.1);
+  --layout-page-tabs-height: 42px;
+  --layout-page-tabs-color: var(--text-color);
+  --layout-page-tabs-close-color: var(--error-color);
+  --layout-page-tabs-active-color: var(--white);
+  --layout-page-tabs-active-bg: linear-gradient(110deg, #18bbff, var(--primary-color), #0a86f8);
+  --layout-page-tabs-active-bor-color: #18bbff;
+  --layout-page-tabs-item-bg: var(--component-background);
+  --layout-page-tabs-item-bor-color: var(--border-color-split);
+  --layout-page-tabs-btn-hov-color: var(--primary-color);
+
+  // -------- custom empty -----------
+  --custom-empty-img: url('../img/empty/default-empty.svg');
+
+  // -------- drawer layout -----------
+  --drawer-layout-header-height: 50px;
+  --drawer-layout-padding-space: 10px;
+}

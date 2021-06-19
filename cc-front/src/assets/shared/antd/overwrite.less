@@ -1,0 +1,27 @@
+//=====修改antd======
+
+.ant-btn {
+  &-primary {
+    &:hover,
+    &:focus {
+      color: var(--btn-primary-color) !important;
+    }
+
+    &[disabled],
+    &[disabled]:hover {
+      color: var(--btn-primary-color) !important;
+    }
+  }
+}
+
+.ant-btn-background-ghost.ant-btn-primary {
+  &:hover,
+  &:focus {
+    color: var(--primary-color) !important;
+  }
+
+  &[disabled],
+  &[disabled]:hover {
+    color: var(--primary-color) !important;
+  }
+}

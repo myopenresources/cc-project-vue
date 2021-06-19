@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 80017
 File Encoding         : 65001
 
-Date: 2021-03-31 17:57:23
+Date: 2021-06-19 21:15:10
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -164,57 +164,58 @@ CREATE TABLE `t_button` (
 -- ----------------------------
 -- Records of t_button
 -- ----------------------------
-INSERT INTO `t_button` VALUES ('12hfghdfhfdhfgh', 'roleAdd', '添加', 'roleAdd', 'ROLE_MANAGE', 'TOOL_BTN', 'icon-plus', '', '1', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-20 17:36:12', null, 'primary', null);
-INSERT INTO `t_button` VALUES ('13hdfhdfghfds', 'roleView', '查看', 'roleView', 'ROLE_MANAGE', 'ROW_BTN', 'icon-search', '', '2', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-20 17:36:43', null, 'info', null);
-INSERT INTO `t_button` VALUES ('16gdfsgdfgdsg', 'roleUsers', '角色用户', 'roleUsers', 'ROLE_MANAGE', 'ROW_BTN', 'icon-user', '', '5', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-20 17:38:55', null, 'info', null);
-INSERT INTO `t_button` VALUES ('1bfbvcbcvxbvcxbbbxcb7', 'rolePermissionDistribute', '权限分配', 'rolePermissionDistribute', 'ROLE_MANAGE', 'ROW_BTN', 'icon-setting', '', '7', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-20 17:40:13', null, 'warning', null);
-INSERT INTO `t_button` VALUES ('1fsdfsdfsdfsadf', 'userAdd', '添加', 'userAdd', 'USER_MANAGE', 'TOOL_BTN', 'icon-plus', '', '1', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-19 17:28:31', null, 'primary', null);
-INSERT INTO `t_button` VALUES ('1fsgdfsgddf5', 'deleteRole', '删除', 'deleteRole', 'ROLE_MANAGE', 'TOOL_BTN', 'icon-delete', '', '4', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-20 17:38:21', null, 'error', null);
-INSERT INTO `t_button` VALUES ('1hdfghfghfghfgh1', 'deptUsers', '部门人员', 'deptUsers', 'DEPT_MANAGE', 'RIGHT_TOOL_BTN', 'icon-usergroup-add', '', '6', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-20 17:33:41', null, 'info', null);
-INSERT INTO `t_button` VALUES ('1hgfhfghfg0', 'deleteDept', '删除', 'deleteDept', 'DEPT_MANAGE', 'LEFT_TOOL_BTN', 'icon-delete', '', '4', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-20 17:32:02', null, 'error', null);
-INSERT INTO `t_button` VALUES ('1safsafsafbfdgsg4', 'roleEdit', '编辑', 'roleEdit', 'ROLE_MANAGE', 'ROW_BTN', 'icon-edit', '', '3', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-20 17:37:10', null, 'success', null);
-INSERT INTO `t_button` VALUES ('1tretrgsdgdfsgsdgsdg8', 'menuAdd', '添加', 'menuAdd', 'MENU_MANAGE', 'LEFT_TOOL_BTN', 'icon-plus', '', '1', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-21 20:30:58', null, 'primary', null);
-INSERT INTO `t_button` VALUES ('1yy54yhtrbbbb9', 'menuEdit', '编辑', 'menuEdit', 'MENU_MANAGE', 'RIGHT_TOOL_BTN', 'icon-edit', '', '3', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-21 20:31:48', null, 'success', null);
-INSERT INTO `t_button` VALUES ('24c0d24080ee406c9d88fe93ecb78b81', 'dataPermissionsEdit', '编辑', 'dataPermissionsEdit', 'DATA_PERMISSIONS_MANAGE', 'ROW_BTN', 'icon-edit', '', '2', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2019-12-27 09:19:05', null, 'success', '');
-INSERT INTO `t_button` VALUES ('26fdsgdfsgdsfggdsf', 'dataDicTypeEdit', '编辑', 'dataDicTypeEdit', 'DATA_DIC_MANAGE', 'LEFT_ROW_BTN', 'icon-edit', '', '3', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-21 20:37:19', null, 'success', null);
-INSERT INTO `t_button` VALUES ('29hfdfghfghdfhdfh', 'dataDicItemView', '查看', 'dataDicItemView', 'DATA_DIC_MANAGE', 'RIGHT_ROW_BTN', 'icon-search', '', '2', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-21 20:39:08', null, 'info', null);
-INSERT INTO `t_button` VALUES ('2aadsafsdfsdf1', 'buttonAdd', '添加', 'buttonAdd', 'BTN_MANAGE', 'TOOL_BTN', 'icon-plus', '', '1', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-10 10:34:57', null, 'primary', null);
-INSERT INTO `t_button` VALUES ('2dfsfgdgfdsuiutiuyi4', 'deleteButton', '删除', 'deleteButton', 'BTN_MANAGE', 'TOOL_BTN', 'icon-delete', '', '4', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-21 20:35:27', null, 'error', null);
-INSERT INTO `t_button` VALUES ('2dsfgdgdfgdfgdgdsg2', 'buttonView', '查看', 'buttonView', 'BTN_MANAGE', 'ROW_BTN', 'icon-search', '', '2', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-21 20:34:37', null, 'info', null);
-INSERT INTO `t_button` VALUES ('2fsdfsdfsdfsdf', 'userView', '查看', 'userView', 'USER_MANAGE', 'ROW_BTN', 'icon-search', '', '2', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-19 17:34:08', null, 'info', null);
-INSERT INTO `t_button` VALUES ('2gdfsbdsjhghfdsgdgsd0', 'deleteMenu', '删除', 'deleteMenu', 'MENU_MANAGE', 'LEFT_TOOL_BTN', 'icon-delete', '', '5', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-10 10:34:54', null, 'error', null);
-INSERT INTO `t_button` VALUES ('2hjhgjkklhjghgjfhfdh3', 'buttonEdit', '编辑', 'buttonEdit', 'BTN_MANAGE', 'ROW_BTN', 'icon-edit', '', '3', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-21 20:35:03', null, 'success', null);
-INSERT INTO `t_button` VALUES ('2tryeyruiibbxvcb5', 'dataDicTypeAdd', '添加', 'dataDicTypeAdd', 'DATA_DIC_MANAGE', 'LEFT_TOOL_BTN', 'icon-plus', '', '1', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-21 20:36:48', null, 'primary', null);
-INSERT INTO `t_button` VALUES ('2vzxvxzvzxv8', 'dataDicItemAdd', '添加', 'dataDicItemAdd', 'DATA_DIC_MANAGE', 'RIGHT_TOOL_BTN', 'icon-plus', '', '1', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-21 20:38:37', null, 'primary', null);
-INSERT INTO `t_button` VALUES ('2xvxcvzvzxvdsgxv7', 'deleteDataDic', '删除', 'deleteDataDic', 'DATA_DIC_MANAGE', 'LEFT_TOOL_BTN', 'icon-delete', '', '4', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-21 20:37:55', null, 'error', null);
-INSERT INTO `t_button` VALUES ('33afasfsafas', 'downloadFile', '下载', 'downloadFile', 'SYS_LOG_MANAGE', 'ROW_BTN', 'icon-download', '', '1', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-21 20:45:43', null, 'success', null);
-INSERT INTO `t_button` VALUES ('38gfdsgsdfg', 'accessUrlView', '查看', 'accessUrlView', 'ACCESS_URL_MANAGE', 'ROW_BTN', 'icon-search', '', '2', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-08-29 16:28:27', null, 'info', null);
-INSERT INTO `t_button` VALUES ('3dgfdsgvvzcvfg9', 'accessUrlEdit', '编辑', 'accessUrlEdit', 'ACCESS_URL_MANAGE', 'ROW_BTN', 'icon-edit', '', '3', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-08-29 16:29:06', null, 'success', null);
-INSERT INTO `t_button` VALUES ('3fsadfasfas1', 'deleteDicItem', '删除', 'deleteDicItem', 'DATA_DIC_MANAGE', 'RIGHT_TOOL_BTN', 'icon-delete', '', '4', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-21 20:40:08', null, 'error', null);
-INSERT INTO `t_button` VALUES ('3fsafsdfsaf2', 'dicItemRoleDistribute', '分配角色', 'dicItemRoleDistribute', 'DATA_DIC_MANAGE', 'RIGHT_ROW_BTN', 'icon-setting', '', '7', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-21 20:41:20', null, 'warning', null);
-INSERT INTO `t_button` VALUES ('3fsdafasfsafb6', 'taskView', '查看', 'taskView', 'USER_TASK_MANAGE', 'ROW_BTN', 'icon-search', '', '1', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-07-22 17:02:50', null, 'info', null);
-INSERT INTO `t_button` VALUES ('3fsfsdfsdffsafsad', 'userEdit', '编辑', 'userEdit', 'USER_MANAGE', 'ROW_BTN', 'icon-edit', '', '3', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-19 17:35:19', null, 'success', null);
-INSERT INTO `t_button` VALUES ('3gdsfgvbcgdhdgh7', 'accessUrlAdd', '添加', 'accessUrlAdd', 'ACCESS_URL_MANAGE', 'TOOL_BTN', 'icon-plus', '', '1', '1', '1aaaaaaaaaaaaaaaaaaaa', '1aaaaaaaaaaaaaaaaaaaa', '2018-08-29 16:12:05', '2019-11-10 11:12:27', 'primary', null);
-INSERT INTO `t_button` VALUES ('3gfdsgsdfgdsfg0', 'dataDicItemEdit', '编辑', 'dataDicItemEdit', 'DATA_DIC_MANAGE', 'RIGHT_ROW_BTN', 'icon-edit', '', '3', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-21 20:39:31', null, 'success', null);
-INSERT INTO `t_button` VALUES ('3sdafsavasdfs5', 'updateTaskStatus', '取消待办', 'updateTaskStatus', 'USER_TASK_MANAGE', 'ROW_BTN', 'icon-edit', '', '2', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-07-22 16:46:32', null, 'success', 'data.status===\'1\'');
-INSERT INTO `t_button` VALUES ('3vcxzcvzvxzcv4', 'deleteFile', '删除', 'deleteFile', 'SYS_LOG_MANAGE', 'ROW_BTN', 'icon-delete', '', '2', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-21 20:46:07', null, 'error', null);
-INSERT INTO `t_button` VALUES ('41sgdfgdsfg4454', 'userPasswordReset', '重置密码', 'userPasswordReset', 'USER_MANAGE', 'TOOL_BTN', 'icon-key', '', '6', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-10-17 18:37:50', null, 'success', null);
-INSERT INTO `t_button` VALUES ('4543gdfsfg53454', 'sysNoticeEdit', '编辑', 'sysNoticeEdit', 'SYS_NOTICE_MANAGE', 'ROW_BTN', 'icon-edit', '', '3', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2016-04-04 15:38:30', null, 'success', null);
-INSERT INTO `t_button` VALUES ('46fsdfsadfsadf', 'dataDicTypeView', '查看', 'dataDicTypeView', 'DATA_DIC_MANAGE', 'LEFT_ROW_BTN', 'icon-search', '', '2', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-01-24 20:26:03', null, 'info', null);
-INSERT INTO `t_button` VALUES ('47gsdgfdsgdsfgdsg', 'userNoticeView', '查看', 'userNoticeView', 'USER_NOTICE_MANAGE', 'ROW_BTN', 'icon-search', '', '1', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-05-26 15:09:53', null, 'info', null);
-INSERT INTO `t_button` VALUES ('4fsfsadfsddf', 'deleteUser', '删除', 'deleteUser', 'USER_MANAGE', 'TOOL_BTN', 'icon-delete', '', '4', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-19 17:51:33', null, 'error', null);
-INSERT INTO `t_button` VALUES ('4gfdsgdfs2', 'sysNoticeAdd', '添加', 'sysNoticeAdd', 'SYS_NOTICE_MANAGE', 'TOOL_BTN', 'icon-plus', '', '1', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2016-04-03 14:28:27', null, 'primary', null);
-INSERT INTO `t_button` VALUES ('4gfdsgsgf0', 'deleteAccessUrl', '删除', 'deleteAccessUrl', 'ACCESS_URL_MANAGE', 'TOOL_BTN', 'icon-delete', '', '4', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-08-29 16:29:42', null, 'error', null);
-INSERT INTO `t_button` VALUES ('4gsggsdgdgdfg3', 'sysNoticeView', '查看', 'sysNoticeView', 'SYS_NOTICE_MANAGE', 'ROW_BTN', 'icon-search', '', '2', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2016-04-04 15:06:04', null, 'info', null);
-INSERT INTO `t_button` VALUES ('4htetgdfsg435t53455', 'deleteSysNotice', '删除', 'deleteSysNotice', 'SYS_NOTICE_MANAGE', 'TOOL_BTN', 'icon-delete', '', '4', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2016-04-04 15:39:08', null, 'error', null);
-INSERT INTO `t_button` VALUES ('5038fc7f3b5846a0a075193079f74dff', 'dataPermissionsView', '查看', 'dataPermissionsView', 'DATA_PERMISSIONS_MANAGE', 'ROW_BTN', 'icon-search', '', '3', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2019-12-27 09:20:47', null, 'info', '');
-INSERT INTO `t_button` VALUES ('5fsdfsadfsafsdf', 'userPasswordEdit', '修改密码', 'userPasswordEdit', 'USER_MANAGE', 'ROW_BTN', 'icon-key', '', '5', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-19 17:52:48', null, 'success', null);
-INSERT INTO `t_button` VALUES ('76b6091761d04de39f8bd5436c1806dc', 'deleteDataPermissions', '删除', 'deleteDataPermissions', 'DATA_PERMISSIONS_MANAGE', 'TOOL_BTN', 'icon-delete', '', '4', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2019-12-27 09:22:18', null, 'error', ' ');
-INSERT INTO `t_button` VALUES ('9hghghfghfghfghh', 'deptEdit', '编辑', 'deptEdit', 'DEPT_MANAGE', 'RIGHT_TOOL_BTN', 'icon-edit', '', '3', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-20 17:31:18', null, 'success', null);
-INSERT INTO `t_button` VALUES ('e546d68fd1a24fddae70212ee1a6a5d5', 'dataPermissionsAdd', '添加', 'dataPermissionsAdd', 'DATA_PERMISSIONS_MANAGE', 'TOOL_BTN', 'icon-plus', '', '1', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2019-12-27 09:17:02', null, 'primary', '');
-INSERT INTO `t_button` VALUES ('fsadfsadfasdff6', 'userRoleDistribute', '角色分配', 'userRoleDistribute', 'USER_MANAGE', 'ROW_BTN', 'icon-setting', '', '7', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-19 17:56:34', null, 'warning', null);
-INSERT INTO `t_button` VALUES ('ggsdgsg7', 'userDeptDistribute', '部门分配', 'userDeptDistribute', 'USER_MANAGE', 'ROW_BTN', 'icon-setting', '', '8', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-19 18:01:58', null, 'warning', null);
-INSERT INTO `t_button` VALUES ('gsdgsdgdsgsag8', 'deptAdd', '添加', 'deptAdd', 'DEPT_MANAGE', 'LEFT_TOOL_BTN', 'icon-plus', '', '1', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-20 17:30:07', null, 'primary', null);
+INSERT INTO `t_button` VALUES ('12hfghdfhfdhfgh', '按钮编号', '添加', 'roleAdd', 'ROLE_MANAGE', 'TOOL_BTN', 'PlusOutlined', '', '1', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-20 17:36:12', null, 'primary', null);
+INSERT INTO `t_button` VALUES ('13hdfhdfghfds', '按钮编号', '查看', 'roleView', 'ROLE_MANAGE', 'ROW_BTN', 'SearchOutlined', '', '2', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-20 17:36:43', null, 'info', null);
+INSERT INTO `t_button` VALUES ('16gdfsgdfgdsg', '按钮编号', '角色用户', 'roleUsers', 'ROLE_MANAGE', 'ROW_BTN', 'UserOutlined', '', '5', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-20 17:38:55', null, 'info', null);
+INSERT INTO `t_button` VALUES ('1bfbvcbcvxbvcxbbbxcb7', '按钮编号', '权限分配', 'rolePermissionDistribute', 'ROLE_MANAGE', 'ROW_BTN', 'SettingOutlined', '', '7', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-20 17:40:13', null, 'warning', null);
+INSERT INTO `t_button` VALUES ('1fsdfsdfsdfsadf', '按钮编号', '添加', 'userAdd', 'USER_MANAGE', 'TOOL_BTN', 'PlusOutlined', '', '1', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-19 17:28:31', null, 'primary', null);
+INSERT INTO `t_button` VALUES ('1fsgdfsgddf5', '按钮编号', '删除', 'deleteRole', 'ROLE_MANAGE', 'TOOL_BTN', 'DeleteOutlined', '', '4', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-20 17:38:21', null, 'error', null);
+INSERT INTO `t_button` VALUES ('1hdfghfghfghfgh1', '按钮编号', '部门人员', 'deptUsers', 'DEPT_MANAGE', 'RIGHT_TOOL_BTN', 'usergroup-add', '', '6', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-20 17:33:41', null, 'info', null);
+INSERT INTO `t_button` VALUES ('1hgfhfghfg0', '按钮编号', '删除', 'deleteDept', 'DEPT_MANAGE', 'LEFT_TOOL_BTN', 'DeleteOutlined', '', '4', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-20 17:32:02', null, 'error', null);
+INSERT INTO `t_button` VALUES ('1safsafsafbfdgsg4', '按钮编号', '编辑', 'roleEdit', 'ROLE_MANAGE', 'ROW_BTN', 'EditOutlined', '', '3', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-20 17:37:10', null, 'success', null);
+INSERT INTO `t_button` VALUES ('1tretrgsdgdfsgsdgsdg8', '按钮编号', '添加', 'menuAdd', 'MENU_MANAGE', 'LEFT_TOOL_BTN', 'PlusOutlined', '', '1', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-21 20:30:58', null, 'primary', null);
+INSERT INTO `t_button` VALUES ('1yy54yhtrbbbb9', '按钮编号', '编辑', 'menuEdit', 'MENU_MANAGE', 'RIGHT_TOOL_BTN', 'EditOutlined', '', '3', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-21 20:31:48', null, 'success', null);
+INSERT INTO `t_button` VALUES ('24c0d24080ee406c9d88fe93ecb78b81', '按钮编号', '编辑', 'dataPermissionsEdit', 'DATA_PERMISSIONS_MANAGE', 'ROW_BTN', 'EditOutlined', '', '2', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2019-12-27 09:19:05', null, 'success', '');
+INSERT INTO `t_button` VALUES ('26fdsgdfsgdsfggdsf', '按钮编号', '编辑', 'dataDicTypeEdit', 'DATA_DIC_MANAGE', 'LEFT_ROW_BTN', 'EditOutlined', '', '3', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-21 20:37:19', null, 'success', null);
+INSERT INTO `t_button` VALUES ('29hfdfghfghdfhdfh', '按钮编号', '查看', 'dataDicItemView', 'DATA_DIC_MANAGE', 'RIGHT_ROW_BTN', 'SearchOutlined', '', '2', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-21 20:39:08', null, 'info', null);
+INSERT INTO `t_button` VALUES ('2aadsafsdfsdf1', '按钮编号', '添加', 'buttonAdd', 'BTN_MANAGE', 'TOOL_BTN', 'PlusOutlined', '', '1', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-10 10:34:57', null, 'primary', null);
+INSERT INTO `t_button` VALUES ('2dfsfgdgfdsuiutiuyi4', '按钮编号', '删除', 'deleteButton', 'BTN_MANAGE', 'TOOL_BTN', 'DeleteOutlined', '', '4', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-21 20:35:27', null, 'error', null);
+INSERT INTO `t_button` VALUES ('2dsfgdgdfgdfgdgdsg2', '按钮编号', '查看', 'buttonView', 'BTN_MANAGE', 'ROW_BTN', 'SearchOutlined', '', '2', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-21 20:34:37', null, 'info', null);
+INSERT INTO `t_button` VALUES ('2fsdfsdfsdfsdf', '按钮编号', '查看', 'userView', 'USER_MANAGE', 'ROW_BTN', 'SearchOutlined', '', '2', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-19 17:34:08', null, 'info', null);
+INSERT INTO `t_button` VALUES ('2gdfsbdsjhghfdsgdgsd0', '按钮编号', '删除', 'deleteMenu', 'MENU_MANAGE', 'LEFT_TOOL_BTN', 'DeleteOutlined', '', '5', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-10 10:34:54', null, 'error', null);
+INSERT INTO `t_button` VALUES ('2hjhgjkklhjghgjfhfdh3', '按钮编号', '编辑', 'buttonEdit', 'BTN_MANAGE', 'ROW_BTN', 'EditOutlined', '', '3', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-21 20:35:03', null, 'success', null);
+INSERT INTO `t_button` VALUES ('2tryeyruiibbxvcb5', '按钮编号', '添加', 'dataDicTypeAdd', 'DATA_DIC_MANAGE', 'LEFT_TOOL_BTN', 'PlusOutlined', '', '1', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-21 20:36:48', null, 'primary', null);
+INSERT INTO `t_button` VALUES ('2vzxvxzvzxv8', '按钮编号', '添加', 'dataDicItemAdd', 'DATA_DIC_MANAGE', 'RIGHT_TOOL_BTN', 'PlusOutlined', '', '1', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-21 20:38:37', null, 'primary', null);
+INSERT INTO `t_button` VALUES ('2xvxcvzvzxvdsgxv7', '按钮编号', '删除', 'deleteDataDic', 'DATA_DIC_MANAGE', 'LEFT_TOOL_BTN', 'DeleteOutlined', '', '4', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-21 20:37:55', null, 'error', null);
+INSERT INTO `t_button` VALUES ('33afasfsafas', '按钮编号', '下载', 'downloadFile', 'SYS_LOG_MANAGE', 'ROW_BTN', 'DownloadOutlined', '', '1', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-21 20:45:43', null, 'success', null);
+INSERT INTO `t_button` VALUES ('38gfdsgsdfg', '按钮编号', '查看', 'accessUrlView', 'ACCESS_URL_MANAGE', 'ROW_BTN', 'SearchOutlined', '', '2', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-08-29 16:28:27', null, 'info', null);
+INSERT INTO `t_button` VALUES ('3d224750b9854b56b3f072e09129ea1b', '按钮编号', '部门结构图', 'deptStructure', 'DEPT_MANAGE', 'TOOL_BTN', 'ApartmentOutlined', '', '4', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2019-12-13 19:20:27', null, 'primary', '');
+INSERT INTO `t_button` VALUES ('3dgfdsgvvzcvfg9', '按钮编号', '编辑', 'accessUrlEdit', 'ACCESS_URL_MANAGE', 'ROW_BTN', 'EditOutlined', '', '3', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-08-29 16:29:06', null, 'success', null);
+INSERT INTO `t_button` VALUES ('3fsadfasfas1', '按钮编号', '删除', 'deleteDicItem', 'DATA_DIC_MANAGE', 'RIGHT_TOOL_BTN', 'DeleteOutlined', '', '4', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-21 20:40:08', null, 'error', null);
+INSERT INTO `t_button` VALUES ('3fsafsdfsaf2', '按钮编号', '分配角色', 'dicItemRoleDistribute', 'DATA_DIC_MANAGE', 'RIGHT_ROW_BTN', 'SettingOutlined', '', '7', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-21 20:41:20', null, 'warning', null);
+INSERT INTO `t_button` VALUES ('3fsdafasfsafb6', '按钮编号', '查看', 'taskView', 'USER_TASK_MANAGE', 'ROW_BTN', 'SearchOutlined', '', '1', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-07-22 17:02:50', null, 'info', null);
+INSERT INTO `t_button` VALUES ('3fsfsdfsdffsafsad', '按钮编号', '编辑', 'userEdit', 'USER_MANAGE', 'ROW_BTN', 'EditOutlined', '', '3', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-19 17:35:19', null, 'success', null);
+INSERT INTO `t_button` VALUES ('3gdsfgvbcgdhdgh7', '按钮编号', '添加', 'accessUrlAdd', 'ACCESS_URL_MANAGE', 'TOOL_BTN', 'PlusOutlined', '', '1', '1', '1aaaaaaaaaaaaaaaaaaaa', '1aaaaaaaaaaaaaaaaaaaa', '2018-08-29 16:12:05', '2019-11-10 11:12:27', 'primary', null);
+INSERT INTO `t_button` VALUES ('3gfdsgsdfgdsfg0', '按钮编号', '编辑', 'dataDicItemEdit', 'DATA_DIC_MANAGE', 'RIGHT_ROW_BTN', 'EditOutlined', '', '3', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-21 20:39:31', null, 'success', null);
+INSERT INTO `t_button` VALUES ('3sdafsavasdfs5', '按钮编号', '取消待办', 'updateTaskStatus', 'USER_TASK_MANAGE', 'ROW_BTN', 'EditOutlined', '', '2', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-07-22 16:46:32', null, 'success', 'data.status===\'1\'');
+INSERT INTO `t_button` VALUES ('3vcxzcvzvxzcv4', '按钮编号', '删除', 'deleteFile', 'SYS_LOG_MANAGE', 'ROW_BTN', 'DeleteOutlined', '', '2', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-21 20:46:07', null, 'error', null);
+INSERT INTO `t_button` VALUES ('41sgdfgdsfg4454', '按钮编号', '重置密码', 'userPasswordReset', 'USER_MANAGE', 'TOOL_BTN', 'KeyOutlined', '', '6', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-10-17 18:37:50', null, 'success', null);
+INSERT INTO `t_button` VALUES ('4543gdfsfg53454', '按钮编号', '编辑', 'sysNoticeEdit', 'SYS_NOTICE_MANAGE', 'ROW_BTN', 'EditOutlined', '', '3', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2016-04-04 15:38:30', null, 'success', null);
+INSERT INTO `t_button` VALUES ('46fsdfsadfsadf', '按钮编号', '查看', 'dataDicTypeView', 'DATA_DIC_MANAGE', 'LEFT_ROW_BTN', 'SearchOutlined', '', '2', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-01-24 20:26:03', null, 'info', null);
+INSERT INTO `t_button` VALUES ('47gsdgfdsgdsfgdsg', '按钮编号', '查看', 'userNoticeView', 'USER_NOTICE_MANAGE', 'ROW_BTN', 'SearchOutlined', '', '1', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-05-26 15:09:53', null, 'info', null);
+INSERT INTO `t_button` VALUES ('4fsfsadfsddf', '按钮编号', '删除', 'deleteUser', 'USER_MANAGE', 'TOOL_BTN', 'DeleteOutlined', '', '4', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-19 17:51:33', null, 'error', null);
+INSERT INTO `t_button` VALUES ('4gfdsgdfs2', '按钮编号', '添加', 'sysNoticeAdd', 'SYS_NOTICE_MANAGE', 'TOOL_BTN', 'PlusOutlined', '', '1', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2016-04-03 14:28:27', null, 'primary', null);
+INSERT INTO `t_button` VALUES ('4gfdsgsgf0', '按钮编号', '删除', 'deleteAccessUrl', 'ACCESS_URL_MANAGE', 'TOOL_BTN', 'DeleteOutlined', '', '4', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-08-29 16:29:42', null, 'error', null);
+INSERT INTO `t_button` VALUES ('4gsggsdgdgdfg3', '按钮编号', '查看', 'sysNoticeView', 'SYS_NOTICE_MANAGE', 'ROW_BTN', 'SearchOutlined', '', '2', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2016-04-04 15:06:04', null, 'info', null);
+INSERT INTO `t_button` VALUES ('4htetgdfsg435t53455', '按钮编号', '删除', 'deleteSysNotice', 'SYS_NOTICE_MANAGE', 'TOOL_BTN', 'DeleteOutlined', '', '4', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2016-04-04 15:39:08', null, 'error', null);
+INSERT INTO `t_button` VALUES ('5038fc7f3b5846a0a075193079f74dff', '按钮编号', '查看', 'dataPermissionsView', 'DATA_PERMISSIONS_MANAGE', 'ROW_BTN', 'SearchOutlined', '', '3', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2019-12-27 09:20:47', null, 'info', '');
+INSERT INTO `t_button` VALUES ('5fsdfsadfsafsdf', '按钮编号', '修改密码', 'userPasswordEdit', 'USER_MANAGE', 'ROW_BTN', 'KeyOutlined', '', '5', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-19 17:52:48', null, 'success', null);
+INSERT INTO `t_button` VALUES ('76b6091761d04de39f8bd5436c1806dc', '按钮编号', '删除', 'deleteDataPermissions', 'DATA_PERMISSIONS_MANAGE', 'TOOL_BTN', 'DeleteOutlined', '', '4', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2019-12-27 09:22:18', null, 'error', ' ');
+INSERT INTO `t_button` VALUES ('9hghghfghfghfghh', '按钮编号', '编辑', 'deptEdit', 'DEPT_MANAGE', 'RIGHT_TOOL_BTN', 'EditOutlined', '', '3', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-20 17:31:18', null, 'success', null);
+INSERT INTO `t_button` VALUES ('e546d68fd1a24fddae70212ee1a6a5d5', '按钮编号', '添加', 'dataPermissionsAdd', 'DATA_PERMISSIONS_MANAGE', 'TOOL_BTN', 'PlusOutlined', '', '1', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2019-12-27 09:17:02', null, 'primary', '');
+INSERT INTO `t_button` VALUES ('fsadfsadfasdff6', '按钮编号', '角色分配', 'userRoleDistribute', 'USER_MANAGE', 'ROW_BTN', 'SettingOutlined', '', '7', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-19 17:56:34', null, 'warning', null);
+INSERT INTO `t_button` VALUES ('ggsdgsg7', '按钮编号', '部门分配', 'userDeptDistribute', 'USER_MANAGE', 'ROW_BTN', 'SettingOutlined', '', '8', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-19 18:01:58', null, 'warning', null);
+INSERT INTO `t_button` VALUES ('gsdgsdgdsgsag8', '按钮编号', '添加', 'deptAdd', 'DEPT_MANAGE', 'LEFT_TOOL_BTN', 'PlusOutlined', '', '1', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-06-20 17:30:07', null, 'primary', null);
 
 -- ----------------------------
 -- Table structure for `t_data_dic_item`
@@ -362,24 +363,24 @@ CREATE TABLE `t_data_dic_type` (
 -- ----------------------------
 -- Records of t_data_dic_type
 -- ----------------------------
-INSERT INTO `t_data_dic_type` VALUES ('10afdsfsdfsdfsdfdsfsd', 'DIC_CATEGORY_TYPE', '数据字典类别', '1', 'icon-database', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-01-24 20:26:46', null);
-INSERT INTO `t_data_dic_type` VALUES ('10fdfdfdfdfdfdfdfaad', 'BUTTON_CLS_TYPE', '按钮样式', '1', 'icon-border', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2019-11-10 10:26:37', null);
-INSERT INTO `t_data_dic_type` VALUES ('11fsdfsdfsdfsdfsdfsdf', 'SYS_FILE_UPLOAD_PATH', '系统文件上传路径', '1', 'upload', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-01-24 20:26:46', null);
-INSERT INTO `t_data_dic_type` VALUES ('12fdsfsdfsdfsdfsdfsdf', 'BUSNIESS_MARK_TYPE', '业务标识', '1', 'platform/icon:business-mark', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-01-24 20:26:46', null);
-INSERT INTO `t_data_dic_type` VALUES ('13fsdfsdfsdfsdfsdfsdf', 'FORM_STATUS_TYPE', '表单状态类型', '1', 'platform/icon:status', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-01-24 20:26:46', null);
-INSERT INTO `t_data_dic_type` VALUES ('14316fbcd58148f4af8586a6650cf30e', '11', '11', '2', 'icon-user', '1', '1aaaaaaaaaaaaaaaaaaaa', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-29 16:50:01', '2021-03-29 16:58:06');
-INSERT INTO `t_data_dic_type` VALUES ('14fsdfsdfsdfsdfsdfsa', 'QUERY_FORM_STATUS_TYPE', '表单查询状态', '1', 'search', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-01-24 20:26:46', null);
-INSERT INTO `t_data_dic_type` VALUES ('1FSDFSDFSFAAdfasdfsdf', 'STATUS_TYPE', '状态类型', '1', 'platform/icon:status', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-01-24 20:26:46', null);
-INSERT INTO `t_data_dic_type` VALUES ('2fsdfsdfsdfsdfsdfsdfs', 'QUERY_STATUS_TYPE', '查询状态类型', '1', 'search', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-01-24 20:26:46', null);
-INSERT INTO `t_data_dic_type` VALUES ('3fsdfsdfsdfsdfsdfsdfs', 'SEX_TYPE', '性别', '1', 'platform/icon:sex', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-01-24 20:26:46', null);
-INSERT INTO `t_data_dic_type` VALUES ('4afdsfsdfsdfdsfdsfdff', 'EMAIL_SWITCH_TYPE', '邮件开关', '1', 'mail', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-01-24 20:26:46', null);
-INSERT INTO `t_data_dic_type` VALUES ('4f0fcd49c8384e209ef66f26ac0fc92b', 'DATA_PERMIT_CATEGORY', '数据权限分类', '1', 'platform/icon:data-permissions', '1', '1aaaaaaaaaaaaaaaaaaaa', '1aaaaaaaaaaaaaaaaaaaa', '2019-12-27 09:03:28', '2019-12-27 09:03:50');
-INSERT INTO `t_data_dic_type` VALUES ('5fdsfdsfdsfsdfsdfsdfs', 'SMS_SWITCH_TYPE', '短信开关', '1', 'platform/icon:sms', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-01-24 20:26:46', null);
-INSERT INTO `t_data_dic_type` VALUES ('6fsdfsdfsdfsdfdsfsdff', 'IS_SUPER_TYPE', '超级管理员', '1', 'platform/icon:super-admin', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-01-24 20:26:46', null);
-INSERT INTO `t_data_dic_type` VALUES ('7fsdfsdfsdfdsfsdfdsff', 'QUERY_IS_SUPER_TYPE', '表单查询超级管理员', '1', 'search', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-01-24 20:26:46', null);
-INSERT INTO `t_data_dic_type` VALUES ('8fsdfsdfsdfsdfsdfasfd', 'BUTTON_LAYOUT_MARK_TYPE', '按钮布局标识', '1', 'border', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-01-24 20:26:46', null);
-INSERT INTO `t_data_dic_type` VALUES ('9aafdsfsdfsdfdsffdfdf', 'QUERY_TASK_STATUS_TYPE', '表单查询待办状态', '1', 'search', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-01-24 20:26:46', null);
-INSERT INTO `t_data_dic_type` VALUES ('e2222b2f55714b48b72b82bbee6c8d0e', 'DATA_PERMIT_PROCESSOR', '数据权限处理器', '1', 'platform/icon:processor', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2019-12-30 11:07:07', null);
+INSERT INTO `t_data_dic_type` VALUES ('10afdsfsdfsdfsdfdsfsd', 'DIC_CATEGORY_TYPE', '数据字典类别', '1', 'DatabaseOutlined', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-01-24 20:26:46', null);
+INSERT INTO `t_data_dic_type` VALUES ('10fdfdfdfdfdfdfdfaad', 'BUTTON_CLS_TYPE', '按钮样式', '1', 'BorderOutlined', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2019-11-10 10:26:37', null);
+INSERT INTO `t_data_dic_type` VALUES ('11fsdfsdfsdfsdfsdfsdf', 'SYS_FILE_UPLOAD_PATH', '系统文件上传路径', '1', 'UploadOutlined', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-01-24 20:26:46', null);
+INSERT INTO `t_data_dic_type` VALUES ('12fdsfsdfsdfsdfsdfsdf', 'BUSNIESS_MARK_TYPE', '业务标识', '1', 'SvgIconBusinessMark', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-01-24 20:26:46', null);
+INSERT INTO `t_data_dic_type` VALUES ('13fsdfsdfsdfsdfsdfsdf', 'FORM_STATUS_TYPE', '表单状态类型', '1', 'SvgIconStatus', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-01-24 20:26:46', null);
+INSERT INTO `t_data_dic_type` VALUES ('14316fbcd58148f4af8586a6650cf30e', '11', '11', '2', 'UserOutlined', '1', '1aaaaaaaaaaaaaaaaaaaa', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-29 16:50:01', '2021-03-29 16:58:06');
+INSERT INTO `t_data_dic_type` VALUES ('14fsdfsdfsdfsdfsdfsa', 'QUERY_FORM_STATUS_TYPE', '表单查询状态', '1', 'SearchOutlined', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-01-24 20:26:46', null);
+INSERT INTO `t_data_dic_type` VALUES ('1FSDFSDFSFAAdfasdfsdf', 'STATUS_TYPE', '状态类型', '1', 'SvgIconStatus', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-01-24 20:26:46', null);
+INSERT INTO `t_data_dic_type` VALUES ('2fsdfsdfsdfsdfsdfsdfs', 'QUERY_STATUS_TYPE', '查询状态类型', '1', 'SearchOutlined', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-01-24 20:26:46', null);
+INSERT INTO `t_data_dic_type` VALUES ('3fsdfsdfsdfsdfsdfsdfs', 'SEX_TYPE', '性别', '1', 'SvgIconSex', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-01-24 20:26:46', null);
+INSERT INTO `t_data_dic_type` VALUES ('4afdsfsdfsdfdsfdsfdff', 'EMAIL_SWITCH_TYPE', '邮件开关', '1', 'MailOutlined', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-01-24 20:26:46', null);
+INSERT INTO `t_data_dic_type` VALUES ('4f0fcd49c8384e209ef66f26ac0fc92b', 'DATA_PERMIT_CATEGORY', '数据权限分类', '1', 'SvgIconDataPermissions', '1', '1aaaaaaaaaaaaaaaaaaaa', '1aaaaaaaaaaaaaaaaaaaa', '2019-12-27 09:03:28', '2019-12-27 09:03:50');
+INSERT INTO `t_data_dic_type` VALUES ('5fdsfdsfdsfsdfsdfsdfs', 'SMS_SWITCH_TYPE', '短信开关', '1', 'SvgIconSms', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-01-24 20:26:46', null);
+INSERT INTO `t_data_dic_type` VALUES ('6fsdfsdfsdfsdfdsfsdff', 'IS_SUPER_TYPE', '超级管理员', '1', 'SvgIconSuperAdmin', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-01-24 20:26:46', null);
+INSERT INTO `t_data_dic_type` VALUES ('7fsdfsdfsdfdsfsdfdsff', 'QUERY_IS_SUPER_TYPE', '表单查询超级管理员', '1', 'SearchOutlined', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-01-24 20:26:46', null);
+INSERT INTO `t_data_dic_type` VALUES ('8fsdfsdfsdfsdfsdfasfd', 'BUTTON_LAYOUT_MARK_TYPE', '按钮布局标识', '1', 'BorderOutlined', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-01-24 20:26:46', null);
+INSERT INTO `t_data_dic_type` VALUES ('9aafdsfsdfsdfdsffdfdf', 'QUERY_TASK_STATUS_TYPE', '表单查询待办状态', '1', 'SearchOutlined', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-01-24 20:26:46', null);
+INSERT INTO `t_data_dic_type` VALUES ('e2222b2f55714b48b72b82bbee6c8d0e', 'DATA_PERMIT_PROCESSOR', '数据权限处理器', '1', 'SvgIconProcessor', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2019-12-30 11:07:07', null);
 
 -- ----------------------------
 -- Table structure for `t_data_permissions`
@@ -503,63 +504,113 @@ CREATE TABLE `t_login_log` (
 -- ----------------------------
 -- Records of t_login_log
 -- ----------------------------
+INSERT INTO `t_login_log` VALUES ('01d4234ce64746b0a807a6ea712c603d', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-06-19 19:31:48');
+INSERT INTO `t_login_log` VALUES ('072150d879fc44a597c2e503d96f7de5', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-06-19 14:39:12');
+INSERT INTO `t_login_log` VALUES ('0bd6c704a54f4b6885d6ad63cd9aec2a', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-06-19 12:47:56');
+INSERT INTO `t_login_log` VALUES ('0e5979e8cfd9463a8686ad1b9e331533', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-06-19 19:29:00');
+INSERT INTO `t_login_log` VALUES ('1055593137cd4d1abbabeb4b49633c23', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-06-19 18:31:09');
+INSERT INTO `t_login_log` VALUES ('14117fa1e9a74d07a452d6bfb41fe7bb', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-06-19 19:31:17');
 INSERT INTO `t_login_log` VALUES ('15b16a2c6f6046f2a8a28e40e9c5d285', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-19 17:57:58');
+INSERT INTO `t_login_log` VALUES ('15eb64f949f44c909915e44792ad0d32', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-06-19 19:44:22');
 INSERT INTO `t_login_log` VALUES ('16ab7ba643f44c86bb939cc4b067887f', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-31 10:02:02');
+INSERT INTO `t_login_log` VALUES ('1896118aa2a94b6f869178a9168706e1', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-06-19 13:55:39');
 INSERT INTO `t_login_log` VALUES ('22b1089956f84e33a90a73f8988ae0a3', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-19 13:51:42');
 INSERT INTO `t_login_log` VALUES ('26dbd8d8a737422fb43fd724872588e8', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-20 17:15:55');
+INSERT INTO `t_login_log` VALUES ('2b7a32b300a94a9287dabb6cb33cd299', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-06-19 14:40:56');
+INSERT INTO `t_login_log` VALUES ('2d76125d90c94a90ab5414649129d660', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-06-19 14:15:14');
+INSERT INTO `t_login_log` VALUES ('2fd3c6d9bcb04077b0629334a6e60ae1', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-06-19 14:58:13');
 INSERT INTO `t_login_log` VALUES ('30a4060b290040ddbda23664fefd6eac', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-25 10:44:53');
 INSERT INTO `t_login_log` VALUES ('34aa8991d8ac4bafa2460ed4677e5f3e', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-25 11:00:39');
+INSERT INTO `t_login_log` VALUES ('35f87b37f84c431590eaa45ee54e29d4', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-06-19 19:15:44');
+INSERT INTO `t_login_log` VALUES ('40ec06b1c9c7493eb1f4020144ef62cd', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-06-19 19:27:32');
 INSERT INTO `t_login_log` VALUES ('42d9e1770fe94c51a568678a3c975e88', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-23 13:48:02');
+INSERT INTO `t_login_log` VALUES ('49924f156b3949de8cf27a11813c3ea1', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-06-13 10:55:42');
+INSERT INTO `t_login_log` VALUES ('4a18aa6225b04e53835b631888c3c879', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-06-19 18:44:41');
+INSERT INTO `t_login_log` VALUES ('4dbe982832c84a0f86c4f71ea2437eba', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-06-19 19:29:26');
 INSERT INTO `t_login_log` VALUES ('4ddc968617794fabbe9cabc28cdcfee1', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-22 13:48:50');
 INSERT INTO `t_login_log` VALUES ('50637a226fb84d03a046057aee097149', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2019-12-27 09:24:03');
 INSERT INTO `t_login_log` VALUES ('5bd10bc308754c9cbff6ac361e33bdd7', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2019-12-26 09:18:06');
+INSERT INTO `t_login_log` VALUES ('5c5bed993eb749078647aff0fad952f7', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-06-19 19:29:14');
 INSERT INTO `t_login_log` VALUES ('63c094149eae4f578737b1f1611e14d0', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-23 10:56:14');
 INSERT INTO `t_login_log` VALUES ('65a722bf6b9c4fa68a1bc2bafad41b30', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2019-12-26 08:58:31');
+INSERT INTO `t_login_log` VALUES ('67ef3749928c401f9b1a178b1268b953', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-06-19 14:58:35');
 INSERT INTO `t_login_log` VALUES ('6c2fc59685674ab3af4f668ea8856c11', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-19 23:04:27');
 INSERT INTO `t_login_log` VALUES ('70fdb05cae394ff59a603c20b907868c', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-19 22:20:00');
 INSERT INTO `t_login_log` VALUES ('76f7429d43e940c5b253797bf763f27a', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-23 15:59:52');
+INSERT INTO `t_login_log` VALUES ('7911f749dec547b1bacd48b906a2a925', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-06-19 09:30:04');
 INSERT INTO `t_login_log` VALUES ('7d16620ff27d4b7b824ba4dfd755d2cf', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2020-01-09 18:49:31');
 INSERT INTO `t_login_log` VALUES ('7fd279f216a54a39878683ccb9f9e004', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-25 11:21:04');
+INSERT INTO `t_login_log` VALUES ('7fd288d8e1eb43068a33e6b23a57c7b0', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-06-19 14:39:59');
 INSERT INTO `t_login_log` VALUES ('7fda1e0f233e4b37a09d72606d608d2b', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-25 09:32:56');
 INSERT INTO `t_login_log` VALUES ('81c599e78e384bcfa042118abe8db719', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2019-12-26 08:51:03');
+INSERT INTO `t_login_log` VALUES ('83286be5edc44083a100b425ce6e6da0', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-06-19 14:32:07');
+INSERT INTO `t_login_log` VALUES ('845dda3c95ce48a6a3a4589f0d70afeb', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-06-19 19:15:51');
 INSERT INTO `t_login_log` VALUES ('8567459f2c84496b97ee367965f525e8', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-20 10:16:37');
+INSERT INTO `t_login_log` VALUES ('8647f5bc482e4b8ca546f4e5b52fd5aa', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-06-19 18:50:10');
 INSERT INTO `t_login_log` VALUES ('87e35d524803491b9d4e3b397b17a055', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-22 18:08:54');
 INSERT INTO `t_login_log` VALUES ('8913d0e3b3ee4fc7acaac6c4f33ddeca', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-29 11:30:32');
+INSERT INTO `t_login_log` VALUES ('8a569dad77b64d75b293e362f65ce27c', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-06-19 19:09:34');
+INSERT INTO `t_login_log` VALUES ('8ba588d9cce54dc39a529f4153b48864', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-06-19 18:56:06');
 INSERT INTO `t_login_log` VALUES ('8ff718d31fbf4d258cd598a77ff64d4e', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2020-01-09 18:36:01');
 INSERT INTO `t_login_log` VALUES ('926b5487559248fe9ce9b6e0d0f43b65', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-23 09:23:00');
 INSERT INTO `t_login_log` VALUES ('9390cbd89d014caf8fb9eab482ffad4b', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-21 16:03:08');
 INSERT INTO `t_login_log` VALUES ('95d7aec9bd3746959b54499dd953f1b6', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-25 10:42:42');
+INSERT INTO `t_login_log` VALUES ('98ac05c21ce849a792b40c32148155e2', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-06-19 19:31:34');
 INSERT INTO `t_login_log` VALUES ('9e27da80fb38475d8bce06c6846d86e9', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2019-12-30 16:58:34');
 INSERT INTO `t_login_log` VALUES ('9fdceb6a3f5742a1bf4b4f9e3d0404d2', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-19 09:56:20');
 INSERT INTO `t_login_log` VALUES ('a398e1eaec9547a6962c3c02194bc9df', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-22 15:12:54');
 INSERT INTO `t_login_log` VALUES ('a5f638e42e6c4ebfad62610cdd4b2b49', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2019-12-26 09:11:38');
 INSERT INTO `t_login_log` VALUES ('a766d1d10c784031b5f17ae99f8f962f', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-19 10:28:18');
 INSERT INTO `t_login_log` VALUES ('a9f64e02c085484f857ec5e52a0ca7c2', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-25 11:20:32');
+INSERT INTO `t_login_log` VALUES ('aac6aeac02644b199a57ba56dde51b07', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-06-19 19:31:28');
+INSERT INTO `t_login_log` VALUES ('acc8b46fb0f14059987a0316d63af855', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-06-19 21:08:53');
+INSERT INTO `t_login_log` VALUES ('ad9d5c619bf149ba9ddd2edbe357599d', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-06-19 21:03:09');
 INSERT INTO `t_login_log` VALUES ('ade37334831d4480910af227ff40b971', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2019-12-26 09:19:51');
 INSERT INTO `t_login_log` VALUES ('af7c39d7b1a9490c987a4ba52fd41f58', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-25 11:03:15');
+INSERT INTO `t_login_log` VALUES ('afa14c542bae43009140cd14d13db40e', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-06-19 14:21:20');
+INSERT INTO `t_login_log` VALUES ('b0507b32ba25487a8069224ea0319f9d', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-06-19 14:22:30');
 INSERT INTO `t_login_log` VALUES ('b46f9c9ee3b748d79fd67f3e4edb5e18', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2019-12-27 09:27:34');
+INSERT INTO `t_login_log` VALUES ('b4732441c8554cfcb85fc800e9cff088', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-06-19 14:13:06');
+INSERT INTO `t_login_log` VALUES ('b4aa5c6e6beb4aa4a6bae257ecab6a5c', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-06-19 18:42:06');
+INSERT INTO `t_login_log` VALUES ('b5ed3684c21549e8a8521e16531a6a90', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-06-19 19:20:04');
+INSERT INTO `t_login_log` VALUES ('b68fcf214987412eb31fa444b6436228', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-06-19 11:43:43');
+INSERT INTO `t_login_log` VALUES ('ba2248f81b9e4808a2d1b994e94fcba9', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-06-19 19:44:36');
 INSERT INTO `t_login_log` VALUES ('bd97ea194e4f41378576ad94b9d1c89d', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-21 10:14:35');
+INSERT INTO `t_login_log` VALUES ('bdffba66e37d44129b662962f9dae40b', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-06-19 19:47:14');
+INSERT INTO `t_login_log` VALUES ('bf21d3e48093436486b663300644ca3d', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-06-19 19:32:28');
+INSERT INTO `t_login_log` VALUES ('bf2dec4d3657404eb888ab21924d1c80', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-06-19 14:38:09');
+INSERT INTO `t_login_log` VALUES ('bfa8a6398cfb4cd58ab7516c60087d90', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-06-19 14:36:17');
 INSERT INTO `t_login_log` VALUES ('c0c8dadf5f9f40f0b2b3e592afef6fd1', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-25 11:35:21');
 INSERT INTO `t_login_log` VALUES ('c206defc11eb4144bd92e6b36c1f47ce', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2019-12-27 09:01:31');
+INSERT INTO `t_login_log` VALUES ('c32a2ffbb2fd4792abeed06e71cb15a1', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-06-19 18:55:10');
 INSERT INTO `t_login_log` VALUES ('c4259867bd0147908eca87eddee9abec', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-31 11:02:52');
 INSERT INTO `t_login_log` VALUES ('c6d7884b2dc54b63930b2a40cb02bc47', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2019-12-28 21:44:25');
 INSERT INTO `t_login_log` VALUES ('c7bba96b91a9495d9a8ea2a10b2d8f53', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-24 15:46:38');
+INSERT INTO `t_login_log` VALUES ('c9bad25b30c94f6f905f70a7f2f6d088', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-06-19 19:07:58');
 INSERT INTO `t_login_log` VALUES ('cbfdd6f6d8674b6e9f94d3aaaaf623c2', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2019-12-30 16:35:52');
 INSERT INTO `t_login_log` VALUES ('cd82f9cf607b4b4188d7d46e1bcae35a', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-24 09:22:25');
+INSERT INTO `t_login_log` VALUES ('cf3f13b146eb41d38a14e090d33407c6', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-06-19 13:50:23');
 INSERT INTO `t_login_log` VALUES ('d06cda2e544f405d8f2011edd5a8af6d', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-30 09:26:26');
 INSERT INTO `t_login_log` VALUES ('d1923617851c47388f0d268b2d03139e', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-19 17:14:11');
 INSERT INTO `t_login_log` VALUES ('d3659252e2fe4181b59351a588e6a8fa', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-25 11:05:31');
 INSERT INTO `t_login_log` VALUES ('d379c6552c964139bb0f613d8a8fa5ae', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2019-12-27 09:09:50');
 INSERT INTO `t_login_log` VALUES ('d475e0b6151144cd897e6d946dce53ef', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-22 16:34:54');
+INSERT INTO `t_login_log` VALUES ('d49426d73a1d4bb495e9768464b26b72', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-06-19 19:31:07');
+INSERT INTO `t_login_log` VALUES ('d4debb2fdec647e9b29ca9cb20cb1ba3', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-06-19 11:55:40');
 INSERT INTO `t_login_log` VALUES ('d5e4b05172a4457e9c01eb4474d10789', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-26 10:10:22');
 INSERT INTO `t_login_log` VALUES ('d82df13b512c4e0d8d6d26ffa7f64356', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2019-12-30 16:36:30');
 INSERT INTO `t_login_log` VALUES ('db512d3e22b3461282f20e206d1f253d', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2019-12-28 21:46:39');
 INSERT INTO `t_login_log` VALUES ('ddd2ad142a5045dca66811085dd5fd9b', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-25 10:54:30');
 INSERT INTO `t_login_log` VALUES ('de74e00e077541aab4be1b239d87f390', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2019-12-26 08:47:07');
+INSERT INTO `t_login_log` VALUES ('dfec79d5946f4584b1f56f784f56b663', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-06-19 19:04:01');
+INSERT INTO `t_login_log` VALUES ('e34e2900c6a6407ca03e71a46a4a6af1', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-06-19 14:37:02');
 INSERT INTO `t_login_log` VALUES ('e69408d909b94aab8df1c91c82b002df', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2019-12-28 21:44:50');
 INSERT INTO `t_login_log` VALUES ('ed626c35065d4e5882e08031f0f8bbb6', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-25 11:19:15');
+INSERT INTO `t_login_log` VALUES ('f4a9f5ff18904ea7939ad1ad71729d13', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-06-19 18:54:09');
 INSERT INTO `t_login_log` VALUES ('f58e0fcd9d8b40cc81797d5fffe78258', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-24 17:49:28');
+INSERT INTO `t_login_log` VALUES ('fbad814081654aceac9b1ee57a5b9442', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-06-19 19:06:05');
 INSERT INTO `t_login_log` VALUES ('fbe7e5b55e1a43b49a08a483f773fd85', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2019-12-30 11:02:11');
+INSERT INTO `t_login_log` VALUES ('fd0917608c7948aab02a84191dc0d41a', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-06-19 14:13:22');
 INSERT INTO `t_login_log` VALUES ('fd709f41316f47e7a35d7406a20007f6', '127.0.0.1', '1', '1aaaaaaaaaaaaaaaaaaaa', '2021-03-21 16:55:53');
 
 -- ----------------------------
@@ -590,29 +641,29 @@ CREATE TABLE `t_menu` (
 -- ----------------------------
 -- Records of t_menu
 -- ----------------------------
-INSERT INTO `t_menu` VALUES ('1gdfdggfdgdfggdfg1', '009', '访问地址管理', '3', 'icon-api', '/app/accessUrlList', '3yrtyerhgfyerty', '6', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2015-08-27 20:01:00', null);
-INSERT INTO `t_menu` VALUES ('1gdfgdfgdfgdfg2', '010', '数据字典管理', '3', 'icon-data-dic', '/app/dataDicList', '3yrtyerhgfyerty', '8', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2014-09-29 17:18:23', null);
-INSERT INTO `t_menu` VALUES ('1gdfgdfgdfgdfgdfg3', '015', '系统公告管理', '3', 'icon-notification', '/app/sysNoticeList', 'ytryrtyrety4', '1', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2015-04-26 09:30:46', null);
-INSERT INTO `t_menu` VALUES ('1gdfgdfgdfgdfsg5', '012', '我的公告', '3', 'icon-notification', '/app/myNoticeList', 'ytryedhhdtryrty2', '2', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2014-12-21 16:33:05', null);
-INSERT INTO `t_menu` VALUES ('1gdfgdfgdfgfdg4', '011', '我的待办', '3', 'icon-tags', '/app/myTaskList', 'ytryedhhdtryrty2', '1', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2014-12-21 16:31:41', null);
-INSERT INTO `t_menu` VALUES ('1gdfgdsfgdsfgdfg6', '014', '登录日志管理', '3', 'icon-login-log', '/app/loginLogList', '5tytryreyyrtyrt', '1', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2015-04-26 09:30:46', null);
-INSERT INTO `t_menu` VALUES ('1gdfsgfgfdg7', '013', '系统日志管理', '3', 'icon-sys-log', '/app/sysLogList', '5tytryreyyrtyrt', '2', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2015-04-24 21:25:28', null);
-INSERT INTO `t_menu` VALUES ('1gfdgsdgsdgfdgsdfg0', '010', '按钮管理', '3', 'icon-border', '/app/buttonList', '3yrtyerhgfyerty', '5', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2014-12-21 16:26:20', null);
-INSERT INTO `t_menu` VALUES ('2cce82e8b5274b6d8acb65c888415bb2', '019', '数据权限管理', '3', 'icon-data-permissions', '/app/dataPermissionsList', '3yrtyerhgfyerty', '7', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2019-12-26 09:13:30', null);
-INSERT INTO `t_menu` VALUES ('3yrtyerhgfyerty', '003', '系统管理', '2', 'icon-sys-manage', null, 'dfhgfhhgf3gdgdsgfh1', '2', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2014-09-28 19:42:29', null);
-INSERT INTO `t_menu` VALUES ('5tytryreyyrtyrt', '005', '日志管理', '2', 'icon-log-manage', '', 'dfhgfhhgf3gdgdsgfh1', '4', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-01-24 20:25:12', null);
-INSERT INTO `t_menu` VALUES ('6ytryetryeeytrt', '006', '用户管理', '3', 'icon-user', '/app/userList', '3yrtyerhgfyerty', '1', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2014-09-28 19:48:52', null);
-INSERT INTO `t_menu` VALUES ('7ereeet', '007', '部门管理', '3', 'icon-apartment', '/app/deptList', '3yrtyerhgfyerty', '2', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2014-11-21 21:28:03', null);
-INSERT INTO `t_menu` VALUES ('82273d9bb3144250a6997a1bfbd90bfe', '016', '系统信息', '3', 'icon-dashboard', '/app/sysInfo', 'ytryrtyrety4', '2', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2019-12-12 05:57:28', null);
-INSERT INTO `t_menu` VALUES ('8ytryrtytry', '008', '角色管理', '3', 'icon-team', '/app/roleList', '3yrtyerhgfyerty', '3', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2014-10-16 14:50:03', null);
-INSERT INTO `t_menu` VALUES ('9stryytrytrytr', '011', '菜单管理', '3', 'icon-menu', '/app/menuList', '3yrtyerhgfyerty', '4', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2014-11-21 21:28:03', null);
-INSERT INTO `t_menu` VALUES ('a2cf1e8ab74449c29861404214421841', '018', '卡片列表', '3', 'icon-demo', '/app/cardList', 'e041386708254e31beae8df1c92a4a8c', '1', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2019-12-24 07:28:37', '2021-03-31 15:33:33');
-INSERT INTO `t_menu` VALUES ('caf02e05617f4b3ea81b372bd5a10a35', '0013', '页签列表', '3', 'icon-demo', '/app/tabList', 'e041386708254e31beae8df1c92a4a8c', '2', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2021-03-31 15:33:19', '2021-03-31 15:33:38');
-INSERT INTO `t_menu` VALUES ('d2801e0e39654be8a57785cde7430bba', '0015', '图表列表', '3', 'icon-demo', '/app/chartList', 'e041386708254e31beae8df1c92a4a8c', '3', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2021-03-31 16:26:36', null);
-INSERT INTO `t_menu` VALUES ('dfhgfhhgf3gdgdsgfh1', '001', '系统菜单', '1', 'icon-menu', null, '', '1', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2014-09-28 19:41:19', null);
-INSERT INTO `t_menu` VALUES ('e041386708254e31beae8df1c92a4a8c', '017', '界面示例', '2', 'icon-demo', '', 'dfhgfhhgf3gdgdsgfh1', '5', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2019-12-24 07:26:52', '2021-03-31 13:49:12');
-INSERT INTO `t_menu` VALUES ('ytryedhhdtryrty2', '002', '个人工作台', '2', 'icon-workbench', '', 'dfhgfhhgf3gdgdsgfh1', '1', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2014-09-29 17:17:20', null);
-INSERT INTO `t_menu` VALUES ('ytryrtyrety4', '004', '系统功能', '2', 'icon-appstore', '', 'dfhgfhhgf3gdgdsgfh1', '3', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2014-12-21 16:28:19', null);
+INSERT INTO `t_menu` VALUES ('1gdfdggfdgdfggdfg1', '009', '访问地址管理', '3', 'ApiOutlined', '/app/accessUrlList', '3yrtyerhgfyerty', '6', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2015-08-27 20:01:00', null);
+INSERT INTO `t_menu` VALUES ('1gdfgdfgdfgdfg2', '010', '数据字典管理', '3', 'SvgIconDataDic', '/app/dataDicList', '3yrtyerhgfyerty', '8', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2014-09-29 17:18:23', null);
+INSERT INTO `t_menu` VALUES ('1gdfgdfgdfgdfgdfg3', '015', '系统公告管理', '3', 'NotificationOutlined', '/app/sysNoticeList', 'ytryrtyrety4', '1', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2015-04-26 09:30:46', null);
+INSERT INTO `t_menu` VALUES ('1gdfgdfgdfgdfsg5', '012', '我的公告', '3', 'NotificationOutlined', '/app/myNoticeList', 'ytryedhhdtryrty2', '2', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2014-12-21 16:33:05', null);
+INSERT INTO `t_menu` VALUES ('1gdfgdfgdfgfdg4', '011', '我的待办', '3', 'TagsOutlined', '/app/myTaskList', 'ytryedhhdtryrty2', '1', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2014-12-21 16:31:41', null);
+INSERT INTO `t_menu` VALUES ('1gdfgdsfgdsfgdfg6', '014', '登录日志管理', '3', 'SvgIconLoginLog', '/app/loginLogList', '5tytryreyyrtyrt', '1', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2015-04-26 09:30:46', null);
+INSERT INTO `t_menu` VALUES ('1gdfsgfgfdg7', '013', '系统日志管理', '3', 'SvgIconSysLog', '/app/sysLogList', '5tytryreyyrtyrt', '2', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2015-04-24 21:25:28', null);
+INSERT INTO `t_menu` VALUES ('1gfdgsdgsdgfdgsdfg0', '010', '按钮管理', '3', 'BorderOutlined', '/app/buttonList', '3yrtyerhgfyerty', '5', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2014-12-21 16:26:20', null);
+INSERT INTO `t_menu` VALUES ('2cce82e8b5274b6d8acb65c888415bb2', '019', '数据权限管理', '3', 'SvgIconDataPermissions', '/app/dataPermissionsList', '3yrtyerhgfyerty', '7', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2019-12-26 09:13:30', null);
+INSERT INTO `t_menu` VALUES ('3yrtyerhgfyerty', '003', '系统管理', '2', 'SvgIconSysManage', null, 'dfhgfhhgf3gdgdsgfh1', '2', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2014-09-28 19:42:29', null);
+INSERT INTO `t_menu` VALUES ('5tytryreyyrtyrt', '005', '日志管理', '2', 'SvgIconLogManage', '', 'dfhgfhhgf3gdgdsgfh1', '4', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2018-01-24 20:25:12', null);
+INSERT INTO `t_menu` VALUES ('6ytryetryeeytrt', '006', '用户管理', '3', 'UserOutlined', '/app/userList', '3yrtyerhgfyerty', '1', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2014-09-28 19:48:52', null);
+INSERT INTO `t_menu` VALUES ('7ereeet', '007', '部门管理', '3', 'ApartmentOutlined', '/app/deptList', '3yrtyerhgfyerty', '2', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2014-11-21 21:28:03', null);
+INSERT INTO `t_menu` VALUES ('82273d9bb3144250a6997a1bfbd90bfe', '016', '系统信息', '3', 'DashboardOutlined', '/app/sysInfo', 'ytryrtyrety4', '2', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2019-12-12 05:57:28', null);
+INSERT INTO `t_menu` VALUES ('8ytryrtytry', '008', '角色管理', '3', 'TeamOutlined', '/app/roleList', '3yrtyerhgfyerty', '3', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2014-10-16 14:50:03', null);
+INSERT INTO `t_menu` VALUES ('9stryytrytrytr', '011', '菜单管理', '3', 'MenuOutlined', '/app/menuList', '3yrtyerhgfyerty', '4', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2014-11-21 21:28:03', null);
+INSERT INTO `t_menu` VALUES ('a2cf1e8ab74449c29861404214421841', '018', '卡片列表', '3', 'SvgIconDemo', '/app/cardList', 'e041386708254e31beae8df1c92a4a8c', '1', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2019-12-24 07:28:37', '2021-03-31 15:33:33');
+INSERT INTO `t_menu` VALUES ('caf02e05617f4b3ea81b372bd5a10a35', '0013', '页签列表', '3', 'SvgIconDemo', '/app/tabList', 'e041386708254e31beae8df1c92a4a8c', '2', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2021-03-31 15:33:19', '2021-03-31 15:33:38');
+INSERT INTO `t_menu` VALUES ('d2801e0e39654be8a57785cde7430bba', '0015', '图表列表', '3', 'SvgIconDemo', '/app/chartList', 'e041386708254e31beae8df1c92a4a8c', '3', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2021-03-31 16:26:36', null);
+INSERT INTO `t_menu` VALUES ('dfhgfhhgf3gdgdsgfh1', '001', '系统菜单', '1', 'MenuOutlined', null, '', '1', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2014-09-28 19:41:19', null);
+INSERT INTO `t_menu` VALUES ('e041386708254e31beae8df1c92a4a8c', '017', '界面示例', '2', 'SvgIconDemo', '', 'dfhgfhhgf3gdgdsgfh1', '5', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2019-12-24 07:26:52', '2021-03-31 13:49:12');
+INSERT INTO `t_menu` VALUES ('ytryedhhdtryrty2', '002', '个人工作台', '2', 'SvgIconWorkbench', '', 'dfhgfhhgf3gdgdsgfh1', '1', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2014-09-29 17:17:20', null);
+INSERT INTO `t_menu` VALUES ('ytryrtyrety4', '004', '系统功能', '2', 'AppstoreOutlined', '', 'dfhgfhhgf3gdgdsgfh1', '3', '1', '1aaaaaaaaaaaaaaaaaaaa', null, '2014-12-21 16:28:19', null);
 
 -- ----------------------------
 -- Table structure for `t_notice`
