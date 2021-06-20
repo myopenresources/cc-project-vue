@@ -1,12 +1,39 @@
 @import '../../../../assets/platform/style/index.less';
 
-.app-right-main-container {
-    width  :calc(100vw - var(--layout-left-toolbar-width));
-    height :calc(100vh -   var(--layout-right-main-margin-space) -  var(--layout-right-main-margin-space));
+.app-admin-right-main-container {
+  width: calc(100vw - var(--layout-left-toolbar-width) - var(--layout-left-toolbar-menu-width));
+  height: calc(
+    100vh - var(--layout-right-main-margin-space) - var(--layout-right-main-margin-space)
+  );
 
-    .app-right-main-content-container {
-        width  :calc(100vw - var(--layout-left-toolbar-width) -  var(--layout-right-main-margin-space) -  var(--layout-right-main-margin-space));
-        height :calc(100vh -   var(--layout-right-main-margin-space) -  var(--layout-right-main-margin-space) - var(--layout-page-tabs-height));
-        margin : var(--layout-right-main-margin-space);
-    }
+  .app-right-main-content-container {
+    width: calc(
+      100vw - var(--layout-left-toolbar-width) - var(--layout-right-main-margin-space) -
+        var(--layout-right-main-margin-space) - var(--layout-left-toolbar-menu-width)
+    );
+    height: calc(
+      100vh - var(--layout-right-main-margin-space) - var(--layout-right-main-margin-space) -
+        var(--layout-page-tabs-height)
+    );
+    margin: var(--layout-right-main-margin-space);
+  }
+}
+
+.app-desk-right-main-container {
+  width: calc(100vw - var(--layout-left-toolbar-width));
+  height: calc(
+    100vh - var(--layout-right-main-margin-space) - var(--layout-right-main-margin-space)
+  );
+
+  .app-right-main-content-container {
+    width: calc(
+      100vw - var(--layout-left-toolbar-width) - var(--layout-right-main-margin-space) -
+        var(--layout-right-main-margin-space)
+    );
+    height: calc(
+      100vh - var(--layout-right-main-margin-space) - var(--layout-right-main-margin-space) -
+        var(--layout-page-tabs-height)
+    );
+    margin: var(--layout-right-main-margin-space);
+  }
 }

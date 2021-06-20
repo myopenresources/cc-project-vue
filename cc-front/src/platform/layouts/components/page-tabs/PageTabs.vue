@@ -48,7 +48,7 @@
 
 <script lang="ts">
 import { useStore } from 'vuex';
-import { defineComponent, reactive, ref, computed, nextTick, onUnmounted } from 'vue';
+import { defineComponent, reactive, ref, computed, nextTick, onUnmounted, onMounted } from 'vue';
 import HorizontalScrollPane from '/@/platform/components/scroll-pane/HorizontalScrollPane.vue';
 import {
   useRoute,
@@ -188,6 +188,10 @@ export default defineComponent({
         });
       });
     })();
+
+    onMounted(() => {
+      addViewTag(route);
+    })
 
     onUnmounted(() => {
       store.dispatch('tagsViewState/delAllViews');

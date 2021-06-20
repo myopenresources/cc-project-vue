@@ -55,6 +55,17 @@ export default class CommonUtil {
     }
 
     /**
+     * 截取字符串
+     * @param str 
+     * @param len 
+     * @param ellipsis 
+     * @returns 
+     */
+    static interceptStr(str: string, len: number, ellipsis = true): string {
+        return (str.length>len)?(str.substring(0, len) + (ellipsis ? '...' : '')):str;
+    }
+
+    /**
      * 获得绝对位置
      * @param element
      * @param target

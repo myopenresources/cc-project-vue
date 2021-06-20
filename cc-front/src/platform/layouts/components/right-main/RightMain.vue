@@ -1,5 +1,5 @@
 <template>
-  <div class="app-right-main-container">
+  <div :class="fixedNavMenu ? 'app-admin-right-main-container' : 'app-desk-right-main-container'">
     <app-page-tabs />
     <div class="app-right-main-content-container">
       <router-view v-slot="{ Component }">
@@ -20,6 +20,12 @@ export default defineComponent({
   name: 'RightMain',
   components: {
     AppPageTabs: PageTabs,
+  },
+  props: {
+    fixedNavMenu: {
+      type: Boolean,
+      default: false,
+    },
   },
   setup() {
     const store = useStore();

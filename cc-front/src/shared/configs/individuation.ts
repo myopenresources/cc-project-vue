@@ -1,6 +1,7 @@
 import { individuationConst } from '/@/platform/commons/consts/individuation-const';
 
-
+import deskLayout from '/@/assets/platform/img/individuation/desk-layout.png';
+import adminLayout from '/@/assets/platform/img/individuation/admin-layout.png';
 
 
 export const individuationConfig = {
@@ -105,9 +106,9 @@ export const individuationConfig = {
 
             '--layout-page-tabs-bg': 'var(--component-background)',
             '--layout-page-tabs-color': 'var(--text-color)',
-            '--layout-page-tabs-close-color': 'var(--error-color)',
+            '--layout-page-tabs-close-color': '#f4a713',
             '--layout-page-tabs-active-color': 'var(--white)',
-            '--layout-page-tabs-active-bg': 'linear-gradient(110deg, #df434f, var(--primary-color), #cf3641)',
+            '--layout-page-tabs-active-bg': 'linear-gradient(110deg, #df434f, var(--primary-color), #df434f)',
             '--layout-page-tabs-active-bor-color': '#df434f',
             '--layout-page-tabs-item-bg': 'var(--component-background)',
             '--layout-page-tabs-item-bor-color': 'var(--border-color-split)',
@@ -163,7 +164,7 @@ export const individuationConfig = {
         color: '#02bd83',
         label: '森林绿主题'
     }],
-    /*layoutList: [{
+    layoutList: [{
         key: individuationConst.layout.adminLayout,
         img: adminLayout,
         label: '应用布局',
@@ -180,7 +181,7 @@ export const individuationConfig = {
             '--layout-left-toolbar-width': '55px',
             '--layout-left-toolbar-menu-width': '250px'
         }
-    }]*/
+    }]
 
 }
 

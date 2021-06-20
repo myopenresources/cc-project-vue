@@ -1,12 +1,16 @@
 <template>
   <div class="app-left-toolbar-container">
     <div class="app-left-toolbar-top">
-      <div class="app-left-toolbar-top-logo" ref="toolbarLogoRef" v-show="showLogo">
+      <div class="app-left-toolbar-top-logo" v-show="showLogo">
         <img src="../../../../assets/platform/img/logo.png" />
       </div>
 
-      <div class="app-left-toolbar-top-list" ref="toolbarTopListRef" v-app-scrollbar>
-        <div class="app-left-toolbar-top-item" @click="changeMenuVisible(true)">
+      <div class="app-left-toolbar-top-list" v-app-scrollbar>
+        <div
+          v-if="!fixedNavMenu"
+          class="app-left-toolbar-top-item"
+          @click="changeMenuVisible(true)"
+        >
           <app-dynamic-icon iconName="MenuOutlined" :iconProps="{ class: 'icon' }" />
           <span>菜单</span>
         </div>
@@ -16,7 +20,7 @@
         </div>
       </div>
     </div>
-    <div class="app-left-toolbar-bottom" ref="toolbarBottomListRef">
+    <div class="app-left-toolbar-bottom">
       <div class="app-left-toolbar-bottom-item" @click="individuationVisible = true">
         <app-dynamic-icon iconName="SvgIconTheme" :iconProps="{ class: 'icon' }" />
         <span>外观</span>
@@ -38,6 +42,7 @@
 
   <div
     class="app-left-toolbar-menu-backdrop"
+    v-if="!fixedNavMenu"
     v-show="menuVisible"
     @click="changeMenuVisible(false)"
   >
@@ -55,6 +60,25 @@
         <div class="app-left-toolbar-menu-body">
           <app-nav-menu :treeData="menuData" />
         </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    v-if="fixedNavMenu"
+    class="app-left-toolbar-menu-popover"
+    style="position: static"
+    @click="stopPropagation($event)"
+  >
+    <div class="app-left-toolbar-menu-container">
+      <div class="app-left-toolbar-menu-header">
+        <div class="app-left-toolbar-menu-title">
+          <app-dynamic-icon iconName="MenuOutlined" />
+          <span>菜单</span>
+        </div>
+      </div>
+      <div class="app-left-toolbar-menu-body">
+        <app-nav-menu :treeData="menuData" />
       </div>
     </div>
   </div>
@@ -111,7 +135,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, onUnmounted, ref, PropType, computed, createVNode } from 'vue';
+import { defineComponent, onMounted, ref, PropType, computed, createVNode } from 'vue';
 import Environments from '/@/platform/commons/utils/env-util';
 import CommonUtil from '/@/platform/commons/utils/common-util';
 import { useRouter } from 'vue-router';
@@ -148,6 +172,10 @@ export default defineComponent({
       type: Object as PropType<MenuType>,
       default: () => null,
     },
+    fixedNavMenu: {
+      type: Boolean,
+      default: false,
+    },
   },
   setup() {
     const router = useRouter();
@@ -155,10 +183,6 @@ export default defineComponent({
 
     const showLogo = CommonUtil.toBoolean(Environments.getEvnProp('VITE_ADMIN_SHOW_LOGO'));
     const logo = Environments.getEvnProp('VITE_ADMIN_LOGO');
-
-    const toolbarTopListRef = ref();
-    const toolbarBottomListRef = ref();
-    const toolbarLogoRef = ref();
 
     const originalUserAvatar = ref(defaultAvatarImg);
     const defaultAvatar = ref(defaultAvatarImg);
@@ -214,32 +238,11 @@ export default defineComponent({
     };
 
     /**
-     * 计算
-     */
-    const calcToolbarTopListWidth = () => {
-      const { height } = CommonUtil.getViewport();
-
-      let toolbarTopListHeight = height - toolbarBottomListRef.value.offsetHeight - 15;
-      if (showLogo) {
-        toolbarTopListHeight -= toolbarLogoRef.value.offsetHeight;
-      }
-
-      toolbarTopListRef.value.style.height = toolbarTopListHeight + 'px';
-    };
-
-    /**
      * 停止事件冒泡
      */
     const stopPropagation = (event: Event) => {
       event.stopPropagation();
       event.preventDefault();
-    };
-
-    /**
-     * resize
-     */
-    const resize = () => {
-      calcToolbarTopListWidth();
     };
 
     /**
@@ -301,12 +304,6 @@ export default defineComponent({
 
     onMounted(() => {
       init();
-      resize();
-      window.addEventListener('resize', resize);
-    });
-
-    onUnmounted(() => {
-      window.removeEventListener('resize', resize);
     });
 
     return {
@@ -314,9 +311,6 @@ export default defineComponent({
       userDropdownVisible,
       updatePwdVisible,
       fullscreenState,
-      toolbarTopListRef,
-      toolbarBottomListRef,
-      toolbarLogoRef,
       originalUserAvatar,
       defaultAvatar,
       showLogo,

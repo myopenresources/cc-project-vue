@@ -1,13 +1,13 @@
 import { RouteRecordRaw, createRouter, createWebHashHistory } from 'vue-router'
 import ImportMetaUtil from '/@/platform/commons/utils/import-meta-util'
-import DeskLayout from '/@/platform/layouts/DeskLayout.vue';
+import AppLayout from '/@/platform/layouts/AppLayout';
 import FullLayout from '/@/platform/layouts/FullLayout.vue';
 
 const routes: RouteRecordRaw[] = [
     {
         path: '/',
         name: 'root',
-        component: FullLayout as any,
+        component: FullLayout,
         redirect: '/app/home',
         meta: {
             title: 'root',
@@ -17,7 +17,7 @@ const routes: RouteRecordRaw[] = [
     {
         path: '/app',
         name: 'app',
-        component: DeskLayout as any,
+        component: AppLayout,
         redirect: '/app/home',
         meta: {
             title: 'app'

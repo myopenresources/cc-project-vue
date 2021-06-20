@@ -28,7 +28,7 @@ export default class IndividuationUtil {
      */
     static themeChange(key: string, loading: boolean, succ?: Function, err?: Function) {
         const hide = loading ? message.loading('正在更换皮肤...', 0) : null;
-        
+
         const colors = generate(individuationConfig.antdTheme[key][0], {
             theme: 'default',
         });
@@ -50,6 +50,15 @@ export default class IndividuationUtil {
      */
     static getIndividuationConfig() {
         return individuationConfig;
+    }
+
+    /**
+    * 根据key获取layout 配置
+    * @param key 
+    * @returns 
+    */
+    static getLayoutConfigByKey(key: string) {
+        return individuationConfig.layoutList.find((item: any) => item.key === key);
     }
 
 

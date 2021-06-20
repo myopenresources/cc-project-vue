@@ -228,42 +228,57 @@ export default defineComponent({
         title: '序号',
         key: 'index',
         dataIndex: 'index',
-        width: '80px',
+        width: '60px',
         slots: { customRender: 'indexRender' },
       },
       {
         title: '编号',
         dataIndex: 'dicItemCode',
         key: 'dicItemCode',
+        customRender: ({ record }) => {
+          const label = record.dicItemCode || '无';
+          return CommonUtil.interceptStr(label, 16);
+        },
       },
       {
         title: '名称',
         dataIndex: 'dicItemName',
         key: 'dicItemName',
+        customRender: ({ record }) => {
+          const label = record.dicItemName || '无';
+          return CommonUtil.interceptStr(label, 8);
+        },
       },
       {
         title: '值',
         dataIndex: 'dicItemValue',
         key: 'dicItemValue',
+        customRender: ({ record }) => {
+          const label = record.dicItemValue || '无';
+          return CommonUtil.interceptStr(label, 16);
+        },
       },
       {
         title: '上一级',
         dataIndex: 'dicItemParentName',
         key: 'dicItemParentName',
         customRender: ({ record }) => {
-          return record.dicItemParentName || '无';
+          const label = record.dicItemParentName || '无';
+          return CommonUtil.interceptStr(label, 8);
         },
       },
       {
         title: '状态',
         dataIndex: 'status',
         key: 'status',
+        width: '60px',
         slots: { customRender: 'statusRender' },
       },
       {
         title: '操作',
         dataIndex: 'action',
         key: 'action',
+        width: '240px',
         slots: { customRender: 'actionRender' },
       },
     ];
