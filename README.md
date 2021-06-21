@@ -1,9 +1,5 @@
 # cc-project  vue 版本
 
-angular版本请到 https://github.com/myopenresources/cc-project 这里看</br>
-vue版本请到 https://github.com/myopenresources/cc-project-vue 这里看</br>
-react版本请到 https://github.com/myopenresources/cc-project-react 这里看</br>
-
 详细文档 请到 [cc-project详细文档](https://www.toutiao.com/i6945750297834701348/)
 
 
